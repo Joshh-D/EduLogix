@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EduLogix
 {
-    public partial class Form1 : Form
+    public partial class StudentInfo : Form
     {
-        public Form1()
+        public StudentInfo()
         {
             InitializeComponent();
         }
