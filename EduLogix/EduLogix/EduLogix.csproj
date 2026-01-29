@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +47,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EduLogix.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>EduLogix.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +74,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Admin Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Admin Dashboard.Designer.cs">
+      <DependentUpon>Admin Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attendance.Designer.cs">
+      <DependentUpon>Attendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logs.Designer.cs">
+      <DependentUpon>Logs.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student ID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student ID.Designer.cs">
+      <DependentUpon>Student ID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInfo.Designer.cs">
+      <DependentUpon>StudentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersArchive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersArchive.Designer.cs">
+      <DependentUpon>UsersArchive.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin Dashboard.resx">
+      <DependentUpon>Admin Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attendance.resx">
+      <DependentUpon>Attendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logs.resx">
+      <DependentUpon>Logs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +141,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student ID.resx">
+      <DependentUpon>Student ID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInfo.resx">
+      <DependentUpon>StudentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersArchive.resx">
+      <DependentUpon>UsersArchive.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +171,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EduLogix.ico" />
+    <None Include="Resources\student.jpg" />
+    <None Include="Resources\Screenshot_2026-01-27_212812-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_212555-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_204017-removebg-preview %281%29.png" />
+    <None Include="Resources\Screenshot_2026-01-27_204017-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_203025-removebg-preview.png" />
+    <None Include="Resources\circle_logo-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_201520-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_194756-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_194553-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_194429-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-27_194230-removebg-preview.png" />
+    <None Include="Resources\Screenshot 2026-01-26 235357.png" />
+    <None Include="Resources\d0fe91c7ce6c4a1e0f4d40cb8fd18b61.jpg" />
+    <None Include="Resources\aa61aa756619385b07620068f77df0fb.jpg" />
+    <None Include="Resources\edf6e21979f895dc31e48fd7a076776d.jpg" />
+    <None Include="Resources\Screenshot_2026-01-26_222726-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-26_213938-removebg-preview1.png" />
+    <None Include="Resources\Screenshot_2026-01-26_214810-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-26_214719-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-26_214620-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-26_214326-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-26_214205-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-26_213938-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-24_060147-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-23_001247-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-23_000940-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-23_000339-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-23_000637-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-23_000426-removebg-preview %281%29.png" />
+    <None Include="Resources\Screenshot_2026-01-23_000055-removebg-preview1.png" />
+    <None Include="Resources\Screenshot_2026-01-22_235329-removebg-preview1.png" />
+    <None Include="Resources\Screenshot_2026-01-22_225546-removebg-preview1.png" />
+    <None Include="Resources\Screenshot_2026-01-22_225546-removebg-preview %281%29.png" />
+    <None Include="Resources\logo.jpg" />
+    <None Include="Resources\Gemini_Generated_Image_xj6gdbxj6gdbxj6g1.png" />
+    <None Include="Resources\Screenshot 2026-01-23 000339.png" />
+    <None Include="Resources\Screenshot_2026-01-23_000055-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-01-22_235329-removebg-preview.png" />
+    <None Include="Resources\Gemini_Generated_Image_xj6gdbxj6gdbxj6g.png" />
+    <None Include="Resources\Screenshot_2026-01-22_225546-removebg-preview.png" />
+    <None Include="Resources\Screenshot 2026-01-22 225546.png" />
+    <None Include="Resources\Screenshot 2026-01-22 225608.png" />
+    <None Include="Resources\Screenshot 2026-01-22 223203.png" />
+    <None Include="Resources\ChatGPT Image Jan 19, 2026, 04_13_38 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
