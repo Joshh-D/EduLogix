@@ -86,6 +86,18 @@
     <Compile Include="Attendance.Designer.cs">
       <DependentUpon>Attendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kiosk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kiosk.Designer.cs">
+      <DependentUpon>Kiosk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +106,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegIdle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegIdle.Designer.cs">
+      <DependentUpon>RegIdle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +148,12 @@
     <EmbeddedResource Include="Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kiosk.resx">
+      <DependentUpon>Kiosk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Logs.resx">
       <DependentUpon>Logs.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +167,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RegIdle.resx">
+      <DependentUpon>RegIdle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +201,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EduLogix.ico" />
+    <None Include="Resources\ccbhsannounce.jpg" />
+    <None Include="Resources\Screenshot_2026-01-30_070546-removebg-preview.png" />
+    <None Include="Resources\09f64c35483867e874bc5f4aff478f24-removebg-preview.png" />
+    <None Include="Resources\Caloocan_City_Business_High_School_Logo-1-removebg-preview.png" />
     <None Include="Resources\student.jpg" />
     <None Include="Resources\Screenshot_2026-01-27_212812-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-01-27_212555-removebg-preview.png" />

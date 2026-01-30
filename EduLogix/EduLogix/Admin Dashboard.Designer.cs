@@ -692,6 +692,7 @@
             this.Logout.TabIndex = 10;
             this.Logout.Text = "Logout";
             this.Logout.TextOffset = new System.Drawing.Point(-5, -2);
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // Settings
             // 

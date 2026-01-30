@@ -51,5 +51,35 @@ namespace EduLogix
             studentsID.Show();
             this.Hide();
         }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+               "Are you sure you want to log out?",
+               "Confirm Logout",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question
+           );
+
+            if (result == DialogResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+
+                this.Close();
+            }
+        }
+
+        private void kioskform_Click(object sender, EventArgs e)
+        {
+            Kiosk kiosk = new Kiosk();
+            kiosk.Show();          
+        }
+
+        private void idleform_Click(object sender, EventArgs e)
+        {
+            RegIdle regIdle = new RegIdle();
+            regIdle.Show();
+        }
     }
 }

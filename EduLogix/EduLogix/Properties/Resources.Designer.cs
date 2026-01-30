@@ -63,9 +63,39 @@ namespace EduLogix.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _09f64c35483867e874bc5f4aff478f24_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("09f64c35483867e874bc5f4aff478f24-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aa61aa756619385b07620068f77df0fb {
             get {
                 object obj = ResourceManager.GetObject("aa61aa756619385b07620068f77df0fb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Caloocan_City_Business_High_School_Logo_1_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Caloocan_City_Business_High_School_Logo-1-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ccbhsannounce {
+            get {
+                object obj = ResourceManager.GetObject("ccbhsannounce", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -496,6 +526,16 @@ namespace EduLogix.Properties {
         internal static System.Drawing.Bitmap Screenshot_2026_01_27_212812_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Screenshot_2026-01-27_212812-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_070546_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_070546-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

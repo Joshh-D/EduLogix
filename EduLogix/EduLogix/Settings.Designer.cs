@@ -86,6 +86,8 @@
             this.Logs = new Guna.UI2.WinForms.Guna2Button();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.kioskform = new Guna.UI2.WinForms.Guna2Button();
+            this.idleform = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel14.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
@@ -326,6 +328,8 @@
             this.AttendancePanel.BorderColor = System.Drawing.Color.White;
             this.AttendancePanel.BorderRadius = 15;
             this.AttendancePanel.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            this.AttendancePanel.Controls.Add(this.idleform);
+            this.AttendancePanel.Controls.Add(this.kioskform);
             this.AttendancePanel.Controls.Add(this.guna2Button6);
             this.AttendancePanel.Controls.Add(this.guna2Button5);
             this.AttendancePanel.Controls.Add(this.guna2Panel9);
@@ -640,6 +644,7 @@
             this.Logout.TabIndex = 59;
             this.Logout.Text = "Logout";
             this.Logout.TextOffset = new System.Drawing.Point(-5, -2);
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // guna2Button1
             // 
@@ -988,6 +993,64 @@
             this.guna2PictureBox7.TabIndex = 70;
             this.guna2PictureBox7.TabStop = false;
             // 
+            // kioskform
+            // 
+            this.kioskform.Animated = true;
+            this.kioskform.BackColor = System.Drawing.Color.Transparent;
+            this.kioskform.BorderColor = System.Drawing.Color.Transparent;
+            this.kioskform.BorderRadius = 15;
+            this.kioskform.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.kioskform.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.kioskform.CheckedState.FillColor = System.Drawing.Color.White;
+            this.kioskform.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.kioskform.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.kioskform.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.kioskform.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.kioskform.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.kioskform.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kioskform.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kioskform.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.kioskform.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.kioskform.ImageOffset = new System.Drawing.Point(-15, 0);
+            this.kioskform.ImageSize = new System.Drawing.Size(23, 23);
+            this.kioskform.Location = new System.Drawing.Point(31, 984);
+            this.kioskform.Name = "kioskform";
+            this.kioskform.PressedColor = System.Drawing.SystemColors.Window;
+            this.kioskform.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
+            this.kioskform.Size = new System.Drawing.Size(59, 32);
+            this.kioskform.TabIndex = 85;
+            this.kioskform.Text = "Kiosk";
+            this.kioskform.Click += new System.EventHandler(this.kioskform_Click);
+            // 
+            // idleform
+            // 
+            this.idleform.Animated = true;
+            this.idleform.BackColor = System.Drawing.Color.Transparent;
+            this.idleform.BorderColor = System.Drawing.Color.Transparent;
+            this.idleform.BorderRadius = 15;
+            this.idleform.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.idleform.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.idleform.CheckedState.FillColor = System.Drawing.Color.White;
+            this.idleform.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.idleform.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.idleform.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.idleform.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.idleform.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.idleform.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.idleform.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idleform.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.idleform.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.idleform.ImageOffset = new System.Drawing.Point(-15, 0);
+            this.idleform.ImageSize = new System.Drawing.Size(23, 23);
+            this.idleform.Location = new System.Drawing.Point(96, 984);
+            this.idleform.Name = "idleform";
+            this.idleform.PressedColor = System.Drawing.SystemColors.Window;
+            this.idleform.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
+            this.idleform.Size = new System.Drawing.Size(59, 32);
+            this.idleform.TabIndex = 86;
+            this.idleform.Text = "Idle";
+            this.idleform.Click += new System.EventHandler(this.idleform_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1105,5 +1168,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox9;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private Guna.UI2.WinForms.Guna2Button kioskform;
+        private Guna.UI2.WinForms.Guna2Button idleform;
     }
 }
