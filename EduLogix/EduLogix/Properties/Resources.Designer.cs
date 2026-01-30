@@ -93,6 +93,26 @@ namespace EduLogix.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ccbhs {
+            get {
+                object obj = ResourceManager.GetObject("ccbhs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ccbhs1 {
+            get {
+                object obj = ResourceManager.GetObject("ccbhs1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ccbhsannounce {
             get {
                 object obj = ResourceManager.GetObject("ccbhsannounce", resourceCulture);
@@ -126,6 +146,26 @@ namespace EduLogix.Properties {
         internal static System.Drawing.Bitmap d0fe91c7ce6c4a1e0f4d40cb8fd18b61 {
             get {
                 object obj = ResourceManager.GetObject("d0fe91c7ce6c4a1e0f4d40cb8fd18b61", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deathly_hallows_us_childrens_edition {
+            get {
+                object obj = ResourceManager.GetObject("deathly-hallows-us-childrens-edition", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deathly_hallows_us_childrens_edition1 {
+            get {
+                object obj = ResourceManager.GetObject("deathly-hallows-us-childrens-edition1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -536,6 +576,86 @@ namespace EduLogix.Properties {
         internal static System.Drawing.Bitmap Screenshot_2026_01_30_070546_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Screenshot_2026-01-30_070546-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_221733_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_221733-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_225000_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_225000-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_225153_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_225153-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_225153_removebg_preview1 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_225153-removebg-preview1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_225153_removebg_preview2 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_225153-removebg-preview2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_225316_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_225316-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_225530_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_225530-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_01_30_225636_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot_2026-01-30_225636-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

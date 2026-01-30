@@ -64,12 +64,23 @@ namespace EduLogix
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            string correctID = "Registrar";
-            string correctPass = "RegAdmin2026";
+            string correctIDreg = "Registrar";
+            string correctPassreg = "RegAdmin2026";
+            string correctIDLib = "Librarian";
+            string correctPassLib = "LibAdmin2026";
 
-            if (accountID.Text == correctID && accountpass.Text == correctPass)
-            {          
+
+            if (accountID.Text == correctIDreg && accountpass.Text == correctPassreg)
+            {
                 DashboardForm dashboard = new DashboardForm();
+                dashboard.Show();
+                this.Hide();
+                accountID.Clear();
+                accountpass.Clear();
+            }
+            else if (accountID.Text == correctIDLib && accountpass.Text == correctPassLib)
+            {
+                LibraryDashboard dashboard = new LibraryDashboard();
                 dashboard.Show();
                 this.Hide();
                 accountID.Clear();
