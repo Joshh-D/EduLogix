@@ -30,7 +30,7 @@ namespace EduLogix
                     conn.Open();
 
                     string query =
-                        "SELECT `student_num`, `name`, `grade_level`, `section`, `date_and_time` FROM reg_attendance";
+                        "SELECT `student_num`, `name`, `grade_level`, `section`, `date_registered` FROM reg_regstudents";
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                     DataTable table = new DataTable();
@@ -42,7 +42,7 @@ namespace EduLogix
                     guna2DataGridView1.Columns["name"].HeaderText = "Name";
                     guna2DataGridView1.Columns["grade_level"].HeaderText = "Grade Level";
                     guna2DataGridView1.Columns["section"].HeaderText = "Section";
-                    guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
+                    guna2DataGridView1.Columns["date_registered"].HeaderText = "Date";
 
                     guna2DataGridView1.EnableHeadersVisualStyles = false;
                     guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor =

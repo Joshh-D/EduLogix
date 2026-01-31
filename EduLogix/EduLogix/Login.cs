@@ -68,6 +68,8 @@ namespace EduLogix
             string correctPassreg = "RegAdmin2026";
             string correctIDLib = "Librarian";
             string correctPassLib = "LibAdmin2026";
+            string correctIDsec = "Security";
+            string correctPasssec = "Sec2026";
 
 
             if (accountID.Text == correctIDreg && accountpass.Text == correctPassreg)
@@ -86,6 +88,15 @@ namespace EduLogix
                 accountID.Clear();
                 accountpass.Clear();
             }
+            else if (accountID.Text == correctIDsec && accountpass.Text == correctPasssec)
+            {
+                Security security = new Security();
+                security.Show();
+                this.Hide();
+                accountID.Clear();
+                accountpass.Clear();
+            }
+
             else
             {
                 accountID.BorderColor = Color.Red;
