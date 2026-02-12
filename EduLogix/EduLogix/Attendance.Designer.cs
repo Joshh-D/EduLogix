@@ -48,7 +48,6 @@
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.UserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.WindowAnimation = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.Accounts = new Guna.UI2.WinForms.Guna2Button();
             this.Logout = new Guna.UI2.WinForms.Guna2Button();
             this.Settings = new Guna.UI2.WinForms.Guna2Button();
             this.Logs = new Guna.UI2.WinForms.Guna2Button();
@@ -160,7 +159,7 @@
             this.guna2TextBox1.BorderColor = System.Drawing.Color.Black;
             this.guna2TextBox1.BorderRadius = 5;
             this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "Search";
+            this.guna2TextBox1.DefaultText = "Search Student Attendance";
             this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -195,9 +194,13 @@
             // 
             // guna2DataGridView1
             // 
+            this.guna2DataGridView1.AllowUserToAddRows = false;
+            this.guna2DataGridView1.AllowUserToDeleteRows = false;
+            this.guna2DataGridView1.AllowUserToResizeColumns = false;
+            this.guna2DataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.guna2DataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,7 +232,7 @@
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.Color.Gainsboro;
+            this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.SystemColors.Window;
             this.guna2DataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -245,6 +248,7 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 24;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
             // 
             // guna2Panel2
             // 
@@ -285,40 +289,6 @@
             this.WindowAnimation.Interval = 300;
             this.WindowAnimation.TargetForm = this;
             // 
-            // Accounts
-            // 
-            this.Accounts.Animated = true;
-            this.Accounts.BorderColor = System.Drawing.Color.Transparent;
-            this.Accounts.BorderRadius = 25;
-            this.Accounts.BorderThickness = 1;
-            this.Accounts.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.Accounts.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.Accounts.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.Accounts.CheckedState.FillColor = System.Drawing.Color.White;
-            this.Accounts.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.Accounts.CustomizableEdges.BottomRight = false;
-            this.Accounts.CustomizableEdges.TopRight = false;
-            this.Accounts.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Accounts.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Accounts.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Accounts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Accounts.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.Accounts.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Accounts.ForeColor = System.Drawing.Color.Black;
-            this.Accounts.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Accounts.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000637_removebg_preview;
-            this.Accounts.ImageOffset = new System.Drawing.Point(-25, 0);
-            this.Accounts.ImageSize = new System.Drawing.Size(35, 40);
-            this.Accounts.Location = new System.Drawing.Point(14, 495);
-            this.Accounts.Name = "Accounts";
-            this.Accounts.PressedColor = System.Drawing.SystemColors.Window;
-            this.Accounts.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.Accounts.Size = new System.Drawing.Size(210, 55);
-            this.Accounts.TabIndex = 45;
-            this.Accounts.Text = "Users";
-            this.Accounts.TextOffset = new System.Drawing.Point(-10, -2);
-            this.Accounts.Click += new System.EventHandler(this.Accounts_Click);
-            // 
             // Logout
             // 
             this.Logout.Animated = true;
@@ -347,6 +317,7 @@
             this.Logout.TabIndex = 26;
             this.Logout.Text = "Logout";
             this.Logout.TextOffset = new System.Drawing.Point(-5, -2);
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // Settings
             // 
@@ -406,7 +377,7 @@
             this.Logs.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000426_removebg_preview__1_;
             this.Logs.ImageOffset = new System.Drawing.Point(-26, 0);
             this.Logs.ImageSize = new System.Drawing.Size(35, 30);
-            this.Logs.Location = new System.Drawing.Point(14, 560);
+            this.Logs.Location = new System.Drawing.Point(14, 495);
             this.Logs.Name = "Logs";
             this.Logs.PressedColor = System.Drawing.SystemColors.Window;
             this.Logs.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
@@ -564,7 +535,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
             this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.Accounts);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.Settings);
             this.Controls.Add(this.Logs);
@@ -586,6 +556,7 @@
             this.Name = "AttendanceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attendance";
+            this.Load += new System.EventHandler(this.AttendanceForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.AttendancePanel.ResumeLayout(false);
             this.AttendancePanel.PerformLayout();
@@ -620,7 +591,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2Button Accounts;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
