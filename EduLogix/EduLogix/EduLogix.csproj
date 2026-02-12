@@ -330,6 +330,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EduLogix.ico" />
+    <None Include="Resources\Screenshot_2026-02-10_002926-removebg-preview %281%29.png" />
+    <None Include="Resources\Screenshot_2026-02-10_002631-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-09_233824-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-09_232333-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-09_232208-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-09_231950-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-09_231354-removebg-preview %281%29.png" />
+    <None Include="Resources\Screenshot_2026-02-09_231354-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-09_230928-removebg-preview %281%29.png" />
+    <None Include="Resources\Screenshot_2026-02-09_230928-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-09_225523-removebg-preview.png" />
     <None Include="Resources\ccbhs1.jpg" />
     <None Include="Resources\deathly-hallows-us-childrens-edition1.jpg" />
     <None Include="Resources\ccbhs.jpg" />
