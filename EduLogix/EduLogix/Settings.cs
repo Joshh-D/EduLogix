@@ -3,18 +3,171 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace EduLogix
 {
     public partial class Settings : Form
     {
+        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+
         public Settings()
         {
             InitializeComponent();
+            LoadThemeFromDatabase();
+        }
+
+        private void LoadThemeFromDatabase()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        int r = Convert.ToInt32(reader["theme_red"]);
+                        int g = Convert.ToInt32(reader["theme_green"]);
+                        int b = Convert.ToInt32(reader["theme_blue"]);
+                        Color themeColor = Color.FromArgb(r, g, b);
+
+                        // Apply theme on load
+                        ApplyThemeColor(themeColor);
+                        themePickerBtn.FillColor = themeColor;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading theme:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SaveThemeToDatabase(Color color)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = @"UPDATE reg_theme 
+                                    SET theme_red = @r, theme_green = @g, theme_blue = @b, 
+                                        updated_by = @user, updated_at = NOW() 
+                                    WHERE id = 1";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@r", color.R);
+                    cmd.Parameters.AddWithValue("@g", color.G);
+                    cmd.Parameters.AddWithValue("@b", color.B);
+                    cmd.Parameters.AddWithValue("@user", "Registrar");
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving theme:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Browse School Logo Button Click
+        private void browseLogoBtn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Select School Logo";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All Files|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Load and display the image in guna2PictureBox2 (inside guna2Panel4)
+                        guna2PictureBox2.Image = Image.FromFile(openFileDialog.FileName);
+                        guna2PictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+
+                        MessageBox.Show("School logo updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading image:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        // Click on PictureBox 3 (First default logo in guna2Panel5)
+        private void guna2PictureBox3_Click(object sender, EventArgs e)
+        {
+            // This is the default logo, allow changing
+            BrowseAndSetKioskImage(guna2PictureBox3);
+        }
+
+        // Click on PictureBox 9 (Plus icon 1 in guna2Panel6)
+        private void guna2PictureBox9_Click(object sender, EventArgs e)
+        {
+            BrowseAndSetKioskImage(guna2PictureBox9);
+        }
+
+        // Click on PictureBox 8 (Plus icon 2 in guna2Panel7)
+        private void guna2PictureBox8_Click(object sender, EventArgs e)
+        {
+            BrowseAndSetKioskImage(guna2PictureBox8);
+        }
+
+        // Click on PictureBox 5 (Plus icon 3 in guna2Panel8)
+        private void guna2PictureBox5_Click(object sender, EventArgs e)
+        {
+            BrowseAndSetKioskImage(guna2PictureBox5);
+        }
+
+        // Click on PictureBox 6 (Plus icon 4 in guna2Panel11)
+        private void guna2PictureBox6_Click(object sender, EventArgs e)
+        {
+            BrowseAndSetKioskImage(guna2PictureBox6);
+        }
+
+        // Click on PictureBox 10 (Plus icon 5 in guna2Panel12)
+        private void guna2PictureBox10_Click(object sender, EventArgs e)
+        {
+            BrowseAndSetKioskImage(guna2PictureBox10);
+        }
+
+        // Reusable method to browse and set kiosk slideshow images
+        private void BrowseAndSetKioskImage(Guna.UI2.WinForms.Guna2PictureBox pictureBox)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Select Kiosk Slideshow Image";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All Files|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Load and display the image
+                        pictureBox.Image = Image.FromFile(openFileDialog.FileName);
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+
+                        MessageBox.Show("Slideshow image added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading image:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void Accounts_Click_1(object sender, EventArgs e)
@@ -80,6 +233,120 @@ namespace EduLogix
         {
             RegIdle regIdle = new RegIdle();
             regIdle.Show();
+        }
+
+        // Theme Picker Button Click Event
+        private void themePickerBtn_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                colorDialog.AllowFullOpen = true;
+                colorDialog.FullOpen = true;
+                colorDialog.ShowHelp = false;
+
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Color selectedColor = colorDialog.Color;
+                    
+                    // Update the theme picker button color
+                    themePickerBtn.FillColor = selectedColor;
+                    
+                    // Apply theme to the form
+                    ApplyThemeColor(selectedColor);
+                    
+                    // Save theme to database
+                    SaveThemeToDatabase(selectedColor);
+                    
+                    // Show confirmation
+                    MessageBox.Show(
+                        $"Theme Color Saved!\nRGB: ({selectedColor.R}, {selectedColor.G}, {selectedColor.B})\n\nThis theme will apply to all registrar forms.",
+                        "Theme Applied",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+            }
+        }
+
+        private void ApplyThemeColor(Color themeColor)
+        {
+            // Apply to sidebar background only
+            this.BackColor = themeColor;
+
+            // Apply to all controls recursively
+            ApplyThemeToControls(this.Controls, themeColor);
+        }
+
+        private void ApplyThemeToControls(Control.ControlCollection controls, Color themeColor)
+        {
+            foreach (Control control in controls)
+            {
+                // Apply to navigation buttons by exact name
+                if (control is Guna.UI2.WinForms.Guna2Button btn)
+                {
+                    if (btn.Name == "Dashboard" || 
+                        btn.Name == "Attendance" || 
+                        btn.Name == "StudentsID" || 
+                        btn.Name == "Accounts" ||
+                        btn.Name == "Logs" ||
+                        btn.Name == "guna2Button1" || // Settings button
+                        btn.Name == "Logout")
+                    {
+                        btn.FillColor = themeColor;
+                    }
+                }
+
+                // Apply to window control boxes (minimize, close)
+                if (control is Guna.UI2.WinForms.Guna2ControlBox ctrlBox)
+                {
+                    ctrlBox.FillColor = themeColor;
+                }
+
+                // Keep main content panels WHITE, don't apply theme
+                if (control is Guna.UI2.WinForms.Guna2Panel panel)
+                {
+                    // Keep AttendancePanel and inner panels white
+                    if (panel.Name == "AttendancePanel" || 
+                        panel.Name == "guna2Panel2" || 
+                        panel.Name == "guna2Panel3" ||
+                        panel.Name == "guna2Panel4" ||
+                        panel.Name == "guna2Panel5" ||
+                        panel.Name == "guna2Panel6" ||
+                        panel.Name == "guna2Panel7" ||
+                        panel.Name == "guna2Panel8" ||
+                        panel.Name == "guna2Panel11" ||
+                        panel.Name == "guna2Panel12" ||
+                        panel.Name == "guna2Panel14")
+                    {
+                        panel.FillColor = Color.White;
+                    }
+                }
+
+                // Apply to labels by exact control name
+                if (control is Guna.UI2.WinForms.Guna2HtmlLabel htmlLabel)
+                {
+                    // Target UserName and role label by exact control names
+                    if (htmlLabel.Name == "UserName" || htmlLabel.Name == "guna2HtmlLabel1")
+                    {
+                        htmlLabel.BackColor = themeColor;
+                    }
+                }
+
+                // Recursively apply to child controls (important for nested controls)
+                if (control.HasChildren)
+                {
+                    ApplyThemeToControls(control.Controls, themeColor);
+                }
+            }
+        }
+
+        // Helper method to lighten a color (for better UI contrast)
+        private Color LightenColor(Color color, float amount)
+        {
+            int r = Math.Min(255, (int)(color.R + (255 - color.R) * amount));
+            int g = Math.Min(255, (int)(color.G + (255 - color.G) * amount));
+            int b = Math.Min(255, (int)(color.B + (255 - color.B) * amount));
+            return Color.FromArgb(color.A, r, g, b);
         }
     }
 }
