@@ -597,17 +597,20 @@
             // 
             // guna2Panel14
             // 
-            this.guna2Panel14.BackColor = System.Drawing.Color.White;
+            this.guna2Panel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel14.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel14.BorderRadius = 10;
-            this.guna2Panel14.BorderThickness = 1;
             this.guna2Panel14.Controls.Add(this.guna2HtmlLabel17);
             this.guna2Panel14.Controls.Add(this.guna2GradientButton2);
             this.guna2Panel14.Controls.Add(this.guna2GradientButton1);
             this.guna2Panel14.Controls.Add(this.guna2HtmlLabel14);
-            this.guna2Panel14.FillColor = System.Drawing.Color.White;
+            this.guna2Panel14.FillColor = System.Drawing.SystemColors.MenuBar;
             this.guna2Panel14.Location = new System.Drawing.Point(31, 19);
             this.guna2Panel14.Name = "guna2Panel14";
+            this.guna2Panel14.ShadowDecoration.BorderRadius = 10;
+            this.guna2Panel14.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2Panel14.ShadowDecoration.Enabled = true;
+            this.guna2Panel14.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
             this.guna2Panel14.Size = new System.Drawing.Size(1620, 63);
             this.guna2Panel14.TabIndex = 30;
             // 
@@ -616,7 +619,7 @@
             this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel17.Font = new System.Drawing.Font("Inter Medium", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel17.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(904, 10);
+            this.guna2HtmlLabel17.Location = new System.Drawing.Point(937, 10);
             this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
             this.guna2HtmlLabel17.Size = new System.Drawing.Size(302, 41);
             this.guna2HtmlLabel17.TabIndex = 48;
@@ -636,11 +639,12 @@
             this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton2.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_233824_removebg_preview;
             this.guna2GradientButton2.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton2.Location = new System.Drawing.Point(1431, 11);
+            this.guna2GradientButton2.Location = new System.Drawing.Point(1437, 11);
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientButton2.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.guna2GradientButton2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2GradientButton2.ShadowDecoration.Enabled = true;
+            this.guna2GradientButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
             this.guna2GradientButton2.Size = new System.Drawing.Size(170, 40);
             this.guna2GradientButton2.TabIndex = 47;
             this.guna2GradientButton2.Text = "Export";
@@ -658,11 +662,12 @@
             this.guna2GradientButton1.Font = new System.Drawing.Font("Inter", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton1.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194230_removebg_preview;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(1233, 11);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(1255, 11);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientButton1.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.guna2GradientButton1.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2GradientButton1.ShadowDecoration.Enabled = true;
+            this.guna2GradientButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
             this.guna2GradientButton1.Size = new System.Drawing.Size(170, 40);
             this.guna2GradientButton1.TabIndex = 46;
             this.guna2GradientButton1.Text = "Refresh";
@@ -903,7 +908,7 @@
             // guna2CirclePictureBox1
             // 
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(55, 113);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(51, 113);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(120, 110);
