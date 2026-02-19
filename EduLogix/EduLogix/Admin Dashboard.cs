@@ -7,14 +7,102 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace EduLogix
 {
     public partial class DashboardForm : Form
     {
+        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+
         public DashboardForm()
         {
-            InitializeComponent();          
+            InitializeComponent();
+            this.Load += DashboardForm_Load;
+        }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+            ApplyThemeToForm();
+        }
+
+        private void ApplyThemeToForm()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        int r = Convert.ToInt32(reader["theme_red"]);
+                        int g = Convert.ToInt32(reader["theme_green"]);
+                        int b = Convert.ToInt32(reader["theme_blue"]);
+                        Color themeColor = Color.FromArgb(r, g, b);
+
+                        // Apply theme to sidebar background
+                        this.BackColor = themeColor;
+
+                        // Apply theme to navigation buttons
+                        ApplyThemeToButtons(themeColor);
+
+                        // Apply theme to control boxes
+                        ApplyThemeToControlBoxes(themeColor);
+
+                        // Apply theme to labels
+                        ApplyThemeToLabels(themeColor);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Silently fail and use default colors
+            }
+        }
+
+        private void ApplyThemeToButtons(Color themeColor)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Guna.UI2.WinForms.Guna2Button btn)
+                {
+                    if (btn.Name == "Dashboard" || btn.Name == "Attendance" || 
+                        btn.Name == "StudentsID" || btn.Name == "Accounts" ||
+                        btn.Name == "Logs" || btn.Name == "Settings" || btn.Name == "Logout")
+                    {
+                        btn.FillColor = themeColor;
+                    }
+                }
+            }
+        }
+
+        private void ApplyThemeToControlBoxes(Color themeColor)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Guna.UI2.WinForms.Guna2ControlBox ctrlBox)
+                {
+                    ctrlBox.FillColor = themeColor;
+                }
+            }
+        }
+
+        private void ApplyThemeToLabels(Color themeColor)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Guna.UI2.WinForms.Guna2HtmlLabel htmlLabel)
+                {
+                    if (htmlLabel.Name == "UserName" || htmlLabel.Name == "guna2HtmlLabel1")
+                    {
+                        htmlLabel.BackColor = themeColor;
+                    }
+                }
+            }
         }
 
         private void Attendance_Click(object sender, EventArgs e)
