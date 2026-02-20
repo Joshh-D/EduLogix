@@ -32,6 +32,8 @@ namespace EduLogix
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
+                    attendancestudcount.Text = (guna2DataGridView1.Rows.Count).ToString();
+
                     if (reader.Read())
                     {
                         int r = Convert.ToInt32(reader["theme_red"]);
@@ -233,6 +235,11 @@ namespace EduLogix
                 login.Show();
                 this.Close();
             }
+        }
+
+        private void attendancestudcount_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

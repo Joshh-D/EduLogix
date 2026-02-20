@@ -41,12 +41,13 @@
             this.AttendancePanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.attendancestudcount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.WindowAnimation = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -59,7 +60,6 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.AttendancePanel.SuspendLayout();
             this.guna2Panel14.SuspendLayout();
@@ -162,6 +162,36 @@
             this.guna2Panel14.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.guna2Panel14.Size = new System.Drawing.Size(1620, 63);
             this.guna2Panel14.TabIndex = 43;
+            // 
+            // guna2ComboBox2
+            // 
+            this.guna2ComboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "All",
+            "Elementary",
+            "Junior High ",
+            "Senior High",
+            "In Premises",
+            "Departed"});
+            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox2.BorderColor = System.Drawing.Color.Black;
+            this.guna2ComboBox2.BorderRadius = 5;
+            this.guna2ComboBox2.BorderThickness = 0;
+            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox2.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox2.ItemHeight = 30;
+            this.guna2ComboBox2.Location = new System.Drawing.Point(1062, 14);
+            this.guna2ComboBox2.Name = "guna2ComboBox2";
+            this.guna2ComboBox2.ShadowDecoration.BorderRadius = 5;
+            this.guna2ComboBox2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2ComboBox2.ShadowDecoration.Enabled = true;
+            this.guna2ComboBox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.guna2ComboBox2.Size = new System.Drawing.Size(268, 36);
+            this.guna2ComboBox2.TabIndex = 50;
             // 
             // guna2ComboBox1
             // 
@@ -305,7 +335,7 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel2.BorderRadius = 10;
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel3);
+            this.guna2Panel2.Controls.Add(this.attendancestudcount);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel2.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel2.Location = new System.Drawing.Point(31, 142);
@@ -317,16 +347,16 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1621, 865);
             this.guna2Panel2.TabIndex = 42;
             // 
-            // guna2HtmlLabel3
+            // attendancestudcount
             // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(181, 823);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(30, 33);
-            this.guna2HtmlLabel3.TabIndex = 30;
-            this.guna2HtmlLabel3.Text = "32";
+            this.attendancestudcount.BackColor = System.Drawing.Color.Transparent;
+            this.attendancestudcount.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendancestudcount.ForeColor = System.Drawing.Color.Black;
+            this.attendancestudcount.Location = new System.Drawing.Point(181, 823);
+            this.attendancestudcount.Name = "attendancestudcount";
+            this.attendancestudcount.Size = new System.Drawing.Size(3, 2);
+            this.attendancestudcount.TabIndex = 30;
+            this.attendancestudcount.Click += new System.EventHandler(this.attendancestudcount_Click);
             // 
             // guna2HtmlLabel2
             // 
@@ -589,36 +619,6 @@
             this.guna2PictureBox1.TabIndex = 16;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // guna2ComboBox2
-            // 
-            this.guna2ComboBox2.AutoCompleteCustomSource.AddRange(new string[] {
-            "All",
-            "Elementary",
-            "Junior High ",
-            "Senior High",
-            "In Premises",
-            "Departed"});
-            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderColor = System.Drawing.Color.Black;
-            this.guna2ComboBox2.BorderRadius = 5;
-            this.guna2ComboBox2.BorderThickness = 0;
-            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox2.ItemHeight = 30;
-            this.guna2ComboBox2.Location = new System.Drawing.Point(1062, 14);
-            this.guna2ComboBox2.Name = "guna2ComboBox2";
-            this.guna2ComboBox2.ShadowDecoration.BorderRadius = 5;
-            this.guna2ComboBox2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2ComboBox2.ShadowDecoration.Enabled = true;
-            this.guna2ComboBox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2ComboBox2.Size = new System.Drawing.Size(268, 36);
-            this.guna2ComboBox2.TabIndex = 50;
-            // 
             // AttendanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -689,7 +689,7 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel attendancestudcount;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
     }
 }

@@ -1,13 +1,14 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace EduLogix
 {
@@ -24,6 +25,17 @@ namespace EduLogix
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             ApplyThemeToForm();
+            lblDateTime1.Text = DateTime.Now.ToString("MMMM dd, yyyy | hh:mm:ss:tt");
+            System.Windows.Forms.Timer kioskTimer = new System.Windows.Forms.Timer();
+            kioskTimer.Interval =1000;
+            kioskTimer.Tick += new EventHandler(timerfunc);
+            kioskTimer.Start();
+            timer1.Start();
+        }
+
+        public void timerfunc(object sender, EventArgs e)
+        {
+            lblDateTime1.Text = DateTime.Now.ToString("MMMM dd, yyyy | hh:mm:ss:tt");
         }
 
         private void ApplyThemeToForm()
@@ -167,5 +179,9 @@ namespace EduLogix
         {
 
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDateTime1.Text = DateTime.Now.ToString("MMMM dd, yyyy | hh:mm:tt:ss");
+        }
     }
-}
+    }

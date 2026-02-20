@@ -35,12 +35,15 @@
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.kiosksection = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.kioskgrade = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.kioskidnumber = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.kioskname = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -49,33 +52,6 @@
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.kioskstatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.kioskname = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.kioskidnumber = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.kioskgrade = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.kiosksection = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -87,18 +63,43 @@
             this.guna2HtmlLabel34 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel35 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel22 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel23 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel24 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel25 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel26 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.kioskstatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblDateTime2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel2.SuspendLayout();
-            this.guna2Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
             this.guna2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
+            this.guna2Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            this.guna2Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -118,9 +119,9 @@
             this.guna2Panel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel14.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel14.BorderRadius = 10;
+            this.guna2Panel14.Controls.Add(this.lblDateTime2);
             this.guna2Panel14.Controls.Add(this.guna2HtmlLabel3);
             this.guna2Panel14.Controls.Add(this.guna2HtmlLabel14);
-            this.guna2Panel14.Controls.Add(this.guna2HtmlLabel17);
             this.guna2Panel14.Controls.Add(this.guna2PictureBox3);
             this.guna2Panel14.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel14.Location = new System.Drawing.Point(12, 34);
@@ -153,17 +154,6 @@
             this.guna2HtmlLabel14.Size = new System.Drawing.Size(872, 45);
             this.guna2HtmlLabel14.TabIndex = 56;
             this.guna2HtmlLabel14.Text = "Integrated School Access & Resource Management System ";
-            // 
-            // guna2HtmlLabel17
-            // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Inter Medium", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel17.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(1381, 65);
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(478, 64);
-            this.guna2HtmlLabel17.TabIndex = 56;
-            this.guna2HtmlLabel17.Text = "Feb 14, 2025 | 5:30 AM";
             // 
             // guna2PictureBox3
             // 
@@ -244,6 +234,54 @@
             this.guna2Panel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 2, 2, 6);
             this.guna2Panel3.Size = new System.Drawing.Size(429, 668);
             this.guna2Panel3.TabIndex = 63;
+            // 
+            // kiosksection
+            // 
+            this.kiosksection.AutoSize = false;
+            this.kiosksection.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.kiosksection.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kiosksection.ForeColor = System.Drawing.Color.Black;
+            this.kiosksection.Location = new System.Drawing.Point(131, 524);
+            this.kiosksection.Name = "kiosksection";
+            this.kiosksection.Size = new System.Drawing.Size(235, 34);
+            this.kiosksection.TabIndex = 72;
+            this.kiosksection.Text = "1-A";
+            // 
+            // kioskgrade
+            // 
+            this.kioskgrade.AutoSize = false;
+            this.kioskgrade.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.kioskgrade.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kioskgrade.ForeColor = System.Drawing.Color.Black;
+            this.kioskgrade.Location = new System.Drawing.Point(131, 469);
+            this.kioskgrade.Name = "kioskgrade";
+            this.kioskgrade.Size = new System.Drawing.Size(235, 34);
+            this.kioskgrade.TabIndex = 71;
+            this.kioskgrade.Text = "11";
+            // 
+            // kioskidnumber
+            // 
+            this.kioskidnumber.AutoSize = false;
+            this.kioskidnumber.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.kioskidnumber.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kioskidnumber.ForeColor = System.Drawing.Color.Black;
+            this.kioskidnumber.Location = new System.Drawing.Point(131, 355);
+            this.kioskidnumber.Name = "kioskidnumber";
+            this.kioskidnumber.Size = new System.Drawing.Size(235, 34);
+            this.kioskidnumber.TabIndex = 70;
+            this.kioskidnumber.Text = "12345678910";
+            // 
+            // kioskname
+            // 
+            this.kioskname.AutoSize = false;
+            this.kioskname.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.kioskname.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kioskname.ForeColor = System.Drawing.Color.Black;
+            this.kioskname.Location = new System.Drawing.Point(131, 412);
+            this.kioskname.Name = "kioskname";
+            this.kioskname.Size = new System.Drawing.Size(235, 34);
+            this.kioskname.TabIndex = 69;
+            this.kioskname.Text = "Ashbey Delos Santos";
             // 
             // guna2HtmlLabel7
             // 
@@ -345,353 +383,6 @@
             this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.guna2Panel2.Size = new System.Drawing.Size(1356, 801);
             this.guna2Panel2.TabIndex = 46;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel4.BorderColor = System.Drawing.Color.Gray;
-            this.guna2Panel4.BorderRadius = 20;
-            this.guna2Panel4.BorderThickness = 1;
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel16);
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel15);
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel13);
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel8);
-            this.guna2Panel4.Controls.Add(this.kioskstatus);
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel9);
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel10);
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel11);
-            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel12);
-            this.guna2Panel4.Controls.Add(this.guna2PictureBox1);
-            this.guna2Panel4.FillColor = System.Drawing.Color.LightGray;
-            this.guna2Panel4.Location = new System.Drawing.Point(45, 127);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.ShadowDecoration.BorderRadius = 20;
-            this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 2, 2, 6);
-            this.guna2Panel4.Size = new System.Drawing.Size(403, 596);
-            this.guna2Panel4.TabIndex = 69;
-            this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
-            // 
-            // kioskstatus
-            // 
-            this.kioskstatus.AutoSize = false;
-            this.kioskstatus.BackColor = System.Drawing.Color.White;
-            this.kioskstatus.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kioskstatus.ForeColor = System.Drawing.Color.Black;
-            this.kioskstatus.Location = new System.Drawing.Point(71, 534);
-            this.kioskstatus.Name = "kioskstatus";
-            this.kioskstatus.Size = new System.Drawing.Size(257, 41);
-            this.kioskstatus.TabIndex = 68;
-            this.kioskstatus.Text = "CHECKED IN";
-            this.kioskstatus.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2HtmlLabel9
-            // 
-            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel9.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(48, 464);
-            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(72, 28);
-            this.guna2HtmlLabel9.TabIndex = 67;
-            this.guna2HtmlLabel9.Text = "Section:";
-            // 
-            // guna2HtmlLabel10
-            // 
-            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(59, 412);
-            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(59, 28);
-            this.guna2HtmlLabel10.TabIndex = 66;
-            this.guna2HtmlLabel10.Text = "Grade:";
-            this.guna2HtmlLabel10.Click += new System.EventHandler(this.guna2HtmlLabel10_Click);
-            // 
-            // guna2HtmlLabel11
-            // 
-            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(60, 358);
-            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(58, 28);
-            this.guna2HtmlLabel11.TabIndex = 65;
-            this.guna2HtmlLabel11.Text = "Name:";
-            // 
-            // guna2HtmlLabel12
-            // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(20, 303);
-            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            this.guna2HtmlLabel12.Size = new System.Drawing.Size(98, 28);
-            this.guna2HtmlLabel12.TabIndex = 64;
-            this.guna2HtmlLabel12.Text = "Student ID: ";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BorderRadius = 5;
-            this.guna2PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.guna2PictureBox1.Image = global::EduLogix.Properties.Resources.student;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(90, 45);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(210, 210);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 63;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(21, 17);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(107, 45);
-            this.guna2HtmlLabel2.TabIndex = 63;
-            this.guna2HtmlLabel2.Text = "Recent";
-            // 
-            // kioskname
-            // 
-            this.kioskname.AutoSize = false;
-            this.kioskname.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.kioskname.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kioskname.ForeColor = System.Drawing.Color.Black;
-            this.kioskname.Location = new System.Drawing.Point(131, 412);
-            this.kioskname.Name = "kioskname";
-            this.kioskname.Size = new System.Drawing.Size(235, 34);
-            this.kioskname.TabIndex = 69;
-            this.kioskname.Text = "Ashbey Delos Santos";
-            // 
-            // kioskidnumber
-            // 
-            this.kioskidnumber.AutoSize = false;
-            this.kioskidnumber.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.kioskidnumber.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kioskidnumber.ForeColor = System.Drawing.Color.Black;
-            this.kioskidnumber.Location = new System.Drawing.Point(131, 355);
-            this.kioskidnumber.Name = "kioskidnumber";
-            this.kioskidnumber.Size = new System.Drawing.Size(235, 34);
-            this.kioskidnumber.TabIndex = 70;
-            this.kioskidnumber.Text = "12345678910";
-            // 
-            // kioskgrade
-            // 
-            this.kioskgrade.AutoSize = false;
-            this.kioskgrade.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.kioskgrade.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kioskgrade.ForeColor = System.Drawing.Color.Black;
-            this.kioskgrade.Location = new System.Drawing.Point(131, 469);
-            this.kioskgrade.Name = "kioskgrade";
-            this.kioskgrade.Size = new System.Drawing.Size(235, 34);
-            this.kioskgrade.TabIndex = 71;
-            this.kioskgrade.Text = "11";
-            // 
-            // kiosksection
-            // 
-            this.kiosksection.AutoSize = false;
-            this.kiosksection.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.kiosksection.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kiosksection.ForeColor = System.Drawing.Color.Black;
-            this.kiosksection.Location = new System.Drawing.Point(131, 524);
-            this.kiosksection.Name = "kiosksection";
-            this.kiosksection.Size = new System.Drawing.Size(235, 34);
-            this.kiosksection.TabIndex = 72;
-            this.kiosksection.Text = "1-A";
-            // 
-            // guna2HtmlLabel8
-            // 
-            this.guna2HtmlLabel8.AutoSize = false;
-            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(124, 303);
-            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel8.TabIndex = 69;
-            this.guna2HtmlLabel8.Text = "12345678910";
-            // 
-            // guna2HtmlLabel13
-            // 
-            this.guna2HtmlLabel13.AutoSize = false;
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel13.Location = new System.Drawing.Point(124, 358);
-            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            this.guna2HtmlLabel13.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel13.TabIndex = 70;
-            this.guna2HtmlLabel13.Text = "Joshua Dayapera";
-            // 
-            // guna2HtmlLabel15
-            // 
-            this.guna2HtmlLabel15.AutoSize = false;
-            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel15.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel15.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel15.Location = new System.Drawing.Point(124, 412);
-            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            this.guna2HtmlLabel15.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel15.TabIndex = 71;
-            this.guna2HtmlLabel15.Text = "3";
-            // 
-            // guna2HtmlLabel16
-            // 
-            this.guna2HtmlLabel16.AutoSize = false;
-            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel16.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel16.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel16.Location = new System.Drawing.Point(124, 464);
-            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            this.guna2HtmlLabel16.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel16.TabIndex = 72;
-            this.guna2HtmlLabel16.Text = "1-A";
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.Gray;
-            this.guna2Panel5.BorderRadius = 20;
-            this.guna2Panel5.BorderThickness = 1;
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel18);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel19);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel20);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel21);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel22);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel23);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel24);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel25);
-            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel26);
-            this.guna2Panel5.Controls.Add(this.guna2PictureBox4);
-            this.guna2Panel5.FillColor = System.Drawing.Color.LightGray;
-            this.guna2Panel5.Location = new System.Drawing.Point(482, 127);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.ShadowDecoration.BorderRadius = 20;
-            this.guna2Panel5.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2Panel5.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 2, 2, 6);
-            this.guna2Panel5.Size = new System.Drawing.Size(403, 596);
-            this.guna2Panel5.TabIndex = 73;
-            // 
-            // guna2HtmlLabel18
-            // 
-            this.guna2HtmlLabel18.AutoSize = false;
-            this.guna2HtmlLabel18.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel18.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel18.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel18.Location = new System.Drawing.Point(124, 464);
-            this.guna2HtmlLabel18.Name = "guna2HtmlLabel18";
-            this.guna2HtmlLabel18.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel18.TabIndex = 72;
-            this.guna2HtmlLabel18.Text = "1-A";
-            // 
-            // guna2HtmlLabel19
-            // 
-            this.guna2HtmlLabel19.AutoSize = false;
-            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel19.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel19.Location = new System.Drawing.Point(124, 412);
-            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
-            this.guna2HtmlLabel19.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel19.TabIndex = 71;
-            this.guna2HtmlLabel19.Text = "3";
-            // 
-            // guna2HtmlLabel20
-            // 
-            this.guna2HtmlLabel20.AutoSize = false;
-            this.guna2HtmlLabel20.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel20.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel20.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel20.Location = new System.Drawing.Point(124, 358);
-            this.guna2HtmlLabel20.Name = "guna2HtmlLabel20";
-            this.guna2HtmlLabel20.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel20.TabIndex = 70;
-            this.guna2HtmlLabel20.Text = "Joshua Dayapera";
-            // 
-            // guna2HtmlLabel21
-            // 
-            this.guna2HtmlLabel21.AutoSize = false;
-            this.guna2HtmlLabel21.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2HtmlLabel21.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel21.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel21.Location = new System.Drawing.Point(124, 303);
-            this.guna2HtmlLabel21.Name = "guna2HtmlLabel21";
-            this.guna2HtmlLabel21.Size = new System.Drawing.Size(223, 28);
-            this.guna2HtmlLabel21.TabIndex = 69;
-            this.guna2HtmlLabel21.Text = "12345678910";
-            // 
-            // guna2HtmlLabel22
-            // 
-            this.guna2HtmlLabel22.AutoSize = false;
-            this.guna2HtmlLabel22.BackColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel22.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel22.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel22.Location = new System.Drawing.Point(71, 534);
-            this.guna2HtmlLabel22.Name = "guna2HtmlLabel22";
-            this.guna2HtmlLabel22.Size = new System.Drawing.Size(257, 41);
-            this.guna2HtmlLabel22.TabIndex = 68;
-            this.guna2HtmlLabel22.Text = "CHECKED IN";
-            this.guna2HtmlLabel22.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2HtmlLabel23
-            // 
-            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel23.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel23.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel23.Location = new System.Drawing.Point(48, 464);
-            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
-            this.guna2HtmlLabel23.Size = new System.Drawing.Size(72, 28);
-            this.guna2HtmlLabel23.TabIndex = 67;
-            this.guna2HtmlLabel23.Text = "Section:";
-            // 
-            // guna2HtmlLabel24
-            // 
-            this.guna2HtmlLabel24.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel24.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel24.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel24.Location = new System.Drawing.Point(59, 412);
-            this.guna2HtmlLabel24.Name = "guna2HtmlLabel24";
-            this.guna2HtmlLabel24.Size = new System.Drawing.Size(59, 28);
-            this.guna2HtmlLabel24.TabIndex = 66;
-            this.guna2HtmlLabel24.Text = "Grade:";
-            // 
-            // guna2HtmlLabel25
-            // 
-            this.guna2HtmlLabel25.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel25.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel25.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel25.Location = new System.Drawing.Point(60, 358);
-            this.guna2HtmlLabel25.Name = "guna2HtmlLabel25";
-            this.guna2HtmlLabel25.Size = new System.Drawing.Size(58, 28);
-            this.guna2HtmlLabel25.TabIndex = 65;
-            this.guna2HtmlLabel25.Text = "Name:";
-            // 
-            // guna2HtmlLabel26
-            // 
-            this.guna2HtmlLabel26.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel26.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel26.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel26.Location = new System.Drawing.Point(20, 303);
-            this.guna2HtmlLabel26.Name = "guna2HtmlLabel26";
-            this.guna2HtmlLabel26.Size = new System.Drawing.Size(98, 28);
-            this.guna2HtmlLabel26.TabIndex = 64;
-            this.guna2HtmlLabel26.Text = "Student ID: ";
-            // 
-            // guna2PictureBox4
-            // 
-            this.guna2PictureBox4.BorderRadius = 5;
-            this.guna2PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.guna2PictureBox4.Image = global::EduLogix.Properties.Resources.student;
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(90, 45);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(210, 210);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox4.TabIndex = 63;
-            this.guna2PictureBox4.TabStop = false;
             // 
             // guna2Panel6
             // 
@@ -836,6 +527,320 @@
             this.guna2PictureBox5.TabIndex = 63;
             this.guna2PictureBox5.TabStop = false;
             // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Panel5.BorderRadius = 20;
+            this.guna2Panel5.BorderThickness = 1;
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel18);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel19);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel20);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel21);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel22);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel23);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel24);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel25);
+            this.guna2Panel5.Controls.Add(this.guna2HtmlLabel26);
+            this.guna2Panel5.Controls.Add(this.guna2PictureBox4);
+            this.guna2Panel5.FillColor = System.Drawing.Color.LightGray;
+            this.guna2Panel5.Location = new System.Drawing.Point(482, 127);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.ShadowDecoration.BorderRadius = 20;
+            this.guna2Panel5.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2Panel5.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 2, 2, 6);
+            this.guna2Panel5.Size = new System.Drawing.Size(403, 596);
+            this.guna2Panel5.TabIndex = 73;
+            // 
+            // guna2HtmlLabel18
+            // 
+            this.guna2HtmlLabel18.AutoSize = false;
+            this.guna2HtmlLabel18.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel18.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel18.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel18.Location = new System.Drawing.Point(124, 464);
+            this.guna2HtmlLabel18.Name = "guna2HtmlLabel18";
+            this.guna2HtmlLabel18.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel18.TabIndex = 72;
+            this.guna2HtmlLabel18.Text = "1-A";
+            // 
+            // guna2HtmlLabel19
+            // 
+            this.guna2HtmlLabel19.AutoSize = false;
+            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel19.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel19.Location = new System.Drawing.Point(124, 412);
+            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
+            this.guna2HtmlLabel19.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel19.TabIndex = 71;
+            this.guna2HtmlLabel19.Text = "3";
+            // 
+            // guna2HtmlLabel20
+            // 
+            this.guna2HtmlLabel20.AutoSize = false;
+            this.guna2HtmlLabel20.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel20.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel20.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel20.Location = new System.Drawing.Point(124, 358);
+            this.guna2HtmlLabel20.Name = "guna2HtmlLabel20";
+            this.guna2HtmlLabel20.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel20.TabIndex = 70;
+            this.guna2HtmlLabel20.Text = "Joshua Dayapera";
+            // 
+            // guna2HtmlLabel21
+            // 
+            this.guna2HtmlLabel21.AutoSize = false;
+            this.guna2HtmlLabel21.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel21.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel21.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel21.Location = new System.Drawing.Point(124, 303);
+            this.guna2HtmlLabel21.Name = "guna2HtmlLabel21";
+            this.guna2HtmlLabel21.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel21.TabIndex = 69;
+            this.guna2HtmlLabel21.Text = "12345678910";
+            // 
+            // guna2HtmlLabel22
+            // 
+            this.guna2HtmlLabel22.AutoSize = false;
+            this.guna2HtmlLabel22.BackColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel22.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel22.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel22.Location = new System.Drawing.Point(71, 534);
+            this.guna2HtmlLabel22.Name = "guna2HtmlLabel22";
+            this.guna2HtmlLabel22.Size = new System.Drawing.Size(257, 41);
+            this.guna2HtmlLabel22.TabIndex = 68;
+            this.guna2HtmlLabel22.Text = "CHECKED IN";
+            this.guna2HtmlLabel22.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel23
+            // 
+            this.guna2HtmlLabel23.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel23.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel23.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel23.Location = new System.Drawing.Point(48, 464);
+            this.guna2HtmlLabel23.Name = "guna2HtmlLabel23";
+            this.guna2HtmlLabel23.Size = new System.Drawing.Size(72, 28);
+            this.guna2HtmlLabel23.TabIndex = 67;
+            this.guna2HtmlLabel23.Text = "Section:";
+            // 
+            // guna2HtmlLabel24
+            // 
+            this.guna2HtmlLabel24.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel24.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel24.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel24.Location = new System.Drawing.Point(59, 412);
+            this.guna2HtmlLabel24.Name = "guna2HtmlLabel24";
+            this.guna2HtmlLabel24.Size = new System.Drawing.Size(59, 28);
+            this.guna2HtmlLabel24.TabIndex = 66;
+            this.guna2HtmlLabel24.Text = "Grade:";
+            // 
+            // guna2HtmlLabel25
+            // 
+            this.guna2HtmlLabel25.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel25.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel25.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel25.Location = new System.Drawing.Point(60, 358);
+            this.guna2HtmlLabel25.Name = "guna2HtmlLabel25";
+            this.guna2HtmlLabel25.Size = new System.Drawing.Size(58, 28);
+            this.guna2HtmlLabel25.TabIndex = 65;
+            this.guna2HtmlLabel25.Text = "Name:";
+            // 
+            // guna2HtmlLabel26
+            // 
+            this.guna2HtmlLabel26.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel26.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel26.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel26.Location = new System.Drawing.Point(20, 303);
+            this.guna2HtmlLabel26.Name = "guna2HtmlLabel26";
+            this.guna2HtmlLabel26.Size = new System.Drawing.Size(98, 28);
+            this.guna2HtmlLabel26.TabIndex = 64;
+            this.guna2HtmlLabel26.Text = "Student ID: ";
+            // 
+            // guna2PictureBox4
+            // 
+            this.guna2PictureBox4.BorderRadius = 5;
+            this.guna2PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.guna2PictureBox4.Image = global::EduLogix.Properties.Resources.student;
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(90, 45);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(210, 210);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 63;
+            this.guna2PictureBox4.TabStop = false;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.Gray;
+            this.guna2Panel4.BorderRadius = 20;
+            this.guna2Panel4.BorderThickness = 1;
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel16);
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel15);
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel13);
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel8);
+            this.guna2Panel4.Controls.Add(this.kioskstatus);
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel9);
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel10);
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel11);
+            this.guna2Panel4.Controls.Add(this.guna2HtmlLabel12);
+            this.guna2Panel4.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel4.FillColor = System.Drawing.Color.LightGray;
+            this.guna2Panel4.Location = new System.Drawing.Point(45, 127);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.ShadowDecoration.BorderRadius = 20;
+            this.guna2Panel4.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2Panel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 2, 2, 6);
+            this.guna2Panel4.Size = new System.Drawing.Size(403, 596);
+            this.guna2Panel4.TabIndex = 69;
+            this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
+            // 
+            // guna2HtmlLabel16
+            // 
+            this.guna2HtmlLabel16.AutoSize = false;
+            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel16.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel16.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel16.Location = new System.Drawing.Point(124, 464);
+            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
+            this.guna2HtmlLabel16.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel16.TabIndex = 72;
+            this.guna2HtmlLabel16.Text = "1-A";
+            // 
+            // guna2HtmlLabel15
+            // 
+            this.guna2HtmlLabel15.AutoSize = false;
+            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel15.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel15.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel15.Location = new System.Drawing.Point(124, 412);
+            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
+            this.guna2HtmlLabel15.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel15.TabIndex = 71;
+            this.guna2HtmlLabel15.Text = "3";
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.AutoSize = false;
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel13.Location = new System.Drawing.Point(124, 358);
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel13.TabIndex = 70;
+            this.guna2HtmlLabel13.Text = "Joshua Dayapera";
+            // 
+            // guna2HtmlLabel8
+            // 
+            this.guna2HtmlLabel8.AutoSize = false;
+            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(124, 303);
+            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(223, 28);
+            this.guna2HtmlLabel8.TabIndex = 69;
+            this.guna2HtmlLabel8.Text = "12345678910";
+            // 
+            // kioskstatus
+            // 
+            this.kioskstatus.AutoSize = false;
+            this.kioskstatus.BackColor = System.Drawing.Color.White;
+            this.kioskstatus.Font = new System.Drawing.Font("Inter", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kioskstatus.ForeColor = System.Drawing.Color.Black;
+            this.kioskstatus.Location = new System.Drawing.Point(71, 534);
+            this.kioskstatus.Name = "kioskstatus";
+            this.kioskstatus.Size = new System.Drawing.Size(257, 41);
+            this.kioskstatus.TabIndex = 68;
+            this.kioskstatus.Text = "CHECKED IN";
+            this.kioskstatus.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2HtmlLabel9
+            // 
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel9.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(48, 464);
+            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(72, 28);
+            this.guna2HtmlLabel9.TabIndex = 67;
+            this.guna2HtmlLabel9.Text = "Section:";
+            // 
+            // guna2HtmlLabel10
+            // 
+            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(59, 412);
+            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(59, 28);
+            this.guna2HtmlLabel10.TabIndex = 66;
+            this.guna2HtmlLabel10.Text = "Grade:";
+            this.guna2HtmlLabel10.Click += new System.EventHandler(this.guna2HtmlLabel10_Click);
+            // 
+            // guna2HtmlLabel11
+            // 
+            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(60, 358);
+            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(58, 28);
+            this.guna2HtmlLabel11.TabIndex = 65;
+            this.guna2HtmlLabel11.Text = "Name:";
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Inter", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(20, 303);
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(98, 28);
+            this.guna2HtmlLabel12.TabIndex = 64;
+            this.guna2HtmlLabel12.Text = "Student ID: ";
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BorderRadius = 5;
+            this.guna2PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.guna2PictureBox1.Image = global::EduLogix.Properties.Resources.student;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(90, 45);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(210, 210);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 63;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(21, 17);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(107, 45);
+            this.guna2HtmlLabel2.TabIndex = 63;
+            this.guna2HtmlLabel2.Text = "Recent";
+            // 
+            // lblDateTime2
+            // 
+            this.lblDateTime2.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateTime2.Font = new System.Drawing.Font("Inter", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime2.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblDateTime2.Location = new System.Drawing.Point(1347, 71);
+            this.lblDateTime2.Name = "lblDateTime2";
+            this.lblDateTime2.Size = new System.Drawing.Size(3, 2);
+            this.lblDateTime2.TabIndex = 63;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            // 
             // Kiosk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -863,15 +868,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            this.guna2Panel4.ResumeLayout(false);
-            this.guna2Panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
+            this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -886,7 +891,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
@@ -935,5 +939,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel26;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblDateTime2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -74,7 +74,6 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -88,6 +87,8 @@
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblDateTime1 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -606,7 +607,7 @@
             this.guna2Panel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel14.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel14.BorderRadius = 10;
-            this.guna2Panel14.Controls.Add(this.guna2HtmlLabel17);
+            this.guna2Panel14.Controls.Add(this.lblDateTime1);
             this.guna2Panel14.Controls.Add(this.guna2GradientButton2);
             this.guna2Panel14.Controls.Add(this.guna2GradientButton1);
             this.guna2Panel14.Controls.Add(this.guna2HtmlLabel14);
@@ -619,17 +620,6 @@
             this.guna2Panel14.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.guna2Panel14.Size = new System.Drawing.Size(1620, 63);
             this.guna2Panel14.TabIndex = 30;
-            // 
-            // guna2HtmlLabel17
-            // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Inter Medium", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel17.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(937, 10);
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(302, 41);
-            this.guna2HtmlLabel17.TabIndex = 48;
-            this.guna2HtmlLabel17.Text = "Feb 14, 2025 | 5:30 AM";
             // 
             // guna2GradientButton2
             // 
@@ -935,6 +925,20 @@
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            // 
+            // lblDateTime1
+            // 
+            this.lblDateTime1.AutoSize = true;
+            this.lblDateTime1.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime1.Location = new System.Drawing.Point(752, 10);
+            this.lblDateTime1.Name = "lblDateTime1";
+            this.lblDateTime1.Size = new System.Drawing.Size(0, 43);
+            this.lblDateTime1.TabIndex = 49;
+            // 
             // DashboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1048,7 +1052,8 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblDateTime1;
     }
 }
 
