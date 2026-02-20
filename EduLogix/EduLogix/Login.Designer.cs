@@ -74,6 +74,7 @@
             this.accountID.BackColor = System.Drawing.Color.Transparent;
             this.accountID.BorderColor = System.Drawing.Color.Transparent;
             this.accountID.BorderRadius = 20;
+            this.accountID.BorderThickness = 0;
             this.accountID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.accountID.DefaultText = "Account ID";
             this.accountID.DisabledState.BorderColor = System.Drawing.Color.Transparent;
@@ -82,13 +83,17 @@
             this.accountID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.accountID.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.accountID.FocusedState.FillColor = System.Drawing.Color.White;
-            this.accountID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountID.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accountID.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.accountID.Location = new System.Drawing.Point(67, 187);
             this.accountID.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.accountID.Name = "accountID";
             this.accountID.PlaceholderText = "";
             this.accountID.SelectedText = "";
+            this.accountID.ShadowDecoration.BorderRadius = 20;
+            this.accountID.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.accountID.ShadowDecoration.Enabled = true;
+            this.accountID.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
             this.accountID.Size = new System.Drawing.Size(334, 45);
             this.accountID.TabIndex = 52;
             // 
@@ -97,6 +102,7 @@
             this.accountpass.BackColor = System.Drawing.Color.Transparent;
             this.accountpass.BorderColor = System.Drawing.Color.Transparent;
             this.accountpass.BorderRadius = 20;
+            this.accountpass.BorderThickness = 0;
             this.accountpass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.accountpass.DefaultText = "Password";
             this.accountpass.DisabledState.BorderColor = System.Drawing.Color.Transparent;
@@ -105,13 +111,17 @@
             this.accountpass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.accountpass.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.accountpass.FocusedState.FillColor = System.Drawing.Color.White;
-            this.accountpass.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountpass.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accountpass.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.accountpass.Location = new System.Drawing.Point(67, 261);
             this.accountpass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.accountpass.Name = "accountpass";
             this.accountpass.PlaceholderText = "";
             this.accountpass.SelectedText = "";
+            this.accountpass.ShadowDecoration.BorderRadius = 20;
+            this.accountpass.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.accountpass.ShadowDecoration.Enabled = true;
+            this.accountpass.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
             this.accountpass.Size = new System.Drawing.Size(334, 45);
             this.accountpass.TabIndex = 69;
             // 
@@ -170,7 +180,7 @@
             this.guna2CirclePictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox2.Image = global::EduLogix.Properties.Resources._09f64c35483867e874bc5f4aff478f24_removebg_preview;
             this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(143, 427);
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(143, 431);
             this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
             this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox2.Size = new System.Drawing.Size(48, 58);
@@ -183,7 +193,7 @@
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(193, 440);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(193, 444);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(124, 27);
             this.guna2HtmlLabel7.TabIndex = 81;
@@ -194,7 +204,7 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(220, 404);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(226, 404);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(18, 19);
             this.guna2HtmlLabel6.TabIndex = 80;
@@ -227,11 +237,11 @@
             // guna2HtmlLabel8
             // 
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Inter", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(146, 110);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(131, 110);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(314, 17);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(339, 19);
             this.guna2HtmlLabel8.TabIndex = 77;
             this.guna2HtmlLabel8.Text = "Integrated School Access & Resource Management System ";
             // 
@@ -276,7 +286,7 @@
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.Image = global::EduLogix.Properties.Resources.Caloocan_City_Business_High_School_Logo_1_removebg_preview;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(27, 3);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(17, 3);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(114, 147);
@@ -289,7 +299,7 @@
             this.loginbtn.Animated = true;
             this.loginbtn.BackColor = System.Drawing.Color.Transparent;
             this.loginbtn.BorderColor = System.Drawing.Color.Transparent;
-            this.loginbtn.BorderRadius = 25;
+            this.loginbtn.BorderRadius = 20;
             this.loginbtn.CheckedState.BorderColor = System.Drawing.Color.White;
             this.loginbtn.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.loginbtn.CheckedState.FillColor = System.Drawing.Color.White;
@@ -299,19 +309,21 @@
             this.loginbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.loginbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.loginbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.loginbtn.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.loginbtn.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginbtn.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.loginbtn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.loginbtn.ImageOffset = new System.Drawing.Point(-15, 0);
             this.loginbtn.ImageSize = new System.Drawing.Size(23, 23);
-            this.loginbtn.Location = new System.Drawing.Point(67, 337);
+            this.loginbtn.Location = new System.Drawing.Point(117, 339);
             this.loginbtn.Name = "loginbtn";
             this.loginbtn.PressedColor = System.Drawing.SystemColors.Window;
-            this.loginbtn.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.loginbtn.Size = new System.Drawing.Size(334, 50);
+            this.loginbtn.ShadowDecoration.BorderRadius = 20;
+            this.loginbtn.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.loginbtn.ShadowDecoration.Enabled = true;
+            this.loginbtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.loginbtn.Size = new System.Drawing.Size(235, 48);
             this.loginbtn.TabIndex = 71;
             this.loginbtn.Text = "Login";
-            this.loginbtn.TextOffset = new System.Drawing.Point(-5, -2);
             this.loginbtn.Click += new System.EventHandler(this.loginbtn_Click_1);
             // 
             // guna2PictureBox1

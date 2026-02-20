@@ -330,6 +330,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EduLogix.ico" />
+    <None Include="Resources\Screenshot_2026-02-20_212811-removebg-preview.png" />
+    <None Include="Resources\Screenshot_2026-02-19_152726-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-02-10_002926-removebg-preview %281%29.png" />
     <None Include="Resources\Screenshot_2026-02-10_002631-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-02-09_233824-removebg-preview.png" />

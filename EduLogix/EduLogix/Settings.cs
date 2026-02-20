@@ -42,7 +42,7 @@ namespace EduLogix
 
                         // Apply theme on load
                         ApplyThemeColor(themeColor);
-                        themePickerBtn.FillColor = themeColor;
+                        guna2GradientButton1.FillColor = themeColor;
                     }
                 }
             }
@@ -62,7 +62,7 @@ namespace EduLogix
                     string query = @"UPDATE reg_theme 
                                     SET theme_red = @r, theme_green = @g, theme_blue = @b, 
                                         updated_by = @user, updated_at = NOW() 
-                                    WHERE id = 1";
+                                    WHERE id = 1";  
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@r", color.R);
                     cmd.Parameters.AddWithValue("@g", color.G);
@@ -78,32 +78,7 @@ namespace EduLogix
         }
 
         // Browse School Logo Button Click
-        private void browseLogoBtn_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Select School Logo";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All Files|*.*";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // Load and display the image in guna2PictureBox2 (inside guna2Panel4)
-                        guna2PictureBox2.Image = Image.FromFile(openFileDialog.FileName);
-                        guna2PictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-
-                        MessageBox.Show("School logo updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error loading image:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
+       
 
         // Click on PictureBox 3 (First default logo in guna2Panel5)
         private void guna2PictureBox3_Click(object sender, EventArgs e)
@@ -118,31 +93,6 @@ namespace EduLogix
             BrowseAndSetKioskImage(guna2PictureBox9);
         }
 
-        // Click on PictureBox 8 (Plus icon 2 in guna2Panel7)
-        private void guna2PictureBox8_Click(object sender, EventArgs e)
-        {
-            BrowseAndSetKioskImage(guna2PictureBox8);
-        }
-
-        // Click on PictureBox 5 (Plus icon 3 in guna2Panel8)
-        private void guna2PictureBox5_Click(object sender, EventArgs e)
-        {
-            BrowseAndSetKioskImage(guna2PictureBox5);
-        }
-
-        // Click on PictureBox 6 (Plus icon 4 in guna2Panel11)
-        private void guna2PictureBox6_Click(object sender, EventArgs e)
-        {
-            BrowseAndSetKioskImage(guna2PictureBox6);
-        }
-
-        // Click on PictureBox 10 (Plus icon 5 in guna2Panel12)
-        private void guna2PictureBox10_Click(object sender, EventArgs e)
-        {
-            BrowseAndSetKioskImage(guna2PictureBox10);
-        }
-
-        // Reusable method to browse and set kiosk slideshow images
         private void BrowseAndSetKioskImage(Guna.UI2.WinForms.Guna2PictureBox pictureBox)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -236,37 +186,7 @@ namespace EduLogix
         }
 
         // Theme Picker Button Click Event
-        private void themePickerBtn_Click(object sender, EventArgs e)
-        {
-            using (ColorDialog colorDialog = new ColorDialog())
-            {
-                colorDialog.AllowFullOpen = true;
-                colorDialog.FullOpen = true;
-                colorDialog.ShowHelp = false;
-
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                {
-                    Color selectedColor = colorDialog.Color;
-                    
-                    // Update the theme picker button color
-                    themePickerBtn.FillColor = selectedColor;
-                    
-                    // Apply theme to the form
-                    ApplyThemeColor(selectedColor);
-                    
-                    // Save theme to database
-                    SaveThemeToDatabase(selectedColor);
-                    
-                    // Show confirmation
-                    MessageBox.Show(
-                        $"Theme Color Saved!\nRGB: ({selectedColor.R}, {selectedColor.G}, {selectedColor.B})\n\nThis theme will apply to all registrar forms.",
-                        "Theme Applied",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-                }
-            }
-        }
+        
 
         private void ApplyThemeColor(Color themeColor)
         {
@@ -347,6 +267,70 @@ namespace EduLogix
             int g = Math.Min(255, (int)(color.G + (255 - color.G) * amount));
             int b = Math.Min(255, (int)(color.B + (255 - color.B) * amount));
             return Color.FromArgb(color.A, r, g, b);
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                colorDialog.AllowFullOpen = true;
+                colorDialog.FullOpen = true;
+                colorDialog.ShowHelp = false;
+
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Color selectedColor = colorDialog.Color;
+
+                    // Update the theme picker button color
+                    guna2GradientButton1.FillColor = selectedColor;
+
+                    // Apply theme to the form
+                    ApplyThemeColor(selectedColor);
+
+                    // Save theme to database
+                    SaveThemeToDatabase(selectedColor);
+
+                    // Show confirmation
+                    MessageBox.Show(
+                        $"Theme Color Saved!\nRGB: ({selectedColor.R}, {selectedColor.G}, {selectedColor.B})\n\nThis theme will apply to all registrar forms.",
+                        "Theme Applied",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+            }
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Select School Logo";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All Files|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Load and display the image in guna2PictureBox2 (inside guna2Panel4)
+                        guna2PictureBox2.Image = Image.FromFile(openFileDialog.FileName);
+                        guna2PictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+
+                        MessageBox.Show("School logo updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error loading image:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
