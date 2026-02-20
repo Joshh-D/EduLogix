@@ -144,13 +144,13 @@
             this.guna2Panel14.BorderRadius = 10;
             this.guna2Panel14.Controls.Add(this.guna2ComboBox1);
             this.guna2Panel14.Controls.Add(this.guna2TextBox1);
-            this.guna2Panel14.FillColor = System.Drawing.SystemColors.MenuBar;
+            this.guna2Panel14.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel14.Location = new System.Drawing.Point(31, 19);
             this.guna2Panel14.Name = "guna2Panel14";
             this.guna2Panel14.ShadowDecoration.BorderRadius = 10;
-            this.guna2Panel14.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2Panel14.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2Panel14.ShadowDecoration.Enabled = true;
-            this.guna2Panel14.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.guna2Panel14.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.guna2Panel14.Size = new System.Drawing.Size(1620, 63);
             this.guna2Panel14.TabIndex = 31;
             // 
@@ -214,12 +214,13 @@
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel3);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel2.Controls.Add(this.guna2DataGridView1);
+            this.guna2Panel2.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel2.Location = new System.Drawing.Point(31, 142);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 10;
-            this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2Panel2.ShadowDecoration.Enabled = true;
-            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(2, 2, 2, 6);
+            this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.guna2Panel2.Size = new System.Drawing.Size(1621, 865);
             this.guna2Panel2.TabIndex = 45;
             // 
@@ -346,7 +347,7 @@
             this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton4.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
             this.guna2GradientButton4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton4.Location = new System.Drawing.Point(921, 91);
+            this.guna2GradientButton4.Location = new System.Drawing.Point(921, 93);
             this.guna2GradientButton4.Name = "guna2GradientButton4";
             this.guna2GradientButton4.ShadowDecoration.BorderRadius = 10;
             this.guna2GradientButton4.ShadowDecoration.Color = System.Drawing.Color.Gray;
@@ -369,7 +370,7 @@
             this.guna2GradientButton3.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton3.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
             this.guna2GradientButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton3.Location = new System.Drawing.Point(1104, 91);
+            this.guna2GradientButton3.Location = new System.Drawing.Point(1104, 93);
             this.guna2GradientButton3.Name = "guna2GradientButton3";
             this.guna2GradientButton3.ShadowDecoration.BorderRadius = 10;
             this.guna2GradientButton3.ShadowDecoration.Color = System.Drawing.Color.Gray;
@@ -392,7 +393,7 @@
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton1.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002631_removebg_preview;
             this.guna2GradientButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(1285, 91);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(1285, 93);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.ShadowDecoration.BorderRadius = 10;
             this.guna2GradientButton1.ShadowDecoration.Color = System.Drawing.Color.Gray;
@@ -415,7 +416,7 @@
             this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton2.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002926_removebg_preview__1_;
             this.guna2GradientButton2.ImageSize = new System.Drawing.Size(27, 27);
-            this.guna2GradientButton2.Location = new System.Drawing.Point(1465, 91);
+            this.guna2GradientButton2.Location = new System.Drawing.Point(1465, 93);
             this.guna2GradientButton2.Name = "guna2GradientButton2";
             this.guna2GradientButton2.ShadowDecoration.BorderRadius = 10;
             this.guna2GradientButton2.ShadowDecoration.Color = System.Drawing.Color.Gray;
