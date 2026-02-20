@@ -8,7 +8,7 @@ namespace EduLogix
 {
     public partial class SecurityAttendance : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private string connectionString = "server=192.168.236.30;database=edulogix;uid=arduino_user;pwd=secret;";
 
         public SecurityAttendance()
         {

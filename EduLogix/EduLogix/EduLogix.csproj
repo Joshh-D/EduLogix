@@ -122,11 +122,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin Dashboard.cs">
+    <Compile Include="Attendance Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin Dashboard.Designer.cs">
-      <DependentUpon>Admin Dashboard.cs</DependentUpon>
+    <Compile Include="Attendance Dashboard.Designer.cs">
+      <DependentUpon>Attendance Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Attendance.cs">
       <SubType>Form</SubType>
@@ -244,8 +244,8 @@
     <Compile Include="UsersArchive.Designer.cs">
       <DependentUpon>UsersArchive.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Admin Dashboard.resx">
-      <DependentUpon>Admin Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Attendance Dashboard.resx">
+      <DependentUpon>Attendance Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Attendance.resx">
       <DependentUpon>Attendance.cs</DependentUpon>

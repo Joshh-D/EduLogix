@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Timers;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -8,7 +9,7 @@ namespace EduLogix
 {
     public partial class Login : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private string connectionString = "server=192.168.0.101;database=edulogix;uid=arduino_user;pwd=secret;";
 
         public Login()
         {
@@ -17,10 +18,15 @@ namespace EduLogix
             LockTransparentBackColor(accountpass);
 
             this.ActiveControl = guna2HtmlLabel9;
-
+            this.Load += Login_Load;
             accountID.Enter += accountID_Enter;
             accountpass.Enter += accountpass_Enter;
             loginbtn.Click += loginbtn_Click;
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void LockTransparentBackColor(Guna.UI2.WinForms.Guna2TextBox txt)

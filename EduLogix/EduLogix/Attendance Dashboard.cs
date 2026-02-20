@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 
 namespace EduLogix
 {
     public partial class DashboardForm : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private string connectionString = "server=192.168.0.101;database=edulogix;uid=arduino_user;pwd=secret;";
 
         public DashboardForm()
         {
@@ -24,6 +26,50 @@ namespace EduLogix
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             ApplyThemeToForm();
+            System.Windows.Forms.Timer kioskTimer = new System.Windows.Forms.Timer();
+            kioskTimer.Interval = 5000;
+            kioskTimer.Tick += new EventHandler(kioskCheck);
+            kioskTimer.Start();
+        }
+
+        public void kioskCheck(object sender, EventArgs e)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    string query = "SELECT COUNT(student_name) FROM reg_attendance_live";
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        guna2HtmlLabel15.Text = Convert.ToInt32(cmd.ExecuteScalar()).ToString();
+                    }
+
+                    query = "SELECT COUNT(student_name) FROM reg_attendance_live WHERE education = 'elementary'";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        guna2HtmlLabel5.Text = Convert.ToInt32(cmd.ExecuteScalar()).ToString();
+                    }
+
+                    query = "SELECT COUNT(student_name) FROM reg_attendance_live WHERE education = 'junior'";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        guna2HtmlLabel8.Text = Convert.ToInt32(cmd.ExecuteScalar()).ToString();
+                    }
+
+                    query = "SELECT COUNT(student_name) FROM reg_attendance_live WHERE education = 'senior'";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        guna2HtmlLabel6.Text = Convert.ToInt32(cmd.ExecuteScalar()).ToString();
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         private void ApplyThemeToForm()
