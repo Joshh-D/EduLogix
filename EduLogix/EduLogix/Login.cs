@@ -9,7 +9,7 @@ namespace EduLogix
 {
     public partial class Login : Form
     {
-        private string connectionString = "server=192.168.0.101;database=edulogix;uid=arduino_user;pwd=secret;";
+        private string connectionString = "server=192.168.236.30;database=edulogix;uid=arduino_user;pwd=secret;";
 
         public Login()
         {
