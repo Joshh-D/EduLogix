@@ -213,6 +213,12 @@ namespace EduLogix
                         cmd.Parameters.AddWithValue("@grade", gradeNumber);
                     }
 
+                    // Filter by Date
+                    DateTime selectedDate = guna2DateTimePicker1.Value.Date;
+                    filters.Add("DATE(date_and_time) = @date");
+                    cmd.Parameters.AddWithValue("@date", selectedDate);
+
+
                     // Apply WHERE if there are any filters
                     if (filters.Count > 0)
                         query += " WHERE " + string.Join(" AND ", filters);
@@ -246,6 +252,11 @@ namespace EduLogix
             {
                 MessageBox.Show("Error loading attendance data:\n" + ex.Message);
             }
+
+            
+
+
+
         }
 
         private void combobox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -352,6 +363,11 @@ namespace EduLogix
             {
                 SearchData();
             }
+        }
+
+        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            FilterData();
         }
     }
 }
