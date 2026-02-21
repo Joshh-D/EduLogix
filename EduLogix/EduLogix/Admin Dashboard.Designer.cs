@@ -74,6 +74,7 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblDateTime1 = new System.Windows.Forms.Label();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -88,7 +89,6 @@
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblDateTime1 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -282,9 +282,9 @@
             this.guna2HtmlLabel10.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel10.Location = new System.Drawing.Point(147, 53);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(79, 59);
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(30, 59);
             this.guna2HtmlLabel10.TabIndex = 47;
-            this.guna2HtmlLabel10.Text = "256";
+            this.guna2HtmlLabel10.Text = "0";
             // 
             // guna2HtmlLabel11
             // 
@@ -336,9 +336,9 @@
             this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(147, 53);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(79, 59);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(30, 59);
             this.guna2HtmlLabel8.TabIndex = 47;
-            this.guna2HtmlLabel8.Text = "256";
+            this.guna2HtmlLabel8.Text = "0";
             // 
             // guna2HtmlLabel9
             // 
@@ -390,9 +390,9 @@
             this.guna2HtmlLabel12.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel12.Location = new System.Drawing.Point(147, 53);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            this.guna2HtmlLabel12.Size = new System.Drawing.Size(79, 59);
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(30, 59);
             this.guna2HtmlLabel12.TabIndex = 47;
-            this.guna2HtmlLabel12.Text = "256";
+            this.guna2HtmlLabel12.Text = "0";
             // 
             // guna2HtmlLabel13
             // 
@@ -444,9 +444,9 @@
             this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(147, 53);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(79, 59);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(30, 59);
             this.guna2HtmlLabel6.TabIndex = 47;
-            this.guna2HtmlLabel6.Text = "256";
+            this.guna2HtmlLabel6.Text = "0";
             // 
             // guna2HtmlLabel7
             // 
@@ -498,9 +498,9 @@
             this.guna2HtmlLabel15.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel15.Location = new System.Drawing.Point(147, 53);
             this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            this.guna2HtmlLabel15.Size = new System.Drawing.Size(79, 59);
+            this.guna2HtmlLabel15.Size = new System.Drawing.Size(30, 59);
             this.guna2HtmlLabel15.TabIndex = 47;
-            this.guna2HtmlLabel15.Text = "256";
+            this.guna2HtmlLabel15.Text = "0";
             // 
             // guna2HtmlLabel16
             // 
@@ -553,9 +553,9 @@
             this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(147, 53);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(79, 59);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(30, 59);
             this.guna2HtmlLabel5.TabIndex = 47;
-            this.guna2HtmlLabel5.Text = "256";
+            this.guna2HtmlLabel5.Text = "0";
             // 
             // guna2HtmlLabel4
             // 
@@ -620,6 +620,15 @@
             this.guna2Panel14.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.guna2Panel14.Size = new System.Drawing.Size(1620, 63);
             this.guna2Panel14.TabIndex = 30;
+            // 
+            // lblDateTime1
+            // 
+            this.lblDateTime1.AutoSize = true;
+            this.lblDateTime1.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime1.Location = new System.Drawing.Point(752, 10);
+            this.lblDateTime1.Name = "lblDateTime1";
+            this.lblDateTime1.Size = new System.Drawing.Size(0, 43);
+            this.lblDateTime1.TabIndex = 49;
             // 
             // guna2GradientButton2
             // 
@@ -929,15 +938,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
-            // 
-            // lblDateTime1
-            // 
-            this.lblDateTime1.AutoSize = true;
-            this.lblDateTime1.Font = new System.Drawing.Font("Inter", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateTime1.Location = new System.Drawing.Point(752, 10);
-            this.lblDateTime1.Name = "lblDateTime1";
-            this.lblDateTime1.Size = new System.Drawing.Size(0, 43);
-            this.lblDateTime1.TabIndex = 49;
             // 
             // DashboardForm
             // 

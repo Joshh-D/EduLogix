@@ -42,11 +42,11 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.WindowBorderless = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.combobox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.studentidcount = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.attendancestudcount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.AttendancePanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -64,6 +64,7 @@
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
+            this.combobox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel14.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -142,7 +143,8 @@
             this.guna2Panel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel14.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel14.BorderRadius = 10;
-            this.guna2Panel14.Controls.Add(this.guna2ComboBox1);
+            this.guna2Panel14.Controls.Add(this.combobox1);
+            this.guna2Panel14.Controls.Add(this.combobox2);
             this.guna2Panel14.Controls.Add(this.guna2TextBox1);
             this.guna2Panel14.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel14.Location = new System.Drawing.Point(31, 19);
@@ -154,28 +156,29 @@
             this.guna2Panel14.Size = new System.Drawing.Size(1620, 63);
             this.guna2Panel14.TabIndex = 31;
             // 
-            // guna2ComboBox1
+            // combobox2
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.BorderRadius = 5;
-            this.guna2ComboBox1.BorderThickness = 0;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(1336, 14);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.BorderRadius = 5;
-            this.guna2ComboBox1.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2ComboBox1.ShadowDecoration.Enabled = true;
-            this.guna2ComboBox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2ComboBox1.Size = new System.Drawing.Size(268, 36);
-            this.guna2ComboBox1.TabIndex = 50;
+            this.combobox2.BackColor = System.Drawing.Color.Transparent;
+            this.combobox2.BorderColor = System.Drawing.Color.Black;
+            this.combobox2.BorderRadius = 5;
+            this.combobox2.BorderThickness = 0;
+            this.combobox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combobox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combobox2.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.combobox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.combobox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.combobox2.ItemHeight = 30;
+            this.combobox2.Location = new System.Drawing.Point(1336, 14);
+            this.combobox2.Name = "combobox2";
+            this.combobox2.ShadowDecoration.BorderRadius = 5;
+            this.combobox2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.combobox2.ShadowDecoration.Enabled = true;
+            this.combobox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.combobox2.Size = new System.Drawing.Size(268, 36);
+            this.combobox2.TabIndex = 50;
+            this.combobox2.SelectedIndexChanged += new System.EventHandler(this.combobox2_SelectedIndexChanged);
             // 
             // guna2TextBox1
             // 
@@ -205,6 +208,7 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(564, 45);
             this.guna2TextBox1.TabIndex = 1;
             this.guna2TextBox1.TextOffset = new System.Drawing.Point(0, -3);
+            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
             // guna2Panel2
             // 
@@ -212,7 +216,7 @@
             this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel2.BorderRadius = 10;
             this.guna2Panel2.Controls.Add(this.studentidcount);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
+            this.guna2Panel2.Controls.Add(this.attendancestudcount);
             this.guna2Panel2.Controls.Add(this.guna2DataGridView1);
             this.guna2Panel2.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel2.Location = new System.Drawing.Point(31, 142);
@@ -233,17 +237,18 @@
             this.studentidcount.Name = "studentidcount";
             this.studentidcount.Size = new System.Drawing.Size(3, 2);
             this.studentidcount.TabIndex = 35;
+            this.studentidcount.Text = null;
             // 
-            // guna2HtmlLabel2
+            // attendancestudcount
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(17, 823);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(158, 33);
-            this.guna2HtmlLabel2.TabIndex = 34;
-            this.guna2HtmlLabel2.Text = "Total Students: ";
+            this.attendancestudcount.BackColor = System.Drawing.Color.Transparent;
+            this.attendancestudcount.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendancestudcount.ForeColor = System.Drawing.Color.Black;
+            this.attendancestudcount.Location = new System.Drawing.Point(17, 823);
+            this.attendancestudcount.Name = "attendancestudcount";
+            this.attendancestudcount.Size = new System.Drawing.Size(158, 33);
+            this.attendancestudcount.TabIndex = 34;
+            this.attendancestudcount.Text = "Total Students: ";
             // 
             // guna2DataGridView1
             // 
@@ -668,6 +673,35 @@
             this.Dashboard.TextOffset = new System.Drawing.Point(-8, -2);
             this.Dashboard.Click += new System.EventHandler(this.Dashboard_Click_1);
             // 
+            // combobox1
+            // 
+            this.combobox1.BackColor = System.Drawing.Color.Transparent;
+            this.combobox1.BorderColor = System.Drawing.Color.Black;
+            this.combobox1.BorderRadius = 5;
+            this.combobox1.BorderThickness = 0;
+            this.combobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.combobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combobox1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.combobox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.combobox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.combobox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.combobox1.ItemHeight = 30;
+            this.combobox1.Items.AddRange(new object[] {
+            "All",
+            "Elementary",
+            "Junior",
+            "Senior"});
+            this.combobox1.Location = new System.Drawing.Point(1051, 14);
+            this.combobox1.Name = "combobox1";
+            this.combobox1.ShadowDecoration.BorderRadius = 5;
+            this.combobox1.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.combobox1.ShadowDecoration.Enabled = true;
+            this.combobox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.combobox1.Size = new System.Drawing.Size(268, 36);
+            this.combobox1.TabIndex = 51;
+            this.combobox1.SelectedIndexChanged += new System.EventHandler(this.combobox1_SelectedIndexChanged);
+            // 
             // StudentIDForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -738,8 +772,9 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox combobox2;
         private Guna.UI2.WinForms.Guna2HtmlLabel studentidcount;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel attendancestudcount;
+        private Guna.UI2.WinForms.Guna2ComboBox combobox1;
     }
 }

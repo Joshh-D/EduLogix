@@ -22,6 +22,27 @@ namespace EduLogix
             ApplyThemeToForm();
         }
 
+        private void SearchData()
+        {
+            string keyword = guna2TextBox1.Text.Trim();
+            string query = "SELECT * FROM reg_logs WHERE " +
+                           "(name LIKE @search OR " +
+                           "role LIKE @search OR " +
+                           "action LIKE @search)";                    
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@search", "%" + keyword + "%");
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                guna2DataGridView1.DataSource = table;
+               
+            }
+        }
         private void ApplyThemeToForm()
         {
             try
@@ -87,6 +108,71 @@ namespace EduLogix
                 {
                     ctrlBox.FillColor = themeColor;
                 }
+            }
+        }
+
+        private void FilterData()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "SELECT name, role, action, date_and_time FROM reg_logs";
+
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = conn;
+
+                    // You could add extra filters here in future if needed
+
+                    cmd.CommandText = query;
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+
+                    // Bind to DataGridView
+                    guna2DataGridView1.DataSource = table;
+
+                    // Set headers
+                    if (guna2DataGridView1.Columns.Count > 0)
+                    {
+                        guna2DataGridView1.Columns["name"].HeaderText = "Name";
+                        guna2DataGridView1.Columns["role"].HeaderText = "Role";
+                        guna2DataGridView1.Columns["action"].HeaderText = "Action";
+                        guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
+
+                        // Move date_and_time column to last position
+                        int lastIndex = guna2DataGridView1.Columns.Count - 1;
+                        guna2DataGridView1.Columns["date_and_time"].DisplayIndex = lastIndex;
+
+                        // Prevent sorting
+                        foreach (DataGridViewColumn col in guna2DataGridView1.Columns)
+                            col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                    }
+
+                    // Styling
+                    guna2DataGridView1.EnableHeadersVisualStyles = false;
+                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    guna2DataGridView1.ColumnHeadersHeight = 40;
+
+                    guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+                    guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                    guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                    guna2DataGridView1.GridColor = Color.LightGray;
+                    guna2DataGridView1.BorderStyle = BorderStyle.None;
+                    guna2DataGridView1.RowHeadersVisible = false;
+                    guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    guna2DataGridView1.ReadOnly = true;
+                    guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading logs:\n" + ex.Message);
             }
         }
 
@@ -234,6 +320,47 @@ namespace EduLogix
                 Login login = new Login();
                 login.Show();
                 this.Close();
+            }
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = guna2TextBox1.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                FilterData(); // reload all logs
+                return;
+            }
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "SELECT name, role, action, date_and_time FROM reg_logs " +
+                                   "WHERE name LIKE @search OR role LIKE @search OR action LIKE @search";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@search", "%" + keyword + "%");
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+
+                    guna2DataGridView1.DataSource = table;
+
+                    // Move date_and_time to last column
+                    if (guna2DataGridView1.Columns.Contains("date_and_time"))
+                    {
+                        guna2DataGridView1.Columns["date_and_time"].DisplayIndex = guna2DataGridView1.Columns.Count - 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching logs:\n" + ex.Message);
             }
         }
     }
