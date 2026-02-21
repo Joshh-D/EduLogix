@@ -33,6 +33,9 @@ namespace EduLogix
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
+
+                    studentidcount.Text = (guna2DataGridView1.Rows.Count).ToString();
+
                     if (reader.Read())
                     {
                         int r = Convert.ToInt32(reader["theme_red"]);

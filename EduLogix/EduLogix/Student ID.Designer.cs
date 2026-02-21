@@ -45,7 +45,7 @@
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.studentidcount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.AttendancePanel = new Guna.UI2.WinForms.Guna2Panel();
@@ -211,7 +211,7 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel2.BorderRadius = 10;
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel3);
+            this.guna2Panel2.Controls.Add(this.studentidcount);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel2.Controls.Add(this.guna2DataGridView1);
             this.guna2Panel2.FillColor = System.Drawing.SystemColors.Window;
@@ -224,16 +224,15 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1621, 865);
             this.guna2Panel2.TabIndex = 45;
             // 
-            // guna2HtmlLabel3
+            // studentidcount
             // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(181, 823);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(30, 33);
-            this.guna2HtmlLabel3.TabIndex = 35;
-            this.guna2HtmlLabel3.Text = "32";
+            this.studentidcount.BackColor = System.Drawing.Color.Transparent;
+            this.studentidcount.Font = new System.Drawing.Font("Inter", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentidcount.ForeColor = System.Drawing.Color.Black;
+            this.studentidcount.Location = new System.Drawing.Point(181, 823);
+            this.studentidcount.Name = "studentidcount";
+            this.studentidcount.Size = new System.Drawing.Size(3, 2);
+            this.studentidcount.TabIndex = 35;
             // 
             // guna2HtmlLabel2
             // 
@@ -740,7 +739,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel studentidcount;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
     }
 }
