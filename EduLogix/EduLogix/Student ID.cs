@@ -10,7 +10,7 @@ namespace EduLogix
 {
     public partial class StudentIDForm : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private string connectionString = "server=localhost;database=edulogix;uid=root;";
 
         public StudentIDForm()
         {
@@ -32,67 +32,39 @@ namespace EduLogix
         private void SearchData()
         {
             string keyword = guna2TextBox1.Text.Trim();
-            string query = "SELECT student_id, name, grade, section, level FROM reg_studentinfo WHERE " +
-               "(student_id LIKE @search OR " +
-               "name LIKE @search OR " +
-               "grade LIKE @search OR " +
-               "section LIKE @search OR " +
-               "level LIKE @search)";
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@search", "%" + keyword + "%");
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                DataTable table = DatabaseFunctions.SearchStudents(connectionString, keyword);
                 guna2DataGridView1.DataSource = table;
                 attendancestudcount.Text = guna2DataGridView1.Rows.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void FilterData()
         {
-            string query = "SELECT * FROM reg_studentinfo";
-            string levelFilter = "";
-            string gradeFilter = "";
-
-            if (combobox1.SelectedItem != null && combobox1.SelectedItem.ToString() != "All")
+            try
             {
-                levelFilter = "level = @level";
-            }
+                string levelFilter = null;
+                int? gradeFilter = null;
 
-            if (combobox2.Enabled && combobox2.SelectedItem != null)
-            {
-                int grade = int.Parse(combobox2.SelectedItem.ToString().Replace("Grade ", ""));
-                gradeFilter = "grade = @grade";
-            }
+                if (combobox1.SelectedItem != null && combobox1.SelectedItem.ToString() != "All")
+                    levelFilter = combobox1.SelectedItem.ToString().ToLower();
 
-            if (levelFilter != "" && gradeFilter != "")
-                query += " WHERE " + levelFilter + " AND " + gradeFilter;
-            else if (levelFilter != "")
-                query += " WHERE " + levelFilter;
-            else if (gradeFilter != "")
-                query += " WHERE " + gradeFilter;
+                if (combobox2.Enabled && combobox2.SelectedItem != null && combobox2.SelectedItem.ToString() != "All")
+                    gradeFilter = int.Parse(combobox2.SelectedItem.ToString().Replace("Grade ", ""));
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                if (levelFilter != "")
-                    cmd.Parameters.AddWithValue("@level", combobox1.SelectedItem.ToString().ToLower());
-
-                if (gradeFilter != "")
-                    cmd.Parameters.AddWithValue("@grade", int.Parse(combobox2.SelectedItem.ToString().Replace("Grade ", "")));
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
+                DataTable table = DatabaseFunctions.GetStudents(connectionString, levelFilter, gradeFilter);
                 guna2DataGridView1.DataSource = table;
                 attendancestudcount.Text = guna2DataGridView1.Rows.Count.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -100,38 +72,28 @@ namespace EduLogix
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                Color? themeColorNullable = DatabaseFunctions.GetThemeColor(connectionString);
+
+                studentidcount.Text = (guna2DataGridView1.Rows.Count).ToString();
+
+                if (themeColorNullable.HasValue)
                 {
-                    conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    Color themeColor = themeColorNullable.Value;
 
+                    // Apply theme to sidebar background
+                    this.BackColor = themeColor;
 
-                    studentidcount.Text = (guna2DataGridView1.Rows.Count).ToString();
+                    // Apply theme to navigation buttons
+                    ApplyThemeToButtons(themeColor);
 
-                    if (reader.Read())
-                    {
-                        int r = Convert.ToInt32(reader["theme_red"]);
-                        int g = Convert.ToInt32(reader["theme_green"]);
-                        int b = Convert.ToInt32(reader["theme_blue"]);
-                        Color themeColor = Color.FromArgb(r, g, b);
+                    // Apply theme to control boxes
+                    ApplyThemeToControlBoxes(themeColor);
 
-                        // Apply theme to sidebar background
-                        this.BackColor = themeColor;
+                    // Apply theme to labels
+                    ApplyThemeToLabels(themeColor);
 
-                        // Apply theme to navigation buttons
-                        ApplyThemeToButtons(themeColor);
-
-                        // Apply theme to control boxes
-                        ApplyThemeToControlBoxes(themeColor);
-
-                        // Apply theme to labels
-                        ApplyThemeToLabels(themeColor);
-
-                        // Apply theme to DataGridView
-                        ApplyThemeToDataGridView(themeColor);
-                    }
+                    // Apply theme to DataGridView
+                    ApplyThemeToDataGridView(themeColor);
                 }
             }
             catch (Exception ex)
@@ -139,8 +101,6 @@ namespace EduLogix
                 // Silently fail and use default colors
             }
         }
-
-
 
         private void ApplyThemeToButtons(Color themeColor)
         {
@@ -211,83 +171,53 @@ namespace EduLogix
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                string levelFilter = null;
+                int? gradeFilter = null;
+
+                if (combobox1.SelectedItem != null && combobox1.SelectedItem.ToString() != "All")
+                    levelFilter = combobox1.SelectedItem.ToString();
+
+                if (combobox2.Enabled && combobox2.SelectedItem != null && combobox2.SelectedItem.ToString() != "All")
+                    gradeFilter = int.Parse(combobox2.SelectedItem.ToString().Replace("Grade ", ""));
+
+                DataTable table = DatabaseFunctions.GetStudents(connectionString, levelFilter, gradeFilter);
+
+                // Bind to DataGridView
+                guna2DataGridView1.DataSource = table;
+                studentidcount.Text = table.Rows.Count.ToString();
+
+                // Customize headers
+                if (guna2DataGridView1.Columns.Count > 0)
                 {
-                    conn.Open();
+                    guna2DataGridView1.Columns["student_id"].HeaderText = "Student No.";
+                    guna2DataGridView1.Columns["name"].HeaderText = "Name";
+                    guna2DataGridView1.Columns["grade"].HeaderText = "Grade";
+                    guna2DataGridView1.Columns["section"].HeaderText = "Section";
+                    guna2DataGridView1.Columns["level"].HeaderText = "Level";
 
-                    // Base query
-                    string query = "SELECT student_id, name, grade, section, level FROM reg_studentinfo";
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = conn;
-
-                    // Build filters
-                    List<string> filters = new List<string>();
-
-                    // Filter by Level
-                    if (combobox1.SelectedItem != null && combobox1.SelectedItem.ToString() != "All")
+                    foreach (DataGridViewColumn col in guna2DataGridView1.Columns)
                     {
-                        filters.Add("level = @level");
-                        cmd.Parameters.AddWithValue("@level", combobox1.SelectedItem.ToString());
+                        col.SortMode = DataGridViewColumnSortMode.NotSortable;
                     }
-
-                    // Filter by Grade
-                    if (combobox2.Enabled && combobox2.SelectedItem != null && combobox2.SelectedItem.ToString() != "All")
-                    {
-                        string gradeNumber = combobox2.SelectedItem.ToString().Replace("Grade ", "");
-                        filters.Add("grade = @grade");
-                        cmd.Parameters.AddWithValue("@grade", gradeNumber);
-                    }
-
-                    // Add WHERE clause if filters exist
-                    if (filters.Count > 0)
-                    {
-                        query += " WHERE " + string.Join(" AND ", filters);
-                    }
-
-                    cmd.CommandText = query;
-
-                    // Fill DataTable
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-
-                    // Bind to DataGridView
-                    guna2DataGridView1.DataSource = table;
-                    studentidcount.Text = table.Rows.Count.ToString();
-
-                    // Customize headers
-                    if (guna2DataGridView1.Columns.Count > 0)
-                    {
-                        guna2DataGridView1.Columns["student_id"].HeaderText = "Student No.";
-                        guna2DataGridView1.Columns["name"].HeaderText = "Name";
-                        guna2DataGridView1.Columns["grade"].HeaderText = "Grade";
-                        guna2DataGridView1.Columns["section"].HeaderText = "Section";
-                        guna2DataGridView1.Columns["level"].HeaderText = "Level";
-
-                        foreach (DataGridViewColumn col in guna2DataGridView1.Columns)
-                        {
-                            col.SortMode = DataGridViewColumnSortMode.NotSortable;
-                        }
-                    }
-
-                    // Styling (optional, keeps your original style)
-                    guna2DataGridView1.EnableHeadersVisualStyles = false;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                    guna2DataGridView1.ColumnHeadersHeight = 40;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font =
-                        new Font("Segoe UI", 10, FontStyle.Bold);
-
-                    guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-                    guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
-                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.GridColor = Color.LightGray;
-                    guna2DataGridView1.BorderStyle = BorderStyle.None;
-                    guna2DataGridView1.RowHeadersVisible = false;
-                    guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    guna2DataGridView1.ReadOnly = true;
-                    guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 }
+
+                // Styling (optional, keeps your original style)
+                guna2DataGridView1.EnableHeadersVisualStyles = false;
+                guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                guna2DataGridView1.ColumnHeadersHeight = 40;
+                guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font =
+                    new Font("Segoe UI", 10, FontStyle.Bold);
+
+                guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+                guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+                guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                guna2DataGridView1.GridColor = Color.LightGray;
+                guna2DataGridView1.BorderStyle = BorderStyle.None;
+                guna2DataGridView1.RowHeadersVisible = false;
+                guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                guna2DataGridView1.ReadOnly = true;
+                guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             }
             catch (Exception ex)
             {
@@ -417,9 +347,11 @@ namespace EduLogix
             }
         }
 
-        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        private void btnAddNewStudent_Event(object sender, EventArgs e)
         {
-
+            StudentInfo stdinfo = new StudentInfo();
+            stdinfo.Show();
+            this.Hide();
         }
     }
 }

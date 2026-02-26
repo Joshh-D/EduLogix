@@ -42,32 +42,23 @@ namespace EduLogix
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                Color? themeColorNullable = DatabaseFunctions.GetThemeColor(connectionString);
+
+                if (themeColorNullable.HasValue)
                 {
-                    conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    Color themeColor = themeColorNullable.Value;
 
-                    if (reader.Read())
-                    {
-                        int r = Convert.ToInt32(reader["theme_red"]);
-                        int g = Convert.ToInt32(reader["theme_green"]);
-                        int b = Convert.ToInt32(reader["theme_blue"]);
-                        Color themeColor = Color.FromArgb(r, g, b);
+                    // Apply theme to sidebar background
+                    this.BackColor = themeColor;
 
-                        // Apply theme to sidebar background
-                        this.BackColor = themeColor;
+                    // Apply theme to navigation buttons
+                    ApplyThemeToButtons(themeColor);
 
-                        // Apply theme to navigation buttons
-                        ApplyThemeToButtons(themeColor);
+                    // Apply theme to control boxes
+                    ApplyThemeToControlBoxes(themeColor);
 
-                        // Apply theme to control boxes
-                        ApplyThemeToControlBoxes(themeColor);
-
-                        // Apply theme to labels
-                        ApplyThemeToLabels(themeColor);
-                    }
+                    // Apply theme to labels
+                    ApplyThemeToLabels(themeColor);
                 }
             }
             catch (Exception ex)

@@ -158,6 +158,7 @@
     <Compile Include="ConfirmBorrow.Designer.cs">
       <DependentUpon>ConfirmBorrow.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseFunctions.cs" />
     <Compile Include="Kiosk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +232,12 @@
     </Compile>
     <Compile Include="StudentInfo.Designer.cs">
       <DependentUpon>StudentInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
@@ -308,6 +315,9 @@
     <EmbeddedResource Include="StudentInfo.resx">
       <DependentUpon>StudentInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Student.resx">
+      <DependentUpon>Student.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +340,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EduLogix.ico" />
+    <None Include="Resources\LMS_icons\iconArchive.png" />
     <None Include="Resources\Screenshot_2026-02-20_212811-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-02-19_152726-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-02-10_002926-removebg-preview %281%29.png" />

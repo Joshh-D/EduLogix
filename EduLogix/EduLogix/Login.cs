@@ -106,6 +106,8 @@ namespace EduLogix
                             accountID.Clear();
                             accountpass.Clear();
 
+                            DatabaseFunctions.Log(DatabaseFunctions.DefaultConnectionString, dbUsername, "Logged in.", dbRole);
+
                             // navigate based on role
                             if (dbRole.Equals("registrar", StringComparison.OrdinalIgnoreCase))
                             {

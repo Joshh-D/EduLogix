@@ -10,7 +10,7 @@ namespace EduLogix
 {
     public partial class AttendanceForm : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private string connectionString = "server=localhost;port=3306;database=edulogix;uid=root;";
 
         public AttendanceForm()
         {

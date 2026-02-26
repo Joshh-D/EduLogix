@@ -76,5 +76,22 @@ namespace EduLogix
             settings.Show();
             this.Hide();
         }
+
+        private void AttendancePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void StudentInfo_Load(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtbxRFIDNumber.Text))
+            {
+                lblPleaseScanTheRFID.Visible = true;
+            }
+            else
+            {
+                lblPleaseScanTheRFID.Visible = false;
+            }
+        }
     }
 }
