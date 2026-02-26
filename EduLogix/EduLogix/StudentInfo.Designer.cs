@@ -35,25 +35,22 @@
             this.WindowAnimation = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.UserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2TextBox7 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox6 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox4 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtbxPresentAddress = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtbxGuardianPhoneNo = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtbxGuardianName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtbxGradeLevel = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtbxName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtbxStudentID = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtbxRFIDNumber = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.AttendancePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -79,10 +76,12 @@
             this.Settings = new Guna.UI2.WinForms.Guna2Button();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.lblPleaseScanTheRFID = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cmbbxSection = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.AttendancePanel.SuspendLayout();
-            this.guna2Panel14.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -123,22 +122,23 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel2.BorderRadius = 10;
+            this.guna2Panel2.Controls.Add(this.cmbbxSection);
+            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel4);
+            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel14);
             this.guna2Panel2.Controls.Add(this.lblPleaseScanTheRFID);
             this.guna2Panel2.Controls.Add(this.guna2GradientButton2);
             this.guna2Panel2.Controls.Add(this.guna2GradientButton1);
             this.guna2Panel2.Controls.Add(this.guna2GradientButton3);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox7);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox6);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox5);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox4);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox3);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox2);
-            this.guna2Panel2.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel2.Controls.Add(this.txtbxPresentAddress);
+            this.guna2Panel2.Controls.Add(this.txtbxGuardianPhoneNo);
+            this.guna2Panel2.Controls.Add(this.txtbxGuardianName);
+            this.guna2Panel2.Controls.Add(this.txtbxGradeLevel);
+            this.guna2Panel2.Controls.Add(this.txtbxName);
+            this.guna2Panel2.Controls.Add(this.txtbxStudentID);
             this.guna2Panel2.Controls.Add(this.txtbxRFIDNumber);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel8);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel9);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel10);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel7);
             this.guna2Panel2.Controls.Add(this.guna2Button5);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel6);
             this.guna2Panel2.Controls.Add(this.guna2Button3);
@@ -160,208 +160,179 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1297, 722);
             this.guna2Panel2.TabIndex = 42;
             // 
-            // guna2TextBox7
+            // txtbxPresentAddress
             // 
-            this.guna2TextBox7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox7.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox7.BorderRadius = 5;
-            this.guna2TextBox7.BorderThickness = 0;
-            this.guna2TextBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox7.DefaultText = "";
-            this.guna2TextBox7.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox7.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox7.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox7.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox7.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox7.Location = new System.Drawing.Point(450, 504);
-            this.guna2TextBox7.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.guna2TextBox7.Name = "guna2TextBox7";
-            this.guna2TextBox7.PlaceholderText = "";
-            this.guna2TextBox7.SelectedText = "";
-            this.guna2TextBox7.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox7.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2TextBox7.ShadowDecoration.Enabled = true;
-            this.guna2TextBox7.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox7.Size = new System.Drawing.Size(391, 36);
-            this.guna2TextBox7.TabIndex = 92;
-            this.guna2TextBox7.TextOffset = new System.Drawing.Point(0, -3);
+            this.txtbxPresentAddress.BackColor = System.Drawing.Color.Transparent;
+            this.txtbxPresentAddress.BorderColor = System.Drawing.Color.Black;
+            this.txtbxPresentAddress.BorderRadius = 5;
+            this.txtbxPresentAddress.BorderThickness = 0;
+            this.txtbxPresentAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbxPresentAddress.DefaultText = "";
+            this.txtbxPresentAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtbxPresentAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtbxPresentAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxPresentAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxPresentAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxPresentAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxPresentAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxPresentAddress.Location = new System.Drawing.Point(527, 500);
+            this.txtbxPresentAddress.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtbxPresentAddress.Name = "txtbxPresentAddress";
+            this.txtbxPresentAddress.PlaceholderText = "";
+            this.txtbxPresentAddress.SelectedText = "";
+            this.txtbxPresentAddress.ShadowDecoration.BorderRadius = 5;
+            this.txtbxPresentAddress.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.txtbxPresentAddress.ShadowDecoration.Depth = 20;
+            this.txtbxPresentAddress.ShadowDecoration.Enabled = true;
+            this.txtbxPresentAddress.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
+            this.txtbxPresentAddress.Size = new System.Drawing.Size(391, 36);
+            this.txtbxPresentAddress.TabIndex = 92;
+            this.txtbxPresentAddress.TextOffset = new System.Drawing.Point(0, -3);
             // 
-            // guna2TextBox6
+            // txtbxGuardianPhoneNo
             // 
-            this.guna2TextBox6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox6.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox6.BorderRadius = 5;
-            this.guna2TextBox6.BorderThickness = 0;
-            this.guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox6.DefaultText = "";
-            this.guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox6.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox6.Location = new System.Drawing.Point(450, 442);
-            this.guna2TextBox6.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.guna2TextBox6.Name = "guna2TextBox6";
-            this.guna2TextBox6.PlaceholderText = "";
-            this.guna2TextBox6.SelectedText = "";
-            this.guna2TextBox6.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox6.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2TextBox6.ShadowDecoration.Enabled = true;
-            this.guna2TextBox6.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox6.Size = new System.Drawing.Size(391, 36);
-            this.guna2TextBox6.TabIndex = 91;
-            this.guna2TextBox6.TextOffset = new System.Drawing.Point(0, -3);
+            this.txtbxGuardianPhoneNo.BackColor = System.Drawing.Color.Transparent;
+            this.txtbxGuardianPhoneNo.BorderColor = System.Drawing.Color.Black;
+            this.txtbxGuardianPhoneNo.BorderRadius = 5;
+            this.txtbxGuardianPhoneNo.BorderThickness = 0;
+            this.txtbxGuardianPhoneNo.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbxGuardianPhoneNo.DefaultText = "";
+            this.txtbxGuardianPhoneNo.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtbxGuardianPhoneNo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtbxGuardianPhoneNo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxGuardianPhoneNo.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxGuardianPhoneNo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxGuardianPhoneNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxGuardianPhoneNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxGuardianPhoneNo.Location = new System.Drawing.Point(527, 438);
+            this.txtbxGuardianPhoneNo.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtbxGuardianPhoneNo.Name = "txtbxGuardianPhoneNo";
+            this.txtbxGuardianPhoneNo.PlaceholderText = "";
+            this.txtbxGuardianPhoneNo.SelectedText = "";
+            this.txtbxGuardianPhoneNo.ShadowDecoration.BorderRadius = 5;
+            this.txtbxGuardianPhoneNo.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.txtbxGuardianPhoneNo.ShadowDecoration.Depth = 20;
+            this.txtbxGuardianPhoneNo.ShadowDecoration.Enabled = true;
+            this.txtbxGuardianPhoneNo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
+            this.txtbxGuardianPhoneNo.Size = new System.Drawing.Size(391, 36);
+            this.txtbxGuardianPhoneNo.TabIndex = 91;
+            this.txtbxGuardianPhoneNo.TextOffset = new System.Drawing.Point(0, -3);
             // 
-            // guna2TextBox5
+            // txtbxGuardianName
             // 
-            this.guna2TextBox5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox5.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox5.BorderRadius = 5;
-            this.guna2TextBox5.BorderThickness = 0;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(450, 383);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PlaceholderText = "";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox5.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2TextBox5.ShadowDecoration.Enabled = true;
-            this.guna2TextBox5.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox5.Size = new System.Drawing.Size(391, 36);
-            this.guna2TextBox5.TabIndex = 90;
-            this.guna2TextBox5.TextOffset = new System.Drawing.Point(0, -3);
+            this.txtbxGuardianName.BackColor = System.Drawing.Color.Transparent;
+            this.txtbxGuardianName.BorderColor = System.Drawing.Color.Black;
+            this.txtbxGuardianName.BorderRadius = 5;
+            this.txtbxGuardianName.BorderThickness = 0;
+            this.txtbxGuardianName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbxGuardianName.DefaultText = "";
+            this.txtbxGuardianName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtbxGuardianName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtbxGuardianName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxGuardianName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxGuardianName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxGuardianName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxGuardianName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxGuardianName.Location = new System.Drawing.Point(527, 379);
+            this.txtbxGuardianName.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtbxGuardianName.Name = "txtbxGuardianName";
+            this.txtbxGuardianName.PlaceholderText = "";
+            this.txtbxGuardianName.SelectedText = "";
+            this.txtbxGuardianName.ShadowDecoration.BorderRadius = 5;
+            this.txtbxGuardianName.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.txtbxGuardianName.ShadowDecoration.Depth = 20;
+            this.txtbxGuardianName.ShadowDecoration.Enabled = true;
+            this.txtbxGuardianName.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
+            this.txtbxGuardianName.Size = new System.Drawing.Size(391, 36);
+            this.txtbxGuardianName.TabIndex = 90;
+            this.txtbxGuardianName.TextOffset = new System.Drawing.Point(0, -3);
             // 
-            // guna2TextBox4
+            // txtbxGradeLevel
             // 
-            this.guna2TextBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox4.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox4.BorderRadius = 5;
-            this.guna2TextBox4.BorderThickness = 0;
-            this.guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox4.DefaultText = "";
-            this.guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox4.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox4.Location = new System.Drawing.Point(450, 260);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.guna2TextBox4.Name = "guna2TextBox4";
-            this.guna2TextBox4.PlaceholderText = "";
-            this.guna2TextBox4.SelectedText = "";
-            this.guna2TextBox4.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox4.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2TextBox4.ShadowDecoration.Enabled = true;
-            this.guna2TextBox4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox4.Size = new System.Drawing.Size(391, 36);
-            this.guna2TextBox4.TabIndex = 89;
-            this.guna2TextBox4.TextOffset = new System.Drawing.Point(0, -3);
+            this.txtbxGradeLevel.BackColor = System.Drawing.Color.Transparent;
+            this.txtbxGradeLevel.BorderColor = System.Drawing.Color.Black;
+            this.txtbxGradeLevel.BorderRadius = 5;
+            this.txtbxGradeLevel.BorderThickness = 0;
+            this.txtbxGradeLevel.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbxGradeLevel.DefaultText = "";
+            this.txtbxGradeLevel.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtbxGradeLevel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtbxGradeLevel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxGradeLevel.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxGradeLevel.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxGradeLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxGradeLevel.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxGradeLevel.Location = new System.Drawing.Point(527, 328);
+            this.txtbxGradeLevel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtbxGradeLevel.Name = "txtbxGradeLevel";
+            this.txtbxGradeLevel.PlaceholderText = "";
+            this.txtbxGradeLevel.SelectedText = "";
+            this.txtbxGradeLevel.ShadowDecoration.BorderRadius = 5;
+            this.txtbxGradeLevel.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.txtbxGradeLevel.ShadowDecoration.Depth = 20;
+            this.txtbxGradeLevel.ShadowDecoration.Enabled = true;
+            this.txtbxGradeLevel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
+            this.txtbxGradeLevel.Size = new System.Drawing.Size(102, 36);
+            this.txtbxGradeLevel.TabIndex = 88;
+            this.txtbxGradeLevel.TextOffset = new System.Drawing.Point(0, -3);
             // 
-            // guna2TextBox3
+            // txtbxName
             // 
-            this.guna2TextBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox3.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox3.BorderRadius = 5;
-            this.guna2TextBox3.BorderThickness = 0;
-            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox3.DefaultText = "";
-            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox3.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Location = new System.Drawing.Point(450, 199);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.guna2TextBox3.Name = "guna2TextBox3";
-            this.guna2TextBox3.PlaceholderText = "";
-            this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox3.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2TextBox3.ShadowDecoration.Enabled = true;
-            this.guna2TextBox3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox3.Size = new System.Drawing.Size(391, 36);
-            this.guna2TextBox3.TabIndex = 88;
-            this.guna2TextBox3.TextOffset = new System.Drawing.Point(0, -3);
+            this.txtbxName.BackColor = System.Drawing.Color.Transparent;
+            this.txtbxName.BorderColor = System.Drawing.Color.Black;
+            this.txtbxName.BorderRadius = 5;
+            this.txtbxName.BorderThickness = 0;
+            this.txtbxName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbxName.DefaultText = "";
+            this.txtbxName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtbxName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtbxName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxName.Location = new System.Drawing.Point(527, 266);
+            this.txtbxName.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtbxName.Name = "txtbxName";
+            this.txtbxName.PlaceholderText = "";
+            this.txtbxName.SelectedText = "";
+            this.txtbxName.ShadowDecoration.BorderRadius = 5;
+            this.txtbxName.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.txtbxName.ShadowDecoration.Depth = 20;
+            this.txtbxName.ShadowDecoration.Enabled = true;
+            this.txtbxName.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
+            this.txtbxName.Size = new System.Drawing.Size(391, 36);
+            this.txtbxName.TabIndex = 87;
+            this.txtbxName.TextOffset = new System.Drawing.Point(0, -3);
             // 
-            // guna2TextBox2
+            // txtbxStudentID
             // 
-            this.guna2TextBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox2.BorderRadius = 5;
-            this.guna2TextBox2.BorderThickness = 0;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Location = new System.Drawing.Point(450, 137);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2TextBox2.ShadowDecoration.Enabled = true;
-            this.guna2TextBox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox2.Size = new System.Drawing.Size(391, 36);
-            this.guna2TextBox2.TabIndex = 87;
-            this.guna2TextBox2.TextOffset = new System.Drawing.Point(0, -3);
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.BorderThickness = 0;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(450, 81);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.ShadowDecoration.BorderRadius = 5;
-            this.guna2TextBox1.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.guna2TextBox1.ShadowDecoration.Enabled = true;
-            this.guna2TextBox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox1.Size = new System.Drawing.Size(391, 36);
-            this.guna2TextBox1.TabIndex = 86;
-            this.guna2TextBox1.TextOffset = new System.Drawing.Point(0, -3);
+            this.txtbxStudentID.BackColor = System.Drawing.Color.Transparent;
+            this.txtbxStudentID.BorderColor = System.Drawing.Color.Black;
+            this.txtbxStudentID.BorderRadius = 5;
+            this.txtbxStudentID.BorderThickness = 0;
+            this.txtbxStudentID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbxStudentID.DefaultText = "";
+            this.txtbxStudentID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtbxStudentID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtbxStudentID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxStudentID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtbxStudentID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxStudentID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtbxStudentID.Location = new System.Drawing.Point(527, 210);
+            this.txtbxStudentID.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txtbxStudentID.Name = "txtbxStudentID";
+            this.txtbxStudentID.PlaceholderText = "";
+            this.txtbxStudentID.SelectedText = "";
+            this.txtbxStudentID.ShadowDecoration.BorderRadius = 5;
+            this.txtbxStudentID.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.txtbxStudentID.ShadowDecoration.Depth = 20;
+            this.txtbxStudentID.ShadowDecoration.Enabled = true;
+            this.txtbxStudentID.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
+            this.txtbxStudentID.Size = new System.Drawing.Size(391, 36);
+            this.txtbxStudentID.TabIndex = 86;
+            this.txtbxStudentID.TextOffset = new System.Drawing.Point(0, -3);
             // 
             // txtbxRFIDNumber
             // 
@@ -375,20 +346,20 @@
             this.txtbxRFIDNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtbxRFIDNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtbxRFIDNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtbxRFIDNumber.Enabled = false;
             this.txtbxRFIDNumber.FillColor = System.Drawing.Color.WhiteSmoke;
             this.txtbxRFIDNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtbxRFIDNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxRFIDNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtbxRFIDNumber.Location = new System.Drawing.Point(450, 20);
+            this.txtbxRFIDNumber.Location = new System.Drawing.Point(527, 149);
             this.txtbxRFIDNumber.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtbxRFIDNumber.Name = "txtbxRFIDNumber";
             this.txtbxRFIDNumber.PlaceholderText = "";
             this.txtbxRFIDNumber.SelectedText = "";
             this.txtbxRFIDNumber.ShadowDecoration.BorderRadius = 5;
             this.txtbxRFIDNumber.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.txtbxRFIDNumber.ShadowDecoration.Depth = 20;
             this.txtbxRFIDNumber.ShadowDecoration.Enabled = true;
-            this.txtbxRFIDNumber.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.txtbxRFIDNumber.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
             this.txtbxRFIDNumber.Size = new System.Drawing.Size(391, 36);
             this.txtbxRFIDNumber.TabIndex = 85;
             this.txtbxRFIDNumber.TextOffset = new System.Drawing.Point(0, -3);
@@ -398,7 +369,7 @@
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(289, 506);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(366, 502);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(136, 24);
@@ -410,7 +381,7 @@
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(218, 444);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(295, 440);
             this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(202, 24);
@@ -422,43 +393,31 @@
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel10.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(298, 386);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(375, 382);
             this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(129, 24);
             this.guna2HtmlLabel10.TabIndex = 70;
             this.guna2HtmlLabel10.Text = "Guardian Name";
             // 
-            // guna2HtmlLabel7
-            // 
-            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(306, 262);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(120, 24);
-            this.guna2HtmlLabel7.TabIndex = 68;
-            this.guna2HtmlLabel7.Text = "Phone number";
-            // 
             // guna2HtmlLabel6
             // 
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(294, 202);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(412, 334);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(135, 24);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(95, 24);
             this.guna2HtmlLabel6.TabIndex = 65;
-            this.guna2HtmlLabel6.Text = "Grade & Section";
+            this.guna2HtmlLabel6.Text = "Grade level";
             // 
             // guna2HtmlLabel5
             // 
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(346, 141);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(423, 270);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(84, 24);
@@ -470,7 +429,7 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(346, 82);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(423, 211);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(87, 24);
@@ -482,7 +441,7 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(320, 23);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(397, 152);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(112, 24);
@@ -495,7 +454,7 @@
             this.guna2Panel4.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel4.BorderRadius = 10;
             this.guna2Panel4.Controls.Add(this.guna2PictureBox2);
-            this.guna2Panel4.Location = new System.Drawing.Point(25, 20);
+            this.guna2Panel4.Location = new System.Drawing.Point(37, 144);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.BorderRadius = 10;
@@ -510,7 +469,7 @@
             this.AttendancePanel.BorderColor = System.Drawing.Color.White;
             this.AttendancePanel.BorderRadius = 15;
             this.AttendancePanel.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.AttendancePanel.Controls.Add(this.guna2Panel14);
+            this.AttendancePanel.Controls.Add(this.guna2GradientButton4);
             this.AttendancePanel.Controls.Add(this.guna2Panel2);
             this.AttendancePanel.FillColor = System.Drawing.SystemColors.Window;
             this.AttendancePanel.Location = new System.Drawing.Point(178, 23);
@@ -520,29 +479,12 @@
             this.AttendancePanel.TabIndex = 46;
             this.AttendancePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AttendancePanel_Paint);
             // 
-            // guna2Panel14
-            // 
-            this.guna2Panel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel14.BorderColor = System.Drawing.Color.Black;
-            this.guna2Panel14.BorderRadius = 10;
-            this.guna2Panel14.Controls.Add(this.guna2HtmlLabel14);
-            this.guna2Panel14.FillColor = System.Drawing.SystemColors.Window;
-            this.guna2Panel14.Location = new System.Drawing.Point(25, 15);
-            this.guna2Panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2Panel14.Name = "guna2Panel14";
-            this.guna2Panel14.ShadowDecoration.BorderRadius = 10;
-            this.guna2Panel14.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2Panel14.ShadowDecoration.Enabled = true;
-            this.guna2Panel14.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
-            this.guna2Panel14.Size = new System.Drawing.Size(1296, 50);
-            this.guna2Panel14.TabIndex = 43;
-            // 
             // guna2HtmlLabel14
             // 
             this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel14.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel14.Location = new System.Drawing.Point(15, 6);
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(49, 30);
             this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             this.guna2HtmlLabel14.Size = new System.Drawing.Size(229, 31);
@@ -846,7 +788,8 @@
             this.guna2GradientButton3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
             this.guna2GradientButton3.Size = new System.Drawing.Size(136, 32);
             this.guna2GradientButton3.TabIndex = 93;
-            this.guna2GradientButton3.Text = "Save Changes";
+            this.guna2GradientButton3.Text = "Save";
+            this.guna2GradientButton3.Click += new System.EventHandler(this.guna2GradientButton3_Click);
             // 
             // guna2Button5
             // 
@@ -1037,12 +980,76 @@
             this.lblPleaseScanTheRFID.BackColor = System.Drawing.Color.Transparent;
             this.lblPleaseScanTheRFID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPleaseScanTheRFID.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblPleaseScanTheRFID.Location = new System.Drawing.Point(858, 29);
+            this.lblPleaseScanTheRFID.Location = new System.Drawing.Point(935, 158);
             this.lblPleaseScanTheRFID.Margin = new System.Windows.Forms.Padding(2);
             this.lblPleaseScanTheRFID.Name = "lblPleaseScanTheRFID";
             this.lblPleaseScanTheRFID.Size = new System.Drawing.Size(144, 23);
             this.lblPleaseScanTheRFID.TabIndex = 96;
             this.lblPleaseScanTheRFID.Text = "Please scan the RFID";
+            // 
+            // guna2GradientButton4
+            // 
+            this.guna2GradientButton4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton4.BorderRadius = 5;
+            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.guna2GradientButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton4.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194553_removebg_preview;
+            this.guna2GradientButton4.Location = new System.Drawing.Point(25, 25);
+            this.guna2GradientButton4.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientButton4.Name = "guna2GradientButton4";
+            this.guna2GradientButton4.ShadowDecoration.BorderRadius = 10;
+            this.guna2GradientButton4.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.guna2GradientButton4.ShadowDecoration.Enabled = true;
+            this.guna2GradientButton4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.guna2GradientButton4.Size = new System.Drawing.Size(136, 32);
+            this.guna2GradientButton4.TabIndex = 97;
+            this.guna2GradientButton4.Text = "Back";
+            // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(653, 334);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(63, 24);
+            this.guna2HtmlLabel4.TabIndex = 97;
+            this.guna2HtmlLabel4.Text = "Section";
+            // 
+            // cmbbxSection
+            // 
+            this.cmbbxSection.BackColor = System.Drawing.Color.Transparent;
+            this.cmbbxSection.BorderRadius = 10;
+            this.cmbbxSection.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbbxSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbbxSection.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbbxSection.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbbxSection.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbbxSection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbbxSection.ItemHeight = 30;
+            this.cmbbxSection.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"});
+            this.cmbbxSection.Location = new System.Drawing.Point(721, 328);
+            this.cmbbxSection.Name = "cmbbxSection";
+            this.cmbbxSection.ShadowDecoration.BorderRadius = 10;
+            this.cmbbxSection.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.cmbbxSection.ShadowDecoration.Depth = 20;
+            this.cmbbxSection.ShadowDecoration.Enabled = true;
+            this.cmbbxSection.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 5, 5);
+            this.cmbbxSection.Size = new System.Drawing.Size(197, 36);
+            this.cmbbxSection.TabIndex = 98;
             // 
             // StudentInfo
             // 
@@ -1076,8 +1083,6 @@
             this.guna2Panel2.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.AttendancePanel.ResumeLayout(false);
-            this.guna2Panel14.ResumeLayout(false);
-            this.guna2Panel14.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
@@ -1116,7 +1121,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
@@ -1124,19 +1128,20 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2TextBox txtbxRFIDNumber;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox7;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox6;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtbxPresentAddress;
+        private Guna.UI2.WinForms.Guna2TextBox txtbxGuardianPhoneNo;
+        private Guna.UI2.WinForms.Guna2TextBox txtbxGuardianName;
+        private Guna.UI2.WinForms.Guna2TextBox txtbxGradeLevel;
+        private Guna.UI2.WinForms.Guna2TextBox txtbxName;
+        private Guna.UI2.WinForms.Guna2TextBox txtbxStudentID;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblPleaseScanTheRFID;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbbxSection;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
     }
 }

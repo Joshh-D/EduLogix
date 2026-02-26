@@ -9,7 +9,6 @@ namespace EduLogix
     {
         public static readonly string DefaultConnectionString = "server=localhost;database=edulogix;uid=root;";
 
-        // Logging helpers (existing)
         public static void Log(MySqlConnection conn, string username, string action, string role)
         {
             if (conn == null) throw new ArgumentNullException(nameof(conn));
@@ -29,7 +28,6 @@ namespace EduLogix
                 cmd.Parameters.AddWithValue("@action", (object)action ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@role", (object)role ?? DBNull.Value);
 
-
                 cmd.ExecuteNonQuery();
             }
 
@@ -46,7 +44,93 @@ namespace EduLogix
             }
         }
 
-        // Returns DataTable of students with optional filters
+        public static bool InsertNewStudent(
+            MySqlConnection conn,
+            string rfidNumber,
+            string studentId,
+            string name,
+            string guardianName,
+            string guardianPhoneNumber,
+            string address,
+            int grade,
+            string section,
+            string level,
+            string imagePath = "uploads/default.png")
+        {
+            if (conn == null) throw new ArgumentNullException(nameof(conn));
+            if (string.IsNullOrWhiteSpace(studentId)) throw new ArgumentException("studentId is required", nameof(studentId));
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("name is required", nameof(name));
+
+            if (!string.IsNullOrWhiteSpace(guardianPhoneNumber))
+            {
+                string digitsOnly = string.Empty;
+                foreach (char c in guardianPhoneNumber)
+                {
+                    if (char.IsDigit(c)) digitsOnly += c;
+                }
+                if (digitsOnly.Length > 11)
+                    throw new ArgumentException("guardianPhoneNumber must be at most 11 digits", nameof(guardianPhoneNumber));
+                guardianPhoneNumber = digitsOnly;
+            }
+
+            bool openedHere = false;
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+                openedHere = true;
+            }
+
+            try
+            {
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText =
+                       "INSERT INTO `edulogix`.`reg_studentinfo` " +
+                       "(`image_path`, `rfid_number`, `student_id`, `name`, `guardian_name`, `guardian_phone_number`, `address`, `grade`, `section`, `level`) " +
+                       "VALUES (@image_path, @rfid_number, @student_id, @name, @guardian_name, @guardian_phone_number, @address, @grade, @section, @level) ";
+
+                    cmd.Parameters.AddWithValue("@image_path", (object)imagePath ?? "uploads/default.png");
+                    cmd.Parameters.AddWithValue("@rfid_number", (object)rfidNumber ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@student_id", studentId);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@guardian_name", (object)guardianName ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@guardian_phone_number", string.IsNullOrWhiteSpace(guardianPhoneNumber) ? (object)DBNull.Value : (object)guardianPhoneNumber);
+                    cmd.Parameters.AddWithValue("@address", (object)address ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@grade", grade);
+                    cmd.Parameters.AddWithValue("@section", (object)section ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@level", (object)level ?? DBNull.Value);
+
+                    int rows = cmd.ExecuteNonQuery();
+                    return rows > 0;
+                }
+            }
+            finally
+            {
+                if (openedHere)
+                    conn.Close();
+            }
+        }
+
+        public static bool InsertNewStudent(
+            string connectionString,
+            string rfidNumber,
+            string studentId,
+            string name,
+            string guardianName,
+            string guardianPhoneNumber,
+            string address,
+            int grade,
+            string section,
+            string level,
+            string imagePath = "uploads/default.png")
+        {
+            using (var conn = new MySqlConnection(connectionString ?? DefaultConnectionString))
+            {
+                conn.Open();
+                return InsertNewStudent(conn, rfidNumber, studentId, name, guardianName, guardianPhoneNumber, address, grade, section, level, imagePath);
+            }
+        }
+
         public static DataTable GetStudents(MySqlConnection conn, string level = null, int? grade = null)
         {
             if (conn == null) throw new ArgumentNullException(nameof(conn));
@@ -105,7 +189,6 @@ namespace EduLogix
             }
         }
 
-        // Search students by keyword (matches multiple columns)
         public static DataTable SearchStudents(MySqlConnection conn, string keyword)
         {
             if (conn == null) throw new ArgumentNullException(nameof(conn));
@@ -150,7 +233,6 @@ namespace EduLogix
             }
         }
 
-        // Get theme color from reg_theme id=1
         public static Color? GetThemeColor(MySqlConnection conn)
         {
             if (conn == null) throw new ArgumentNullException(nameof(conn));

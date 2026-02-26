@@ -90,8 +90,47 @@ namespace EduLogix
             }
             else
             {
-                lblPleaseScanTheRFID.Visible = false;
+                lblPleaseScanTheRFID.Visible = false ;
             }
+        }
+
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        {
+            string educationLevel = "";
+            int gradeLvl = 0;
+            if (int.TryParse(txtbxGradeLevel.Text, out gradeLvl))
+            {
+                if (gradeLvl < 7)
+                {
+                    educationLevel = "elementary";
+                }
+                else if (gradeLvl > 7 && gradeLvl <= 10)
+                {
+                    educationLevel = "junior";
+                }
+                else if (gradeLvl <= 12 && gradeLvl > 10)
+                {
+                    educationLevel = "senior";
+                }
+                else
+                {
+                    MessageBox.Show("Invalid grade leve");
+                    return;
+                }
+            }
+
+            bool isSuccess = DatabaseFunctions.InsertNewStudent(
+                connectionString: DatabaseFunctions.DefaultConnectionString,
+                rfidNumber: txtbxRFIDNumber.Text,
+                studentId: txtbxStudentID.Text,
+                name: txtbxName.Text,
+                guardianName: txtbxGuardianName.Text,
+                guardianPhoneNumber: txtbxGuardianPhoneNo.Text,
+                address: txtbxPresentAddress.Text,
+                grade: gradeLvl,
+                section: cmbbxSection.SelectedItem.ToString(),
+                level: educationLevel
+            );
         }
     }
 }

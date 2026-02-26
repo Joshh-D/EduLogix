@@ -51,6 +51,10 @@
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.AttendancePanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnAddNewStudent = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.UserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
@@ -60,10 +64,6 @@
             this.StudentsID = new Guna.UI2.WinForms.Guna2Button();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btnAddNewStudent = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel14.SuspendLayout();
@@ -97,7 +97,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(-42, -1);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox1.TabIndex = 0;
@@ -109,7 +109,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(1377, 2);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(26, 20);
             this.guna2ControlBox3.TabIndex = 34;
@@ -121,7 +121,7 @@
             this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Tomato;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(1403, 2);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(26, 20);
             this.guna2ControlBox2.TabIndex = 31;
@@ -131,7 +131,7 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel1.Location = new System.Drawing.Point(4, 5);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(0, 0);
             this.guna2Panel1.TabIndex = 30;
@@ -152,7 +152,7 @@
             this.guna2Panel14.Controls.Add(this.guna2TextBox1);
             this.guna2Panel14.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel14.Location = new System.Drawing.Point(23, 15);
-            this.guna2Panel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel14.Name = "guna2Panel14";
             this.guna2Panel14.ShadowDecoration.BorderRadius = 10;
             this.guna2Panel14.ShadowDecoration.Color = System.Drawing.Color.Gray;
@@ -180,8 +180,8 @@
             "Elementary",
             "Junior",
             "Senior"});
-            this.combobox1.Location = new System.Drawing.Point(788, 11);
-            this.combobox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.combobox1.Location = new System.Drawing.Point(785, 7);
+            this.combobox1.Margin = new System.Windows.Forms.Padding(2);
             this.combobox1.Name = "combobox1";
             this.combobox1.ShadowDecoration.BorderRadius = 5;
             this.combobox1.ShadowDecoration.Color = System.Drawing.Color.DimGray;
@@ -205,8 +205,8 @@
             this.combobox2.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.combobox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.combobox2.ItemHeight = 30;
-            this.combobox2.Location = new System.Drawing.Point(1002, 11);
-            this.combobox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.combobox2.Location = new System.Drawing.Point(1002, 7);
+            this.combobox2.Margin = new System.Windows.Forms.Padding(2);
             this.combobox2.Name = "combobox2";
             this.combobox2.ShadowDecoration.BorderRadius = 5;
             this.combobox2.ShadowDecoration.Color = System.Drawing.Color.DimGray;
@@ -256,7 +256,7 @@
             this.guna2Panel2.Controls.Add(this.guna2DataGridView1);
             this.guna2Panel2.FillColor = System.Drawing.SystemColors.Window;
             this.guna2Panel2.Location = new System.Drawing.Point(23, 115);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 10;
             this.guna2Panel2.ShadowDecoration.Color = System.Drawing.Color.Gray;
@@ -271,7 +271,7 @@
             this.studentidcount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentidcount.ForeColor = System.Drawing.Color.Black;
             this.studentidcount.Location = new System.Drawing.Point(136, 669);
-            this.studentidcount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studentidcount.Margin = new System.Windows.Forms.Padding(2);
             this.studentidcount.Name = "studentidcount";
             this.studentidcount.Size = new System.Drawing.Size(3, 2);
             this.studentidcount.TabIndex = 35;
@@ -283,7 +283,7 @@
             this.attendancestudcount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attendancestudcount.ForeColor = System.Drawing.Color.Black;
             this.attendancestudcount.Location = new System.Drawing.Point(13, 669);
-            this.attendancestudcount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attendancestudcount.Margin = new System.Windows.Forms.Padding(2);
             this.attendancestudcount.Name = "attendancestudcount";
             this.attendancestudcount.Size = new System.Drawing.Size(125, 24);
             this.attendancestudcount.TabIndex = 34;
@@ -318,7 +318,7 @@
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(13, 12);
-            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
@@ -362,7 +362,7 @@
             this.AttendancePanel.Controls.Add(this.guna2Panel14);
             this.AttendancePanel.FillColor = System.Drawing.SystemColors.Window;
             this.AttendancePanel.Location = new System.Drawing.Point(167, 24);
-            this.AttendancePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AttendancePanel.Margin = new System.Windows.Forms.Padding(2);
             this.AttendancePanel.Name = "AttendancePanel";
             this.AttendancePanel.Size = new System.Drawing.Size(1262, 844);
             this.AttendancePanel.TabIndex = 27;
@@ -373,11 +373,108 @@
             this.guna2HtmlLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel14.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel14.Location = new System.Drawing.Point(23, 74);
-            this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             this.guna2HtmlLabel14.Size = new System.Drawing.Size(140, 31);
             this.guna2HtmlLabel14.TabIndex = 52;
             this.guna2HtmlLabel14.Text = "Student List";
+            // 
+            // guna2GradientButton4
+            // 
+            this.guna2GradientButton4.BorderRadius = 5;
+            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
+            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
+            this.guna2GradientButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton4.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
+            this.guna2GradientButton4.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2GradientButton4.Location = new System.Drawing.Point(691, 76);
+            this.guna2GradientButton4.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientButton4.Name = "guna2GradientButton4";
+            this.guna2GradientButton4.ShadowDecoration.BorderRadius = 10;
+            this.guna2GradientButton4.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2GradientButton4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.guna2GradientButton4.Size = new System.Drawing.Size(128, 32);
+            this.guna2GradientButton4.TabIndex = 51;
+            this.guna2GradientButton4.Text = "Bind RFID";
+            // 
+            // btnAddNewStudent
+            // 
+            this.btnAddNewStudent.BorderRadius = 5;
+            this.btnAddNewStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddNewStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddNewStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddNewStudent.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddNewStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddNewStudent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
+            this.btnAddNewStudent.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
+            this.btnAddNewStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnAddNewStudent.ForeColor = System.Drawing.Color.White;
+            this.btnAddNewStudent.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
+            this.btnAddNewStudent.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddNewStudent.Location = new System.Drawing.Point(828, 76);
+            this.btnAddNewStudent.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddNewStudent.Name = "btnAddNewStudent";
+            this.btnAddNewStudent.ShadowDecoration.BorderRadius = 10;
+            this.btnAddNewStudent.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.btnAddNewStudent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.btnAddNewStudent.Size = new System.Drawing.Size(128, 32);
+            this.btnAddNewStudent.TabIndex = 50;
+            this.btnAddNewStudent.Text = "Add New";
+            this.btnAddNewStudent.Click += new System.EventHandler(this.btnAddNewStudent_Event);
+            // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.BorderRadius = 5;
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002631_removebg_preview;
+            this.guna2GradientButton1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(964, 76);
+            this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.ShadowDecoration.BorderRadius = 10;
+            this.guna2GradientButton1.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2GradientButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.guna2GradientButton1.Size = new System.Drawing.Size(128, 32);
+            this.guna2GradientButton1.TabIndex = 49;
+            this.guna2GradientButton1.Text = "Upload List";
+            // 
+            // guna2GradientButton2
+            // 
+            this.guna2GradientButton2.BorderRadius = 5;
+            this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
+            this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
+            this.guna2GradientButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton2.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002926_removebg_preview__1_;
+            this.guna2GradientButton2.ImageSize = new System.Drawing.Size(27, 27);
+            this.guna2GradientButton2.Location = new System.Drawing.Point(1099, 76);
+            this.guna2GradientButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientButton2.Name = "guna2GradientButton2";
+            this.guna2GradientButton2.ShadowDecoration.BorderRadius = 10;
+            this.guna2GradientButton2.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2GradientButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.guna2GradientButton2.Size = new System.Drawing.Size(128, 32);
+            this.guna2GradientButton2.TabIndex = 48;
+            this.guna2GradientButton2.Text = "View Archive";
             // 
             // guna2HtmlLabel1
             // 
@@ -385,7 +482,7 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(28, 208);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(112, 17);
             this.guna2HtmlLabel1.TabIndex = 45;
@@ -397,7 +494,7 @@
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserName.ForeColor = System.Drawing.Color.Black;
             this.UserName.Location = new System.Drawing.Point(14, 183);
-            this.UserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UserName.Margin = new System.Windows.Forms.Padding(2);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(144, 24);
             this.UserName.TabIndex = 44;
@@ -598,103 +695,6 @@
             this.guna2CirclePictureBox1.TabIndex = 28;
             this.guna2CirclePictureBox1.TabStop = false;
             // 
-            // guna2GradientButton4
-            // 
-            this.guna2GradientButton4.BorderRadius = 5;
-            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
-            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
-            this.guna2GradientButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton4.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
-            this.guna2GradientButton4.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton4.Location = new System.Drawing.Point(691, 76);
-            this.guna2GradientButton4.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2GradientButton4.Name = "guna2GradientButton4";
-            this.guna2GradientButton4.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientButton4.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientButton4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
-            this.guna2GradientButton4.Size = new System.Drawing.Size(128, 32);
-            this.guna2GradientButton4.TabIndex = 51;
-            this.guna2GradientButton4.Text = "Bind RFID";
-            // 
-            // btnAddNewStudent
-            // 
-            this.btnAddNewStudent.BorderRadius = 5;
-            this.btnAddNewStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddNewStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAddNewStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddNewStudent.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAddNewStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAddNewStudent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
-            this.btnAddNewStudent.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
-            this.btnAddNewStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnAddNewStudent.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewStudent.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
-            this.btnAddNewStudent.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAddNewStudent.Location = new System.Drawing.Point(828, 76);
-            this.btnAddNewStudent.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddNewStudent.Name = "btnAddNewStudent";
-            this.btnAddNewStudent.ShadowDecoration.BorderRadius = 10;
-            this.btnAddNewStudent.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.btnAddNewStudent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
-            this.btnAddNewStudent.Size = new System.Drawing.Size(128, 32);
-            this.btnAddNewStudent.TabIndex = 50;
-            this.btnAddNewStudent.Text = "Add New";
-            this.btnAddNewStudent.Click += new System.EventHandler(this.btnAddNewStudent_Event);
-            // 
-            // guna2GradientButton1
-            // 
-            this.guna2GradientButton1.BorderRadius = 5;
-            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
-            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002631_removebg_preview;
-            this.guna2GradientButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(964, 76);
-            this.guna2GradientButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientButton1.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
-            this.guna2GradientButton1.Size = new System.Drawing.Size(128, 32);
-            this.guna2GradientButton1.TabIndex = 49;
-            this.guna2GradientButton1.Text = "Upload List";
-            // 
-            // guna2GradientButton2
-            // 
-            this.guna2GradientButton2.BorderRadius = 5;
-            this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
-            this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
-            this.guna2GradientButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton2.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002926_removebg_preview__1_;
-            this.guna2GradientButton2.ImageSize = new System.Drawing.Size(27, 27);
-            this.guna2GradientButton2.Location = new System.Drawing.Point(1099, 76);
-            this.guna2GradientButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2GradientButton2.Name = "guna2GradientButton2";
-            this.guna2GradientButton2.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientButton2.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
-            this.guna2GradientButton2.Size = new System.Drawing.Size(128, 32);
-            this.guna2GradientButton2.TabIndex = 48;
-            this.guna2GradientButton2.Text = "View Archive";
-            // 
             // Dashboard
             // 
             this.Dashboard.Animated = true;
@@ -752,7 +752,7 @@
             this.Controls.Add(this.Dashboard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "StudentIDForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
