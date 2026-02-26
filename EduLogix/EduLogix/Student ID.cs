@@ -416,6 +416,11 @@ namespace EduLogix
                 SearchData();
             }
         }
+
+        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -14,7 +14,7 @@ namespace EduLogix
 {
     public partial class DashboardForm : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=";
 
         public DashboardForm()
         {
