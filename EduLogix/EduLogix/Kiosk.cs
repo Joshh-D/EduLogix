@@ -81,13 +81,18 @@ namespace EduLogix
                     {
                         int newCount = Convert.ToInt32(cmd.ExecuteScalar());
 
-                        if (newCount > currentCount)
+                        if (newCount > currentCount || newCount < currentCount)
                         {
                             currentCount = newCount;
                             
                             getAttendanceList();
                             int rowCount = guna2DataGridView1.RowCount;
-                            string value = guna2DataGridView1.Rows[rowCount - 2].Cells["student_name"].Value?.ToString();
+
+                            string studentID = guna2DataGridView1.Rows[rowCount - 2].Cells["student_num"].Value?.ToString();
+                            string studentName = guna2DataGridView1.Rows[rowCount - 2].Cells["student_name"].Value?.ToString();
+                            string studentGrade = guna2DataGridView1.Rows[rowCount - 2].Cells["grade_level"].Value?.ToString();
+                            string studentSection = guna2DataGridView1.Rows[rowCount - 2].Cells["section"].Value?.ToString();
+                            string status = guna2DataGridView1.Rows[rowCount - 2].Cells["status"].Value?.ToString();
 
                             pnlLatest.Controls.Clear();
 
@@ -101,24 +106,16 @@ namespace EduLogix
                                 flowLayoutPanel1.Controls.Add(recentIDTemp);
                                 flowLayoutPanel1.Controls.SetChildIndex(recentIDTemp, 0);
                                 flowLayoutPanel1.ResumeLayout();
-                                //ids.Add(recentIDTemp);
                             }
 
                             ucID latestID = new ucID();
-                            latestID.SetName(value);
+                            latestID.SetInformation(studentID, studentName, studentGrade, studentSection, (status == "in premises") ? "Checked in" : "Checked out");
                             latestID.Dock = DockStyle.Fill;
 
                             ids.Add(latestID);
-                            //MessageBox.Show(ids.Count.ToString());
                             pnlLatest.Controls.Add(latestID);
-
-                            //int index = ids.Count;
-                            //pnlLatest.Controls.Add(ids.ElementAt(index));
-
-                            // set thes latestID to recen
                             recentID = latestID;
                         }
-
                     }
                 }
 

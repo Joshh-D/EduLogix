@@ -32,9 +32,13 @@ namespace EduLogix
             }
         }
 
-        public void SetName(string name)
+        public void SetInformation(string numID, string name, string grade, string section, string status)
         {
+            txtbxIDNum.Text = numID;
             txtbxName.Text = name;
+            txtbxGrade.Text = grade;
+            txtbxSection.Text = section;
+            lblStatus.Text = status;
         }
     }
 }
