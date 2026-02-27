@@ -71,21 +71,6 @@ namespace EduLogix
 
         public void kioskCheck(object sender, EventArgs e)
         {
-            if (ids.Count > 0)
-            {
-                for (int i = 0; i < ids.Count; i++)
-                {
-                    ucID id = ids.ElementAt(i);
-                    if (id.ttl > 0) id.ttl -= 1;
-                    if (id.ttl < 1)
-                    {
-                        ids.Remove(id);
-                        pnlLatest.Refresh();
-                        flowLayoutPanel1.Refresh();
-                    }
-                }
-            }
-
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -124,6 +109,7 @@ namespace EduLogix
                             latestID.Dock = DockStyle.Fill;
 
                             ids.Add(latestID);
+                            //MessageBox.Show(ids.Count.ToString());
                             pnlLatest.Controls.Add(latestID);
 
                             //int index = ids.Count;
@@ -140,6 +126,26 @@ namespace EduLogix
             catch (Exception ex)
             {
 
+            }
+
+            if (ids.Count > 0)
+            {
+                for (int i = 0; i < ids.Count; i++)
+                {
+                    ucID id = ids.ElementAt(i);
+                    if (id.ttl > 0) id.ttl -= 1;
+                    if (id.ttl < 1)
+                    {
+                        if (pnlLatest.Controls.Contains(id)) pnlLatest.Controls.Remove(id);
+                        else if (flowLayoutPanel1.Controls.Contains(id)) flowLayoutPanel1.Controls.Remove(id);
+
+                        id.Dispose();
+                        ids.Remove(id);
+
+                        pnlLatest.Refresh();
+                        flowLayoutPanel1.Refresh();
+                    }
+                }
             }
         }
 

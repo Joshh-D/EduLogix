@@ -17,7 +17,7 @@ namespace EduLogix
             InitializeComponent();
         }
 
-        public int ttl = 5;
+        public int ttl = 10;
 
         private void ucID_Load(object sender, EventArgs e)
         {

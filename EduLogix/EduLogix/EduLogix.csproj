@@ -158,6 +158,7 @@
     <Compile Include="ConfirmBorrow.Designer.cs">
       <DependentUpon>ConfirmBorrow.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBHandler.cs" />
     <Compile Include="Kiosk.cs">
       <SubType>Form</SubType>
     </Compile>

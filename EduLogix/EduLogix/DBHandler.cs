@@ -8,5 +8,6 @@ namespace EduLogix
 {
     internal class DBHandler
     {
+
     }
 }

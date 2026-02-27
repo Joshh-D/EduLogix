@@ -47,6 +47,7 @@
             this.pnlLatest = new System.Windows.Forms.Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -76,7 +77,6 @@
             this.guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
@@ -167,6 +167,7 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 22;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridView1.Visible = false;
             // 
             // lblDateTime2
             // 
@@ -299,6 +300,13 @@
             this.guna2Panel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(3, 3, 3, 6);
             this.guna2Panel2.Size = new System.Drawing.Size(1085, 641);
             this.guna2Panel2.TabIndex = 46;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 60);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1040, 560);
+            this.flowLayoutPanel1.TabIndex = 64;
             // 
             // guna2HtmlLabel2
             // 
@@ -659,13 +667,6 @@
             this.guna2HtmlLabel27.Size = new System.Drawing.Size(178, 22);
             this.guna2HtmlLabel27.TabIndex = 72;
             this.guna2HtmlLabel27.Text = "1-A";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 60);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1040, 560);
-            this.flowLayoutPanel1.TabIndex = 64;
             // 
             // Kiosk
             // 
