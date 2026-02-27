@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
-using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 
 namespace EduLogix

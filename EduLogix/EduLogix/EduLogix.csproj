@@ -232,6 +232,12 @@
     <Compile Include="StudentInfo.Designer.cs">
       <DependentUpon>StudentInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucID.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucID.Designer.cs">
+      <DependentUpon>ucID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentInfo.resx">
       <DependentUpon>StudentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucID.resx">
+      <DependentUpon>ucID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
