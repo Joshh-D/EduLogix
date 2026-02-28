@@ -64,6 +64,12 @@ namespace EduLogix
                         guna2HtmlLabel6.Text = Convert.ToInt32(cmd.ExecuteScalar()).ToString();
                     }
 
+                    query = "SELECT COUNT(student_name) FROM reg_attendance WHERE status = 'departed'";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        guna2HtmlLabel12.Text = Convert.ToInt32(cmd.ExecuteScalar()).ToString();
+                    }
+
                 }
 
             }
