@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="EduLogix-LMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ucBookCatalog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucBookCatalogFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucTopbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
