@@ -60,3 +60,8 @@ C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-wind
 C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\ref\EduLogix-LMS.dll
 C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucTopbar.resources
 C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBookCatalogFilter.resources
+C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBorrowerList.resources
+C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucLogsForm.resources
+C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix-LMS.sourcelink.json
+C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBorrowerInformation.resources
+C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBorrowerListFilter.resources

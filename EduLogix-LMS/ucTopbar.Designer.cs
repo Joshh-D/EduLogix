@@ -151,7 +151,7 @@
             guna2GradientButton1.ForeColor = Color.White;
             guna2GradientButton1.HoverState.FillColor = Color.Salmon;
             guna2GradientButton1.HoverState.FillColor2 = Color.Salmon;
-            guna2GradientButton1.Image = Properties.Resources.icon_leave;
+            guna2GradientButton1.Image = Properties.Resources.icon_logout;
             guna2GradientButton1.ImageSize = new Size(40, 40);
             guna2GradientButton1.Location = new Point(1099, 10);
             guna2GradientButton1.Name = "guna2GradientButton1";

@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Automation;
+using System.Windows.Forms;
+
+namespace EduLogix_LMS
+{
+    public partial class ucDashboard : UserControl
+    {
+        public ucDashboard()
+        {
+            InitializeComponent();
+        }
+
+        private void ucDashboard_Load(object sender, EventArgs e)
+        {
+            // Start hidden so the transition can animate the control into view
+            this.Visible = false;
+            // Use the designer-created transition to perform a fade-in
+            guna2Transition1.ShowSync(this);
+        }
+    }
+}

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Automation;
 using System.Windows.Forms;
 
 namespace EduLogix_LMS
@@ -15,6 +16,24 @@ namespace EduLogix_LMS
         public ucDashboard()
         {
             InitializeComponent();
+        }
+
+        private void ucDashboard_Load(object sender, EventArgs e)
+        {
+            // ensure controls/handles exist and layout is calculated
+            //this.CreateControl();                     // ensures handle created
+            //pnlBackground?.PerformLayout();           // if you have a background panel
+            //this.PerformLayout();
+            //Application.DoEvents();                   // optional, forces pending layout/paint
+
+            //// run animation after layout/paint completes
+            //this.BeginInvoke((Action)(() =>
+            //{
+            //    tblWidgets.Visible = false;
+            //    tblGraphs.Visible = false;
+            //    guna2Transition1.ShowSync(tblWidgets);
+            //    guna2Transition1.ShowSync(tblGraphs);
+            //}));
         }
     }
 }

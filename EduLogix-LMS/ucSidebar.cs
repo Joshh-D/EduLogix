@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,6 +33,15 @@ namespace EduLogix_LMS
             ChangeUserControl(3); // book catalog
         }
 
+        private void btnBorrow_Click(object sender, EventArgs e)
+        {
+            ChangeUserControl(2); // borrower list
+        }
+
+        private void btnLogs_Click(object sender, EventArgs e)
+        {
+            ChangeUserControl(4); // logs
+        }
 
 
         private void ChangeUserControl(int formType)
@@ -46,6 +56,7 @@ namespace EduLogix_LMS
             var foundControls = parentForm.Controls.Find("pnlMainContent", true);
             if (foundControls.Length > 0 && foundControls[0] is Panel pnlMain)
             {
+
                 UserControl uc;
 
                 switch (formType)
@@ -54,21 +65,33 @@ namespace EduLogix_LMS
                         uc = new ucDashboard();
                         break;
                     case 2:
+                        uc = new ucBorrowerList();
+                        break;
                     case 3:
                         uc = new ucBookCatalog();
                         break;
                     case 4:
+                        uc = new ucLogsForm();
+                        break;
                     default:
                         MessageBox.Show("Invalid form type: " + formType);
                         return;
                 }
 
                 pnlMain.Controls.Clear();
+                
+                Guna2Panel template = new Guna2Panel();
+                template.FillColor = Color.WhiteSmoke;
+                template.Dock = DockStyle.Fill;
+                pnlMain.Controls.Add(template);
+
                 uc.Dock = DockStyle.Fill;
                 pnlMain.Controls.Add(uc);
                 uc.BringToFront();
             }
             else MessageBox.Show("No pnlMainContent found");
         }
+
+
     }
 }

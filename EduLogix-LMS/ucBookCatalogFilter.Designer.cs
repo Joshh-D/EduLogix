@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             tableLayoutPanel2 = new TableLayoutPanel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CheckBox7 = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -44,6 +48,8 @@
             guna2CheckBox4 = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2CheckBox5 = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2CheckBox6 = new Guna.UI2.WinForms.Guna2CheckBox();
+            guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -318,11 +324,47 @@
             guna2CheckBox6.UncheckedState.BorderThickness = 0;
             guna2CheckBox6.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
+            // guna2GradientButton1
+            // 
+            guna2GradientButton1.CustomizableEdges = customizableEdges1;
+            guna2GradientButton1.DisabledState.BorderColor = Color.DarkGray;
+            guna2GradientButton1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2GradientButton1.Font = new Font("Segoe UI", 9F);
+            guna2GradientButton1.ForeColor = Color.White;
+            guna2GradientButton1.Location = new Point(320, 267);
+            guna2GradientButton1.Name = "guna2GradientButton1";
+            guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2GradientButton1.Size = new Size(131, 32);
+            guna2GradientButton1.TabIndex = 13;
+            guna2GradientButton1.Text = "Clear";
+            // 
+            // guna2GradientButton2
+            // 
+            guna2GradientButton2.CustomizableEdges = customizableEdges3;
+            guna2GradientButton2.DisabledState.BorderColor = Color.DarkGray;
+            guna2GradientButton2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2GradientButton2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2GradientButton2.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            guna2GradientButton2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2GradientButton2.Font = new Font("Segoe UI", 9F);
+            guna2GradientButton2.ForeColor = Color.White;
+            guna2GradientButton2.Location = new Point(167, 267);
+            guna2GradientButton2.Name = "guna2GradientButton2";
+            guna2GradientButton2.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2GradientButton2.Size = new Size(131, 32);
+            guna2GradientButton2.TabIndex = 14;
+            guna2GradientButton2.Text = "Apply";
+            // 
             // ucBookCatalogFilter
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Yellow;
+            Controls.Add(guna2GradientButton2);
+            Controls.Add(guna2GradientButton1);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(tableLayoutPanel2);
             Name = "ucBookCatalogFilter";
@@ -352,5 +394,7 @@
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox4;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox5;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox6;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
     }
 }

@@ -10,7 +10,19 @@
     <Compile Update="ucBookCatalogFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="ucBorrowerInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucBorrowerList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucBorrowerListFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ucDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucLogsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="ucSidebar.cs">

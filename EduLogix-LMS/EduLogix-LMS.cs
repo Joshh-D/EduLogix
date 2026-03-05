@@ -5,6 +5,7 @@ namespace EduLogix_LMS
         public LMSDashboard()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void LMSDashboard_Load(object sender, EventArgs e)
@@ -12,6 +13,7 @@ namespace EduLogix_LMS
             var ucDashboard = new ucDashboard();
             ucDashboard.Dock = DockStyle.Fill;
             pnlMainContent.Controls.Add(ucDashboard);
+            ucDashboard.BringToFront();
 
             var ucSidebar = new ucSidebar();
             ucSidebar.Dock = DockStyle.Left;

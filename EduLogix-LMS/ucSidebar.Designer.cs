@@ -140,6 +140,7 @@
             btnLogs.TabIndex = 6;
             btnLogs.Text = "Logs";
             btnLogs.TextOffset = new Point(10, 0);
+            btnLogs.Click += btnLogs_Click;
             btnLogs.MouseHover += OnHover;
             // 
             // btnDashboard
@@ -244,6 +245,7 @@
             btnBorrow.TabIndex = 4;
             btnBorrow.Text = "Borrow";
             btnBorrow.TextOffset = new Point(10, 0);
+            btnBorrow.Click += btnBorrow_Click;
             btnBorrow.MouseHover += OnHover;
             // 
             // tblUserInfo
