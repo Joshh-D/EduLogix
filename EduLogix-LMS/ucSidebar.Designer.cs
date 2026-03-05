@@ -243,7 +243,7 @@
             btnBorrow.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnBorrow.Size = new Size(214, 57);
             btnBorrow.TabIndex = 4;
-            btnBorrow.Text = "Borrow";
+            btnBorrow.Text = "Borrowers";
             btnBorrow.TextOffset = new Point(10, 0);
             btnBorrow.Click += btnBorrow_Click;
             btnBorrow.MouseHover += OnHover;

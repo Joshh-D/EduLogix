@@ -22,6 +22,9 @@
     <Compile Update="ucDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="ucLogsFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ucLogsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>

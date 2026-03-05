@@ -261,7 +261,7 @@
             guna2Transition1.SetDecoration(label2, Guna.UI2.AnimatorNS.DecorationType.None);
             label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.DimGray;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(404, 0);
             label2.Name = "label2";
             label2.Size = new Size(781, 47);
@@ -685,7 +685,7 @@
             guna2Transition1.SetDecoration(label1, Guna.UI2.AnimatorNS.DecorationType.None);
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.DimGray;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
             label1.Size = new Size(350, 47);

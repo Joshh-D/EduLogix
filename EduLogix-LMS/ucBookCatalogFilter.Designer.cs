@@ -394,7 +394,7 @@
             BackColor = Color.Transparent;
             Controls.Add(guna2GradientPanel1);
             Name = "ucBookCatalogFilter";
-            Size = new Size(465, 323);
+            Size = new Size(464, 323);
             guna2GradientPanel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

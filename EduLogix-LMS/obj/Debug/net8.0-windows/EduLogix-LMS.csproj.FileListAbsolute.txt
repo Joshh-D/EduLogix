@@ -65,3 +65,4 @@ C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-wind
 C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix-LMS.sourcelink.json
 C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBorrowerInformation.resources
 C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBorrowerListFilter.resources
+C:\Users\Administrator\Documents\EduLogix-LMS\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucLogsFilter.resources

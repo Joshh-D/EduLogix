@@ -73,6 +73,26 @@ namespace EduLogix_LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_add {
+            get {
+                object obj = ResourceManager.GetObject("icon_add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_archive {
+            get {
+                object obj = ResourceManager.GetObject("icon_archive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_book {
             get {
                 object obj = ResourceManager.GetObject("icon_book", resourceCulture);
@@ -116,6 +136,26 @@ namespace EduLogix_LMS.Properties {
         internal static System.Drawing.Bitmap icon_cog {
             get {
                 object obj = ResourceManager.GetObject("icon_cog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_export {
+            get {
+                object obj = ResourceManager.GetObject("icon_export", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_funnel {
+            get {
+                object obj = ResourceManager.GetObject("icon_funnel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -17,9 +17,27 @@ namespace EduLogix_LMS
             InitializeComponent();
         }
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        UserControl ucBorrowerFilterListObj;
+        bool isFilterDisplayed = false;
 
+        private void ucBorrowerList_Load(object sender, EventArgs e)
+        {
+            ucBorrowerFilterListObj = new ucBorrowerListFilter();
+            ucBorrowerFilterListObj.Location = new System.Drawing.Point(btnFilter.Location.X + 10, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Size.Height + 5);
+            ucBorrowerFilterListObj.Visible = false;
+            isFilterDisplayed = false;
+            pnlBackground.Controls.Add(ucBorrowerFilterListObj);
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            bool isVisible = ucBorrowerFilterListObj.Visible;
+            ucBorrowerFilterListObj.Visible = !isVisible;
+
+            if (ucBorrowerFilterListObj.Visible)
+                ucBorrowerFilterListObj.BringToFront();
+
+            isFilterDisplayed = ucBorrowerFilterListObj.Visible;
         }
     }
 }

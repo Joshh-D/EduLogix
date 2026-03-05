@@ -17,6 +17,27 @@ namespace EduLogix_LMS
             InitializeComponent();
         }
 
-        private void ucLogsForm_Load(object sender, EventArgs e) {}
+        UserControl ucLogsFilterObj;
+        bool isFilterDisplayed = false;
+
+        private void ucLogsForm_Load(object sender, EventArgs e)
+        {
+            ucLogsFilterObj = new ucLogsFilter();
+            ucLogsFilterObj.Location = new System.Drawing.Point(btnFilter.Location.X + 10, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Size.Height + 5);
+            ucLogsFilterObj.Visible = false;
+            isFilterDisplayed = false;
+            pnlBackground.Controls.Add(ucLogsFilterObj);
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            bool isVisible = ucLogsFilterObj.Visible;
+            ucLogsFilterObj.Visible = !isVisible;
+
+            if (ucLogsFilterObj.Visible)
+                ucLogsFilterObj.BringToFront();
+
+            isFilterDisplayed = ucLogsFilterObj.Visible;
+        }
     }
 }

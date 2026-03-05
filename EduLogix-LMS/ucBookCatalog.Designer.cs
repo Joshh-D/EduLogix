@@ -73,10 +73,10 @@
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
             guna2HtmlLabel1.Location = new Point(33, 16);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(97, 39);
+            guna2HtmlLabel1.Size = new Size(77, 32);
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Catalog";
             // 
@@ -160,11 +160,20 @@
             btnFilter.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnFilter.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             btnFilter.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnFilter.Font = new Font("Segoe UI", 9F);
+            btnFilter.FillColor = Color.FromArgb(182, 159, 150);
+            btnFilter.FillColor2 = Color.FromArgb(236, 189, 171);
+            btnFilter.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnFilter.ForeColor = Color.White;
+            btnFilter.Image = Properties.Resources.icon_funnel;
+            btnFilter.ImageOffset = new Point(-3, 0);
             btnFilter.Location = new Point(394, 3);
             btnFilter.Name = "btnFilter";
+            btnFilter.ShadowDecoration.BorderRadius = 10;
+            btnFilter.ShadowDecoration.Color = Color.DimGray;
             btnFilter.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnFilter.ShadowDecoration.Depth = 20;
+            btnFilter.ShadowDecoration.Enabled = true;
+            btnFilter.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
             btnFilter.Size = new Size(158, 34);
             btnFilter.TabIndex = 3;
             btnFilter.Text = "Filter";
@@ -188,7 +197,12 @@
             guna2TextBox1.PasswordChar = '\0';
             guna2TextBox1.PlaceholderText = "🔎 Search";
             guna2TextBox1.SelectedText = "";
+            guna2TextBox1.ShadowDecoration.BorderRadius = 10;
+            guna2TextBox1.ShadowDecoration.Color = Color.DimGray;
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2TextBox1.ShadowDecoration.Depth = 20;
+            guna2TextBox1.ShadowDecoration.Enabled = true;
+            guna2TextBox1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
             guna2TextBox1.Size = new Size(385, 34);
             guna2TextBox1.TabIndex = 0;
             // 
@@ -201,14 +215,23 @@
             guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2GradientButton1.Font = new Font("Segoe UI", 9F);
+            guna2GradientButton1.FillColor = Color.FromArgb(192, 165, 123);
+            guna2GradientButton1.FillColor2 = Color.FromArgb(255, 201, 118);
+            guna2GradientButton1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             guna2GradientButton1.ForeColor = Color.White;
+            guna2GradientButton1.Image = Properties.Resources.icon_archive;
             guna2GradientButton1.Location = new Point(1024, 3);
             guna2GradientButton1.Name = "guna2GradientButton1";
+            guna2GradientButton1.ShadowDecoration.BorderRadius = 10;
+            guna2GradientButton1.ShadowDecoration.Color = Color.DimGray;
             guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2GradientButton1.ShadowDecoration.Depth = 20;
+            guna2GradientButton1.ShadowDecoration.Enabled = true;
+            guna2GradientButton1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
             guna2GradientButton1.Size = new Size(164, 34);
             guna2GradientButton1.TabIndex = 1;
             guna2GradientButton1.Text = "View archieve";
+            guna2GradientButton1.TextOffset = new Point(3, 0);
             // 
             // guna2GradientButton2
             // 
@@ -219,11 +242,20 @@
             guna2GradientButton2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2GradientButton2.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             guna2GradientButton2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2GradientButton2.Font = new Font("Segoe UI", 9F);
+            guna2GradientButton2.FillColor = Color.FromArgb(162, 183, 129);
+            guna2GradientButton2.FillColor2 = Color.FromArgb(195, 237, 129);
+            guna2GradientButton2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             guna2GradientButton2.ForeColor = Color.White;
+            guna2GradientButton2.Image = Properties.Resources.icon_add;
+            guna2GradientButton2.ImageOffset = new Point(-5, 0);
             guna2GradientButton2.Location = new Point(842, 3);
             guna2GradientButton2.Name = "guna2GradientButton2";
+            guna2GradientButton2.ShadowDecoration.BorderRadius = 10;
+            guna2GradientButton2.ShadowDecoration.Color = Color.DimGray;
             guna2GradientButton2.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2GradientButton2.ShadowDecoration.Depth = 20;
+            guna2GradientButton2.ShadowDecoration.Enabled = true;
+            guna2GradientButton2.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
             guna2GradientButton2.Size = new Size(176, 34);
             guna2GradientButton2.TabIndex = 2;
             guna2GradientButton2.Text = "Add";
