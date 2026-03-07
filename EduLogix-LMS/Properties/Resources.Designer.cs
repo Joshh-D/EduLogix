@@ -83,6 +83,16 @@ namespace EduLogix_LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_add1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_add1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_archive {
             get {
                 object obj = ResourceManager.GetObject("icon_archive", resourceCulture);
@@ -213,9 +223,29 @@ namespace EduLogix_LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_minus_circle {
+            get {
+                object obj = ResourceManager.GetObject("icon_minus_circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_pencil {
             get {
                 object obj = ResourceManager.GetObject("icon_pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_plus_circle {
+            get {
+                object obj = ResourceManager.GetObject("icon_plus_circle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

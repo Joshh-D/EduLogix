@@ -1,0 +1,284 @@
+﻿namespace EduLogix_LMS
+{
+    partial class ucTopbar
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            label3 = new Label();
+            label1 = new Label();
+            btnAccMenu = new Guna.UI2.WinForms.Guna2Button();
+            label2 = new Label();
+            btnSettings = new Guna.UI2.WinForms.Guna2GradientButton();
+            btnLogout = new Guna.UI2.WinForms.Guna2GradientButton();
+            pnlAccDropdown = new Guna.UI2.WinForms.Guna2Panel();
+            tblDropdownMenu = new TableLayoutPanel();
+            guna2Panel1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
+            pnlAccDropdown.SuspendLayout();
+            tblDropdownMenu.SuspendLayout();
+            SuspendLayout();
+            // 
+            // guna2Panel1
+            // 
+            guna2Panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            guna2Panel1.Controls.Add(pnlAccDropdown);
+            guna2Panel1.Controls.Add(tableLayoutPanel1);
+            guna2Panel1.Controls.Add(label2);
+            guna2Panel1.Controls.Add(btnSettings);
+            guna2Panel1.Controls.Add(btnLogout);
+            guna2Panel1.CustomizableEdges = customizableEdges14;
+            guna2Panel1.Location = new Point(3, 3);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            guna2Panel1.Size = new Size(1167, 70);
+            guna2Panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24.3055553F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.4166679F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.27778F));
+            tableLayoutPanel1.Controls.Add(guna2CirclePictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(label3, 1, 1);
+            tableLayoutPanel1.Controls.Add(label1, 1, 0);
+            tableLayoutPanel1.Controls.Add(btnAccMenu, 2, 0);
+            tableLayoutPanel1.Location = new Point(756, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.16981F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.83019F));
+            tableLayoutPanel1.Size = new Size(288, 70);
+            tableLayoutPanel1.TabIndex = 17;
+            // 
+            // guna2CirclePictureBox1
+            // 
+            guna2CirclePictureBox1.Anchor = AnchorStyles.None;
+            guna2CirclePictureBox1.ImageRotate = 0F;
+            guna2CirclePictureBox1.Location = new Point(7, 7);
+            guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
+            tableLayoutPanel1.SetRowSpan(guna2CirclePictureBox1, 2);
+            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CirclePictureBox1.Size = new Size(55, 55);
+            guna2CirclePictureBox1.TabIndex = 16;
+            guna2CirclePictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Dock = DockStyle.Top;
+            label3.Font = new Font("Segoe UI Semibold", 10F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(73, 33);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 19);
+            label3.TabIndex = 15;
+            label3.Text = "Librarian";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Dock = DockStyle.Bottom;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(73, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(96, 21);
+            label1.TabIndex = 13;
+            label1.Text = "John Doe";
+            // 
+            // btnAccMenu
+            // 
+            btnAccMenu.Anchor = AnchorStyles.Left;
+            btnAccMenu.BorderColor = Color.White;
+            btnAccMenu.BorderRadius = 10;
+            btnAccMenu.BorderThickness = 2;
+            btnAccMenu.CustomizableEdges = customizableEdges17;
+            btnAccMenu.DisabledState.BorderColor = Color.DarkGray;
+            btnAccMenu.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnAccMenu.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnAccMenu.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAccMenu.FillColor = Color.Transparent;
+            btnAccMenu.Font = new Font("Segoe UI", 9F);
+            btnAccMenu.ForeColor = Color.White;
+            btnAccMenu.Location = new Point(175, 14);
+            btnAccMenu.Name = "btnAccMenu";
+            tableLayoutPanel1.SetRowSpan(btnAccMenu, 2);
+            btnAccMenu.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnAccMenu.Size = new Size(42, 41);
+            btnAccMenu.TabIndex = 17;
+            btnAccMenu.Text = "V";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(481, -23);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 19);
+            label2.TabIndex = 14;
+            label2.Text = "EduLogix-LMS";
+            // 
+            // btnSettings
+            // 
+            btnSettings.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSettings.BorderRadius = 10;
+            btnSettings.CustomizableEdges = customizableEdges10;
+            btnSettings.DisabledState.BorderColor = Color.DarkGray;
+            btnSettings.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnSettings.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnSettings.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            btnSettings.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnSettings.FillColor = Color.Transparent;
+            btnSettings.FillColor2 = Color.Transparent;
+            btnSettings.Font = new Font("Segoe UI", 9F);
+            btnSettings.ForeColor = Color.White;
+            btnSettings.Image = Properties.Resources.icon_cog;
+            btnSettings.ImageSize = new Size(40, 40);
+            btnSettings.Location = new Point(1041, 10);
+            btnSettings.Name = "btnSettings";
+            btnSettings.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            btnSettings.Size = new Size(52, 48);
+            btnSettings.TabIndex = 8;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLogout.BorderRadius = 10;
+            btnLogout.CustomizableEdges = customizableEdges12;
+            btnLogout.DisabledState.BorderColor = Color.DarkGray;
+            btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnLogout.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnLogout.FillColor = Color.Transparent;
+            btnLogout.FillColor2 = Color.Transparent;
+            btnLogout.Font = new Font("Segoe UI", 9F);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.HoverState.FillColor = Color.Salmon;
+            btnLogout.HoverState.FillColor2 = Color.Salmon;
+            btnLogout.Image = Properties.Resources.icon_logout;
+            btnLogout.ImageSize = new Size(40, 40);
+            btnLogout.Location = new Point(1099, 10);
+            btnLogout.Name = "btnLogout";
+            btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            btnLogout.Size = new Size(49, 48);
+            btnLogout.TabIndex = 6;
+            // 
+            // pnlAccDropdown
+            // 
+            pnlAccDropdown.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnlAccDropdown.BackColor = Color.Transparent;
+            pnlAccDropdown.BorderRadius = 30;
+            pnlAccDropdown.Controls.Add(tblDropdownMenu);
+            pnlAccDropdown.CustomizableEdges = customizableEdges19;
+            pnlAccDropdown.FillColor = Color.FromArgb(52, 52, 52);
+            pnlAccDropdown.Location = new Point(1000, 65);
+            pnlAccDropdown.Name = "pnlAccDropdown";
+            pnlAccDropdown.Padding = new Padding(10);
+            pnlAccDropdown.ShadowDecoration.BorderRadius = 30;
+            pnlAccDropdown.ShadowDecoration.Color = Color.Black;
+            pnlAccDropdown.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            pnlAccDropdown.ShadowDecoration.Depth = 25;
+            pnlAccDropdown.ShadowDecoration.Enabled = true;
+            pnlAccDropdown.ShadowDecoration.Shadow = new Padding(2, 2, 8, 8);
+            pnlAccDropdown.Size = new Size(160, 110);
+            pnlAccDropdown.TabIndex = 18;
+            pnlAccDropdown.Visible = false;
+            // 
+            // tblDropdownMenu
+            // 
+            tblDropdownMenu.BackColor = Color.Transparent;
+            tblDropdownMenu.ColumnCount = 1;
+            tblDropdownMenu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tblDropdownMenu.Controls.Add(btnSettings, 0, 0);
+            tblDropdownMenu.Controls.Add(btnLogout, 0, 1);
+            tblDropdownMenu.Dock = DockStyle.Fill;
+            tblDropdownMenu.Location = new Point(10, 10);
+            tblDropdownMenu.Name = "tblDropdownMenu";
+            tblDropdownMenu.RowCount = 2;
+            tblDropdownMenu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tblDropdownMenu.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tblDropdownMenu.Size = new Size(140, 90);
+            tblDropdownMenu.TabIndex = 0;
+            // 
+            // ucTopbar
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(guna2Panel1);
+            Name = "ucTopbar";
+            Size = new Size(1173, 76);
+            guna2Panel1.ResumeLayout(false);
+            guna2Panel1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
+            pnlAccDropdown.ResumeLayout(false);
+            tblDropdownMenu.ResumeLayout(false);
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2GradientButton btnLogout;
+        private Guna.UI2.WinForms.Guna2GradientButton btnSettings;
+        private Label label3;
+        private Label label1;
+        private Label label2;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2Button btnAccMenu;
+        private Guna.UI2.WinForms.Guna2Panel pnlAccDropdown;
+        private TableLayoutPanel tblDropdownMenu;
+    }
+}

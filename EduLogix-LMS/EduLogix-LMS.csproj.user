@@ -4,6 +4,9 @@
     <Compile Update="EduLogix-LMS.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="KioskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ucBookCatalog.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -20,6 +23,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="ucDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucKioskStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="ucLogsFilter.cs">

@@ -17,9 +17,11 @@ namespace EduLogix_LMS
             InitializeComponent();
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
+        UserControl ucAccountMenuObj;
+        bool isFilterDisplayed = false;
 
+        private void ucTopbar_Load(object sender, EventArgs e)
+        {
         }
     }
 }
