@@ -53,6 +53,9 @@
   <PropertyGroup>
     <StartupObject>EduLogix.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -314,6 +317,7 @@
     <EmbeddedResource Include="UsersArchive.resx">
       <DependentUpon>UsersArchive.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -330,6 +334,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EduLogix.ico" />
+    <None Include="Resources\Caloocan_City_Business_High_School_Logo-1-removebg-preview1.png" />
     <None Include="Resources\Screenshot_2026-02-20_212811-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-02-19_152726-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-02-10_002926-removebg-preview %281%29.png" />

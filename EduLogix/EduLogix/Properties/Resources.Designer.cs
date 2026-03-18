@@ -93,6 +93,16 @@ namespace EduLogix.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Caloocan_City_Business_High_School_Logo_1_removebg_preview1 {
+            get {
+                object obj = ResourceManager.GetObject("Caloocan_City_Business_High_School_Logo-1-removebg-preview1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ccbhs {
             get {
                 object obj = ResourceManager.GetObject("ccbhs", resourceCulture);

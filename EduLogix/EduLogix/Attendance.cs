@@ -1,16 +1,19 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MySql.Data.MySqlClient;
 
 namespace EduLogix
 {
     public partial class AttendanceForm : Form
     {
         private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+
+        private static readonly string[] ElementaryGrades = { "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6" };
+        private static readonly string[] JuniorHighGrades = { "Grade 7", "Grade 8", "Grade 9", "Grade 10" };
+        private static readonly string[] SeniorHighGrades = { "Grade 11", "Grade 12" };
 
         public AttendanceForm()
         {
@@ -19,95 +22,103 @@ namespace EduLogix
 
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
-            // Populate Level combobox with All + levels
-            combobox1.Items.Clear();
-            combobox1.Items.Add("All");
-            combobox1.Items.Add("Elementary");
-            combobox1.Items.Add("Junior");
-            combobox1.Items.Add("Senior");
-            combobox1.SelectedIndex = 0; // default to All
+            attendanceDateTimePicker.MaxDate = DateTime.Today;
+            attendanceDateTimePicker.Value   = DateTime.Today;
 
-            // Grade combobox initially disabled
-            combobox2.Enabled = false;
-            combobox2.Items.Clear();
+            attendanceDateTimePicker.ValueChanged             += attendanceDateTimePicker_ValueChanged;
+            attendanceCombobox1.SelectedIndexChanged += attendanceSecondCondCombobox_SelectedIndexChanged;
+            attendanceCombobox2.SelectedIndexChanged               += secondComboBox_SelectedIndexChanged;
 
-            LoadAttendance(); // initial load
+            PopulateMainComboBox();
+
+            LoadAttendance();
             ApplyThemeToForm();
         }
 
-        private void SearchData()
+        // ===== COMBOBOX POPULATION =====
+
+        private void PopulateMainComboBox()
         {
-            string keyword = guna2TextBox1.Text.Trim();
-            string query = "SELECT * FROM reg_attendance WHERE " +
-                           "(student_num LIKE @search OR " +
-                           "name LIKE @search OR " +
-                           "grade LIKE @search OR " +
-                           "section LIKE @search OR " +
-                           "level LIKE @search)";
+            attendanceCombobox1.Items.Clear();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            bool isToday = attendanceDateTimePicker.Value.Date == DateTime.Today;
+
+            attendanceCombobox1.Items.Add("All");
+
+            if (isToday)
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@search", "%" + keyword + "%");
+                attendanceCombobox1.Items.Add("In Premises");
+                attendanceCombobox1.Items.Add("Departed");
+            }
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                guna2DataGridView1.DataSource = table;
-                attendancestudcount.Text = guna2DataGridView1.Rows.Count.ToString();
+            attendanceCombobox1.Items.Add("Elementary");
+            attendanceCombobox1.Items.Add("Junior High");
+            attendanceCombobox1.Items.Add("Senior High");
+
+            attendanceCombobox1.SelectedIndex = 0;
+
+            attendanceCombobox2.Items.Clear();
+            attendanceCombobox2.Visible = true;
+            attendanceCombobox2.Enabled = false;
+        }
+
+        private void PopulateSecondComboBox(string[] grades)
+        {
+            attendanceCombobox2.Items.Clear();
+            attendanceCombobox2.Items.Add("All Grades");
+
+            foreach (string grade in grades)
+                attendanceCombobox2.Items.Add(grade);
+
+            attendanceCombobox2.SelectedIndex = 0;
+            attendanceCombobox2.Visible = true;
+            attendanceCombobox2.Enabled = true;
+        }
+
+        // ===== COMBOBOX EVENTS =====
+
+        private void attendanceSecondCondCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = attendanceCombobox1.SelectedItem?.ToString() ?? "";
+
+            attendanceCombobox2.Items.Clear();
+            attendanceCombobox2.Visible = true;
+            attendanceCombobox2.Enabled = false;
+
+            switch (selected)
+            {
+                case "Elementary":
+                    PopulateSecondComboBox(ElementaryGrades);
+                    break;
+                case "Junior High":
+                    PopulateSecondComboBox(JuniorHighGrades);
+                    break;
+                case "Senior High":
+                    PopulateSecondComboBox(SeniorHighGrades);
+                    break;
+                default:
+                    LoadAttendance(attendanceStudentSearch.Text.Trim(), status: selected == "All" ? "" : selected);
+                    break;
             }
         }
 
-        private void LoadAttendance(string query = "SELECT * FROM reg_attendance")
+        private void secondComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
+            string grade = attendanceCombobox2.SelectedItem?.ToString() ?? "";
 
-                    guna2DataGridView1.DataSource = table;
+            if (grade == "All Grades")
+                grade = "";
 
-                    guna2DataGridView1.Columns["student_num"].HeaderText = "Student No.";
-                    guna2DataGridView1.Columns["name"].HeaderText = "Name";
-                    guna2DataGridView1.Columns["grade"].HeaderText = "Grade";
-                    guna2DataGridView1.Columns["section"].HeaderText = "Section";
-                    guna2DataGridView1.Columns["level"].HeaderText = "Level";
-                    guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
-
-                    guna2DataGridView1.EnableHeadersVisualStyles = false;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font =
-                        new Font("Segoe UI", 10, FontStyle.Bold);
-                    guna2DataGridView1.ColumnHeadersHeight = 40;
-
-                    guna2DataGridView1.DefaultCellStyle.Font =
-                        new Font("Segoe UI", 9);
-                    guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
-
-                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-
-                    guna2DataGridView1.GridColor = Color.LightGray;
-                    guna2DataGridView1.BorderStyle = BorderStyle.None;
-                    guna2DataGridView1.RowHeadersVisible = false;
-
-                    guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    guna2DataGridView1.ReadOnly = true;
-                    guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-                    attendancestudcount.Text = guna2DataGridView1.Rows.Count.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading attendance data:\n" + ex.Message);
-            }
+            LoadAttendance(attendanceStudentSearch.Text.Trim(), gradeLevel: grade);
         }
+
+        private void attendanceDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            PopulateMainComboBox();
+            LoadAttendance(attendanceStudentSearch.Text.Trim());
+        }
+
+        // ===== THEME =====
 
         private void ApplyThemeToForm()
         {
@@ -116,7 +127,7 @@ namespace EduLogix
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
+                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 2";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -135,7 +146,7 @@ namespace EduLogix
                     }
                 }
             }
-            catch { }
+            catch (Exception) { }
         }
 
         private void ApplyThemeToButtons(Color themeColor)
@@ -144,7 +155,12 @@ namespace EduLogix
             {
                 if (control is Guna.UI2.WinForms.Guna2Button btn)
                 {
-                    btn.FillColor = themeColor;
+                    if (btn.Name == "Dashboard" || btn.Name == "Attendance" ||
+                        btn.Name == "StudentsID" || btn.Name == "Accounts"  ||
+                        btn.Name == "Logs"       || btn.Name == "Settings"  || btn.Name == "Logout")
+                    {
+                        btn.FillColor = themeColor;
+                    }
                 }
             }
         }
@@ -154,9 +170,7 @@ namespace EduLogix
             foreach (Control control in this.Controls)
             {
                 if (control is Guna.UI2.WinForms.Guna2ControlBox ctrlBox)
-                {
                     ctrlBox.FillColor = themeColor;
-                }
             }
         }
 
@@ -166,16 +180,18 @@ namespace EduLogix
             {
                 if (control is Guna.UI2.WinForms.Guna2HtmlLabel htmlLabel)
                 {
-                    htmlLabel.BackColor = themeColor;
+                    if (htmlLabel.Name == "UserName" || htmlLabel.Name == "guna2HtmlLabel1")
+                        htmlLabel.BackColor = themeColor;
                 }
             }
         }
 
         private void ApplyThemeToDataGridView(Color themeColor)
         {
-            guna2DataGridView1.EnableHeadersVisualStyles = false;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = themeColor;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor          = themeColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = themeColor;
+            guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor        = LightenColor(themeColor, 0.7f);
+            guna2DataGridView1.DefaultCellStyle.SelectionBackColor              = LightenColor(themeColor, 0.5f);
         }
 
         private Color LightenColor(Color color, float amount)
@@ -185,67 +201,86 @@ namespace EduLogix
             int b = Math.Min(255, (int)(color.B + (255 - color.B) * amount));
             return Color.FromArgb(color.A, r, g, b);
         }
-        private void FilterData()
+
+        // ===== DATA LOADING =====
+
+        private void LoadAttendance(string filter = "", string gradeLevel = "", string status = "")
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT * FROM reg_attendance";
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = conn;
 
-                    List<string> filters = new List<string>();
+                    string query = "SELECT * FROM reg_attendance WHERE 1=1";
 
-                    // Filter by Level
-                    if (combobox1.SelectedItem != null && combobox1.SelectedItem.ToString() != "All")
+                    if (!string.IsNullOrWhiteSpace(filter))
+                        query += " AND (student_name LIKE @nameFilter OR student_num LIKE @numFilter)";
+
+                    if (!string.IsNullOrWhiteSpace(gradeLevel))
+                        query += " AND grade_level = @gradeLevel";
+
+                    if (!string.IsNullOrWhiteSpace(status))
+                        query += " AND status = @status";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    if (!string.IsNullOrWhiteSpace(filter))
                     {
-                        filters.Add("level = @level");
-                        cmd.Parameters.AddWithValue("@level", combobox1.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@nameFilter", "%" + filter + "%");
+                        cmd.Parameters.AddWithValue("@numFilter", filter + "%");
                     }
 
-                    // Filter by Grade
-                    if (combobox2.Enabled && combobox2.SelectedItem != null && combobox2.SelectedItem.ToString() != "All")
-                    {
-                        string gradeNumber = combobox2.SelectedItem.ToString().Replace("Grade ", "");
-                        filters.Add("grade = @grade");
-                        cmd.Parameters.AddWithValue("@grade", gradeNumber);
-                    }
+                    if (!string.IsNullOrWhiteSpace(gradeLevel))
+                        cmd.Parameters.AddWithValue("@gradeLevel", gradeLevel);
 
-                    // Filter by Date
-                    DateTime selectedDate = guna2DateTimePicker1.Value.Date;
-                    filters.Add("DATE(date_and_time) = @date");
-                    cmd.Parameters.AddWithValue("@date", selectedDate);
-
-
-                    // Apply WHERE if there are any filters
-                    if (filters.Count > 0)
-                        query += " WHERE " + string.Join(" AND ", filters);
-
-                    cmd.CommandText = query;
+                    if (!string.IsNullOrWhiteSpace(status))
+                        cmd.Parameters.AddWithValue("@status", status);
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
 
                     guna2DataGridView1.DataSource = table;
-                    attendancestudcount.Text = table.Rows.Count.ToString();
 
-                    // Optional: fix headers
-                    if (guna2DataGridView1.Columns.Count > 0)
-                    {
-                        guna2DataGridView1.Columns["student_num"].HeaderText = "Student No.";
-                        guna2DataGridView1.Columns["name"].HeaderText = "Name";
-                        guna2DataGridView1.Columns["grade"].HeaderText = "Grade";
-                        guna2DataGridView1.Columns["section"].HeaderText = "Section";
-                        guna2DataGridView1.Columns["level"].HeaderText = "Level";
-                        guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
+                    // Hide columns not needed
+                    if (guna2DataGridView1.Columns.Contains("rfid_number"))
+                        guna2DataGridView1.Columns["rfid_number"].Visible = false;
+                    if (guna2DataGridView1.Columns.Contains("education"))
+                        guna2DataGridView1.Columns["education"].Visible = false;
 
-                        // 🔹 Move date_and_time to last column
-                        int lastIndex = guna2DataGridView1.Columns.Count - 1;
-                        guna2DataGridView1.Columns["date_and_time"].DisplayIndex = lastIndex;
-                    }
+                    // Set column headers
+                    guna2DataGridView1.Columns["student_num"].HeaderText = "Student No.";
+                    guna2DataGridView1.Columns["student_name"].HeaderText = "Name";
+                    guna2DataGridView1.Columns["grade_level"].HeaderText = "Grade Level";
+                    guna2DataGridView1.Columns["section"].HeaderText = "Section";
+                    guna2DataGridView1.Columns["status"].HeaderText = "Status";
+                    guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
+
+                    // Header styling
+                    guna2DataGridView1.EnableHeadersVisualStyles = true;
+                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+                    guna2DataGridView1.ColumnHeadersHeight = 40;
+
+                    // Row styling
+                    guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
+                    guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                    guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Ivory;
+                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+                    guna2DataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
+
+                    // Grid and border
+                    guna2DataGridView1.GridColor = Color.LightGray;
+                    guna2DataGridView1.BorderStyle = BorderStyle.None;
+                    guna2DataGridView1.RowHeadersVisible = false;
+                    guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    guna2DataGridView1.ReadOnly = true;
+                    guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                    // Update total count
+                    totalStudentNum.Text = table.Rows.Count.ToString();
                 }
             }
             catch (Exception ex)
@@ -253,88 +288,54 @@ namespace EduLogix
                 MessageBox.Show("Error loading attendance data:\n" + ex.Message);
             }
 
-            
-
-
-
         }
 
-        private void combobox1_SelectedIndexChanged(object sender, EventArgs e)
+            private void SetupDataGridViewSelectionBehavior()
         {
-            // Reset Grade combobox
-            combobox2.Items.Clear();
-            combobox2.Enabled = false;
+            // Remove default selection
+            guna2DataGridView1.ClearSelection();
 
-            if (combobox1.SelectedItem == null) return;
-
-            string selectedLevel = combobox1.SelectedItem.ToString();
-
-            if (selectedLevel != "All")
+            // Handle click on empty space to remove selection
+            guna2DataGridView1.MouseDown += (s, e) =>
             {
-                combobox2.Enabled = true;
-                combobox2.Items.Add("All"); // Add "All" first
-
-                if (selectedLevel == "Elementary")
+                var hit = guna2DataGridView1.HitTest(e.X, e.Y);
+                if (hit.Type == DataGridViewHitTestType.None)
                 {
-                    for (int i = 1; i <= 6; i++)
-                        combobox2.Items.Add("Grade " + i);
+                    guna2DataGridView1.ClearSelection();
                 }
-                else if (selectedLevel == "Junior")
-                {
-                    for (int i = 7; i <= 10; i++)
-                        combobox2.Items.Add("Grade " + i);
-                }
-                else if (selectedLevel == "Senior")
-                {
-                    combobox2.Items.Add("Grade 11");
-                    combobox2.Items.Add("Grade 12");
-                }
-
-                combobox2.SelectedIndex = 0; // auto-select "All"
-            }
-
-            FilterData(); // reload grid based on new Level
+            };
         }
+        
 
-        private void combobox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void attendanceStudentSearch_TextChanged(object sender, EventArgs e)
         {
-            FilterData();
+            string grade  = GetSelectedGrade();
+            string status = GetSelectedStatus();
+            LoadAttendance(attendanceStudentSearch.Text.Trim(), grade, status);
         }
 
-        private void Dashboard_Click(object sender, EventArgs e)
+        private string GetSelectedGrade()
         {
-            DashboardForm dashboard = new DashboardForm();
-            dashboard.Show();
-            this.Hide();
+            if (!attendanceCombobox2.Enabled || attendanceCombobox2.SelectedItem == null)
+                return "";
+
+            string selected = attendanceCombobox2.SelectedItem.ToString();
+            return selected == "All Grades" ? "" : selected;
         }
 
-        private void StudentsID_Click(object sender, EventArgs e)
+        private string GetSelectedStatus()
         {
-            StudentIDForm studentsID = new StudentIDForm();
-            studentsID.Show();
-            this.Hide();
+            string selected = attendanceCombobox1.SelectedItem?.ToString() ?? "";
+            return (selected == "In Premises" || selected == "Departed") ? selected : "";
         }
 
-        private void Accounts_Click(object sender, EventArgs e)
-        {
-            Users user = new Users();
-            user.Show();
-            this.Hide();
-        }
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
-        private void Logs_Click(object sender, EventArgs e)
-        {
-            Logs log = new Logs();
-            log.Show();
-            this.Hide();
-        }
-
-        private void Settings_Click(object sender, EventArgs e)
-        {
-            Settings settings = new Settings();
-            settings.Show();
-            this.Hide();
-        }
+        private void Dashboard_Click(object sender, EventArgs e)  { new DashboardForm().Show();  this.Hide(); }
+        private void StudentsID_Click(object sender, EventArgs e) { new StudentIDForm().Show();  this.Hide(); }
+        private void Accounts_Click(object sender, EventArgs e)   { new Users().Show();          this.Hide(); }
+        private void Logs_Click(object sender, EventArgs e)       { new Logs().Show();           this.Hide(); }
+        private void Settings_Click(object sender, EventArgs e)   { new Settings().Show();       this.Hide(); }
 
         private void Logout_Click(object sender, EventArgs e)
         {
@@ -347,27 +348,9 @@ namespace EduLogix
 
             if (result == DialogResult.Yes)
             {
-                Login login = new Login();
-                login.Show();
+                new Login().Show();
                 this.Close();
             }
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(guna2TextBox1.Text))
-            {
-                FilterData();
-            }
-            else
-            {
-                SearchData();
-            }
-        }
-
-        private void guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            FilterData();
         }
     }
 }
