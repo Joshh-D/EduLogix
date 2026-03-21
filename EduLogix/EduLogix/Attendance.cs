@@ -1,354 +1,156 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace EduLogix
 {
     public partial class AttendanceForm : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
-
-        private static readonly string[] ElementaryGrades = { "Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6" };
-        private static readonly string[] JuniorHighGrades = { "Grade 7", "Grade 8", "Grade 9", "Grade 10" };
-        private static readonly string[] SeniorHighGrades = { "Grade 11", "Grade 12" };
+        // Assuming your DataGridView is bound to a DataTable
+        private DataTable attendanceData;
 
         public AttendanceForm()
         {
             InitializeComponent();
+            
+            // Wire up event handlers
+            this.Load += AttendanceForm_Load;
+            attendanceStudentSearch.TextChanged += FilterAttendance;
+            attendanceDateTimePicker.ValueChanged += AttendanceDateTimePicker_ValueChanged;
+            attendanceCombobox1.SelectedIndexChanged += AttendanceCombobox1_SelectedIndexChanged;
+            attendanceCombobox2.SelectedIndexChanged += FilterAttendance;
         }
 
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
-            attendanceDateTimePicker.MaxDate = DateTime.Today;
-            attendanceDateTimePicker.Value   = DateTime.Today;
-
-            attendanceDateTimePicker.ValueChanged             += attendanceDateTimePicker_ValueChanged;
-            attendanceCombobox1.SelectedIndexChanged += attendanceSecondCondCombobox_SelectedIndexChanged;
-            attendanceCombobox2.SelectedIndexChanged               += secondComboBox_SelectedIndexChanged;
-
-            PopulateMainComboBox();
-
-            LoadAttendance();
-            ApplyThemeToForm();
-        }
-
-        // ===== COMBOBOX POPULATION =====
-
-        private void PopulateMainComboBox()
-        {
-            attendanceCombobox1.Items.Clear();
-
-            bool isToday = attendanceDateTimePicker.Value.Date == DateTime.Today;
-
-            attendanceCombobox1.Items.Add("All");
-
-            if (isToday)
-            {
-                attendanceCombobox1.Items.Add("In Premises");
-                attendanceCombobox1.Items.Add("Departed");
-            }
-
-            attendanceCombobox1.Items.Add("Elementary");
-            attendanceCombobox1.Items.Add("Junior High");
-            attendanceCombobox1.Items.Add("Senior High");
-
-            attendanceCombobox1.SelectedIndex = 0;
-
-            attendanceCombobox2.Items.Clear();
-            attendanceCombobox2.Visible = true;
+            // Set initial state for cascading comboboxes
             attendanceCombobox2.Enabled = false;
-        }
-
-        private void PopulateSecondComboBox(string[] grades)
-        {
-            attendanceCombobox2.Items.Clear();
-            attendanceCombobox2.Items.Add("All Grades");
-
-            foreach (string grade in grades)
-                attendanceCombobox2.Items.Add(grade);
-
-            attendanceCombobox2.SelectedIndex = 0;
-            attendanceCombobox2.Visible = true;
-            attendanceCombobox2.Enabled = true;
-        }
-
-        // ===== COMBOBOX EVENTS =====
-
-        private void attendanceSecondCondCombobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selected = attendanceCombobox1.SelectedItem?.ToString() ?? "";
-
-            attendanceCombobox2.Items.Clear();
-            attendanceCombobox2.Visible = true;
-            attendanceCombobox2.Enabled = false;
-
-            switch (selected)
-            {
-                case "Elementary":
-                    PopulateSecondComboBox(ElementaryGrades);
-                    break;
-                case "Junior High":
-                    PopulateSecondComboBox(JuniorHighGrades);
-                    break;
-                case "Senior High":
-                    PopulateSecondComboBox(SeniorHighGrades);
-                    break;
-                default:
-                    LoadAttendance(attendanceStudentSearch.Text.Trim(), status: selected == "All" ? "" : selected);
-                    break;
-            }
-        }
-
-        private void secondComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string grade = attendanceCombobox2.SelectedItem?.ToString() ?? "";
-
-            if (grade == "All Grades")
-                grade = "";
-
-            LoadAttendance(attendanceStudentSearch.Text.Trim(), gradeLevel: grade);
-        }
-
-        private void attendanceDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            PopulateMainComboBox();
-            LoadAttendance(attendanceStudentSearch.Text.Trim());
-        }
-
-        // ===== THEME =====
-
-        private void ApplyThemeToForm()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 2";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        int r = Convert.ToInt32(reader["theme_red"]);
-                        int g = Convert.ToInt32(reader["theme_green"]);
-                        int b = Convert.ToInt32(reader["theme_blue"]);
-                        Color themeColor = Color.FromArgb(r, g, b);
-
-                        this.BackColor = themeColor;
-                        ApplyThemeToButtons(themeColor);
-                        ApplyThemeToControlBoxes(themeColor);
-                        ApplyThemeToLabels(themeColor);
-                        ApplyThemeToDataGridView(themeColor);
-                    }
-                }
-            }
-            catch (Exception) { }
-        }
-
-        private void ApplyThemeToButtons(Color themeColor)
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Guna.UI2.WinForms.Guna2Button btn)
-                {
-                    if (btn.Name == "Dashboard" || btn.Name == "Attendance" ||
-                        btn.Name == "StudentsID" || btn.Name == "Accounts"  ||
-                        btn.Name == "Logs"       || btn.Name == "Settings"  || btn.Name == "Logout")
-                    {
-                        btn.FillColor = themeColor;
-                    }
-                }
-            }
-        }
-
-        private void ApplyThemeToControlBoxes(Color themeColor)
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Guna.UI2.WinForms.Guna2ControlBox ctrlBox)
-                    ctrlBox.FillColor = themeColor;
-            }
-        }
-
-        private void ApplyThemeToLabels(Color themeColor)
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Guna.UI2.WinForms.Guna2HtmlLabel htmlLabel)
-                {
-                    if (htmlLabel.Name == "UserName" || htmlLabel.Name == "guna2HtmlLabel1")
-                        htmlLabel.BackColor = themeColor;
-                }
-            }
-        }
-
-        private void ApplyThemeToDataGridView(Color themeColor)
-        {
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor          = themeColor;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = themeColor;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor        = LightenColor(themeColor, 0.7f);
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor              = LightenColor(themeColor, 0.5f);
-        }
-
-        private Color LightenColor(Color color, float amount)
-        {
-            int r = Math.Min(255, (int)(color.R + (255 - color.R) * amount));
-            int g = Math.Min(255, (int)(color.G + (255 - color.G) * amount));
-            int b = Math.Min(255, (int)(color.B + (255 - color.B) * amount));
-            return Color.FromArgb(color.A, r, g, b);
-        }
-
-        // ===== DATA LOADING =====
-
-        private void LoadAttendance(string filter = "", string gradeLevel = "", string status = "")
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    string query = "SELECT * FROM reg_attendance WHERE 1=1";
-
-                    if (!string.IsNullOrWhiteSpace(filter))
-                        query += " AND (student_name LIKE @nameFilter OR student_num LIKE @numFilter)";
-
-                    if (!string.IsNullOrWhiteSpace(gradeLevel))
-                        query += " AND grade_level = @gradeLevel";
-
-                    if (!string.IsNullOrWhiteSpace(status))
-                        query += " AND status = @status";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                    if (!string.IsNullOrWhiteSpace(filter))
-                    {
-                        cmd.Parameters.AddWithValue("@nameFilter", "%" + filter + "%");
-                        cmd.Parameters.AddWithValue("@numFilter", filter + "%");
-                    }
-
-                    if (!string.IsNullOrWhiteSpace(gradeLevel))
-                        cmd.Parameters.AddWithValue("@gradeLevel", gradeLevel);
-
-                    if (!string.IsNullOrWhiteSpace(status))
-                        cmd.Parameters.AddWithValue("@status", status);
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-
-                    guna2DataGridView1.DataSource = table;
-
-                    // Hide columns not needed
-                    if (guna2DataGridView1.Columns.Contains("rfid_number"))
-                        guna2DataGridView1.Columns["rfid_number"].Visible = false;
-                    if (guna2DataGridView1.Columns.Contains("education"))
-                        guna2DataGridView1.Columns["education"].Visible = false;
-
-                    // Set column headers
-                    guna2DataGridView1.Columns["student_num"].HeaderText = "Student No.";
-                    guna2DataGridView1.Columns["student_name"].HeaderText = "Name";
-                    guna2DataGridView1.Columns["grade_level"].HeaderText = "Grade Level";
-                    guna2DataGridView1.Columns["section"].HeaderText = "Section";
-                    guna2DataGridView1.Columns["status"].HeaderText = "Status";
-                    guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
-
-                    // Header styling
-                    guna2DataGridView1.EnableHeadersVisualStyles = true;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
-                    guna2DataGridView1.ColumnHeadersHeight = 40;
-
-                    // Row styling
-                    guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
-                    guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
-                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Ivory;
-                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
-
-                    // Grid and border
-                    guna2DataGridView1.GridColor = Color.LightGray;
-                    guna2DataGridView1.BorderStyle = BorderStyle.None;
-                    guna2DataGridView1.RowHeadersVisible = false;
-                    guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    guna2DataGridView1.ReadOnly = true;
-                    guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-                    // Update total count
-                    totalStudentNum.Text = table.Rows.Count.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading attendance data:\n" + ex.Message);
-            }
-
-        }
-
-            private void SetupDataGridViewSelectionBehavior()
-        {
-            // Remove default selection
+            
+            // TODO: Load your data into attendanceData here
+            
+            // Clear DGV default selection
             guna2DataGridView1.ClearSelection();
+            guna2DataGridView1.CurrentCell = null;
+            
+            UpdateTotalLabel();
+        }
 
-            // Handle click on empty space to remove selection
-            guna2DataGridView1.MouseDown += (s, e) =>
+        private void AttendanceDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            EvaluateCombobox2State();
+            FilterAttendance(sender, e);
+        }
+
+        private void AttendanceCombobox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EvaluateCombobox2State();
+            FilterAttendance(sender, e);
+        }
+
+        private void EvaluateCombobox2State()
+        {
+            bool hasLevelSelection = attendanceCombobox1.SelectedIndex > 0; // Assuming 0 is "All" or unselected
+            bool isPastDate = attendanceDateTimePicker.Value.Date < DateTime.Now.Date;
+
+            // Combobox 2 rules: disabled if past date, enabled only if ComboBox 1 has selection
+            if (isPastDate)
             {
-                var hit = guna2DataGridView1.HitTest(e.X, e.Y);
-                if (hit.Type == DataGridViewHitTestType.None)
-                {
-                    guna2DataGridView1.ClearSelection();
-                }
-            };
+                attendanceCombobox2.Enabled = false;
+                attendanceCombobox2.SelectedIndex = -1; // Reset selection
+            }
+            else
+            {
+                attendanceCombobox2.Enabled = hasLevelSelection;
+            }
         }
-        
 
-        private void attendanceStudentSearch_TextChanged(object sender, EventArgs e)
+        private void FilterAttendance(object sender, EventArgs e)
         {
-            string grade  = GetSelectedGrade();
-            string status = GetSelectedStatus();
-            LoadAttendance(attendanceStudentSearch.Text.Trim(), grade, status);
+            if (attendanceData == null) return;
+
+            string searchText = attendanceStudentSearch.Text.Trim().Replace("'", "''");
+            DateTime selectedDate = attendanceDateTimePicker.Value.Date;
+            
+            string levelFilter = attendanceCombobox1.SelectedItem?.ToString();
+            string statusFilter = attendanceCombobox2.SelectedItem?.ToString();
+
+            // Build RowFilter string
+            string filter = $"AttendanceDate = '{selectedDate:yyyy-MM-dd}'";
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                filter += $" AND (StudentName LIKE '%{searchText}%' OR StudentID LIKE '%{searchText}%')";
+            }
+
+            if (!string.IsNullOrEmpty(levelFilter) && levelFilter != "All")
+            {
+                filter += $" AND Level = '{levelFilter}'";
+            }
+
+            if (attendanceCombobox2.Enabled && !string.IsNullOrEmpty(statusFilter) && statusFilter != "All")
+            {
+                filter += $" AND Status = '{statusFilter}'";
+            }
+
+            // Apply filter if you are using a DataView
+            DataView dv = attendanceData.DefaultView;
+            dv.RowFilter = filter;
+            guna2DataGridView1.DataSource = dv;
+
+            UpdateTotalLabel();
         }
 
-        private string GetSelectedGrade()
+        private void UpdateTotalLabel()
         {
-            if (!attendanceCombobox2.Enabled || attendanceCombobox2.SelectedItem == null)
-                return "";
-
-            string selected = attendanceCombobox2.SelectedItem.ToString();
-            return selected == "All Grades" ? "" : selected;
+            int totalVisible = guna2DataGridView1.Rows.Count;
+            // Subtract new row placeholder if AllowUserToAddRows is true
+            if (guna2DataGridView1.AllowUserToAddRows) totalVisible--;
+            
+            attendancetotal.Text = totalVisible.ToString();
         }
 
-        private string GetSelectedStatus()
+        private void Dashboard_Click(object sender, EventArgs e)
         {
-            string selected = attendanceCombobox1.SelectedItem?.ToString() ?? "";
-            return (selected == "In Premises" || selected == "Departed") ? selected : "";
+            DashboardForm dashboard = new DashboardForm();
+            dashboard.Show();
+            this.Hide();
         }
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void StudentsID_Click(object sender, EventArgs e)
+        {
+            StudentIDForm studentsID = new StudentIDForm();
+            studentsID.Show();
+            this.Hide();
+        }
 
-        private void Dashboard_Click(object sender, EventArgs e)  { new DashboardForm().Show();  this.Hide(); }
-        private void StudentsID_Click(object sender, EventArgs e) { new StudentIDForm().Show();  this.Hide(); }
-        private void Accounts_Click(object sender, EventArgs e)   { new Users().Show();          this.Hide(); }
-        private void Logs_Click(object sender, EventArgs e)       { new Logs().Show();           this.Hide(); }
-        private void Settings_Click(object sender, EventArgs e)   { new Settings().Show();       this.Hide(); }
+        private void Logs_Click(object sender, EventArgs e)
+        {
+            Logs log = new Logs();
+            log.Show();
+            this.Hide();
+        }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+            this.Hide();
+        }
 
         private void Logout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Are you sure you want to log out?",
-                "Confirm Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+               "Are you sure you want to log out?",
+               "Confirm Logout",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question
+           );
 
             if (result == DialogResult.Yes)
             {
-                new Login().Show();
+                Login login = new Login();
+                login.Show();
                 this.Close();
             }
         }

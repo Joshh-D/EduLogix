@@ -29,7 +29,7 @@ namespace EduLogix
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
+                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 2";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
