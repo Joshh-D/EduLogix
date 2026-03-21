@@ -271,34 +271,12 @@ namespace EduLogix
             }
         }
 
-        private void Dashboard_Click(object sender, EventArgs e)
-        {
-            DashboardForm dashboard = new DashboardForm();
-            dashboard.Show();
-            this.Hide();
-        }
-
         private void Accounts_Click(object sender, EventArgs e)
         {
             Users user = new Users();
             user.Show();
             this.Hide();
         }
-
-        private void StudentsID_Click(object sender, EventArgs e)
-        {
-            StudentIDForm studentsID = new StudentIDForm();
-            studentsID.Show();
-            this.Hide();
-        }
-
-        private void Attendance_Click(object sender, EventArgs e)
-        {
-            AttendanceForm attendance = new AttendanceForm();
-            attendance.Show();
-            this.Hide();
-        }
-
         private void Settings_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
@@ -362,6 +340,27 @@ namespace EduLogix
             {
                 MessageBox.Show("Error searching logs:\n" + ex.Message);
             }
+        }
+
+        private void StudentsID_Click_1(object sender, EventArgs e)
+        {
+            StudentIDForm studentsID = new StudentIDForm();
+            studentsID.Show();
+            this.Hide();
+        }
+
+        private void Attendance_Click_1(object sender, EventArgs e)
+        {
+            AttendanceForm attendance = new AttendanceForm();
+            attendance.Show();
+            this.Hide();
+        }
+
+        private void Dashboard_Click_1(object sender, EventArgs e)
+        {
+            DashboardForm dashboard = new DashboardForm();
+            dashboard.Show();
+            this.Hide();
         }
     }
 }
