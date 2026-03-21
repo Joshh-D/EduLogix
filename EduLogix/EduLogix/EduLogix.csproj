@@ -334,6 +334,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EduLogix.ico" />
+    <None Include="Resources\Screenshot_2026-03-21_231359-removebg-preview1.png" />
+    <None Include="Resources\Screenshot_2026-03-21_231359-removebg-preview.png" />
     <None Include="Resources\Caloocan_City_Business_High_School_Logo-1-removebg-preview1.png" />
     <None Include="Resources\Screenshot_2026-02-20_212811-removebg-preview.png" />
     <None Include="Resources\Screenshot_2026-02-19_152726-removebg-preview.png" />

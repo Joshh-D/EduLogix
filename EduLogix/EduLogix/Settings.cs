@@ -81,11 +81,7 @@ namespace EduLogix
        
 
         // Click on PictureBox 3 (First default logo in guna2Panel5)
-        private void guna2PictureBox3_Click(object sender, EventArgs e)
-        {
-            // This is the default logo, allow changing
-            BrowseAndSetKioskImage(guna2PictureBox3);
-        }
+     
 
         // Click on PictureBox 9 (Plus icon 1 in guna2Panel6)
         private void guna2PictureBox9_Click(object sender, EventArgs e)
@@ -329,6 +325,31 @@ namespace EduLogix
         }
 
         private void guna2Button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
