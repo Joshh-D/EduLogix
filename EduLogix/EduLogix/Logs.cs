@@ -8,202 +8,203 @@ namespace EduLogix
 {
     public partial class Logs : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private readonly string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
 
         public Logs()
         {
             InitializeComponent();
-            this.Load += Logs_Load;
-        }
 
-        private void Logs_Load(object sender, EventArgs e)
-        {
-            LoadLogs();
-            ApplyThemeToForm();
-        }
-
-        private void SearchData()
-        {
-            string keyword = guna2TextBox1.Text.Trim();
-            string query = "SELECT * FROM reg_logs WHERE " +
-                           "(name LIKE @search OR " +
-                           "role LIKE @search OR " +
-                           "action LIKE @search)";                    
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            if (!DesignMode)
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@search", "%" + keyword + "%");
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                guna2DataGridView1.DataSource = table;
-               
+                LoadThemeFromDatabase();
+                MarkActiveNav();
+                InitializeDatePicker();
+                LoadLogs();  // Load AFTER theme
+                ConfigureDataGridView();  // Configure AFTER loading
             }
         }
-        private void ApplyThemeToForm()
+
+        private void InitializeDatePicker()
         {
+            if (guna2DateTimePicker1 != null)
+            {
+                // Set default date to today
+                guna2DateTimePicker1.Value = DateTime.Now.Date;
+                
+                // Wire the date change event
+                guna2DateTimePicker1.ValueChanged += (s, args) => LoadLogs();
+            }
+        }
+
+        private void ConfigureDataGridView()
+        {
+            guna2DataGridView1.EnableHeadersVisualStyles = false;
+            guna2DataGridView1.ColumnHeadersHeight = 40;
+            
+            // Header styling with theme color
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = currentThemeColor;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(currentThemeColor, 0.15f);
+            
+            // Data cell styling
+            guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
+            guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+            guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
+            
+            // Selection styling with THEME COLOR
+            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(currentThemeColor, 0.3f);
+            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+            
+            // Make read-only
+            guna2DataGridView1.ReadOnly = true;
+            guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
+            // Alternating row colors with pattern - using theme color
+            Color lightPatternColor = LightenColor(currentThemeColor, 0.7f);
+            guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
+            guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            
+            guna2DataGridView1.ClearSelection();
+        }
+
+        private void LoadThemeFromDatabase()
+        {
+            if (DesignMode) return;
+
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (var conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    const string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
+                    using (var cmd = new MySqlCommand(query, conn))
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        int r = Convert.ToInt32(reader["theme_red"]);
-                        int g = Convert.ToInt32(reader["theme_green"]);
-                        int b = Convert.ToInt32(reader["theme_blue"]);
-                        Color themeColor = Color.FromArgb(r, g, b);
-
-                        // Apply theme to sidebar background
-                        this.BackColor = themeColor;
-
-                        // Apply theme to navigation buttons
-                        ApplyThemeToButtons(themeColor);
-
-                        // Apply theme to control boxes
-                        ApplyThemeToControlBoxes(themeColor);
-
-                        // Apply theme to labels
-                        ApplyThemeToLabels(themeColor);
-
-                        // Apply theme to DataGridView
-                        ApplyThemeToDataGridView(themeColor);
+                        if (reader.Read())
+                        {
+                            int r = Convert.ToInt32(reader["theme_red"]);
+                            int g = Convert.ToInt32(reader["theme_green"]);
+                            int b = Convert.ToInt32(reader["theme_blue"]);
+                            currentThemeColor = Color.FromArgb(r, g, b);
+                            ApplyThemeColor(currentThemeColor);
+                        }
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                // Silently fail and use default colors
             }
         }
 
-        private void ApplyThemeToButtons(Color themeColor)
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        { 
+        }
+
+        private void Dashboard_Click_1(object sender, EventArgs e)
         {
-            foreach (Control control in this.Controls)
+            var form = new DashboardForm();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
+            this.Hide();
+        }
+
+        private void Attendance_Click_1(object sender, EventArgs e)
+        {
+            var form = new AttendanceForm();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
+            this.Hide();
+        }
+
+        private void StudentsID_Click_1(object sender, EventArgs e)
+        {
+            var form = new StudentIDForm();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
+            this.Hide();
+        }
+
+        private void ApplyThemeColor(Color themeColor)
+        {
+            // Same main gradient as Settings
+            if (guna2GradientPanel1 != null)
             {
-                if (control is Guna.UI2.WinForms.Guna2Button btn)
-                {
-                    if (btn.Name == "Dashboard" || btn.Name == "Attendance" || 
-                        btn.Name == "StudentsID" || btn.Name == "Accounts" ||
-                        btn.Name == "Logs" || btn.Name == "Settings" || btn.Name == "Logout")
-                    {
-                        btn.FillColor = themeColor;
-                    }
-                }
+                var darker = DarkenColor(themeColor, 0.35f);
+                guna2GradientPanel1.FillColor = darker;
+                guna2GradientPanel1.FillColor2 = themeColor;
+            }
+
+            if (guna2GradientPanel2 != null)
+            {
+                guna2GradientPanel2.FillColor = Color.White;
+                guna2GradientPanel2.FillColor2 = LightenColor(themeColor, 0.9f);
+            }
+
+            // Left nav buttons – same styling as Settings
+            ApplyThemeToNavButton(Dashboard, themeColor);
+            ApplyThemeToNavButton(Attendance, themeColor);
+            ApplyThemeToNavButton(StudentsID, themeColor);
+            ApplyThemeToNavButton(guna2Button1, themeColor); // Logs button
+        }
+
+        private void ApplyThemeToNavButton(Guna.UI2.WinForms.Guna2Button button, Color themeColor)
+        {
+            if (button == null) return;
+
+            var normal = themeColor;
+            var checkedColor = LightenColor(themeColor, 0.2f);
+
+            button.FillColor = normal;
+            button.ForeColor = GetContrastColor(normal);
+            button.CheckedState.FillColor = checkedColor;
+            button.CheckedState.ForeColor = GetContrastColor(checkedColor);
+        }
+
+        private void MarkActiveNav()
+        {
+            // Uncheck others and make them transparent
+            if (Dashboard != null)
+            {
+                Dashboard.Checked = false;
+                Dashboard.FillColor = Color.Transparent;
+            }
+            if (Attendance != null)
+            {
+                Attendance.Checked = false;
+                Attendance.FillColor = Color.Transparent;
+            }
+            if (StudentsID != null)
+            {
+                StudentsID.Checked = false;
+                StudentsID.FillColor = Color.Transparent;
+            }
+
+            // Active button white
+            if (guna2Button1 != null)
+            {
+                guna2Button1.Checked = true;
+                guna2Button1.FillColor = Color.White;
+                guna2Button1.ForeColor = Color.Black;
+                guna2Button1.CheckedState.FillColor = Color.White;
+                guna2Button1.CheckedState.ForeColor = Color.Black;
             }
         }
 
-        private void ApplyThemeToControlBoxes(Color themeColor)
+        private Color currentThemeColor = Color.FromArgb(48, 79, 99);
+
+        private Color DarkenColor(Color color, float amount)
         {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Guna.UI2.WinForms.Guna2ControlBox ctrlBox)
-                {
-                    ctrlBox.FillColor = themeColor;
-                }
-            }
-        }
-
-        private void FilterData()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    string query = "SELECT name, role, action, date_and_time FROM reg_logs";
-
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd.Connection = conn;
-
-                    // You could add extra filters here in future if needed
-
-                    cmd.CommandText = query;
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-
-                    // Bind to DataGridView
-                    guna2DataGridView1.DataSource = table;
-
-                    // Set headers
-                    if (guna2DataGridView1.Columns.Count > 0)
-                    {
-                        guna2DataGridView1.Columns["name"].HeaderText = "Name";
-                        guna2DataGridView1.Columns["role"].HeaderText = "Role";
-                        guna2DataGridView1.Columns["action"].HeaderText = "Action";
-                        guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
-
-                        // Move date_and_time column to last position
-                        int lastIndex = guna2DataGridView1.Columns.Count - 1;
-                        guna2DataGridView1.Columns["date_and_time"].DisplayIndex = lastIndex;
-
-                        // Prevent sorting
-                        foreach (DataGridViewColumn col in guna2DataGridView1.Columns)
-                            col.SortMode = DataGridViewColumnSortMode.NotSortable;
-                    }
-
-                    // Styling
-                    guna2DataGridView1.EnableHeadersVisualStyles = false;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                    guna2DataGridView1.ColumnHeadersHeight = 40;
-
-                    guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-                    guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
-                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.GridColor = Color.LightGray;
-                    guna2DataGridView1.BorderStyle = BorderStyle.None;
-                    guna2DataGridView1.RowHeadersVisible = false;
-                    guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    guna2DataGridView1.ReadOnly = true;
-                    guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading logs:\n" + ex.Message);
-            }
-        }
-
-        private void ApplyThemeToLabels(Color themeColor)
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Guna.UI2.WinForms.Guna2HtmlLabel htmlLabel)
-                {
-                    if (htmlLabel.Name == "UserName" || htmlLabel.Name == "guna2HtmlLabel1")
-                    {
-                        htmlLabel.BackColor = themeColor;
-                    }
-                }
-            }
-        }
-
-        private void ApplyThemeToDataGridView(Color themeColor)
-        {
-            // Calculate lighter tint for alternating rows
-            Color lightTint = LightenColor(themeColor, 0.7f);
-
-            // Apply theme color to table header
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = themeColor;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = themeColor;
-
-            // Apply light tint to alternating rows
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightTint;
-
-            // Keep selection colors themed
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(themeColor, 0.5f);
+            int r = Math.Max(0, (int)(color.R * (1 - amount)));
+            int g = Math.Max(0, (int)(color.G * (1 - amount)));
+            int b = Math.Max(0, (int)(color.B * (1 - amount)));
+            return Color.FromArgb(color.A, r, g, b);
         }
 
         private Color LightenColor(Color color, float amount)
@@ -214,153 +215,48 @@ namespace EduLogix
             return Color.FromArgb(color.A, r, g, b);
         }
 
+        private Color GetContrastColor(Color color)
+        {
+            double luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
+            return luminance > 0.5 ? Color.Black : Color.White;
+        }
+
         private void LoadLogs()
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                using (var conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    string query =
-                        "SELECT `name`, `role`, `action`, `date_and_time` FROM reg_logs";
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-
-                    guna2DataGridView1.DataSource = table;
-
-                    guna2DataGridView1.Columns["name"].HeaderText = "Name";
-                    guna2DataGridView1.Columns["role"].HeaderText = "Role";
-                    guna2DataGridView1.Columns["action"].HeaderText = "Action";
-                    guna2DataGridView1.Columns["date_and_time"].HeaderText = "Date & Time";
-
-                    guna2DataGridView1.EnableHeadersVisualStyles = false;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                    guna2DataGridView1.ColumnHeadersHeight = 40;
-                    guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font =
-                        new Font("Segoe UI", 10, FontStyle.Bold);
-
-                    guna2DataGridView1.DefaultCellStyle.Font =
-                        new Font("Segoe UI", 9);
-                    guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-                    guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
-
-                    guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
-
-                    guna2DataGridView1.GridColor = Color.LightGray;
-                    guna2DataGridView1.BorderStyle = BorderStyle.None;
-                    guna2DataGridView1.RowHeadersVisible = false;
-
-                    guna2DataGridView1.AutoSizeColumnsMode =
-                        DataGridViewAutoSizeColumnsMode.Fill;
-                    guna2DataGridView1.ReadOnly = true;
-                    guna2DataGridView1.SelectionMode =
-                        DataGridViewSelectionMode.FullRowSelect;
-
-                    foreach (DataGridViewColumn col in guna2DataGridView1.Columns)
+                    
+                    // Get selected date from date picker
+                    DateTime selectedDate = guna2DateTimePicker1 != null 
+                        ? guna2DateTimePicker1.Value.Date 
+                        : DateTime.Now.Date;
+                    
+                    // Query logs for the selected date only
+                    const string sql = @"SELECT name, role, action, log_date
+                                         FROM reg_logs
+                                         WHERE DATE(log_date) = @selectedDate
+                                         ORDER BY log_date DESC";
+                    
+                    using (var cmd = new MySqlCommand(sql, conn))
                     {
-                        col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                        cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
+                        using (var da = new MySqlDataAdapter(cmd))
+                        {
+                            var dt = new DataTable();
+                            da.Fill(dt);
+                            guna2DataGridView1.DataSource = dt;
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error loading logs:\n" + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void Accounts_Click(object sender, EventArgs e)
-        {
-            Users user = new Users();
-            user.Show();
-            this.Hide();
-        }
-        private void Settings_Click(object sender, EventArgs e)
-        {
-            Settings settings = new Settings();
-            settings.Show();
-            this.Hide();
-        }
-
-        private void Logout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to log out?",
-                "Confirm Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                Login login = new Login();
-                login.Show();
-                this.Close();
-            }
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = guna2TextBox1.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(keyword))
-            {
-                FilterData(); // reload all logs
-                return;
-            }
-
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    string query = "SELECT name, role, action, date_and_time FROM reg_logs " +
-                                   "WHERE name LIKE @search OR role LIKE @search OR action LIKE @search";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@search", "%" + keyword + "%");
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-
-                    guna2DataGridView1.DataSource = table;
-
-                    // Move date_and_time to last column
-                    if (guna2DataGridView1.Columns.Contains("date_and_time"))
-                    {
-                        guna2DataGridView1.Columns["date_and_time"].DisplayIndex = guna2DataGridView1.Columns.Count - 1;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error searching logs:\n" + ex.Message);
-            }
-        }
-
-        private void StudentsID_Click_1(object sender, EventArgs e)
-        {
-            StudentIDForm studentsID = new StudentIDForm();
-            studentsID.Show();
-            this.Hide();
-        }
-
-        private void Attendance_Click_1(object sender, EventArgs e)
-        {
-            AttendanceForm attendance = new AttendanceForm();
-            attendance.Show();
-            this.Hide();
-        }
-
-        private void Dashboard_Click_1(object sender, EventArgs e)
-        {
-            DashboardForm dashboard = new DashboardForm();
-            dashboard.Show();
-            this.Hide();
         }
     }
 }

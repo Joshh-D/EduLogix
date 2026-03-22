@@ -7,30 +7,233 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace EduLogix
 {
     public partial class StudentInfo : Form
     {
+        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private string currentStudentId = "";
+        private Color currentThemeColor = Color.FromArgb(48, 79, 99);
+
         public StudentInfo()
         {
             InitializeComponent();
+            
+            if (!DesignMode)
+            {
+                ApplyThemeToForm();
+            }
+        }
+
+        private void StudentInfo_Load(object sender, EventArgs e)
+        {
+            ApplyThemeToForm();
+        }
+
+        public void LoadStudentInfo(string studentId)
+        {
+            currentStudentId = studentId;
+            ApplyThemeToForm();
+            LoadStudentData(studentId);
+        }
+
+        private void LoadStudentData(string studentId)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = @"SELECT 
+                                        rfid_number,
+                                        student_id,
+                                        name,
+                                        phone,
+                                        email,
+                                        address,
+                                        date_of_birth,
+                                        grade,
+                                        section,
+                                        level,
+                                        guardian_name,
+                                        guardian_phone_number
+                                    FROM reg_studentinfo
+                                    WHERE student_id = @studentId";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@studentId", studentId);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        PopulateStudentControls(reader);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student record not found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading student data:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PopulateStudentControls(MySqlDataReader reader)
+        {
+            try
+            {
+                // RFID Number (guna2TextBox8)
+                if (guna2TextBox8 != null && reader["rfid_number"] != DBNull.Value)
+                    guna2TextBox8.Text = reader["rfid_number"].ToString();
+
+                // Student ID (guna2TextBox1)
+                if (guna2TextBox1 != null && reader["student_id"] != DBNull.Value)
+                    guna2TextBox1.Text = reader["student_id"].ToString();
+
+                // Full Name (guna2TextBox2)
+                if (guna2TextBox2 != null && reader["name"] != DBNull.Value)
+                    guna2TextBox2.Text = reader["name"].ToString();
+
+                // Grade (guna2TextBox3)
+                if (guna2TextBox3 != null && reader["grade"] != DBNull.Value)
+                    guna2TextBox3.Text = reader["grade"].ToString();
+
+                // Phone Number (guna2TextBox4)
+                if (guna2TextBox4 != null && reader["phone"] != DBNull.Value)
+                    guna2TextBox4.Text = reader["phone"].ToString();
+
+                // Guardian Name (guna2TextBox5)
+                if (guna2TextBox5 != null && reader["guardian_name"] != DBNull.Value)
+                    guna2TextBox5.Text = reader["guardian_name"].ToString();
+
+                // Guardian Phone Number (guna2TextBox6)
+                if (guna2TextBox6 != null && reader["guardian_phone_number"] != DBNull.Value)
+                    guna2TextBox6.Text = reader["guardian_phone_number"].ToString();
+
+                // Present Address (guna2TextBox7)
+                if (guna2TextBox7 != null && reader["address"] != DBNull.Value)
+                    guna2TextBox7.Text = reader["address"].ToString();
+
+                // Section (guna2TextBox9)
+                if (guna2TextBox9 != null && reader["section"] != DBNull.Value)
+                    guna2TextBox9.Text = reader["section"].ToString();
+
+                // Education/Level (guna2TextBox10)
+                if (guna2TextBox10 != null && reader["level"] != DBNull.Value)
+                    guna2TextBox10.Text = reader["level"].ToString();
+
+                // Email (add appropriate control name if it exists)
+                if (reader["email"] != DBNull.Value)
+                {
+                    // Assign to email control if available (e.g., guna2TextBox11 or similar)
+                    // guna2TextBoxEmail.Text = reader["email"].ToString();
+                }
+
+                // Date of Birth (add appropriate control name if it exists)
+                if (reader["date_of_birth"] != DBNull.Value)
+                {
+                    // Assign to date of birth control if available (e.g., guna2TextBox12 or similar)
+                    // guna2TextBoxDateOfBirth.Text = ((DateTime)reader["date_of_birth"]).ToString("yyyy-MM-dd");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error populating student controls:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ApplyThemeToForm()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        int r = Convert.ToInt32(reader["theme_red"]);
+                        int g = Convert.ToInt32(reader["theme_green"]);
+                        int b = Convert.ToInt32(reader["theme_blue"]);
+                        currentThemeColor = Color.FromArgb(r, g, b);
+
+                        ApplyThemeToPanel(currentThemeColor);
+                        ApplyThemeToButtons(currentThemeColor);
+                    }
+                    reader.Close();
+                }
+            }
+            catch
+            {
+                // Silently fail, use default
+            }
+        }
+
+        private void ApplyThemeToPanel(Color themeColor)
+        {
+            // Apply gradient to main panel if it exists
+            foreach (Control control in this.Controls)
+            {
+                if (control is Guna.UI2.WinForms.Guna2GradientPanel gradientPanel)
+                {
+                    var darker = DarkenColor(themeColor, 0.35f);
+                    gradientPanel.FillColor = darker;
+                    gradientPanel.FillColor2 = themeColor;
+                }
+            }
+        }
+
+        private void ApplyThemeToButtons(Color themeColor)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Guna.UI2.WinForms.Guna2Button btn)
+                {
+                    if (btn.Name == "Dashboard" || btn.Name == "Attendance" ||
+                        btn.Name == "StudentsID" || btn.Name == "Accounts" ||
+                        btn.Name == "Logs" || btn.Name == "Settings" || btn.Name == "Logout")
+                    {
+                        btn.FillColor = themeColor;
+                        btn.ForeColor = GetContrastColor(themeColor);
+                        
+                        // Apply checked state
+                        btn.CheckedState.FillColor = LightenColor(themeColor, 0.2f);
+                        btn.CheckedState.ForeColor = GetContrastColor(LightenColor(themeColor, 0.2f));
+                    }
+                }
+            }
+        }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
+            this.Hide();
         }
 
         private void Logout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-               "Are you sure you want to log out?",
-               "Confirm Logout",
-               MessageBoxButtons.YesNo,
-               MessageBoxIcon.Question
-           );
+                "Are you sure you want to log out?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
             if (result == DialogResult.Yes)
             {
                 Login login = new Login();
                 login.Show();
-
                 this.Close();
             }
         }
@@ -51,30 +254,49 @@ namespace EduLogix
 
         private void StudentsID_Click(object sender, EventArgs e)
         {
-            StudentIDForm studentsID = new StudentIDForm();
-            studentsID.Show();
+            StudentIDForm studentID = new StudentIDForm();
+            studentID.Show();
             this.Hide();
         }
 
         private void Accounts_Click(object sender, EventArgs e)
         {
-            Users user = new Users();
-            user.Show();
+            Users users = new Users();
+            users.Show();
             this.Hide();
         }
 
         private void Logs_Click(object sender, EventArgs e)
         {
-            Logs log = new Logs();
-            log.Show();
+            Logs logs = new Logs();
+            logs.Show();
             this.Hide();
         }
 
-        private void Settings_Click(object sender, EventArgs e)
+        #region ===== COLOR HELPER METHODS =====
+
+        private Color LightenColor(Color color, float amount)
         {
-            Settings settings = new Settings();
-            settings.Show();
-            this.Hide();
+            int r = Math.Min(255, (int)(color.R + (255 - color.R) * amount));
+            int g = Math.Min(255, (int)(color.G + (255 - color.G) * amount));
+            int b = Math.Min(255, (int)(color.B + (255 - color.B) * amount));
+            return Color.FromArgb(color.A, r, g, b);
         }
+
+        private Color DarkenColor(Color color, float amount)
+        {
+            int r = Math.Max(0, (int)(color.R * (1 - amount)));
+            int g = Math.Max(0, (int)(color.G * (1 - amount)));
+            int b = Math.Max(0, (int)(color.B * (1 - amount)));
+            return Color.FromArgb(color.A, r, g, b);
+        }
+
+        private Color GetContrastColor(Color color)
+        {
+            double luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
+            return luminance > 0.5 ? Color.Black : Color.White;
+        }
+
+        #endregion
     }
 }

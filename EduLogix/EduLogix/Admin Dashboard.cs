@@ -43,12 +43,43 @@ namespace EduLogix
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             ApplyThemeToForm();
+            MarkActiveNav();
             if (dashboardDateAndTime != null)
             {
                 dashboardDateAndTime.Text = DateTime.Now.ToString("MMMM dd, yyyy hh:mm:ss tt");
             }
             SetupAttendanceChart();
             UpdateDailyAttendanceCircle();
+        }
+
+        private void MarkActiveNav()
+        {
+            // Uncheck others and make them transparent
+            if (Attendance != null)
+            {
+                Attendance.Checked = false;
+                Attendance.FillColor = Color.Transparent;
+            }
+            if (StudentsID != null)
+            {
+                StudentsID.Checked = false;
+                StudentsID.FillColor = Color.Transparent;
+            }
+            if (Logs != null)
+            {
+                Logs.Checked = false;
+                Logs.FillColor = Color.Transparent;
+            }
+
+            // Active button white
+            if (Dashboard != null)
+            {
+                Dashboard.Checked = true;
+                Dashboard.FillColor = Color.White;
+                Dashboard.ForeColor = Color.Black;
+                Dashboard.CheckedState.FillColor = Color.White;
+                Dashboard.CheckedState.ForeColor = Color.Black;
+            }
         }
 
         private void ApplyThemeToForm()
@@ -58,7 +89,7 @@ namespace EduLogix
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 2";
+                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
@@ -67,55 +98,85 @@ namespace EduLogix
                         int g = Convert.ToInt32(reader["theme_green"]);
                         int b = Convert.ToInt32(reader["theme_blue"]);
                         Color themeColor = Color.FromArgb(r, g, b);
-                        this.BackColor = themeColor;
-                        ApplyThemeToButtons(themeColor);
-                        ApplyThemeToControlBoxes(themeColor);
-                        ApplyThemeToLabels(themeColor);
+
+                        ApplyThemeColor(themeColor);
                     }
                 }
             }
-            catch (Exception) { }
-        }
-
-        private void ApplyThemeToButtons(Color themeColor)
-        {
-            foreach (Control control in this.Controls)
+            catch (Exception)
             {
-                if (control is Guna.UI2.WinForms.Guna2Button btn)
-                {
-                    if (btn.Name == "Dashboard" || btn.Name == "Attendance" ||
-                        btn.Name == "StudentsID" || btn.Name == "Accounts" ||
-                        btn.Name == "Logs" || btn.Name == "Settings" || btn.Name == "Logout")
-                    {
-                        btn.FillColor = themeColor;
-                    }
-                }
+                // keep silent to avoid breaking designer/runtime
             }
         }
 
-        private void ApplyThemeToControlBoxes(Color themeColor)
+        private void ApplyThemeColor(Color themeColor)
         {
-            foreach (Control control in this.Controls)
+            // main background gradient panel
+            if (guna2GradientPanel7 != null)
             {
-                if (control is Guna.UI2.WinForms.Guna2ControlBox ctrlBox)
-                {
-                    ctrlBox.FillColor = themeColor;
-                }
+                guna2GradientPanel7.FillColor = themeColor;
+                guna2GradientPanel7.FillColor2 = LightenColor(themeColor, 0.4f);
+            }
+
+            // inner content gradient panel
+            if (guna2GradientPanel8 != null)
+            {
+                guna2GradientPanel8.FillColor = Color.White;
+                guna2GradientPanel8.FillColor2 = LightenColor(themeColor, 0.9f);
+            }
+
+            // nav buttons on left sidebar
+            ApplyNavTheme(Dashboard);
+            ApplyNavTheme(Attendance);
+            ApplyNavTheme(StudentsID);
+            ApplyNavTheme(Logs);
+
+            // top-right control boxes
+            if (guna2ControlBox4 != null)
+            {
+                guna2ControlBox4.FillColor = Color.Transparent;
+                guna2ControlBox4.IconColor = Color.White;
+            }
+
+            if (guna2ControlBox5 != null)
+            {
+                guna2ControlBox5.FillColor = Color.Transparent;
+                guna2ControlBox5.IconColor = Color.White;
+            }
+
+            // labels over sidebar
+            if (UserName != null)
+                UserName.ForeColor = Color.White;
+            if (guna2HtmlLabel1 != null)
+                guna2HtmlLabel1.ForeColor = Color.LightGray;
+            if (guna2HtmlLabel17 != null)
+                guna2HtmlLabel17.ForeColor = Color.White;
+
+            void ApplyNavTheme(Guna.UI2.WinForms.Guna2Button btn)
+            {
+                if (btn == null) return;
+                Color normal = themeColor;
+                Color checkedColor = LightenColor(themeColor, 0.2f);
+
+                btn.FillColor = normal;
+                btn.ForeColor = GetContrastColor(normal);
+                btn.CheckedState.FillColor = checkedColor;
+                btn.CheckedState.ForeColor = GetContrastColor(checkedColor);
             }
         }
 
-        private void ApplyThemeToLabels(Color themeColor)
+        private Color LightenColor(Color color, float amount)
         {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Guna.UI2.WinForms.Guna2HtmlLabel htmlLabel)
-                {
-                    if (htmlLabel.Name == "UserName" || htmlLabel.Name == "guna2HtmlLabel1")
-                    {
-                        htmlLabel.BackColor = themeColor;
-                    }
-                }
-            }
+            int r = Math.Min(255, (int)(color.R + (255 - color.R) * amount));
+            int g = Math.Min(255, (int)(color.G + (255 - color.G) * amount));
+            int b = Math.Min(255, (int)(color.B + (255 - color.B) * amount));
+            return Color.FromArgb(color.A, r, g, b);
+        }
+
+        private Color GetContrastColor(Color color)
+        {
+            double luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
+            return luminance > 0.5 ? Color.Black : Color.White;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

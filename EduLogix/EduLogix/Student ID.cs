@@ -1,330 +1,588 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Linq;
 
 namespace EduLogix
 {
+    /// <summary>
+    /// Student ID Form - Displays student list with filtering and navigation to StudentInfo
+    /// </summary>
     public partial class StudentIDForm : Form
     {
-        private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private readonly string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private Color currentThemeColor = Color.FromArgb(33, 150, 243);
 
         public StudentIDForm()
         {
             InitializeComponent();
+
+            // CRITICAL: Wire the Load event manually
             this.Load += StudentIDForm_Load;
+
+            // CRITICAL: Override designer defaults IMMEDIATELY after InitializeComponent
+            // This must happen BEFORE any other theme logic
+            if (guna2GradientPanel1 != null)
+            {
+                // Force default colors (will be overridden by DB colors)
+                guna2GradientPanel1.FillColor = Color.FromArgb(21, 97, 157);  // Dark blue
+                guna2GradientPanel1.FillColor2 = Color.FromArgb(33, 150, 243); // Light blue
+                guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+                
+                System.Diagnostics.Debug.WriteLine("[Constructor] Overrode guna2GradientPanel1 designer defaults");
+            }
+
+            if (!DesignMode)
+            {
+                LoadThemeFromDatabase();
+                MarkActiveNav();
+            }
         }
 
         private void StudentIDForm_Load(object sender, EventArgs e)
         {
-            combobox1.SelectedIndex = 0;
-            combobox2.Enabled = false;
-            combobox2.Items.Clear();
-            combobox2.Text = "All Grades";
-
-            LoadStudents();
-            ApplyThemeToForm();
-        }
-
-        private void SearchData()
-        {
-            string keyword = guna2TextBox1.Text.Trim();
-            string query = "SELECT student_id, name, grade, section, level FROM reg_studentinfo WHERE " +
-               "(student_id LIKE @search OR name LIKE @search OR grade LIKE @search OR section LIKE @search OR level LIKE @search)";
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@search", "%" + keyword + "%");
+                System.Diagnostics.Debug.WriteLine("========== StudentIDForm_Load START ==========");
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                guna2DataGridView1.DataSource = table;
-                ApplyGridStyle(table);
+                guna2DataGridView1.ClearSelection();
+                LoadThemeFromDatabase();
+                LoadStudentData();
+                ConfigureDataGridView();
+                InitializeFilters();
+
+                // DEBUG: Check combobox state after initialization
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.Items.Count: {combobox1?.Items.Count}");
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.SelectedIndex: {combobox1?.SelectedIndex}");
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.SelectedItem: {combobox1?.SelectedItem}");
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.Text: '{combobox1?.Text}'");
+                
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.Items.Count: {combobox2?.Items.Count}");
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.SelectedIndex: {combobox2?.SelectedIndex}");
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.SelectedItem: {combobox2?.SelectedItem}");
+                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.Text: '{combobox2?.Text}'");
+
+                // Force text update after layout is complete
+                this.BeginInvoke((MethodInvoker)delegate
+                {
+                    System.Diagnostics.Debug.WriteLine("[BeginInvoke] Setting text explicitly");
+                    if (combobox1 != null && combobox1.Items.Count > 0)
+                    {
+                        combobox1.SelectedIndex = 0;
+                        System.Diagnostics.Debug.WriteLine($"[BeginInvoke] combobox1.SelectedItem after reset: {combobox1.SelectedItem}");
+                    }
+                    if (combobox2 != null && combobox2.Items.Count > 0)
+                    {
+                        combobox2.SelectedIndex = 0;
+                        System.Diagnostics.Debug.WriteLine($"[BeginInvoke] combobox2.SelectedItem after reset: {combobox2.SelectedItem}");
+                    }
+                });
+
+                System.Diagnostics.Debug.WriteLine("========== StudentIDForm_Load END ==========");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading Student ID form:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void FilterData()
-        {
-            string query = "SELECT student_id, name, grade, section, level FROM reg_studentinfo";
-            string levelFilter = "";
-            string gradeFilter = "";
+        #region ===== THEME MANAGEMENT =====
 
-            if (combobox1.SelectedItem != null && combobox1.SelectedItem.ToString() != "All")
-                levelFilter = "level = @level";
-
-            if (combobox2.Enabled && combobox2.Text != "All Grades")
-                gradeFilter = "grade = @grade";
-
-            if (levelFilter != "" && gradeFilter != "")
-                query += " WHERE " + levelFilter + " AND " + gradeFilter;
-            else if (levelFilter != "")
-                query += " WHERE " + levelFilter;
-            else if (gradeFilter != "")
-                query += " WHERE " + gradeFilter;
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                if (levelFilter != "")
-                    cmd.Parameters.AddWithValue("@level", combobox1.SelectedItem.ToString().ToLower());
-
-                if (gradeFilter != "")
-                    cmd.Parameters.AddWithValue("@grade", combobox2.Text.Replace("Grade ", ""));
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                guna2DataGridView1.DataSource = table;
-                ApplyGridStyle(table);
-            }
-        }
-
-        private void ApplyThemeToForm()
+        private void LoadThemeFromDatabase()
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                System.Diagnostics.Debug.WriteLine("[LoadThemeFromDatabase] Starting...");
+                
+                using (var conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
+                    System.Diagnostics.Debug.WriteLine("[LoadThemeFromDatabase] Connection opened");
+                    
+                    // FIXED: Load from ID = 1 (user's selected theme) NOT ID = 2
+                    const string query = "SELECT theme_red, theme_green, theme_blue FROM reg_theme WHERE id = 1";
+                    using (var cmd = new MySqlCommand(query, conn))
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        int r = Convert.ToInt32(reader["theme_red"]);
-                        int g = Convert.ToInt32(reader["theme_green"]);
-                        int b = Convert.ToInt32(reader["theme_blue"]);
-                        Color themeColor = Color.FromArgb(r, g, b);
-
-                        this.BackColor = themeColor;
-                        ApplyThemeToButtons(themeColor);
-                        ApplyThemeToControlBoxes(themeColor);
-                        ApplyThemeToLabels(themeColor);
-                        ApplyThemeToDataGridView();
+                        if (reader.Read())
+                        {
+                            int r = Convert.ToInt32(reader["theme_red"]);
+                            int g = Convert.ToInt32(reader["theme_green"]);
+                            int b = Convert.ToInt32(reader["theme_blue"]);
+                            currentThemeColor = Color.FromArgb(r, g, b);
+                            
+                            System.Diagnostics.Debug.WriteLine($"[LoadThemeFromDatabase] Theme loaded from ID=1: R={r}, G={g}, B={b}");
+                            System.Diagnostics.Debug.WriteLine($"[LoadThemeFromDatabase] Color: {currentThemeColor.Name}");
+                            
+                            ApplyThemeColor(currentThemeColor);
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine("[LoadThemeFromDatabase] No theme found in database (ID=1), using default");
+                        }
                     }
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"[LoadThemeFromDatabase] ERROR: {ex.Message}");
+            }
         }
 
-        private void ApplyThemeToButtons(Color themeColor)
+        /// <summary>
+        /// Updates theme to new colors (called from Settings form)
+        /// </summary>
+        public void UpdateThemeGradient(Color primaryColor, Color complementaryColor)
         {
-            foreach (Control control in this.Controls)
+            System.Diagnostics.Debug.WriteLine($"[UpdateThemeGradient] Called with R={primaryColor.R}, G={primaryColor.G}, B={primaryColor.B}");
+            currentThemeColor = primaryColor;
+            ApplyThemeColor(primaryColor);
+        }
+
+        private void ApplyThemeColor(Color themeColor)
+        {
+            System.Diagnostics.Debug.WriteLine($"[ApplyThemeColor] Applying color: R={themeColor.R}, G={themeColor.G}, B={themeColor.B}");
+            
+            // Main gradient background
+            if (guna2GradientPanel1 != null)
             {
-                if (control is Guna.UI2.WinForms.Guna2Button btn)
+                var darker = DarkenColor(themeColor, 0.35f);
+                
+                // Set colors directly - no ThemeStyle property exists
+                guna2GradientPanel1.FillColor = darker;
+                guna2GradientPanel1.FillColor2 = themeColor;
+                guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+                
+                // Force immediate repaint
+                guna2GradientPanel1.Invalidate();
+                guna2GradientPanel1.Refresh();
+                
+                System.Diagnostics.Debug.WriteLine($"[ApplyThemeColor] Gradient panel - FillColor (darker): R={darker.R}, G={darker.G}, B={darker.B}");
+                System.Diagnostics.Debug.WriteLine($"[ApplyThemeColor] Gradient panel - FillColor2: R={themeColor.R}, G={themeColor.G}, B={themeColor.B}");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("[ApplyThemeColor] ERROR: guna2GradientPanel1 is NULL");
+            }
+
+            // Navigation buttons - only inactive ones get theme color
+            ApplyThemeToNavButton(Dashboard, themeColor);
+            ApplyThemeToNavButton(Attendance, themeColor);
+            ApplyThemeToNavButton(StudentsID, themeColor);
+            ApplyThemeToNavButton(Logs, themeColor);
+
+            // Re-configure DataGridView with new theme
+            if (guna2DataGridView1 != null && guna2DataGridView1.Rows.Count > 0)
+            {
+                ConfigureDataGridView();
+            }
+
+            if (guna2GradientPanel2 != null)
+            {
+                guna2GradientPanel2.FillColor = Color.White;
+                guna2GradientPanel2.FillColor2 = LightenColor(themeColor, 0.9f);
+            }
+
+            // CRITICAL: Re-apply active nav styling after theme is applied
+            MarkActiveNav();
+        }
+
+        private void ApplyThemeToNavButton(Guna.UI2.WinForms.Guna2Button button, Color themeColor)
+        {
+            if (button == null) return;
+
+            var normal = themeColor;
+            var checkedColor = LightenColor(themeColor, 0.2f);
+
+            button.FillColor = normal;
+            button.ForeColor = GetContrastColor(normal);
+            button.CheckedState.FillColor = checkedColor;
+            button.CheckedState.ForeColor = GetContrastColor(checkedColor);
+        }
+
+        #endregion
+
+        #region ===== FILTERS =====
+
+        private void InitializeFilters()
+        {
+            System.Diagnostics.Debug.WriteLine("[InitializeFilters] Starting");
+
+            // Wire search textbox
+            if (guna2TextBox1 != null)
+            {
+                guna2TextBox1.TextChanged += (s, args) => ApplyFilters();
+                System.Diagnostics.Debug.WriteLine("[InitializeFilters] Wired guna2TextBox1");
+            }
+
+            // Initialize level filter combobox
+            if (combobox1 != null)
+            {
+                System.Diagnostics.Debug.WriteLine("[InitializeFilters] combobox1 is not null");
+                combobox1.Items.Clear();
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Cleared combobox1. Items.Count: {combobox1.Items.Count}");
+                
+                combobox1.Items.AddRange(new[] { "All", "Elementary", "Junior", "Senior" });
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Added items to combobox1. Items.Count: {combobox1.Items.Count}");
+                
+                combobox1.SelectedIndex = 0;
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Set SelectedIndex=0. SelectedItem: {combobox1.SelectedItem}");
+                
+                combobox1.SelectedIndexChanged += (s, args) => ApplyFilters();
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Wired SelectedIndexChanged");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("[InitializeFilters] ERROR: combobox1 is NULL!");
+            }
+
+            // Initialize section filter combobox
+            if (combobox2 != null)
+            {
+                System.Diagnostics.Debug.WriteLine("[InitializeFilters] combobox2 is not null");
+                combobox2.Items.Clear();
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Cleared combobox2. Items.Count: {combobox2.Items.Count}");
+                
+                combobox2.Items.AddRange(new[] { "All", "A", "B", "C", "D", "E" });
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Added items to combobox2. Items.Count: {combobox2.Items.Count}");
+                
+                combobox2.SelectedIndex = 0;
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Set SelectedIndex=0. SelectedItem: {combobox2.SelectedItem}");
+                
+                combobox2.SelectedIndexChanged += (s, args) => ApplyFilters();
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Wired SelectedIndexChanged");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("[InitializeFilters] ERROR: combobox2 is NULL!");
+            }
+            
+            System.Diagnostics.Debug.WriteLine("[InitializeFilters] Complete");
+        }
+
+        private void ApplyFilters()
+        {
+            string searchText = guna2TextBox1?.Text?.Trim() ?? "";
+            string levelFilter = combobox1?.SelectedItem?.ToString() ?? "All";
+            string sectionFilter = combobox2?.SelectedItem?.ToString() ?? "All";
+
+            LoadStudentData(searchText, levelFilter, sectionFilter);
+        }
+
+        #endregion
+
+        #region ===== DATA LOADING =====
+
+        private void LoadStudentData(string searchText = "", string levelFilter = "All", string sectionFilter = "All")
+        {
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
                 {
-                    if (btn.Name == "Dashboard" || btn.Name == "Attendance" ||
-                        btn.Name == "StudentsID" || btn.Name == "Accounts" ||
-                        btn.Name == "Logs" || btn.Name == "Settings" || btn.Name == "Logout")
+                    conn.Open();
+
+                    string query = @"SELECT 
+                                        student_id,
+                                        name,
+                                        phone,
+                                        email,
+                                        grade,
+                                        section,
+                                        level
+                                    FROM reg_studentinfo
+                                    WHERE 1=1";
+
+                    if (levelFilter != "All")
                     {
-                        btn.FillColor = themeColor;
+                        query += " AND LOWER(level) = @level";
+                    }
+
+                    if (sectionFilter != "All")
+                    {
+                        query += " AND LOWER(section) = @section";
+                    }
+
+                    if (!string.IsNullOrEmpty(searchText))
+                    {
+                        query += " AND (LOWER(name) LIKE @search OR LOWER(student_id) LIKE @search)";
+                    }
+
+                    query += " ORDER BY name ASC";
+
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        if (levelFilter != "All")
+                            cmd.Parameters.AddWithValue("@level", levelFilter.ToLower());
+
+                        if (sectionFilter != "All")
+                            cmd.Parameters.AddWithValue("@section", sectionFilter.ToLower());
+
+                        if (!string.IsNullOrEmpty(searchText))
+                            cmd.Parameters.AddWithValue("@search", "%" + searchText.ToLower() + "%");
+
+                        using (var da = new MySqlDataAdapter(cmd))
+                        {
+                            var dt = new DataTable();
+                            da.Fill(dt);
+                            guna2DataGridView1.DataSource = dt;
+
+                            // Update total count
+                            if (attendancetotal != null)
+                                attendancetotal.Text = "Total: " + dt.Rows.Count;
+                        }
                     }
                 }
             }
-        }
-
-        private void ApplyThemeToControlBoxes(Color themeColor)
-        {
-            foreach (Control control in this.Controls)
+            catch (Exception ex)
             {
-                if (control is Guna.UI2.WinForms.Guna2ControlBox ctrlBox)
-                    ctrlBox.FillColor = themeColor;
+                MessageBox.Show("Error loading student data:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void ApplyThemeToLabels(Color themeColor)
+        #endregion
+
+        #region ===== DATAGRIDVIEW CONFIGURATION =====
+
+        private void ConfigureDataGridView()
         {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Guna.UI2.WinForms.Guna2HtmlLabel htmlLabel)
-                {
-                    if (htmlLabel.Name == "UserName" || htmlLabel.Name == "guna2HtmlLabel1")
-                        htmlLabel.BackColor = themeColor;
-                }
-            }
-        }
-
-        private void ApplyThemeToDataGridView()
-        {
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
-        }
-
-        private void LoadStudents()
-        {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT student_id, name, grade, section, level FROM reg_studentinfo";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                guna2DataGridView1.DataSource = table;
-                ApplyGridStyle(table);
-            }
-        }
-
-        private void ApplyGridStyle(DataTable table)
-        {
-            guna2DataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            System.Diagnostics.Debug.WriteLine($"[ConfigureDataGridView] Starting with currentThemeColor: R={currentThemeColor.R}, G={currentThemeColor.G}, B={currentThemeColor.B}");
+            
             guna2DataGridView1.EnableHeadersVisualStyles = false;
-
-            guna2DataGridView1.Columns["student_id"].HeaderText = "Student ID";
-            guna2DataGridView1.Columns["name"].HeaderText = "Name";
-            guna2DataGridView1.Columns["grade"].HeaderText = "Grade";
-            guna2DataGridView1.Columns["section"].HeaderText = "Section";
-            guna2DataGridView1.Columns["level"].HeaderText = "Level";
-
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Ivory;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Ivory;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
             guna2DataGridView1.ColumnHeadersHeight = 40;
+            
+            // FIXED SIZE - Disable all resizing
+            guna2DataGridView1.RowTemplate.Height = 35;
+            guna2DataGridView1.AllowUserToResizeRows = false;
+            guna2DataGridView1.AllowUserToResizeColumns = false;
+            guna2DataGridView1.AllowUserToDeleteRows = false;
+            guna2DataGridView1.AllowUserToAddRows = false;
+            guna2DataGridView1.RowHeadersVisible = false;
 
+            // Header styling with theme color
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = currentThemeColor;
+            System.Diagnostics.Debug.WriteLine($"[ConfigureDataGridView] Set ColumnHeadersDefaultCellStyle.BackColor to: R={currentThemeColor.R}, G={currentThemeColor.G}, B={currentThemeColor.B}");
+            
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(currentThemeColor, 0.15f);
+
+            // Data cell styling
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
             guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = Color.White;
-            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
 
-            guna2DataGridView1.RowsDefaultCellStyle.BackColor = Color.White;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Ivory;
+            // Selection styling with THEME COLOR
+            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(currentThemeColor, 0.3f);
+            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
 
-            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.Ivory;
-
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.Black;
-
-            guna2DataGridView1.GridColor = Color.LightGray;
-            guna2DataGridView1.BorderStyle = BorderStyle.None;
-            guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Make read-only
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            guna2DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            
+            // Alternating row colors with pattern - using theme color
+            Color lightPatternColor = LightenColor(currentThemeColor, 0.7f);
+            guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
+            guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
-            attendancetotal.Text = table.Rows.Count.ToString();
+            // Rename columns
+            RenameColumns();
+
+            // Clear selection
+            guna2DataGridView1.ClearSelection();
+            
+            System.Diagnostics.Debug.WriteLine("[ConfigureDataGridView] Complete");
         }
 
-        private string GetSelectedGrade()
+        private void RenameColumns()
         {
-            if (!combobox2.Enabled || combobox2.SelectedItem == null)
-                return "";
+            if (guna2DataGridView1.Columns.Contains("student_id"))
+                guna2DataGridView1.Columns["student_id"].HeaderText = "Student ID";
 
-            string selected = combobox2.SelectedItem.ToString();
-            if (selected == "All Grades") return "";
+            if (guna2DataGridView1.Columns.Contains("name"))
+                guna2DataGridView1.Columns["name"].HeaderText = "Name";
 
-            if (selected.StartsWith("Grade "))
-                selected = selected.Replace("Grade ", "").Trim();
+            if (guna2DataGridView1.Columns.Contains("phone"))
+                guna2DataGridView1.Columns["phone"].HeaderText = "Phone";
 
-            return selected;
+            if (guna2DataGridView1.Columns.Contains("email"))
+                guna2DataGridView1.Columns["email"].HeaderText = "Email";
+
+            if (guna2DataGridView1.Columns.Contains("grade"))
+                guna2DataGridView1.Columns["grade"].HeaderText = "Grade";
+
+            if (guna2DataGridView1.Columns.Contains("section"))
+                guna2DataGridView1.Columns["section"].HeaderText = "Section";
+
+            if (guna2DataGridView1.Columns.Contains("level"))
+                guna2DataGridView1.Columns["level"].HeaderText = "Level";
         }
 
-        private void combobox1_SelectedIndexChanged(object sender, EventArgs e)
+        #endregion
+
+        #region ===== EVENT HANDLERS =====
+
+        private void guna2DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            combobox2.Items.Clear();
-            combobox2.Enabled = false;
-            combobox2.Text = "All Grades";
+            if (e.RowIndex < 0)
+                return;
 
-            if (combobox1.SelectedItem == null) return;
-
-            string selectedLevel = combobox1.SelectedItem.ToString();
-
-            if (selectedLevel == "Elementary")
+            try
             {
-                combobox2.Enabled = true;
-                for (int i = 1; i <= 6; i++)
-                    combobox2.Items.Add("Grade " + i);
-            }
-            else if (selectedLevel == "Junior")
-            {
-                combobox2.Enabled = true;
-                for (int i = 7; i <= 10; i++)
-                    combobox2.Items.Add("Grade " + i);
-            }
-            else if (selectedLevel == "Senior")
-            {
-                combobox2.Enabled = true;
-                combobox2.Items.Add("Grade 11");
-                combobox2.Items.Add("Grade 12");
-            }
+                System.Diagnostics.Debug.WriteLine($"[guna2DataGridView1_CellDoubleClick] Row index: {e.RowIndex}, Column index: {e.ColumnIndex}");
+                
+                DataGridViewRow row = guna2DataGridView1.Rows[e.RowIndex];
+                string studentId = row.Cells["student_id"]?.Value?.ToString();
 
-            LoadStudents();
+                System.Diagnostics.Debug.WriteLine($"[guna2DataGridView1_CellDoubleClick] Student ID: {studentId}");
+
+                if (!string.IsNullOrEmpty(studentId))
+                {
+                    StudentInfo studentInfoForm = new StudentInfo();
+                    studentInfoForm.LoadStudentInfo(studentId);
+                    studentInfoForm.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening student information:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Diagnostics.Debug.WriteLine($"[guna2DataGridView1_CellDoubleClick] ERROR: {ex.Message}\n{ex.StackTrace}");
+            }
         }
 
-        private void combobox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadStudents();
+            // Empty - DataGridView is read-only
         }
 
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        #endregion
+
+        #region ===== NAVIGATION =====
+
+        private void MarkActiveNav()
         {
-            if (string.IsNullOrWhiteSpace(guna2TextBox1.Text))
-                FilterData();
-            else
-                SearchData();
+            // Uncheck others and make them transparent
+            if (Dashboard != null)
+            {
+                Dashboard.Checked = false;
+                Dashboard.FillColor = Color.Transparent;
+            }
+            if (Attendance != null)
+            {
+                Attendance.Checked = false;
+                Attendance.FillColor = Color.Transparent;
+            }
+            if (Logs != null)
+            {
+                Logs.Checked = false;
+                Logs.FillColor = Color.Transparent;
+            }
+
+            // Active button white
+            if (StudentsID != null)
+            {
+                StudentsID.Checked = true;
+                StudentsID.FillColor = Color.White;
+                StudentsID.ForeColor = Color.Black;
+                StudentsID.CheckedState.FillColor = Color.White;
+                StudentsID.CheckedState.ForeColor = Color.Black;
+            }
         }
 
         private void Dashboard_Click(object sender, EventArgs e)
         {
-            new DashboardForm().Show();
+            var form = new DashboardForm();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
             this.Hide();
         }
 
         private void Attendance_Click(object sender, EventArgs e)
         {
-            new AttendanceForm().Show();
+            var form = new AttendanceForm();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
             this.Hide();
         }
 
-        private void Accounts_Click(object sender, EventArgs e)
+        private void Logs_Click_1(object sender, EventArgs e)
         {
-            new Users().Show();
-            this.Hide();
-        }
-
-        private void guna2Button9_Click(object sender, EventArgs e)
-        {
-            new Logs().Show();
-            this.Hide();
-        }
-
-        private void Settings_Click(object sender, EventArgs e)
-        {
-            new Settings().Show();
-            this.Hide();
-        }
-
-        private void ViewStudentInfo_Click(object sender, EventArgs e)
-        {
-            new StudentInfo().Show();
-            this.Hide();
-        }
-
-        private void viewstudinfo_Click_1(object sender, EventArgs e)
-        {
-            new StudentInfo().Show();
+            var form = new Logs();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
             this.Hide();
         }
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to log out?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
             {
-                new Login().Show();
+                Login login = new Login();
+                login.Show();
                 this.Close();
             }
         }
+
+        #endregion
+
+        #region ===== FILTER EVENT HANDLERS =====
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        private void combobox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        private void combobox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        #endregion
+
+        #region ===== COLOR HELPER METHODS =====
+
+        private Color LightenColor(Color color, float amount)
+        {
+            int r = Math.Min(255, (int)(color.R + (255 - color.R) * amount));
+            int g = Math.Min(255, (int)(color.G + (255 - color.G) * amount));
+            int b = Math.Min(255, (int)(color.B + (255 - color.B) * amount));
+            return Color.FromArgb(color.A, r, g, b);
+        }
+
+        private Color DarkenColor(Color color, float amount)
+        {
+            int r = Math.Max(0, (int)(color.R * (1 - amount)));
+            int g = Math.Max(0, (int)(color.G * (1 - amount)));
+            int b = Math.Max(0, (int)(color.B * (1 - amount)));
+            return Color.FromArgb(color.A, r, g, b);
+        }
+
+        private Color GetContrastColor(Color color)
+        {
+            double luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
+            return luminance > 0.5 ? Color.Black : Color.White;
+        }
+
+        #endregion
     }
 }
