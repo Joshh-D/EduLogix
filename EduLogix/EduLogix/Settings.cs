@@ -17,20 +17,34 @@ namespace EduLogix
         private readonly string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
         private bool isLoading;
         private readonly Dictionary<string, object> settingsCache = new Dictionary<string, object>();
-        private readonly string assetsPath = Path.Combine(Application.StartupPath, "assets");
+        private readonly string resourcesPath;
         private readonly string logoPath = "";
         private readonly string kioskImagesPath = "";
+        private Color? pendingThemeColor;
+        private readonly List<string> pendingKioskImages = new List<string>();
+        private bool pendingLogoChange;
+        private string pendingLogoSourcePath;
+
+        // Add these fields near your other private fields
+        private static readonly Color DesignerOuterTopColor = Color.FromArgb(48, 79, 99);
+        private static readonly Color DesignerOuterBottomColor = Color.FromArgb(208, 228, 150);
+        private static readonly Color DesignerButtonGreen1 = Color.FromArgb(143, 177, 90);
+        private static readonly Color DesignerButtonGreen2 = Color.FromArgb(193, 227, 140);
+        private static readonly Color DesignerResetRed1 = Color.FromArgb(204, 102, 102);
+        private static readonly Color DesignerResetRed2 = Color.FromArgb(254, 152, 152);
 
         public Settings()
         {
             InitializeComponent();
 
-            // Ensure assets directories exist
-            Directory.CreateDirectory(assetsPath);
-            Directory.CreateDirectory(Path.Combine(assetsPath, "idle_slideshow"));
+            resourcesPath = ResolveResourcesPath();
 
-            logoPath = Path.Combine(assetsPath, "logo.png");
-            kioskImagesPath = Path.Combine(assetsPath, "idle_slideshow");
+            // Ensure writable resources directories exist
+            Directory.CreateDirectory(Path.Combine(resourcesPath, "logo"));
+            Directory.CreateDirectory(Path.Combine(resourcesPath, "kiosk"));
+
+            logoPath = Path.Combine(resourcesPath, "logo", "logo.png");
+            kioskImagesPath = Path.Combine(resourcesPath, "kiosk");
 
             if (!DesignMode)
             {
@@ -47,6 +61,7 @@ namespace EduLogix
             if (Dashboard != null) Dashboard.Checked = false;
             if (Attendance != null) Attendance.Checked = false;
             if (StudentsID != null) StudentsID.Checked = false;
+            if (Logs != null) Logs.Checked = false;
         }
 
         #region Initialization
@@ -92,8 +107,8 @@ namespace EduLogix
             if (StudentsID != null) StudentsID.Click -= StudentsID_Click;
             if (StudentsID != null) StudentsID.Click += StudentsID_Click;
 
-            if (guna2Button1 != null) guna2Button1.Click -= Logs_Click;
-            if (guna2Button1 != null) guna2Button1.Click += Logs_Click;
+            if (Logs != null) Logs.Click -= Logs_Click;
+            if (Logs != null) Logs.Click += Logs_Click;
 
             if (guna2GradientButton3 != null) guna2GradientButton3.Click -= guna2GradientButton3_Click;
             if (guna2GradientButton3 != null) guna2GradientButton3.Click += guna2GradientButton3_Click;
@@ -170,7 +185,7 @@ namespace EduLogix
             // Main background gradient: darker on top, picked color at bottom
             if (guna2GradientPanel1 != null)
             {
-                var darker = DarkenColor(themeColor, 0.35f);
+                var darker = GetMainGradientTopColor(themeColor);
                 guna2GradientPanel1.FillColor = darker;
                 guna2GradientPanel1.FillColor2 = themeColor;
             }
@@ -186,7 +201,7 @@ namespace EduLogix
             ApplyThemeToNavButton(Dashboard, themeColor);
             ApplyThemeToNavButton(Attendance, themeColor);
             ApplyThemeToNavButton(StudentsID, themeColor);
-            ApplyThemeToNavButton(guna2Button1, themeColor);
+            ApplyThemeToNavButton(Logs, themeColor);
 
             // Theme picker button
             if (guna2GradientButton1 != null)
@@ -218,13 +233,10 @@ namespace EduLogix
         {
             if (button == null) return;
 
-            var normal = themeColor;
-            var checkedColor = LightenColor(themeColor, 0.2f);
-
-            button.FillColor = normal;
-            button.ForeColor = GetContrastColor(normal);
-            button.CheckedState.FillColor = checkedColor;
-            button.CheckedState.ForeColor = GetContrastColor(checkedColor);
+            button.FillColor = Color.Transparent;
+            button.ForeColor = Color.Black;
+            button.CheckedState.FillColor = Color.White;
+            button.CheckedState.ForeColor = Color.Black;
         }
 
         private Color LightenColor(Color color, float amount)
@@ -247,6 +259,14 @@ namespace EduLogix
         {
             double luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
             return luminance > 0.5 ? Color.Black : Color.White;
+        }
+
+        private Color GetMainGradientTopColor(Color themeColor)
+        {
+            if (themeColor.ToArgb() == DesignerOuterBottomColor.ToArgb())
+                return DesignerOuterTopColor;
+
+            return DarkenColor(themeColor, 0.35f);
         }
 
         #endregion
@@ -286,8 +306,7 @@ namespace EduLogix
                             {
                                 if (guna2PictureBox1 != null)
                                 {
-                                    guna2PictureBox1.Image = Image.FromFile(logoPath);
-                                    guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                                    SetPictureBoxImageNoLock(guna2PictureBox1, logoPath);
                                 }
                             }
 
@@ -338,8 +357,10 @@ namespace EduLogix
                             ? guna2ComboBox1.SelectedItem.ToString()
                             : "30 seconds";
 
-                        // Logo path (relative for git)
-                        string logoPath_DB = File.Exists(logoPath) ? "assets/logo.png" : "";
+                        // Logo path (relative)
+                        string logoPath_DB = (File.Exists(logoPath) || !string.IsNullOrWhiteSpace(pendingLogoSourcePath))
+                            ? "Resources/logo/logo.png"
+                            : "";
 
                         // Slideshow duration (default to 30 seconds if not set)
                         int slideshowDuration = 30; // TODO: get from dropdown if you have one
@@ -352,6 +373,50 @@ namespace EduLogix
                         cmd.Parameters.AddWithValue("@kioskIdle", kioskIdle);
                         cmd.ExecuteNonQuery();
                     }
+                }
+
+                // Save pending theme only when user clicks Save Changes
+                if (pendingThemeColor.HasValue)
+                {
+                    SaveThemeToDatabase(pendingThemeColor.Value);
+                    LogHelper.Log("Registrar", "ThemeChanged",
+                        $"New theme color: ({pendingThemeColor.Value.R}, {pendingThemeColor.Value.G}, {pendingThemeColor.Value.B})");
+                    pendingThemeColor = null;
+                }
+
+                // Save pending kiosk slideshow metadata only when user clicks Save Changes
+                if (pendingKioskImages.Count > 0)
+                {
+                    foreach (var imageName in pendingKioskImages)
+                    {
+                        SaveKioskImageMetadata(imageName);
+                        LogHelper.Log("Registrar", "KioskImageAdded", $"Image added: {imageName}");
+                    }
+                    pendingKioskImages.Clear();
+                }
+
+                if (!string.IsNullOrWhiteSpace(pendingLogoSourcePath))
+                {
+                    if (guna2PictureBox1 != null && guna2PictureBox1.Image != null)
+                    {
+                        var oldImage = guna2PictureBox1.Image;
+                        guna2PictureBox1.Image = null;
+                        oldImage.Dispose();
+                    }
+
+                    File.Copy(pendingLogoSourcePath, logoPath, true);
+
+                    if (guna2PictureBox1 != null)
+                        SetPictureBoxImageNoLock(guna2PictureBox1, logoPath);
+
+                    pendingLogoSourcePath = null;
+                    pendingLogoChange = true;
+                }
+
+                if (pendingLogoChange)
+                {
+                    LogHelper.Log("Registrar", "LogoChanged", "Logo updated");
+                    pendingLogoChange = false;
                 }
 
                 MessageBox.Show("Settings saved successfully!",
@@ -400,20 +465,17 @@ namespace EduLogix
                 {
                     try
                     {
-                        // Copy logo to assets folder
-                        File.Copy(ofd.FileName, logoPath, true);
+                        // Queue logo source; persist only on Save Changes
+                        pendingLogoSourcePath = ofd.FileName;
 
                         // Display in preview
                         if (guna2PictureBox1 != null)
                         {
-                            guna2PictureBox1.Image = Image.FromFile(logoPath);
-                            guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                            SetPictureBoxImageNoLock(guna2PictureBox1, ofd.FileName);
                         }
 
-                        MessageBox.Show("Logo saved to assets/logo.png",
+                        MessageBox.Show("Logo queued. Click Save Changes to commit.",
                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        LogHelper.Log("Registrar", "LogoChanged", $"Logo updated: {Path.GetFileName(ofd.FileName)}");
                     }
                     catch (Exception ex)
                     {
@@ -454,13 +516,11 @@ namespace EduLogix
                             // Copy to kiosk images folder
                             File.Copy(filePath, destPath, true);
 
-                            // Save metadata to DB (you may want to create a separate table for this)
-                            SaveKioskImageMetadata(fileName);
-
-                            LogHelper.Log("Registrar", "KioskImageAdded", $"Image added: {fileName}");
+                            // Queue metadata; persist only on Save Changes
+                            pendingKioskImages.Add(fileName);
                         }
 
-                        MessageBox.Show($"Added {ofd.FileNames.Length} image(s) to kiosk slideshow.",
+                        MessageBox.Show($"Added {ofd.FileNames.Length} image(s) to kiosk slideshow queue. Click Save Changes to commit.",
                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -491,7 +551,7 @@ namespace EduLogix
                                            WHERE id = 1";
                     using (var cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@image", $"assets/idle_slideshow/{imageName}");
+                        cmd.Parameters.AddWithValue("@image", $"Resources/kiosk/{imageName}");
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -547,10 +607,7 @@ namespace EduLogix
                 {
                     var color = dlg.Color;
                     ApplyThemeColor(color);
-                    SaveThemeToDatabase(color);
-
-                    LogHelper.Log("Registrar", "ThemeChanged",
-                        $"New theme color: ({color.R}, {color.G}, {color.B})");
+                    pendingThemeColor = color;
                 }
             }
         }
@@ -565,15 +622,23 @@ namespace EduLogix
             if (DesignMode) return;
 
             var result = MessageBox.Show(
-                "Reset settings and theme to last saved values?",
+                "Reset settings and theme to designer defaults?",
                 "Confirm Reset",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                LoadSettingsFromDatabase();
-                LoadThemeFromDatabase();
+                pendingThemeColor = null;
+                pendingKioskImages.Clear();
+                pendingLogoChange = false;
+                pendingLogoSourcePath = null;
+                settingsCache.Clear();
+
+                ResetToDesignerDefaults();
+
+                // Persist reset immediately so other forms that load theme/settings from DB get defaults too
+                PersistDesignerDefaultsToDatabase();
             }
         }
 
@@ -611,6 +676,201 @@ namespace EduLogix
         }
 
         #endregion
+
+        private string ResolveResourcesPath()
+        {
+            // During development, app runs from bin\Debug or bin\Release.
+            // Prefer project-level Resources folder so files appear in Solution Explorer.
+            try
+            {
+                string projectResources = Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\Resources"));
+                if (Directory.Exists(projectResources))
+                    return projectResources;
+            }
+            catch
+            {
+                // fallback below
+            }
+
+            // Fallback for deployed runs.
+            return Path.Combine(Application.StartupPath, "Resources");
+        }
+
+        private void SetPictureBoxImageNoLock(PictureBox pictureBox, string filePath)
+        {
+            if (pictureBox == null || string.IsNullOrWhiteSpace(filePath) || !File.Exists(filePath)) return;
+
+            if (pictureBox.Image != null)
+            {
+                var oldImage = pictureBox.Image;
+                pictureBox.Image = null;
+                oldImage.Dispose();
+            }
+
+            using (var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var img = Image.FromStream(fs))
+            {
+                pictureBox.Image = new Bitmap(img);
+            }
+
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void ResetToDesignerDefaults()
+        {
+            isLoading = true;
+            try
+            {
+                // Text and dropdown defaults from designer/initial setup
+                if (guna2TextBox1 != null)
+                    guna2TextBox1.Text = string.Empty;
+
+                if (guna2ComboBox1 != null)
+                    guna2ComboBox1.SelectedItem = "30 seconds";
+
+                // Restore default logo from project resources (designer image)
+                if (guna2PictureBox1 != null)
+                {
+                    SetPictureBoxImageFromImage(
+                        guna2PictureBox1,
+                        Properties.Resources.Caloocan_City_Business_High_School_Logo_1_removebg_preview1);
+                }
+
+                // Restore default designer colors/styles
+                ApplyDesignerThemeDefaults();
+                MarkActiveNav();
+            }
+            finally
+            {
+                isLoading = false;
+            }
+        }
+
+        private void ApplyDesignerThemeDefaults()
+        {
+            // Outer panel gradient (designer hardcoded)
+            if (guna2GradientPanel1 != null)
+            {
+                guna2GradientPanel1.FillColor = DesignerOuterTopColor;
+                guna2GradientPanel1.FillColor2 = DesignerOuterBottomColor;
+            }
+
+            // Inner panel gradient (designer hardcoded)
+            if (guna2GradientPanel2 != null)
+            {
+                guna2GradientPanel2.FillColor = Color.White;
+                guna2GradientPanel2.FillColor2 = SystemColors.Info;
+            }
+
+            // Left nav buttons reset to transparent/default look
+            ResetNavButtonToDesigner(Dashboard);
+            ResetNavButtonToDesigner(Attendance);
+            ResetNavButtonToDesigner(StudentsID);
+            ResetNavButtonToDesigner(Logs);
+
+            // Theme / Save buttons (green)
+            if (guna2GradientButton1 != null)
+            {
+                guna2GradientButton1.FillColor = DesignerButtonGreen1;
+                guna2GradientButton1.FillColor2 = DesignerButtonGreen2;
+                guna2GradientButton1.ForeColor = Color.White;
+            }
+
+            if (guna2GradientButton2 != null)
+            {
+                guna2GradientButton2.FillColor = DesignerButtonGreen1;
+                guna2GradientButton2.FillColor2 = DesignerButtonGreen2;
+                guna2GradientButton2.ForeColor = Color.White;
+            }
+
+            if (guna2GradientButton3 != null)
+            {
+                guna2GradientButton3.FillColor = DesignerButtonGreen1;
+                guna2GradientButton3.FillColor2 = DesignerButtonGreen2;
+                guna2GradientButton3.ForeColor = Color.White;
+            }
+
+            // Reset button (red)
+            if (guna2GradientButton4 != null)
+            {
+                guna2GradientButton4.FillColor = DesignerResetRed1;
+                guna2GradientButton4.FillColor2 = DesignerResetRed2;
+                guna2GradientButton4.ForeColor = Color.White;
+            }
+        }
+
+        private void ResetNavButtonToDesigner(Guna.UI2.WinForms.Guna2Button button)
+        {
+            if (button == null) return;
+
+            button.FillColor = Color.Transparent;
+            button.ForeColor = Color.Black;
+            button.CheckedState.FillColor = Color.White;
+            button.CheckedState.ForeColor = Color.Black;
+        }
+
+        private void SetPictureBoxImageFromImage(PictureBox pictureBox, Image sourceImage)
+        {
+            if (pictureBox == null || sourceImage == null) return;
+
+            if (pictureBox.Image != null)
+            {
+                var oldImage = pictureBox.Image;
+                pictureBox.Image = null;
+                oldImage.Dispose();
+            }
+
+            pictureBox.Image = new Bitmap(sourceImage);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void PersistDesignerDefaultsToDatabase()
+        {
+            if (DesignMode) return;
+
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    const string settingsQuery = @"UPDATE reg_settings
+                                                  SET school_name = @name,
+                                                      auto_logout_seconds = @autoLogout,
+                                                      school_logo = @logo,
+                                                      slideshow_duration = @slideshowDuration,
+                                                      kiosk_idle_seconds = @kioskIdle,
+                                                      updated_at = NOW()
+                                                  WHERE id = 1";
+
+                    using (var cmd = new MySqlCommand(settingsQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@name", string.Empty);
+                        cmd.Parameters.AddWithValue("@autoLogout", 30);
+                        cmd.Parameters.AddWithValue("@logo", string.Empty);
+                        cmd.Parameters.AddWithValue("@slideshowDuration", 30);
+                        cmd.Parameters.AddWithValue("@kioskIdle", 60);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // Persist default theme used by designer
+                SaveThemeToDatabase(DesignerOuterBottomColor);
+
+                // Remove custom saved logo file so future loads use default resource image
+                if (File.Exists(logoPath))
+                {
+                    File.Delete(logoPath);
+                }
+
+                LogHelper.Log("Registrar", "SettingsReset", "Settings and theme reset to designer defaults");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Settings were reset in the current form, but failed to persist defaults:\n" + ex.Message,
+                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
         // Local logging helper (kept inside Settings, no extra files)
         private static class LogHelper

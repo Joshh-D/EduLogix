@@ -283,6 +283,27 @@
     <EmbeddedResource Include="Logs.resx">
       <DependentUpon>Logs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\EduLogix.AttendanceForm.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.BookCatalog.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.BookInfo.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Borrowers.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.ConfirmBorrow.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.DashboardForm.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Kiosk.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.LibIdle.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.LibraryDashboard.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.LibraryLogs.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Login.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Logs.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.RegIdle.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Security.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.SecurityAttendance.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Settings.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.StudentIDForm.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.StudentInfo.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.Users.resources" />
+    <EmbeddedResource Include="obj\Debug\EduLogix.UsersArchive.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -317,7 +338,25 @@
     <EmbeddedResource Include="UsersArchive.resx">
       <DependentUpon>UsersArchive.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".vs\EduLogix.csproj.dtbcache.json" />
+    <None Include=".vs\EduLogix\CopilotIndices\17.14.1577.30250\CodeChunks.db" />
+    <None Include=".vs\EduLogix\CopilotIndices\17.14.1577.30250\SemanticSymbols.db" />
+    <None Include=".vs\EduLogix\FileContentIndex\159794e9-20b0-4488-a135-e87e984389c3.vsidx" />
+    <None Include=".vs\EduLogix\v17\.wsuo" />
+    <None Include=".vs\EduLogix\v17\DocumentLayout.json" />
+    <None Include=".vs\ProjectSettings.json" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\VSWorkspaceState.json" />
     <None Include="app.manifest" />
+    <None Include="bin\Debug\EduLogix.exe.config" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\EduLogix.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\EduLogix.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\EduLogix.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\EduLogix.csproj.Up2Date" />
+    <None Include="obj\Release\EduLogix.csproj.AssemblyReference.cache" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -333,8 +372,45 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\BouncyCastle.Cryptography.dll" />
+    <Content Include="bin\Debug\BouncyCastle.Cryptography.xml" />
+    <Content Include="bin\Debug\EduLogix.exe" />
+    <Content Include="bin\Debug\EduLogix.pdb" />
+    <Content Include="bin\Debug\Google.Protobuf.dll" />
+    <Content Include="bin\Debug\Google.Protobuf.pdb" />
+    <Content Include="bin\Debug\Google.Protobuf.xml" />
+    <Content Include="bin\Debug\Guna.UI2.dll" />
+    <Content Include="bin\Debug\K4os.Compression.LZ4.dll" />
+    <Content Include="bin\Debug\K4os.Compression.LZ4.Streams.dll" />
+    <Content Include="bin\Debug\K4os.Compression.LZ4.Streams.xml" />
+    <Content Include="bin\Debug\K4os.Compression.LZ4.xml" />
+    <Content Include="bin\Debug\K4os.Hash.xxHash.dll" />
+    <Content Include="bin\Debug\K4os.Hash.xxHash.xml" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Debug\MySql.Data.dll" />
+    <Content Include="bin\Debug\MySql.Data.xml" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Configuration.ConfigurationManager.dll" />
+    <Content Include="bin\Debug\System.Configuration.ConfigurationManager.xml" />
+    <Content Include="bin\Debug\System.IO.Pipelines.dll" />
+    <Content Include="bin\Debug\System.IO.Pipelines.xml" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Debug\ZstdSharp.dll" />
     <Content Include="Database\edulogix updated - march 22.sql" />
     <Content Include="EduLogix.ico" />
+    <Content Include="obj\Debug\EduLogix.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\EduLogix.exe" />
+    <Content Include="obj\Debug\EduLogix.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <None Include="Resources\Screenshot_2026-03-21_231359-removebg-preview1.png" />
     <None Include="Resources\Screenshot_2026-03-21_231359-removebg-preview.png" />
     <None Include="Resources\Caloocan_City_Business_High_School_Logo-1-removebg-preview1.png" />
@@ -424,6 +500,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="Resources\kiosk\" />
+    <Folder Include="Resources\logo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

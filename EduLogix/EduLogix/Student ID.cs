@@ -148,7 +148,7 @@ namespace EduLogix
             // Main gradient background
             if (guna2GradientPanel1 != null)
             {
-                var darker = DarkenColor(themeColor, 0.35f);
+                var darker = GetMainGradientTopColor(themeColor);
                 
                 // Set colors directly - no ThemeStyle property exists
                 guna2GradientPanel1.FillColor = darker;
@@ -200,6 +200,15 @@ namespace EduLogix
             button.ForeColor = GetContrastColor(normal);
             button.CheckedState.FillColor = checkedColor;
             button.CheckedState.ForeColor = GetContrastColor(checkedColor);
+        }
+
+        private Color GetMainGradientTopColor(Color themeColor)
+        {
+            var designerMainColor = Color.FromArgb(208, 228, 150);
+            if (themeColor.ToArgb() == designerMainColor.ToArgb())
+                return Color.FromArgb(48, 79, 99);
+
+            return DarkenColor(themeColor, 0.35f);
         }
 
         #endregion
@@ -348,6 +357,7 @@ namespace EduLogix
         private void ConfigureDataGridView()
         {
             System.Diagnostics.Debug.WriteLine($"[ConfigureDataGridView] Starting with currentThemeColor: R={currentThemeColor.R}, G={currentThemeColor.G}, B={currentThemeColor.B}");
+            Color gridThemeColor = GetDataGridThemeColor();
             
             guna2DataGridView1.EnableHeadersVisualStyles = false;
             guna2DataGridView1.ColumnHeadersHeight = 40;
@@ -361,12 +371,12 @@ namespace EduLogix
             guna2DataGridView1.RowHeadersVisible = false;
 
             // Header styling with theme color
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = currentThemeColor;
-            System.Diagnostics.Debug.WriteLine($"[ConfigureDataGridView] Set ColumnHeadersDefaultCellStyle.BackColor to: R={currentThemeColor.R}, G={currentThemeColor.G}, B={currentThemeColor.B}");
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
+            System.Diagnostics.Debug.WriteLine($"[ConfigureDataGridView] Set ColumnHeadersDefaultCellStyle.BackColor to: R={gridThemeColor.R}, G={gridThemeColor.G}, B={gridThemeColor.B}");
             
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(currentThemeColor, 0.15f);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(gridThemeColor, 0.15f);
 
             // Data cell styling
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
@@ -374,7 +384,7 @@ namespace EduLogix
             guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
 
             // Selection styling with THEME COLOR
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(currentThemeColor, 0.3f);
+            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(gridThemeColor, 0.3f);
             guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
 
             // Make read-only
@@ -382,7 +392,7 @@ namespace EduLogix
             guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             
             // Alternating row colors with pattern - using theme color
-            Color lightPatternColor = LightenColor(currentThemeColor, 0.7f);
+            Color lightPatternColor = LightenColor(gridThemeColor, 0.7f);
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
@@ -581,6 +591,15 @@ namespace EduLogix
         {
             double luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
             return luminance > 0.5 ? Color.Black : Color.White;
+        }
+
+        private Color GetDataGridThemeColor()
+        {
+            var designerMainColor = Color.FromArgb(208, 228, 150);
+            if (currentThemeColor.ToArgb() == designerMainColor.ToArgb())
+                return Color.FromArgb(48, 79, 99);
+
+            return currentThemeColor;
         }
 
         #endregion

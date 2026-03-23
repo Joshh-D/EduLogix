@@ -114,8 +114,16 @@ namespace EduLogix
             // main background gradient panel
             if (guna2GradientPanel7 != null)
             {
-                guna2GradientPanel7.FillColor = themeColor;
-                guna2GradientPanel7.FillColor2 = LightenColor(themeColor, 0.4f);
+                if (themeColor.ToArgb() == Color.FromArgb(208, 228, 150).ToArgb())
+                {
+                    guna2GradientPanel7.FillColor = Color.FromArgb(48, 79, 99);
+                    guna2GradientPanel7.FillColor2 = Color.FromArgb(208, 228, 150);
+                }
+                else
+                {
+                    guna2GradientPanel7.FillColor = themeColor;
+                    guna2GradientPanel7.FillColor2 = LightenColor(themeColor, 0.4f);
+                }
             }
 
             // inner content gradient panel

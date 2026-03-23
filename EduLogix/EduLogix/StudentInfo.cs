@@ -186,7 +186,7 @@ namespace EduLogix
             {
                 if (control is Guna.UI2.WinForms.Guna2GradientPanel gradientPanel)
                 {
-                    var darker = DarkenColor(themeColor, 0.35f);
+                    var darker = GetMainGradientTopColor(themeColor);
                     gradientPanel.FillColor = darker;
                     gradientPanel.FillColor2 = themeColor;
                 }
@@ -295,6 +295,15 @@ namespace EduLogix
         {
             double luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;
             return luminance > 0.5 ? Color.Black : Color.White;
+        }
+
+        private Color GetMainGradientTopColor(Color themeColor)
+        {
+            var designerMainColor = Color.FromArgb(208, 228, 150);
+            if (themeColor.ToArgb() == designerMainColor.ToArgb())
+                return Color.FromArgb(48, 79, 99);
+
+            return DarkenColor(themeColor, 0.35f);
         }
 
         #endregion

@@ -104,7 +104,7 @@ namespace EduLogix
             // outer gradient background
             if (guna2GradientPanel1 != null)
             {
-                var darker = DarkenColor(themeColor, 0.35f);
+                var darker = GetMainGradientTopColor(themeColor);
                 guna2GradientPanel1.FillColor = darker;
                 guna2GradientPanel1.FillColor2 = themeColor;
             }
@@ -147,13 +147,33 @@ namespace EduLogix
             btn.CheckedState.ForeColor = GetContrastColor(checkedColor);
         }
 
+        private Color GetMainGradientTopColor(Color themeColor)
+        {
+            var designerMainColor = Color.FromArgb(208, 228, 150);
+            if (themeColor.ToArgb() == designerMainColor.ToArgb())
+                return Color.FromArgb(48, 79, 99);
+
+            return DarkenColor(themeColor, 0.35f);
+        }
+
+        private Color GetDataGridThemeColor()
+        {
+            var designerMainColor = Color.FromArgb(208, 228, 150);
+            if (currentThemeColor.ToArgb() == designerMainColor.ToArgb())
+                return Color.FromArgb(48, 79, 99);
+
+            return currentThemeColor;
+        }
+
         private void ConfigureDataGridView()
         {
+            Color gridThemeColor = GetDataGridThemeColor();
+
             guna2DataGridView1.EnableHeadersVisualStyles = false;
             guna2DataGridView1.ColumnHeadersHeight = 40;
 
             // Header styling with theme color
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = currentThemeColor;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
 
@@ -163,15 +183,15 @@ namespace EduLogix
             guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
 
             // Selection styling with THEME COLOR (not blue)
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(currentThemeColor, 0.3f);
+            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(gridThemeColor, 0.3f);
             guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(currentThemeColor, 0.15f);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(gridThemeColor, 0.15f);
 
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             
             // Alternating row colors with pattern - using theme color (UPDATED)
-            Color lightPatternColor = LightenColor(currentThemeColor, 0.7f);
+            Color lightPatternColor = LightenColor(gridThemeColor, 0.7f);
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 

@@ -83,10 +83,10 @@
             this.accountID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.accountID.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.accountID.FocusedState.FillColor = System.Drawing.Color.White;
-            this.accountID.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accountID.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.accountID.Location = new System.Drawing.Point(67, 187);
-            this.accountID.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.accountID.Location = new System.Drawing.Point(54, 150);
+            this.accountID.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.accountID.Name = "accountID";
             this.accountID.PlaceholderText = "";
             this.accountID.SelectedText = "";
@@ -94,7 +94,7 @@
             this.accountID.ShadowDecoration.Color = System.Drawing.Color.DimGray;
             this.accountID.ShadowDecoration.Enabled = true;
             this.accountID.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.accountID.Size = new System.Drawing.Size(334, 45);
+            this.accountID.Size = new System.Drawing.Size(267, 36);
             this.accountID.TabIndex = 52;
             // 
             // accountpass
@@ -111,10 +111,10 @@
             this.accountpass.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.accountpass.FocusedState.BorderColor = System.Drawing.Color.Transparent;
             this.accountpass.FocusedState.FillColor = System.Drawing.Color.White;
-            this.accountpass.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accountpass.HoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.accountpass.Location = new System.Drawing.Point(67, 261);
-            this.accountpass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.accountpass.Location = new System.Drawing.Point(54, 209);
+            this.accountpass.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.accountpass.Name = "accountpass";
             this.accountpass.PlaceholderText = "";
             this.accountpass.SelectedText = "";
@@ -122,7 +122,7 @@
             this.accountpass.ShadowDecoration.Color = System.Drawing.Color.DimGray;
             this.accountpass.ShadowDecoration.Enabled = true;
             this.accountpass.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.accountpass.Size = new System.Drawing.Size(334, 45);
+            this.accountpass.Size = new System.Drawing.Size(267, 36);
             this.accountpass.TabIndex = 69;
             // 
             // guna2HtmlLabel4
@@ -130,9 +130,10 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(294, 521);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(235, 417);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(72, 19);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(55, 14);
             this.guna2HtmlLabel4.TabIndex = 70;
             this.guna2HtmlLabel4.Text = "Powered by";
             // 
@@ -159,8 +160,9 @@
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(228)))), ((int)(((byte)(150)))));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(479, 559);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(383, 447);
             this.guna2GradientPanel1.TabIndex = 71;
             // 
             // guna2HtmlLabel9
@@ -168,9 +170,10 @@
             this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel9.Location = new System.Drawing.Point(27, 448);
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(22, 358);
+            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(18, 19);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(14, 14);
             this.guna2HtmlLabel9.TabIndex = 83;
             this.guna2HtmlLabel9.TabStop = false;
             this.guna2HtmlLabel9.Text = "Or";
@@ -181,10 +184,11 @@
             this.guna2CirclePictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox2.Image = global::EduLogix.Properties.Resources._09f64c35483867e874bc5f4aff478f24_removebg_preview;
             this.guna2CirclePictureBox2.ImageRotate = 0F;
-            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(143, 431);
+            this.guna2CirclePictureBox2.Location = new System.Drawing.Point(114, 345);
+            this.guna2CirclePictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
             this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(48, 58);
+            this.guna2CirclePictureBox2.Size = new System.Drawing.Size(38, 46);
             this.guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox2.TabIndex = 82;
             this.guna2CirclePictureBox2.TabStop = false;
@@ -194,9 +198,10 @@
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(193, 444);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(154, 355);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(124, 27);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(96, 21);
             this.guna2HtmlLabel7.TabIndex = 81;
             this.guna2HtmlLabel7.Text = "Scan your RFID";
             // 
@@ -205,9 +210,10 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(226, 404);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(181, 323);
+            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(18, 19);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(14, 14);
             this.guna2HtmlLabel6.TabIndex = 80;
             this.guna2HtmlLabel6.Text = "Or";
             // 
@@ -218,9 +224,10 @@
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(410, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(328, 0);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(35, 25);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(28, 20);
             this.guna2ControlBox3.TabIndex = 79;
             // 
             // guna2ControlBox2
@@ -230,19 +237,21 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Tomato;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(445, 0);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(356, 0);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(35, 25);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(28, 20);
             this.guna2ControlBox2.TabIndex = 78;
             // 
             // guna2HtmlLabel8
             // 
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Inter", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(131, 110);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(105, 88);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(339, 19);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(281, 15);
             this.guna2HtmlLabel8.TabIndex = 77;
             this.guna2HtmlLabel8.Text = "Integrated School Access & Resource Management System ";
             // 
@@ -250,11 +259,12 @@
             // 
             this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Perpetua Titling MT", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(149, 28);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(119, 22);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(307, 28);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(246, 22);
             this.guna2HtmlLabel3.TabIndex = 75;
             this.guna2HtmlLabel3.Text = "___________________________________________";
             // 
@@ -262,11 +272,12 @@
             // 
             this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Perpetua Titling MT", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(228, 76);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(182, 61);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(142, 28);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(114, 22);
             this.guna2HtmlLabel1.TabIndex = 74;
             this.guna2HtmlLabel1.Text = "High School";
             // 
@@ -274,11 +285,12 @@
             // 
             this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Perpetua Titling MT", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(168, 53);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(134, 42);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(263, 28);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(210, 22);
             this.guna2HtmlLabel2.TabIndex = 73;
             this.guna2HtmlLabel2.Text = "Caloocan City Business";
             // 
@@ -287,10 +299,11 @@
             this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2CirclePictureBox1.Image = global::EduLogix.Properties.Resources.Caloocan_City_Business_High_School_Logo_1_removebg_preview;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(17, 3);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(14, 2);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(114, 147);
+            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(91, 118);
             this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2CirclePictureBox1.TabIndex = 72;
             this.guna2CirclePictureBox1.TabStop = false;
@@ -310,19 +323,20 @@
             this.loginbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.loginbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.loginbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.loginbtn.Font = new System.Drawing.Font("Inter", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginbtn.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.loginbtn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.loginbtn.ImageOffset = new System.Drawing.Point(-15, 0);
             this.loginbtn.ImageSize = new System.Drawing.Size(23, 23);
-            this.loginbtn.Location = new System.Drawing.Point(117, 339);
+            this.loginbtn.Location = new System.Drawing.Point(94, 271);
+            this.loginbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.loginbtn.Name = "loginbtn";
             this.loginbtn.PressedColor = System.Drawing.SystemColors.Window;
             this.loginbtn.ShadowDecoration.BorderRadius = 20;
             this.loginbtn.ShadowDecoration.Color = System.Drawing.Color.DimGray;
             this.loginbtn.ShadowDecoration.Enabled = true;
             this.loginbtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.loginbtn.Size = new System.Drawing.Size(235, 48);
+            this.loginbtn.Size = new System.Drawing.Size(188, 38);
             this.loginbtn.TabIndex = 71;
             this.loginbtn.Text = "Login";
             this.loginbtn.Click += new System.EventHandler(this.loginbtn_Click_1);
@@ -332,9 +346,10 @@
             this.guna2PictureBox1.BorderRadius = 10;
             this.guna2PictureBox1.Image = global::EduLogix.Properties.Resources.Gemini_Generated_Image_xj6gdbxj6gdbxj6g;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(372, 517);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(298, 414);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(88, 29);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(70, 23);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 68;
             this.guna2PictureBox1.TabStop = false;
@@ -343,24 +358,26 @@
             // 
             this.guna2HtmlLabel5.AutoSize = false;
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Perpetua Titling MT", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(149, 87);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(119, 70);
+            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(307, 28);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(246, 22);
             this.guna2HtmlLabel5.TabIndex = 76;
             this.guna2HtmlLabel5.Text = "_________________________________________";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(478, 558);
+            this.ClientSize = new System.Drawing.Size(382, 446);
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
