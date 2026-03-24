@@ -13,9 +13,12 @@ namespace EduLogix_LMS
 {
     public partial class ucBookCatalog : UserControl
     {
+        dbhandler db;
+
         public ucBookCatalog()
         {
             InitializeComponent();
+            db = new dbhandler();
         }
 
         UserControl ucBookCatalogFilterObj;
@@ -28,9 +31,10 @@ namespace EduLogix_LMS
             ucBookCatalogFilterObj.Visible = false;
             isFilterDisplayed = false;
             pnlBackground.Controls.Add(ucBookCatalogFilterObj);
+            Tbl_Book_Catalog.DataSource = db.GetAllBooks();
         }
 
-        private void guna2GradientButton3_Click(object sender, EventArgs e)
+        private void btnFilter_Click(object sender, EventArgs e)
         {
             bool isVisible = ucBookCatalogFilterObj.Visible;
             ucBookCatalogFilterObj.Visible = !isVisible;
@@ -42,5 +46,7 @@ namespace EduLogix_LMS
 
             isFilterDisplayed = ucBookCatalogFilterObj.Visible;
         }
+
+        
     }
 }

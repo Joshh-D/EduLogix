@@ -43,22 +43,21 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlBackground = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            Tbl_Book_Catalog = new Guna.UI2.WinForms.Guna2DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnFilter = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             btnViewArchive = new Guna.UI2.WinForms.Guna2GradientButton();
             btnAddBook = new Guna.UI2.WinForms.Guna2GradientButton();
             pnlBackground.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Tbl_Book_Catalog).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // pnlBackground
             // 
-            pnlBackground.BorderRadius = 30;
             pnlBackground.Controls.Add(guna2HtmlLabel1);
-            pnlBackground.Controls.Add(guna2DataGridView1);
+            pnlBackground.Controls.Add(Tbl_Book_Catalog);
             pnlBackground.Controls.Add(tableLayoutPanel1);
             pnlBackground.CustomizableEdges = customizableEdges11;
             pnlBackground.Dock = DockStyle.Fill;
@@ -80,11 +79,11 @@
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Catalog";
             // 
-            // guna2DataGridView1
+            // Tbl_Book_Catalog
             // 
             dataGridViewCellStyle4.BackColor = Color.White;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            guna2DataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Tbl_Book_Catalog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            Tbl_Book_Catalog.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
@@ -92,9 +91,9 @@
             dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            guna2DataGridView1.ColumnHeadersHeight = 4;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            Tbl_Book_Catalog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            Tbl_Book_Catalog.ColumnHeadersHeight = 4;
+            Tbl_Book_Catalog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.White;
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
@@ -102,34 +101,34 @@
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
-            guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(30, 131);
-            guna2DataGridView1.Name = "guna2DataGridView1";
-            guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.Size = new Size(1191, 571);
-            guna2DataGridView1.TabIndex = 1;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 4;
-            guna2DataGridView1.ThemeStyle.ReadOnly = false;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            Tbl_Book_Catalog.DefaultCellStyle = dataGridViewCellStyle6;
+            Tbl_Book_Catalog.GridColor = Color.FromArgb(231, 229, 255);
+            Tbl_Book_Catalog.Location = new Point(30, 131);
+            Tbl_Book_Catalog.Name = "Tbl_Book_Catalog";
+            Tbl_Book_Catalog.RowHeadersVisible = false;
+            Tbl_Book_Catalog.Size = new Size(1191, 571);
+            Tbl_Book_Catalog.TabIndex = 1;
+            Tbl_Book_Catalog.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            Tbl_Book_Catalog.ThemeStyle.AlternatingRowsStyle.Font = null;
+            Tbl_Book_Catalog.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            Tbl_Book_Catalog.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            Tbl_Book_Catalog.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            Tbl_Book_Catalog.ThemeStyle.BackColor = Color.White;
+            Tbl_Book_Catalog.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.Height = 4;
+            Tbl_Book_Catalog.ThemeStyle.ReadOnly = false;
+            Tbl_Book_Catalog.ThemeStyle.RowsStyle.BackColor = Color.White;
+            Tbl_Book_Catalog.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            Tbl_Book_Catalog.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            Tbl_Book_Catalog.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            Tbl_Book_Catalog.ThemeStyle.RowsStyle.Height = 25;
+            Tbl_Book_Catalog.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            Tbl_Book_Catalog.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
             // tableLayoutPanel1
             // 
@@ -178,7 +177,7 @@
             btnFilter.Size = new Size(158, 34);
             btnFilter.TabIndex = 3;
             btnFilter.Text = "Filter";
-            btnFilter.Click += guna2GradientButton3_Click;
+            btnFilter.Click += btnFilter_Click;
             // 
             // guna2TextBox1
             // 
@@ -275,7 +274,7 @@
             Load += ucBookCatalog_Load;
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Tbl_Book_Catalog).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -288,7 +287,7 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2GradientButton btnViewArchive;
         private Guna.UI2.WinForms.Guna2GradientButton btnAddBook;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2DataGridView Tbl_Book_Catalog;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

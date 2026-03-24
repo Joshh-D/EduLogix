@@ -196,7 +196,7 @@
             guna2HtmlLabel2.ForeColor = Color.White;
             guna2HtmlLabel2.Location = new Point(106, 40);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(213, 17);
+            guna2HtmlLabel2.Size = new Size(214, 17);
             guna2HtmlLabel2.TabIndex = 2;
             guna2HtmlLabel2.Text = "EduLogix-Library Managemenet System";
             // 
