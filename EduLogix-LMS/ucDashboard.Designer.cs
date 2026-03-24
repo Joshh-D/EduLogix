@@ -120,14 +120,14 @@
             pnlBackground.CustomizableEdges = customizableEdges17;
             guna2Transition1.SetDecoration(pnlBackground, Guna.UI2.AnimatorNS.DecorationType.None);
             pnlBackground.Dock = DockStyle.Fill;
-            pnlBackground.FillColor = Color.WhiteSmoke;
-            pnlBackground.FillColor2 = Color.WhiteSmoke;
+            pnlBackground.FillColor = Color.FromArgb(255, 254, 249);
+            pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
             pnlBackground.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             pnlBackground.Location = new Point(0, 0);
-            pnlBackground.Margin = new Padding(5);
+            pnlBackground.Margin = new Padding(6, 7, 6, 7);
             pnlBackground.Name = "pnlBackground";
             pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            pnlBackground.Size = new Size(1244, 714);
+            pnlBackground.Size = new Size(1422, 952);
             pnlBackground.TabIndex = 2;
             // 
             // tblGraphs
@@ -141,11 +141,12 @@
             tblGraphs.Controls.Add(guna2Panel2, 2, 0);
             tblGraphs.Controls.Add(guna2Panel1, 0, 0);
             guna2Transition1.SetDecoration(tblGraphs, Guna.UI2.AnimatorNS.DecorationType.None);
-            tblGraphs.Location = new Point(31, 318);
+            tblGraphs.Location = new Point(35, 424);
+            tblGraphs.Margin = new Padding(3, 4, 3, 4);
             tblGraphs.Name = "tblGraphs";
             tblGraphs.RowCount = 1;
             tblGraphs.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tblGraphs.Size = new Size(1188, 300);
+            tblGraphs.Size = new Size(1358, 400);
             tblGraphs.TabIndex = 2;
             // 
             // guna2Panel2
@@ -157,14 +158,15 @@
             guna2Panel2.CustomizableEdges = customizableEdges1;
             guna2Transition1.SetDecoration(guna2Panel2, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2Panel2.FillColor = Color.WhiteSmoke;
-            guna2Panel2.Location = new Point(651, 3);
+            guna2Panel2.Location = new Point(743, 4);
+            guna2Panel2.Margin = new Padding(3, 4, 3, 4);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.BorderRadius = 10;
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel2.ShadowDecoration.Depth = 20;
             guna2Panel2.ShadowDecoration.Enabled = true;
             guna2Panel2.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2Panel2.Size = new Size(534, 294);
+            guna2Panel2.Size = new Size(612, 392);
             guna2Panel2.TabIndex = 4;
             // 
             // chart2
@@ -176,13 +178,14 @@
             legend1.Name = "Legend1";
             chart2.Legends.Add(legend1);
             chart2.Location = new Point(0, 0);
+            chart2.Margin = new Padding(3, 4, 3, 4);
             chart2.Name = "chart2";
-            chart2.Padding = new Padding(2);
+            chart2.Padding = new Padding(2, 3, 2, 3);
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart2.Series.Add(series1);
-            chart2.Size = new Size(534, 294);
+            chart2.Size = new Size(612, 392);
             chart2.TabIndex = 0;
             chart2.Text = "chart2";
             // 
@@ -195,14 +198,15 @@
             guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Transition1.SetDecoration(guna2Panel1, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2Panel1.FillColor = Color.WhiteSmoke;
-            guna2Panel1.Location = new Point(3, 3);
+            guna2Panel1.Location = new Point(3, 4);
+            guna2Panel1.Margin = new Padding(3, 4, 3, 4);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.BorderRadius = 10;
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel1.ShadowDecoration.Depth = 20;
             guna2Panel1.ShadowDecoration.Enabled = true;
             guna2Panel1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2Panel1.Size = new Size(534, 294);
+            guna2Panel1.Size = new Size(611, 392);
             guna2Panel1.TabIndex = 3;
             // 
             // chart1
@@ -214,13 +218,14 @@
             legend2.Name = "Legend1";
             chart1.Legends.Add(legend2);
             chart1.Location = new Point(0, 0);
+            chart1.Margin = new Padding(3, 4, 3, 4);
             chart1.Name = "chart1";
-            chart1.Padding = new Padding(2);
+            chart1.Padding = new Padding(2, 3, 2, 3);
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             chart1.Series.Add(series2);
-            chart1.Size = new Size(534, 294);
+            chart1.Size = new Size(611, 392);
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
             // 
@@ -243,14 +248,15 @@
             tblWidgets.Controls.Add(guna2GradientPanel2, 0, 3);
             tblWidgets.Controls.Add(label1, 0, 0);
             guna2Transition1.SetDecoration(tblWidgets, Guna.UI2.AnimatorNS.DecorationType.None);
-            tblWidgets.Location = new Point(31, 20);
+            tblWidgets.Location = new Point(35, 27);
+            tblWidgets.Margin = new Padding(3, 4, 3, 4);
             tblWidgets.Name = "tblWidgets";
             tblWidgets.RowCount = 4;
-            tblWidgets.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
+            tblWidgets.RowStyles.Add(new RowStyle(SizeType.Absolute, 63F));
             tblWidgets.RowStyles.Add(new RowStyle());
-            tblWidgets.RowStyles.Add(new RowStyle(SizeType.Absolute, 13F));
+            tblWidgets.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
             tblWidgets.RowStyles.Add(new RowStyle());
-            tblWidgets.Size = new Size(1188, 279);
+            tblWidgets.Size = new Size(1358, 372);
             tblWidgets.TabIndex = 1;
             // 
             // label2
@@ -262,9 +268,9 @@
             label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(404, 0);
+            label2.Location = new Point(461, 0);
             label2.Name = "label2";
-            label2.Size = new Size(781, 47);
+            label2.Size = new Size(894, 63);
             label2.TabIndex = 3;
             label2.Text = "February 25, 2026 2:50AM";
             label2.TextAlign = ContentAlignment.MiddleRight;
@@ -281,9 +287,10 @@
             guna2Transition1.SetDecoration(guna2GradientPanel6, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2GradientPanel6.FillColor = Color.FromArgb(184, 152, 108);
             guna2GradientPanel6.FillColor2 = Color.FromArgb(255, 201, 118);
-            guna2GradientPanel6.Location = new Point(833, 168);
-            guna2GradientPanel6.MaximumSize = new Size(720, 300);
-            guna2GradientPanel6.MinimumSize = new Size(230, 50);
+            guna2GradientPanel6.Location = new Point(951, 224);
+            guna2GradientPanel6.Margin = new Padding(3, 4, 3, 4);
+            guna2GradientPanel6.MaximumSize = new Size(823, 400);
+            guna2GradientPanel6.MinimumSize = new Size(263, 67);
             guna2GradientPanel6.Name = "guna2GradientPanel6";
             guna2GradientPanel6.ShadowDecoration.BorderRadius = 10;
             guna2GradientPanel6.ShadowDecoration.Color = Color.DimGray;
@@ -291,7 +298,7 @@
             guna2GradientPanel6.ShadowDecoration.Depth = 20;
             guna2GradientPanel6.ShadowDecoration.Enabled = true;
             guna2GradientPanel6.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel6.Size = new Size(352, 99);
+            guna2GradientPanel6.Size = new Size(404, 132);
             guna2GradientPanel6.TabIndex = 7;
             // 
             // label9
@@ -301,9 +308,9 @@
             guna2Transition1.SetDecoration(label9, Guna.UI2.AnimatorNS.DecorationType.None);
             label9.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(109, 47);
+            label9.Location = new Point(125, 63);
             label9.Name = "label9";
-            label9.Size = new Size(33, 37);
+            label9.Size = new Size(40, 46);
             label9.TabIndex = 5;
             label9.Text = "0";
             label9.TextAlign = ContentAlignment.MiddleLeft;
@@ -315,9 +322,9 @@
             guna2Transition1.SetDecoration(label10, Guna.UI2.AnimatorNS.DecorationType.None);
             label10.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(109, 13);
+            label10.Location = new Point(125, 17);
             label10.Name = "label10";
-            label10.Size = new Size(103, 31);
+            label10.Size = new Size(129, 40);
             label10.TabIndex = 4;
             label10.Text = "Overdue";
             label10.TextAlign = ContentAlignment.MiddleLeft;
@@ -330,10 +337,11 @@
             iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
             iconPictureBox6.IconColor = Color.White;
             iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox6.IconSize = 81;
-            iconPictureBox6.Location = new Point(11, 13);
+            iconPictureBox6.IconSize = 93;
+            iconPictureBox6.Location = new Point(13, 17);
+            iconPictureBox6.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox6.Name = "iconPictureBox6";
-            iconPictureBox6.Size = new Size(81, 83);
+            iconPictureBox6.Size = new Size(93, 111);
             iconPictureBox6.TabIndex = 3;
             iconPictureBox6.TabStop = false;
             // 
@@ -349,9 +357,10 @@
             guna2Transition1.SetDecoration(guna2GradientPanel5, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2GradientPanel5.FillColor = Color.FromArgb(173, 145, 140);
             guna2GradientPanel5.FillColor2 = Color.FromArgb(236, 189, 171);
-            guna2GradientPanel5.Location = new Point(404, 168);
-            guna2GradientPanel5.MaximumSize = new Size(720, 300);
-            guna2GradientPanel5.MinimumSize = new Size(230, 50);
+            guna2GradientPanel5.Location = new Point(461, 224);
+            guna2GradientPanel5.Margin = new Padding(3, 4, 3, 4);
+            guna2GradientPanel5.MaximumSize = new Size(823, 400);
+            guna2GradientPanel5.MinimumSize = new Size(263, 67);
             guna2GradientPanel5.Name = "guna2GradientPanel5";
             guna2GradientPanel5.ShadowDecoration.BorderRadius = 10;
             guna2GradientPanel5.ShadowDecoration.Color = Color.DimGray;
@@ -359,7 +368,7 @@
             guna2GradientPanel5.ShadowDecoration.Depth = 20;
             guna2GradientPanel5.ShadowDecoration.Enabled = true;
             guna2GradientPanel5.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel5.Size = new Size(383, 99);
+            guna2GradientPanel5.Size = new Size(439, 132);
             guna2GradientPanel5.TabIndex = 6;
             // 
             // label11
@@ -369,9 +378,9 @@
             guna2Transition1.SetDecoration(label11, Guna.UI2.AnimatorNS.DecorationType.None);
             label11.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(110, 47);
+            label11.Location = new Point(126, 63);
             label11.Name = "label11";
-            label11.Size = new Size(33, 37);
+            label11.Size = new Size(40, 46);
             label11.TabIndex = 4;
             label11.Text = "0";
             label11.TextAlign = ContentAlignment.MiddleLeft;
@@ -383,9 +392,9 @@
             guna2Transition1.SetDecoration(label12, Guna.UI2.AnimatorNS.DecorationType.None);
             label12.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
             label12.ForeColor = Color.White;
-            label12.Location = new Point(110, 13);
+            label12.Location = new Point(126, 17);
             label12.Name = "label12";
-            label12.Size = new Size(117, 31);
+            label12.Size = new Size(145, 40);
             label12.TabIndex = 3;
             label12.Text = "Borrowed";
             label12.TextAlign = ContentAlignment.MiddleLeft;
@@ -398,10 +407,11 @@
             iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.BookReader;
             iconPictureBox3.IconColor = Color.White;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox3.IconSize = 81;
-            iconPictureBox3.Location = new Point(12, 16);
+            iconPictureBox3.IconSize = 93;
+            iconPictureBox3.Location = new Point(14, 21);
+            iconPictureBox3.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox3.Name = "iconPictureBox3";
-            iconPictureBox3.Size = new Size(81, 83);
+            iconPictureBox3.Size = new Size(93, 111);
             iconPictureBox3.TabIndex = 1;
             iconPictureBox3.TabStop = false;
             // 
@@ -417,9 +427,10 @@
             guna2Transition1.SetDecoration(guna2GradientPanel4, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2GradientPanel4.FillColor = Color.FromArgb(173, 108, 114);
             guna2GradientPanel4.FillColor2 = Color.FromArgb(237, 128, 128);
-            guna2GradientPanel4.Location = new Point(833, 50);
-            guna2GradientPanel4.MaximumSize = new Size(720, 300);
-            guna2GradientPanel4.MinimumSize = new Size(230, 50);
+            guna2GradientPanel4.Location = new Point(951, 67);
+            guna2GradientPanel4.Margin = new Padding(3, 4, 3, 4);
+            guna2GradientPanel4.MaximumSize = new Size(823, 400);
+            guna2GradientPanel4.MinimumSize = new Size(263, 67);
             guna2GradientPanel4.Name = "guna2GradientPanel4";
             guna2GradientPanel4.ShadowDecoration.BorderRadius = 10;
             guna2GradientPanel4.ShadowDecoration.Color = Color.DimGray;
@@ -427,7 +438,7 @@
             guna2GradientPanel4.ShadowDecoration.Depth = 20;
             guna2GradientPanel4.ShadowDecoration.Enabled = true;
             guna2GradientPanel4.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel4.Size = new Size(352, 99);
+            guna2GradientPanel4.Size = new Size(404, 132);
             guna2GradientPanel4.TabIndex = 5;
             // 
             // label7
@@ -437,9 +448,9 @@
             guna2Transition1.SetDecoration(label7, Guna.UI2.AnimatorNS.DecorationType.None);
             label7.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(109, 49);
+            label7.Location = new Point(125, 65);
             label7.Name = "label7";
-            label7.Size = new Size(33, 37);
+            label7.Size = new Size(40, 46);
             label7.TabIndex = 4;
             label7.Text = "0";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -451,9 +462,9 @@
             guna2Transition1.SetDecoration(label8, Guna.UI2.AnimatorNS.DecorationType.None);
             label8.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(109, 14);
+            label8.Location = new Point(125, 19);
             label8.Name = "label8";
-            label8.Size = new Size(115, 31);
+            label8.Size = new Size(143, 40);
             label8.TabIndex = 3;
             label8.Text = "Damaged";
             label8.TextAlign = ContentAlignment.MiddleLeft;
@@ -466,10 +477,11 @@
             iconPictureBox5.IconChar = FontAwesome.Sharp.IconChar.HeartBroken;
             iconPictureBox5.IconColor = Color.White;
             iconPictureBox5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox5.IconSize = 81;
-            iconPictureBox5.Location = new Point(11, 14);
+            iconPictureBox5.IconSize = 93;
+            iconPictureBox5.Location = new Point(13, 19);
+            iconPictureBox5.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox5.Name = "iconPictureBox5";
-            iconPictureBox5.Size = new Size(81, 83);
+            iconPictureBox5.Size = new Size(93, 111);
             iconPictureBox5.TabIndex = 2;
             iconPictureBox5.TabStop = false;
             // 
@@ -485,9 +497,10 @@
             guna2Transition1.SetDecoration(guna2GradientPanel3, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2GradientPanel3.FillColor = Color.FromArgb(184, 184, 187);
             guna2GradientPanel3.FillColor2 = Color.FromArgb(255, 254, 249);
-            guna2GradientPanel3.Location = new Point(404, 50);
-            guna2GradientPanel3.MaximumSize = new Size(720, 300);
-            guna2GradientPanel3.MinimumSize = new Size(230, 50);
+            guna2GradientPanel3.Location = new Point(461, 67);
+            guna2GradientPanel3.Margin = new Padding(3, 4, 3, 4);
+            guna2GradientPanel3.MaximumSize = new Size(823, 400);
+            guna2GradientPanel3.MinimumSize = new Size(263, 67);
             guna2GradientPanel3.Name = "guna2GradientPanel3";
             guna2GradientPanel3.ShadowDecoration.BorderRadius = 10;
             guna2GradientPanel3.ShadowDecoration.Color = Color.DimGray;
@@ -495,7 +508,7 @@
             guna2GradientPanel3.ShadowDecoration.Depth = 20;
             guna2GradientPanel3.ShadowDecoration.Enabled = true;
             guna2GradientPanel3.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel3.Size = new Size(383, 99);
+            guna2GradientPanel3.Size = new Size(439, 132);
             guna2GradientPanel3.TabIndex = 4;
             // 
             // label5
@@ -505,9 +518,9 @@
             guna2Transition1.SetDecoration(label5, Guna.UI2.AnimatorNS.DecorationType.None);
             label5.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(110, 49);
+            label5.Location = new Point(126, 65);
             label5.Name = "label5";
-            label5.Size = new Size(33, 37);
+            label5.Size = new Size(40, 46);
             label5.TabIndex = 4;
             label5.Text = "0";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -519,9 +532,9 @@
             guna2Transition1.SetDecoration(label6, Guna.UI2.AnimatorNS.DecorationType.None);
             label6.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(110, 11);
+            label6.Location = new Point(126, 15);
             label6.Name = "label6";
-            label6.Size = new Size(94, 31);
+            label6.Size = new Size(120, 40);
             label6.TabIndex = 3;
             label6.Text = "Missing";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -534,10 +547,11 @@
             iconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.CircleQuestion;
             iconPictureBox4.IconColor = Color.White;
             iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox4.IconSize = 81;
-            iconPictureBox4.Location = new Point(12, 11);
+            iconPictureBox4.IconSize = 93;
+            iconPictureBox4.Location = new Point(14, 15);
+            iconPictureBox4.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox4.Name = "iconPictureBox4";
-            iconPictureBox4.Size = new Size(81, 83);
+            iconPictureBox4.Size = new Size(93, 111);
             iconPictureBox4.TabIndex = 1;
             iconPictureBox4.TabStop = false;
             // 
@@ -553,18 +567,19 @@
             guna2Transition1.SetDecoration(guna2GradientPanel7, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2GradientPanel7.FillColor = Color.FromArgb(93, 158, 170);
             guna2GradientPanel7.FillColor2 = Color.FromArgb(153, 205, 216);
-            guna2GradientPanel7.Location = new Point(3, 50);
-            guna2GradientPanel7.MaximumSize = new Size(720, 300);
-            guna2GradientPanel7.MinimumSize = new Size(230, 50);
+            guna2GradientPanel7.Location = new Point(3, 67);
+            guna2GradientPanel7.Margin = new Padding(3, 4, 3, 4);
+            guna2GradientPanel7.MaximumSize = new Size(823, 400);
+            guna2GradientPanel7.MinimumSize = new Size(263, 67);
             guna2GradientPanel7.Name = "guna2GradientPanel7";
-            guna2GradientPanel7.Padding = new Padding(5);
+            guna2GradientPanel7.Padding = new Padding(6, 7, 6, 7);
             guna2GradientPanel7.ShadowDecoration.BorderRadius = 10;
             guna2GradientPanel7.ShadowDecoration.Color = Color.DimGray;
             guna2GradientPanel7.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2GradientPanel7.ShadowDecoration.Depth = 20;
             guna2GradientPanel7.ShadowDecoration.Enabled = true;
             guna2GradientPanel7.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel7.Size = new Size(350, 99);
+            guna2GradientPanel7.Size = new Size(401, 132);
             guna2GradientPanel7.TabIndex = 3;
             // 
             // label4
@@ -574,9 +589,9 @@
             guna2Transition1.SetDecoration(label4, Guna.UI2.AnimatorNS.DecorationType.None);
             label4.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(106, 49);
+            label4.Location = new Point(121, 65);
             label4.Name = "label4";
-            label4.Size = new Size(33, 37);
+            label4.Size = new Size(40, 46);
             label4.TabIndex = 2;
             label4.Text = "0";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -588,9 +603,9 @@
             guna2Transition1.SetDecoration(label3, Guna.UI2.AnimatorNS.DecorationType.None);
             label3.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(106, 11);
+            label3.Location = new Point(121, 15);
             label3.Name = "label3";
-            label3.Size = new Size(78, 31);
+            label3.Size = new Size(97, 40);
             label3.TabIndex = 1;
             label3.Text = "Books";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -603,10 +618,11 @@
             iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Book;
             iconPictureBox1.IconColor = Color.White;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 81;
-            iconPictureBox1.Location = new Point(8, 11);
+            iconPictureBox1.IconSize = 93;
+            iconPictureBox1.Location = new Point(9, 15);
+            iconPictureBox1.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(81, 83);
+            iconPictureBox1.Size = new Size(93, 111);
             iconPictureBox1.TabIndex = 0;
             iconPictureBox1.TabStop = false;
             // 
@@ -622,9 +638,10 @@
             guna2Transition1.SetDecoration(guna2GradientPanel2, Guna.UI2.AnimatorNS.DecorationType.None);
             guna2GradientPanel2.FillColor = Color.FromArgb(148, 173, 115);
             guna2GradientPanel2.FillColor2 = Color.FromArgb(195, 237, 129);
-            guna2GradientPanel2.Location = new Point(3, 168);
-            guna2GradientPanel2.MaximumSize = new Size(720, 300);
-            guna2GradientPanel2.MinimumSize = new Size(230, 50);
+            guna2GradientPanel2.Location = new Point(3, 224);
+            guna2GradientPanel2.Margin = new Padding(3, 4, 3, 4);
+            guna2GradientPanel2.MaximumSize = new Size(823, 400);
+            guna2GradientPanel2.MinimumSize = new Size(263, 67);
             guna2GradientPanel2.Name = "guna2GradientPanel2";
             guna2GradientPanel2.ShadowDecoration.BorderRadius = 10;
             guna2GradientPanel2.ShadowDecoration.Color = Color.DimGray;
@@ -632,7 +649,7 @@
             guna2GradientPanel2.ShadowDecoration.Depth = 20;
             guna2GradientPanel2.ShadowDecoration.Enabled = true;
             guna2GradientPanel2.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel2.Size = new Size(350, 99);
+            guna2GradientPanel2.Size = new Size(401, 132);
             guna2GradientPanel2.TabIndex = 4;
             // 
             // label13
@@ -642,9 +659,9 @@
             guna2Transition1.SetDecoration(label13, Guna.UI2.AnimatorNS.DecorationType.None);
             label13.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
             label13.ForeColor = Color.White;
-            label13.Location = new Point(106, 47);
+            label13.Location = new Point(121, 63);
             label13.Name = "label13";
-            label13.Size = new Size(33, 37);
+            label13.Size = new Size(40, 46);
             label13.TabIndex = 4;
             label13.Text = "0";
             label13.TextAlign = ContentAlignment.MiddleLeft;
@@ -656,9 +673,9 @@
             guna2Transition1.SetDecoration(label14, Guna.UI2.AnimatorNS.DecorationType.None);
             label14.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
             label14.ForeColor = Color.White;
-            label14.Location = new Point(106, 13);
+            label14.Location = new Point(121, 17);
             label14.Name = "label14";
-            label14.Size = new Size(109, 31);
+            label14.Size = new Size(136, 40);
             label14.TabIndex = 3;
             label14.Text = "Available";
             label14.TextAlign = ContentAlignment.MiddleLeft;
@@ -671,10 +688,11 @@
             iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.BookMedical;
             iconPictureBox2.IconColor = Color.White;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox2.IconSize = 53;
-            iconPictureBox2.Location = new Point(18, 21);
+            iconPictureBox2.IconSize = 64;
+            iconPictureBox2.Location = new Point(21, 28);
+            iconPictureBox2.Margin = new Padding(3, 4, 3, 4);
             iconPictureBox2.Name = "iconPictureBox2";
-            iconPictureBox2.Size = new Size(56, 53);
+            iconPictureBox2.Size = new Size(64, 71);
             iconPictureBox2.TabIndex = 1;
             iconPictureBox2.TabStop = false;
             // 
@@ -688,7 +706,7 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(350, 47);
+            label1.Size = new Size(401, 63);
             label1.TabIndex = 0;
             label1.Text = "Dashboard";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -716,14 +734,14 @@
             // 
             // ucDashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             Controls.Add(pnlBackground);
             guna2Transition1.SetDecoration(this, Guna.UI2.AnimatorNS.DecorationType.None);
             Margin = new Padding(0);
             Name = "ucDashboard";
-            Size = new Size(1244, 714);
+            Size = new Size(1422, 952);
             Load += ucDashboard_Load;
             pnlBackground.ResumeLayout(false);
             tblGraphs.ResumeLayout(false);

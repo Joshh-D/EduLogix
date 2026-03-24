@@ -79,7 +79,7 @@ namespace EduLogix_LMS
                 }
 
                 pnlMain.Controls.Clear();
-                
+
                 Guna2Panel template = new Guna2Panel();
                 template.FillColor = Color.WhiteSmoke;
                 template.Dock = DockStyle.Fill;
@@ -92,6 +92,7 @@ namespace EduLogix_LMS
             else MessageBox.Show("No pnlMainContent found");
         }
 
-
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        { }
     }
 }

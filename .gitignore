@@ -1,0 +1,32 @@
+## Visual Studio Build Artifacts
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+## Visual Studio Version-Specific Files
+.vs/
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Roslyn/Analyzer logs
+*.tlh
+*.tli
+*.log
+
+## NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/repository.config
+
+## Others
+Thumbs.db
+ehthumbs.db
+Desktop.ini

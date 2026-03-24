@@ -19,9 +19,9 @@ namespace EduLogix_LMS
             ucSidebar.Dock = DockStyle.Left;
             pnlSidebarContainer.Controls.Add(ucSidebar);
 
-            var ucTopbar = new ucTopbar();
-            ucTopbar.Dock = DockStyle.Fill;
-            pnlTopbarContainer.Controls.Add(ucTopbar);
+            //var ucTopbar = new ucTopbar();
+            //ucTopbar.Dock = DockStyle.Fill;
+            //pnlTopbarContainer.Controls.Add(ucTopbar);
         }
     }
 }
