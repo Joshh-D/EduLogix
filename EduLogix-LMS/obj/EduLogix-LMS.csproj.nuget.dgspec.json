@@ -58,6 +58,10 @@
               "target": "Package",
               "version": "[2.0.4.6, )"
             },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            },
             "Ububox.G2Crack": {
               "target": "Package",
               "version": "[2.0.4.6, )"

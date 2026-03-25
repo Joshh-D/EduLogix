@@ -2,14 +2,18 @@ namespace EduLogix_LMS
 {
     public partial class LMSDashboard : Form
     {
+        dbhandler db;
+
         public LMSDashboard()
         {
             InitializeComponent();
+            db = new dbhandler();
             this.WindowState = FormWindowState.Maximized;
         }
 
         private void LMSDashboard_Load(object sender, EventArgs e)
         {
+            db.StartDBConn();
             var ucDashboard = new ucDashboard();
             ucDashboard.Dock = DockStyle.Fill;
             pnlMainContent.Controls.Add(ucDashboard);
