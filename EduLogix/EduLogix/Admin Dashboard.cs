@@ -16,13 +16,38 @@ namespace EduLogix
     {
         private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
         private Timer dateTimeTimer;
+        private int lastCountRefreshSecond = -1;
 
         public DashboardForm()
         {
             InitializeComponent();
             InitializeUserOptionsPanel();
+            WireDashboardCardClicks();
             this.Load += DashboardForm_Load;
             InitializeDateTimeTimer();
+        }
+
+        private void WireDashboardCardClicks()
+        {
+            WireCardAndChildrenClick(elementaryCount, ElementaryCount_Click);
+            WireCardAndChildrenClick(juniorCount, JuniorCount_Click);
+            WireCardAndChildrenClick(seniorCount, SeniorCount_Click);
+            WireCardAndChildrenClick(inPremisesCount, InPremisesCount_Click);
+            WireCardAndChildrenClick(arrivalsCount, ArrivalsCount_Click);
+            WireCardAndChildrenClick(departedCount, DepartedCount_Click);
+        }
+
+        private void WireCardAndChildrenClick(Control control, EventHandler handler)
+        {
+            if (control == null || handler == null) return;
+
+            control.Click -= handler;
+            control.Click += handler;
+
+            foreach (Control child in control.Controls)
+            {
+                WireCardAndChildrenClick(child, handler);
+            }
         }
 
         private void InitializeUserOptionsPanel()
@@ -146,6 +171,13 @@ namespace EduLogix
             {
                 dashboardDateAndTime.Text = DateTime.Now.ToString("MMMM dd, yyyy hh:mm:ss tt");
             }
+
+            int currentSecond = DateTime.Now.Second;
+            if (currentSecond % 10 == 0 && currentSecond != lastCountRefreshSecond)
+            {
+                lastCountRefreshSecond = currentSecond;
+                RefreshDashboardCounts();
+            }
         }
 
         private void DashboardForm_Load(object sender, EventArgs e)
@@ -157,8 +189,60 @@ namespace EduLogix
             {
                 dashboardDateAndTime.Text = DateTime.Now.ToString("MMMM dd, yyyy hh:mm:ss tt");
             }
+            RefreshDashboardCounts();
             SetupAttendanceChart();
-            UpdateDailyAttendanceCircle();
+        }
+
+        private void RefreshDashboardCounts()
+        {
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    const string query = @"
+                        SELECT
+                            SUM(CASE WHEN LOWER(education) = 'elementary' THEN 1 ELSE 0 END) AS elementary_count,
+                            SUM(CASE WHEN LOWER(education) = 'junior' THEN 1 ELSE 0 END) AS junior_count,
+                            SUM(CASE WHEN LOWER(education) = 'senior' THEN 1 ELSE 0 END) AS senior_count,
+                            SUM(CASE WHEN status = 'In Premises' THEN 1 ELSE 0 END) AS in_premises_count,
+                            SUM(CASE WHEN status = 'Departed' THEN 1 ELSE 0 END) AS departed_count,
+                            COUNT(*) AS arrivals_count
+                        FROM reg_attendance_live";
+
+                    using (var cmd = new MySqlCommand(query, conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (!reader.Read()) return;
+
+                        int elementary = ToInt(reader["elementary_count"]);
+                        int junior = ToInt(reader["junior_count"]);
+                        int senior = ToInt(reader["senior_count"]);
+                        int inPremises = ToInt(reader["in_premises_count"]);
+                        int departed = ToInt(reader["departed_count"]);
+                        int arrivals = ToInt(reader["arrivals_count"]);
+
+                        if (elemNum != null) elemNum.Text = elementary.ToString();
+                        if (juniorNum != null) juniorNum.Text = junior.ToString();
+                        if (seniorNum != null) seniorNum.Text = senior.ToString();
+                        if (inPremisesNum != null) inPremisesNum.Text = inPremises.ToString();
+                        if (arrivalsNum != null) arrivalsNum.Text = arrivals.ToString();
+                        if (departedNum != null) departedNum.Text = departed.ToString();
+
+                        UpdateDailyAttendanceCircle(arrivals, inPremises);
+                    }
+                }
+            }
+            catch
+            {
+                // Keep dashboard responsive if DB is temporarily unavailable.
+            }
+        }
+
+        private int ToInt(object value)
+        {
+            if (value == null || value == DBNull.Value) return 0;
+            return Convert.ToInt32(value);
         }
 
         private void MarkActiveNav()
@@ -357,43 +441,77 @@ namespace EduLogix
 
         private void SetupAttendanceChart()
         {
-            // Clear previous series
-            chart1.Series.Clear();
-            chart1.ChartAreas[0].AxisY.Maximum = 500;
-            chart1.ChartAreas[0].AxisY.Minimum = 0;
-            chart1.ChartAreas[0].AxisY.Interval = 50;
+            attendanceChartWeekly.Series.Clear();
+            attendanceChartWeekly.ChartAreas[0].AxisY.Maximum = 500;
+            attendanceChartWeekly.ChartAreas[0].AxisY.Minimum = 0;
+            attendanceChartWeekly.ChartAreas[0].AxisY.Interval = 50;
+            attendanceChartWeekly.ChartAreas[0].AxisY.Title = "";
 
-            // Remove Y-axis title
-            chart1.ChartAreas[0].AxisY.Title = "";
-
-            // Create series for Elementary
             Series elementary = new Series("Elementary");
             elementary.ChartType = SeriesChartType.Column;
             elementary.Color = Color.FromArgb(233, 188, 119);
             elementary.IsValueShownAsLabel = true;
 
-            // Create series for Junior
             Series junior = new Series("Junior");
             junior.ChartType = SeriesChartType.Column;
             junior.Color = Color.FromArgb(228, 185, 169);
             junior.IsValueShownAsLabel = true;
 
-            // Create series for Senior
             Series senior = new Series("Senior");
             senior.ChartType = SeriesChartType.Column;
             senior.Color = Color.FromArgb(148, 191, 200);
             senior.IsValueShownAsLabel = true;
 
-            // Add series to chart
-            chart1.Series.Add(elementary);
-            chart1.Series.Add(junior);
-            chart1.Series.Add(senior);
+            attendanceChartWeekly.Series.Add(elementary);
+            attendanceChartWeekly.Series.Add(junior);
+            attendanceChartWeekly.Series.Add(senior);
 
-            // Add points for each day
             string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-            int[] elemData = { 320, 450, 330, 410, 440, 460 };   // Example numbers for Elementary
-            int[] juniorData = { 420, 340, 420, 390, 410, 430 };   // Example numbers for Junior
-            int[] seniorData = { 470, 460, 450, 380, 400, 430 };   // Example numbers for Senior
+            int[] elemData = new int[days.Length];
+            int[] juniorData = new int[days.Length];
+            int[] seniorData = new int[days.Length];
+
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    const string query = @"
+                        SELECT DAYOFWEEK(date_and_time) AS day_of_week,
+                               LOWER(education) AS education,
+                               COUNT(*) AS total_count
+                        FROM reg_attendance_weekly
+                        WHERE date_and_time IS NOT NULL
+                        GROUP BY DAYOFWEEK(date_and_time), LOWER(education)";
+
+                    using (var cmd = new MySqlCommand(query, conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int dayOfWeek = Convert.ToInt32(reader["day_of_week"]);
+                            string education = reader["education"] == DBNull.Value
+                                ? string.Empty
+                                : reader["education"].ToString();
+                            int totalCount = reader["total_count"] == DBNull.Value
+                                ? 0
+                                : Convert.ToInt32(reader["total_count"]);
+
+                            int dayIndex = dayOfWeek - 2; // Monday=2 -> 0, Saturday=7 -> 5
+                            if (dayIndex < 0 || dayIndex >= days.Length) continue;
+
+                            if (education == "elementary") elemData[dayIndex] = totalCount;
+                            else if (education == "junior") juniorData[dayIndex] = totalCount;
+                            else if (education == "senior") seniorData[dayIndex] = totalCount;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // Keep chart alive even if DB is temporarily unavailable.
+            }
 
             for (int i = 0; i < days.Length; i++)
             {
@@ -402,35 +520,86 @@ namespace EduLogix
                 senior.Points.AddXY(days[i], seniorData[i]);
             }
 
-            // Adjust column width
-            foreach (Series s in chart1.Series)
+            int maxValue = Math.Max(
+                elemData.Concat(juniorData).Concat(seniorData).DefaultIfEmpty(0).Max(),
+                10);
+            int roundedMax = ((maxValue + 9) / 10) * 10;
+            attendanceChartWeekly.ChartAreas[0].AxisY.Maximum = roundedMax;
+            attendanceChartWeekly.ChartAreas[0].AxisY.Interval = Math.Max(1, roundedMax / 10);
+
+            foreach (Series s in attendanceChartWeekly.Series)
             {
                 s["PointWidth"] = "0.6";
             }
         }
-        private void UpdateDailyAttendanceCircle()
+        private void UpdateDailyAttendanceCircle(int totalStudents, int studentsPresentToday)
         {
-            int totalStudents = 500;
-            int studentsPresentToday = 420; // replace with database value if needed
+            if (totalStudents <= 0)
+            {
+                if (attendanceChartDaily != null)
+                {
+                    attendanceChartDaily.Value = 0;
+                    attendanceChartDaily.Text = "0% Present";
+                }
+                return;
+            }
 
             double percentage = ((double)studentsPresentToday / totalStudents) * 100;
-            double absentPercentage = 100 - percentage;
 
-            guna2CircleProgressBar1.Value = 100;
-            guna2CircleProgressBar1.FillColor = Color.LightGray;
-            guna2CircleProgressBar1.ProgressColor = Color.Red;
-            guna2CircleProgressBar1.ProgressThickness = 50;
-            guna2CircleProgressBar1.InnerColor = Color.White;
+            attendanceChartDaily.Value = 100;
+            attendanceChartDaily.FillColor = Color.LightGray;
+            attendanceChartDaily.ProgressColor = Color.Red;
+            attendanceChartDaily.ProgressThickness = 50;
+            attendanceChartDaily.InnerColor = Color.White;
 
-            guna2CircleProgressBar1.Value = (int)percentage;
-            guna2CircleProgressBar1.ProgressColor = Color.Green;
-            guna2CircleProgressBar1.ProgressThickness = 50;
-            guna2CircleProgressBar1.InnerColor = Color.White;
-            guna2CircleProgressBar1.Text = $"{percentage:0}% Present";
-            guna2CircleProgressBar1.Font = new Font("Inter", 16, FontStyle.Regular);
-            guna2CircleProgressBar1.ForeColor = Color.FromArgb(48, 79, 99);
-            guna2CircleProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            attendanceChartDaily.Value = Math.Max(0, Math.Min(100, (int)Math.Round(percentage)));
+            attendanceChartDaily.ProgressColor = Color.Green;
+            attendanceChartDaily.ProgressThickness = 50;
+            attendanceChartDaily.InnerColor = Color.White;
+            attendanceChartDaily.Text = $"{percentage:0}% Present";
+            attendanceChartDaily.Font = new Font("Inter", 16, FontStyle.Regular);
+            attendanceChartDaily.ForeColor = Color.FromArgb(48, 79, 99);
+            attendanceChartDaily.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 
+        }
+
+        private void OpenAttendanceWithFilters(string levelFilter, string statusFilter)
+        {
+            var attendance = new AttendanceForm(levelFilter, statusFilter);
+            attendance.StartPosition = FormStartPosition.Manual;
+            attendance.Location = this.Location;
+            attendance.Show();
+            this.Hide();
+        }
+
+        private void ElementaryCount_Click(object sender, EventArgs e)
+        {
+            OpenAttendanceWithFilters("Elementary", "All");
+        }
+
+        private void JuniorCount_Click(object sender, EventArgs e)
+        {
+            OpenAttendanceWithFilters("Junior", "All");
+        }
+
+        private void SeniorCount_Click(object sender, EventArgs e)
+        {
+            OpenAttendanceWithFilters("Senior", "All");
+        }
+
+        private void InPremisesCount_Click(object sender, EventArgs e)
+        {
+            OpenAttendanceWithFilters("All", "In Premises");
+        }
+
+        private void ArrivalsCount_Click(object sender, EventArgs e)
+        {
+            OpenAttendanceWithFilters("All", "All");
+        }
+
+        private void DepartedCount_Click(object sender, EventArgs e)
+        {
+            OpenAttendanceWithFilters("All", "Departed");
         }
 
         private void userProfile_Click(object sender, EventArgs e)
@@ -441,6 +610,36 @@ namespace EduLogix
             userOptions.Visible = !userOptions.Visible;
             if (userOptions.Visible)
                 userOptions.BringToFront();
+        }
+
+        private void elementaryCount_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void juniorCount_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void seniorCount_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void inPremisesCount_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void arrivalsCount_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void departedCount_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

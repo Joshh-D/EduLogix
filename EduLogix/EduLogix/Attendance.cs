@@ -11,11 +11,20 @@ namespace EduLogix
     {
         private readonly string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
         private Color currentThemeColor = Color.FromArgb(48, 79, 99);
+        private readonly string initialLevelFilter;
+        private readonly string initialStatusFilter;
 
-        public AttendanceForm()
+        public AttendanceForm() : this("All", "All")
+        {
+        }
+
+        public AttendanceForm(string levelFilter, string statusFilter)
         {
             InitializeComponent();
             InitializeUserOptionsPanel();
+
+            initialLevelFilter = string.IsNullOrWhiteSpace(levelFilter) ? "All" : levelFilter;
+            initialStatusFilter = string.IsNullOrWhiteSpace(statusFilter) ? "All" : statusFilter;
 
             this.Load += AttendanceForm_Load;
         }
@@ -133,9 +142,34 @@ namespace EduLogix
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
             MarkActiveNav();  // ADD THIS LINE
-            LoadAttendanceData();
-            ConfigureDataGridView();
             InitializeFilters();
+            ApplyInitialFilters();
+            LoadAttendanceData(
+                attendanceStudentSearch?.Text?.Trim() ?? "",
+                attendanceCombobox1?.SelectedItem?.ToString() ?? "All",
+                attendanceCombobox2?.SelectedItem?.ToString() ?? "All");
+            ConfigureDataGridView();
+        }
+
+        private void ApplyInitialFilters()
+        {
+            if (attendanceCombobox1 != null && attendanceCombobox1.Items.Contains(initialLevelFilter))
+            {
+                attendanceCombobox1.SelectedItem = initialLevelFilter;
+            }
+            else if (attendanceCombobox1 != null)
+            {
+                attendanceCombobox1.SelectedIndex = 0;
+            }
+
+            if (attendanceCombobox2 != null && attendanceCombobox2.Items.Contains(initialStatusFilter))
+            {
+                attendanceCombobox2.SelectedItem = initialStatusFilter;
+            }
+            else if (attendanceCombobox2 != null)
+            {
+                attendanceCombobox2.SelectedIndex = 0;
+            }
         }
 
         private void InitializeFilters()

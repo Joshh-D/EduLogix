@@ -52,37 +52,37 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
-            this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.attendanceChartDaily = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.arrivalsCount = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.arrivalsNum = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.juniorCount = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.juniorNum = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel6 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.inPremisesCount = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.inPremisesNum = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.elementaryCount = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.elemNum = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.dashboardDateAndTime = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.departedCount = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.departedNum = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.seniorCount = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.seniorNum = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.attendanceChartWeekly = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.schoolLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.Logs = new Guna.UI2.WinForms.Guna2Button();
@@ -96,20 +96,20 @@
             this.userOptions.SuspendLayout();
             this.guna2GradientPanel8.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            this.guna2GradientPanel4.SuspendLayout();
+            this.arrivalsCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
-            this.guna2GradientPanel3.SuspendLayout();
+            this.juniorCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
-            this.guna2GradientPanel6.SuspendLayout();
+            this.inPremisesCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
-            this.guna2GradientPanel1.SuspendLayout();
+            this.elementaryCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            this.guna2GradientPanel5.SuspendLayout();
+            this.departedCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
-            this.guna2GradientPanel2.SuspendLayout();
+            this.seniorCount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceChartWeekly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
             this.SuspendLayout();
@@ -265,16 +265,16 @@
             this.guna2GradientPanel8.Controls.Add(this.guna2HtmlLabel19);
             this.guna2GradientPanel8.Controls.Add(this.guna2HtmlLabel18);
             this.guna2GradientPanel8.Controls.Add(this.guna2Panel3);
-            this.guna2GradientPanel8.Controls.Add(this.guna2GradientPanel4);
-            this.guna2GradientPanel8.Controls.Add(this.guna2GradientPanel3);
+            this.guna2GradientPanel8.Controls.Add(this.arrivalsCount);
+            this.guna2GradientPanel8.Controls.Add(this.juniorCount);
             this.guna2GradientPanel8.Controls.Add(this.guna2HtmlLabel14);
-            this.guna2GradientPanel8.Controls.Add(this.guna2GradientPanel6);
-            this.guna2GradientPanel8.Controls.Add(this.guna2GradientPanel1);
+            this.guna2GradientPanel8.Controls.Add(this.inPremisesCount);
+            this.guna2GradientPanel8.Controls.Add(this.elementaryCount);
             this.guna2GradientPanel8.Controls.Add(this.guna2ControlBox3);
             this.guna2GradientPanel8.Controls.Add(this.guna2ControlBox2);
             this.guna2GradientPanel8.Controls.Add(this.dashboardDateAndTime);
-            this.guna2GradientPanel8.Controls.Add(this.guna2GradientPanel5);
-            this.guna2GradientPanel8.Controls.Add(this.guna2GradientPanel2);
+            this.guna2GradientPanel8.Controls.Add(this.departedCount);
+            this.guna2GradientPanel8.Controls.Add(this.seniorCount);
             this.guna2GradientPanel8.Controls.Add(this.guna2Panel2);
             this.guna2GradientPanel8.FillColor = System.Drawing.Color.White;
             this.guna2GradientPanel8.FillColor2 = System.Drawing.SystemColors.Info;
@@ -316,7 +316,7 @@
             this.guna2Panel3.BorderRadius = 10;
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel20);
             this.guna2Panel3.Controls.Add(this.guna2Panel5);
-            this.guna2Panel3.Controls.Add(this.guna2CircleProgressBar1);
+            this.guna2Panel3.Controls.Add(this.attendanceChartDaily);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
             this.guna2Panel3.Location = new System.Drawing.Point(1126, 513);
             this.guna2Panel3.Name = "guna2Panel3";
@@ -352,40 +352,41 @@
             this.guna2Panel5.Size = new System.Drawing.Size(22, 23);
             this.guna2Panel5.TabIndex = 57;
             // 
-            // guna2CircleProgressBar1
+            // attendanceChartDaily
             // 
-            this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2CircleProgressBar1.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleProgressBar1.InnerColor = System.Drawing.Color.Transparent;
-            this.guna2CircleProgressBar1.Location = new System.Drawing.Point(41, 22);
-            this.guna2CircleProgressBar1.Minimum = 0;
-            this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.ProgressThickness = 50;
-            this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleProgressBar1.ShowText = true;
-            this.guna2CircleProgressBar1.Size = new System.Drawing.Size(359, 359);
-            this.guna2CircleProgressBar1.TabIndex = 3;
-            this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
+            this.attendanceChartDaily.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.attendanceChartDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceChartDaily.ForeColor = System.Drawing.Color.White;
+            this.attendanceChartDaily.InnerColor = System.Drawing.Color.Transparent;
+            this.attendanceChartDaily.Location = new System.Drawing.Point(41, 22);
+            this.attendanceChartDaily.Minimum = 0;
+            this.attendanceChartDaily.Name = "attendanceChartDaily";
+            this.attendanceChartDaily.ProgressThickness = 50;
+            this.attendanceChartDaily.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.attendanceChartDaily.ShowText = true;
+            this.attendanceChartDaily.Size = new System.Drawing.Size(359, 359);
+            this.attendanceChartDaily.TabIndex = 3;
+            this.attendanceChartDaily.Text = "guna2CircleProgressBar1";
             // 
-            // guna2GradientPanel4
+            // arrivalsCount
             // 
-            this.guna2GradientPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel4.BorderRadius = 10;
-            this.guna2GradientPanel4.BorderThickness = 1;
-            this.guna2GradientPanel4.Controls.Add(this.guna2PictureBox5);
-            this.guna2GradientPanel4.Controls.Add(this.guna2HtmlLabel10);
-            this.guna2GradientPanel4.Controls.Add(this.guna2HtmlLabel11);
-            this.guna2GradientPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
-            this.guna2GradientPanel4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
-            this.guna2GradientPanel4.Location = new System.Drawing.Point(601, 315);
-            this.guna2GradientPanel4.Name = "guna2GradientPanel4";
-            this.guna2GradientPanel4.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientPanel4.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientPanel4.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
-            this.guna2GradientPanel4.Size = new System.Drawing.Size(450, 115);
-            this.guna2GradientPanel4.TabIndex = 65;
+            this.arrivalsCount.BackColor = System.Drawing.Color.Transparent;
+            this.arrivalsCount.BorderRadius = 10;
+            this.arrivalsCount.BorderThickness = 1;
+            this.arrivalsCount.Controls.Add(this.guna2PictureBox5);
+            this.arrivalsCount.Controls.Add(this.arrivalsNum);
+            this.arrivalsCount.Controls.Add(this.guna2HtmlLabel11);
+            this.arrivalsCount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
+            this.arrivalsCount.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
+            this.arrivalsCount.Location = new System.Drawing.Point(601, 315);
+            this.arrivalsCount.Name = "arrivalsCount";
+            this.arrivalsCount.ShadowDecoration.BorderRadius = 10;
+            this.arrivalsCount.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.arrivalsCount.ShadowDecoration.Enabled = true;
+            this.arrivalsCount.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
+            this.arrivalsCount.Size = new System.Drawing.Size(450, 115);
+            this.arrivalsCount.TabIndex = 65;
+            this.arrivalsCount.Paint += new System.Windows.Forms.PaintEventHandler(this.arrivalsCount_Paint);
             // 
             // guna2PictureBox5
             // 
@@ -399,16 +400,16 @@
             this.guna2PictureBox5.TabIndex = 45;
             this.guna2PictureBox5.TabStop = false;
             // 
-            // guna2HtmlLabel10
+            // arrivalsNum
             // 
-            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel10.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(147, 40);
-            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
-            this.guna2HtmlLabel10.Size = new System.Drawing.Size(22, 39);
-            this.guna2HtmlLabel10.TabIndex = 47;
-            this.guna2HtmlLabel10.Text = "0";
+            this.arrivalsNum.BackColor = System.Drawing.Color.Transparent;
+            this.arrivalsNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arrivalsNum.ForeColor = System.Drawing.SystemColors.Window;
+            this.arrivalsNum.Location = new System.Drawing.Point(147, 40);
+            this.arrivalsNum.Name = "arrivalsNum";
+            this.arrivalsNum.Size = new System.Drawing.Size(22, 39);
+            this.arrivalsNum.TabIndex = 47;
+            this.arrivalsNum.Text = "0";
             // 
             // guna2HtmlLabel11
             // 
@@ -421,24 +422,25 @@
             this.guna2HtmlLabel11.TabIndex = 46;
             this.guna2HtmlLabel11.Text = "Arrivals";
             // 
-            // guna2GradientPanel3
+            // juniorCount
             // 
-            this.guna2GradientPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel3.BorderRadius = 10;
-            this.guna2GradientPanel3.BorderThickness = 1;
-            this.guna2GradientPanel3.Controls.Add(this.guna2PictureBox4);
-            this.guna2GradientPanel3.Controls.Add(this.guna2HtmlLabel8);
-            this.guna2GradientPanel3.Controls.Add(this.guna2HtmlLabel9);
-            this.guna2GradientPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(155)))), ((int)(((byte)(139)))));
-            this.guna2GradientPanel3.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(205)))), ((int)(((byte)(189)))));
-            this.guna2GradientPanel3.Location = new System.Drawing.Point(601, 150);
-            this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientPanel3.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientPanel3.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(450, 115);
-            this.guna2GradientPanel3.TabIndex = 60;
+            this.juniorCount.BackColor = System.Drawing.Color.Transparent;
+            this.juniorCount.BorderRadius = 10;
+            this.juniorCount.BorderThickness = 1;
+            this.juniorCount.Controls.Add(this.guna2PictureBox4);
+            this.juniorCount.Controls.Add(this.juniorNum);
+            this.juniorCount.Controls.Add(this.guna2HtmlLabel9);
+            this.juniorCount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(155)))), ((int)(((byte)(139)))));
+            this.juniorCount.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(205)))), ((int)(((byte)(189)))));
+            this.juniorCount.Location = new System.Drawing.Point(601, 150);
+            this.juniorCount.Name = "juniorCount";
+            this.juniorCount.ShadowDecoration.BorderRadius = 10;
+            this.juniorCount.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.juniorCount.ShadowDecoration.Enabled = true;
+            this.juniorCount.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
+            this.juniorCount.Size = new System.Drawing.Size(450, 115);
+            this.juniorCount.TabIndex = 60;
+            this.juniorCount.Paint += new System.Windows.Forms.PaintEventHandler(this.juniorCount_Paint);
             // 
             // guna2PictureBox4
             // 
@@ -452,16 +454,16 @@
             this.guna2PictureBox4.TabIndex = 45;
             this.guna2PictureBox4.TabStop = false;
             // 
-            // guna2HtmlLabel8
+            // juniorNum
             // 
-            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(147, 41);
-            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(22, 39);
-            this.guna2HtmlLabel8.TabIndex = 47;
-            this.guna2HtmlLabel8.Text = "0";
+            this.juniorNum.BackColor = System.Drawing.Color.Transparent;
+            this.juniorNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.juniorNum.ForeColor = System.Drawing.SystemColors.Window;
+            this.juniorNum.Location = new System.Drawing.Point(147, 41);
+            this.juniorNum.Name = "juniorNum";
+            this.juniorNum.Size = new System.Drawing.Size(22, 39);
+            this.juniorNum.TabIndex = 47;
+            this.juniorNum.Text = "0";
             // 
             // guna2HtmlLabel9
             // 
@@ -485,24 +487,25 @@
             this.guna2HtmlLabel14.TabIndex = 56;
             this.guna2HtmlLabel14.Text = "Dashboard";
             // 
-            // guna2GradientPanel6
+            // inPremisesCount
             // 
-            this.guna2GradientPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel6.BorderRadius = 10;
-            this.guna2GradientPanel6.BorderThickness = 1;
-            this.guna2GradientPanel6.Controls.Add(this.guna2PictureBox7);
-            this.guna2GradientPanel6.Controls.Add(this.guna2HtmlLabel15);
-            this.guna2GradientPanel6.Controls.Add(this.guna2HtmlLabel16);
-            this.guna2GradientPanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(177)))), ((int)(((byte)(90)))));
-            this.guna2GradientPanel6.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(227)))), ((int)(((byte)(140)))));
-            this.guna2GradientPanel6.Location = new System.Drawing.Point(65, 315);
-            this.guna2GradientPanel6.Name = "guna2GradientPanel6";
-            this.guna2GradientPanel6.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientPanel6.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientPanel6.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel6.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
-            this.guna2GradientPanel6.Size = new System.Drawing.Size(450, 115);
-            this.guna2GradientPanel6.TabIndex = 63;
+            this.inPremisesCount.BackColor = System.Drawing.Color.Transparent;
+            this.inPremisesCount.BorderRadius = 10;
+            this.inPremisesCount.BorderThickness = 1;
+            this.inPremisesCount.Controls.Add(this.guna2PictureBox7);
+            this.inPremisesCount.Controls.Add(this.inPremisesNum);
+            this.inPremisesCount.Controls.Add(this.guna2HtmlLabel16);
+            this.inPremisesCount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(177)))), ((int)(((byte)(90)))));
+            this.inPremisesCount.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(227)))), ((int)(((byte)(140)))));
+            this.inPremisesCount.Location = new System.Drawing.Point(65, 315);
+            this.inPremisesCount.Name = "inPremisesCount";
+            this.inPremisesCount.ShadowDecoration.BorderRadius = 10;
+            this.inPremisesCount.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.inPremisesCount.ShadowDecoration.Enabled = true;
+            this.inPremisesCount.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
+            this.inPremisesCount.Size = new System.Drawing.Size(450, 115);
+            this.inPremisesCount.TabIndex = 63;
+            this.inPremisesCount.Paint += new System.Windows.Forms.PaintEventHandler(this.inPremisesCount_Paint);
             // 
             // guna2PictureBox7
             // 
@@ -516,16 +519,16 @@
             this.guna2PictureBox7.TabIndex = 45;
             this.guna2PictureBox7.TabStop = false;
             // 
-            // guna2HtmlLabel15
+            // inPremisesNum
             // 
-            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel15.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel15.Location = new System.Drawing.Point(134, 43);
-            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            this.guna2HtmlLabel15.Size = new System.Drawing.Size(22, 39);
-            this.guna2HtmlLabel15.TabIndex = 47;
-            this.guna2HtmlLabel15.Text = "0";
+            this.inPremisesNum.BackColor = System.Drawing.Color.Transparent;
+            this.inPremisesNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inPremisesNum.ForeColor = System.Drawing.SystemColors.Window;
+            this.inPremisesNum.Location = new System.Drawing.Point(134, 43);
+            this.inPremisesNum.Name = "inPremisesNum";
+            this.inPremisesNum.Size = new System.Drawing.Size(22, 39);
+            this.inPremisesNum.TabIndex = 47;
+            this.inPremisesNum.Text = "0";
             // 
             // guna2HtmlLabel16
             // 
@@ -538,24 +541,25 @@
             this.guna2HtmlLabel16.TabIndex = 46;
             this.guna2HtmlLabel16.Text = "In Premises";
             // 
-            // guna2GradientPanel1
+            // elementaryCount
             // 
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel1.BorderRadius = 10;
-            this.guna2GradientPanel1.BorderThickness = 1;
-            this.guna2GradientPanel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel5);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel4);
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(65, 150);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientPanel1.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientPanel1.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(450, 115);
-            this.guna2GradientPanel1.TabIndex = 57;
+            this.elementaryCount.BackColor = System.Drawing.Color.Transparent;
+            this.elementaryCount.BorderRadius = 10;
+            this.elementaryCount.BorderThickness = 1;
+            this.elementaryCount.Controls.Add(this.guna2PictureBox2);
+            this.elementaryCount.Controls.Add(this.elemNum);
+            this.elementaryCount.Controls.Add(this.guna2HtmlLabel4);
+            this.elementaryCount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
+            this.elementaryCount.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
+            this.elementaryCount.Location = new System.Drawing.Point(65, 150);
+            this.elementaryCount.Name = "elementaryCount";
+            this.elementaryCount.ShadowDecoration.BorderRadius = 10;
+            this.elementaryCount.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.elementaryCount.ShadowDecoration.Enabled = true;
+            this.elementaryCount.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
+            this.elementaryCount.Size = new System.Drawing.Size(450, 115);
+            this.elementaryCount.TabIndex = 57;
+            this.elementaryCount.Paint += new System.Windows.Forms.PaintEventHandler(this.elementaryCount_Paint);
             // 
             // guna2PictureBox2
             // 
@@ -569,16 +573,16 @@
             this.guna2PictureBox2.TabIndex = 45;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // guna2HtmlLabel5
+            // elemNum
             // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(134, 41);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(22, 39);
-            this.guna2HtmlLabel5.TabIndex = 47;
-            this.guna2HtmlLabel5.Text = "0";
+            this.elemNum.BackColor = System.Drawing.Color.Transparent;
+            this.elemNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.elemNum.ForeColor = System.Drawing.SystemColors.Window;
+            this.elemNum.Location = new System.Drawing.Point(134, 41);
+            this.elemNum.Name = "elemNum";
+            this.elemNum.Size = new System.Drawing.Size(22, 39);
+            this.elemNum.TabIndex = 47;
+            this.elemNum.Text = "0";
             // 
             // guna2HtmlLabel4
             // 
@@ -624,24 +628,25 @@
             this.dashboardDateAndTime.TabIndex = 61;
             this.dashboardDateAndTime.Text = "Date | Time";
             // 
-            // guna2GradientPanel5
+            // departedCount
             // 
-            this.guna2GradientPanel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel5.BorderRadius = 10;
-            this.guna2GradientPanel5.BorderThickness = 1;
-            this.guna2GradientPanel5.Controls.Add(this.guna2PictureBox6);
-            this.guna2GradientPanel5.Controls.Add(this.guna2HtmlLabel12);
-            this.guna2GradientPanel5.Controls.Add(this.guna2HtmlLabel13);
-            this.guna2GradientPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.guna2GradientPanel5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.guna2GradientPanel5.Location = new System.Drawing.Point(1126, 315);
-            this.guna2GradientPanel5.Name = "guna2GradientPanel5";
-            this.guna2GradientPanel5.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientPanel5.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientPanel5.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel5.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
-            this.guna2GradientPanel5.Size = new System.Drawing.Size(450, 115);
-            this.guna2GradientPanel5.TabIndex = 64;
+            this.departedCount.BackColor = System.Drawing.Color.Transparent;
+            this.departedCount.BorderRadius = 10;
+            this.departedCount.BorderThickness = 1;
+            this.departedCount.Controls.Add(this.guna2PictureBox6);
+            this.departedCount.Controls.Add(this.departedNum);
+            this.departedCount.Controls.Add(this.guna2HtmlLabel13);
+            this.departedCount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.departedCount.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.departedCount.Location = new System.Drawing.Point(1126, 315);
+            this.departedCount.Name = "departedCount";
+            this.departedCount.ShadowDecoration.BorderRadius = 10;
+            this.departedCount.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.departedCount.ShadowDecoration.Enabled = true;
+            this.departedCount.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
+            this.departedCount.Size = new System.Drawing.Size(450, 115);
+            this.departedCount.TabIndex = 64;
+            this.departedCount.Paint += new System.Windows.Forms.PaintEventHandler(this.departedCount_Paint);
             // 
             // guna2PictureBox6
             // 
@@ -655,16 +660,16 @@
             this.guna2PictureBox6.TabIndex = 45;
             this.guna2PictureBox6.TabStop = false;
             // 
-            // guna2HtmlLabel12
+            // departedNum
             // 
-            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel12.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(147, 40);
-            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
-            this.guna2HtmlLabel12.Size = new System.Drawing.Size(22, 39);
-            this.guna2HtmlLabel12.TabIndex = 47;
-            this.guna2HtmlLabel12.Text = "0";
+            this.departedNum.BackColor = System.Drawing.Color.Transparent;
+            this.departedNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departedNum.ForeColor = System.Drawing.SystemColors.Window;
+            this.departedNum.Location = new System.Drawing.Point(147, 40);
+            this.departedNum.Name = "departedNum";
+            this.departedNum.Size = new System.Drawing.Size(22, 39);
+            this.departedNum.TabIndex = 47;
+            this.departedNum.Text = "0";
             // 
             // guna2HtmlLabel13
             // 
@@ -677,24 +682,25 @@
             this.guna2HtmlLabel13.TabIndex = 46;
             this.guna2HtmlLabel13.Text = "Departed";
             // 
-            // guna2GradientPanel2
+            // seniorCount
             // 
-            this.guna2GradientPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel2.BorderRadius = 10;
-            this.guna2GradientPanel2.BorderThickness = 1;
-            this.guna2GradientPanel2.Controls.Add(this.guna2PictureBox3);
-            this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel6);
-            this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel7);
-            this.guna2GradientPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
-            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(1126, 150);
-            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.ShadowDecoration.BorderRadius = 10;
-            this.guna2GradientPanel2.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientPanel2.ShadowDecoration.Enabled = true;
-            this.guna2GradientPanel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(450, 115);
-            this.guna2GradientPanel2.TabIndex = 62;
+            this.seniorCount.BackColor = System.Drawing.Color.Transparent;
+            this.seniorCount.BorderRadius = 10;
+            this.seniorCount.BorderThickness = 1;
+            this.seniorCount.Controls.Add(this.guna2PictureBox3);
+            this.seniorCount.Controls.Add(this.seniorNum);
+            this.seniorCount.Controls.Add(this.guna2HtmlLabel7);
+            this.seniorCount.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
+            this.seniorCount.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
+            this.seniorCount.Location = new System.Drawing.Point(1126, 150);
+            this.seniorCount.Name = "seniorCount";
+            this.seniorCount.ShadowDecoration.BorderRadius = 10;
+            this.seniorCount.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.seniorCount.ShadowDecoration.Enabled = true;
+            this.seniorCount.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(4, 4, 4, 8);
+            this.seniorCount.Size = new System.Drawing.Size(450, 115);
+            this.seniorCount.TabIndex = 62;
+            this.seniorCount.Paint += new System.Windows.Forms.PaintEventHandler(this.seniorCount_Paint);
             // 
             // guna2PictureBox3
             // 
@@ -708,16 +714,16 @@
             this.guna2PictureBox3.TabIndex = 45;
             this.guna2PictureBox3.TabStop = false;
             // 
-            // guna2HtmlLabel6
+            // seniorNum
             // 
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(147, 41);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(22, 39);
-            this.guna2HtmlLabel6.TabIndex = 47;
-            this.guna2HtmlLabel6.Text = "0";
+            this.seniorNum.BackColor = System.Drawing.Color.Transparent;
+            this.seniorNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seniorNum.ForeColor = System.Drawing.SystemColors.Window;
+            this.seniorNum.Location = new System.Drawing.Point(147, 41);
+            this.seniorNum.Name = "seniorNum";
+            this.seniorNum.Size = new System.Drawing.Size(22, 39);
+            this.seniorNum.TabIndex = 47;
+            this.seniorNum.Text = "0";
             // 
             // guna2HtmlLabel7
             // 
@@ -735,7 +741,7 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
             this.guna2Panel2.BorderRadius = 10;
-            this.guna2Panel2.Controls.Add(this.chart1);
+            this.guna2Panel2.Controls.Add(this.attendanceChartWeekly);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
             this.guna2Panel2.Location = new System.Drawing.Point(65, 513);
             this.guna2Panel2.Name = "guna2Panel2";
@@ -746,22 +752,22 @@
             this.guna2Panel2.Size = new System.Drawing.Size(986, 463);
             this.guna2Panel2.TabIndex = 54;
             // 
-            // chart1
+            // attendanceChartWeekly
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.attendanceChartWeekly.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(10, 3);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            this.attendanceChartWeekly.Legends.Add(legend1);
+            this.attendanceChartWeekly.Location = new System.Drawing.Point(10, 3);
+            this.attendanceChartWeekly.Name = "attendanceChartWeekly";
+            this.attendanceChartWeekly.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(973, 456);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
+            this.attendanceChartWeekly.Series.Add(series1);
+            this.attendanceChartWeekly.Size = new System.Drawing.Size(973, 456);
+            this.attendanceChartWeekly.TabIndex = 2;
+            this.attendanceChartWeekly.Text = "chart1";
             // 
             // schoolLogo
             // 
@@ -964,26 +970,26 @@
             this.guna2GradientPanel8.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            this.guna2GradientPanel4.ResumeLayout(false);
-            this.guna2GradientPanel4.PerformLayout();
+            this.arrivalsCount.ResumeLayout(false);
+            this.arrivalsCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
-            this.guna2GradientPanel3.ResumeLayout(false);
-            this.guna2GradientPanel3.PerformLayout();
+            this.juniorCount.ResumeLayout(false);
+            this.juniorCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            this.guna2GradientPanel6.ResumeLayout(false);
-            this.guna2GradientPanel6.PerformLayout();
+            this.inPremisesCount.ResumeLayout(false);
+            this.inPremisesCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
-            this.guna2GradientPanel1.ResumeLayout(false);
-            this.guna2GradientPanel1.PerformLayout();
+            this.elementaryCount.ResumeLayout(false);
+            this.elementaryCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            this.guna2GradientPanel5.ResumeLayout(false);
-            this.guna2GradientPanel5.PerformLayout();
+            this.departedCount.ResumeLayout(false);
+            this.departedCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
-            this.guna2GradientPanel2.ResumeLayout(false);
-            this.guna2GradientPanel2.PerformLayout();
+            this.seniorCount.ResumeLayout(false);
+            this.seniorCount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attendanceChartWeekly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
             this.ResumeLayout(false);
@@ -1006,41 +1012,41 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel7;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel8;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
+        private Guna.UI2.WinForms.Guna2GradientPanel arrivalsCount;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
+        private Guna.UI2.WinForms.Guna2HtmlLabel arrivalsNum;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
+        private Guna.UI2.WinForms.Guna2GradientPanel juniorCount;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel juniorNum;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel6;
+        private Guna.UI2.WinForms.Guna2GradientPanel inPremisesCount;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox7;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
+        private Guna.UI2.WinForms.Guna2HtmlLabel inPremisesNum;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2GradientPanel elementaryCount;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel elemNum;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2HtmlLabel dashboardDateAndTime;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel5;
+        private Guna.UI2.WinForms.Guna2GradientPanel departedCount;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel departedNum;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
+        private Guna.UI2.WinForms.Guna2GradientPanel seniorCount;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2HtmlLabel seniorNum;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart attendanceChartWeekly;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar attendanceChartDaily;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
