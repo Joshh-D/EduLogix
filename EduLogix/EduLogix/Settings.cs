@@ -134,6 +134,13 @@ namespace EduLogix
                 button1.Click += UserOptionsSettings_Click;
             }
 
+            var panelLogoutButton = userOptions != null ? userOptions.Controls["logout"] as Button : null;
+            if (panelLogoutButton != null)
+            {
+                panelLogoutButton.Click -= UserOptionsLogout_Click;
+                panelLogoutButton.Click += UserOptionsLogout_Click;
+            }
+
             WireOutsideClickHandler(this);
         }
 
@@ -212,6 +219,25 @@ namespace EduLogix
                 userOptions.Visible = false;
 
             this.Activate();
+        }
+
+        private void UserOptionsLogout_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            var result = MessageBox.Show(
+                "Are you sure you want to log out?",
+                "Confirm Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                var login = new Login();
+                login.Show();
+                this.Close();
+            }
         }
 
         #endregion

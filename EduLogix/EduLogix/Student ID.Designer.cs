@@ -40,6 +40,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.WindowBorderless = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.userOptions = new System.Windows.Forms.Panel();
+            this.settings = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -60,18 +62,17 @@
             this.combobox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.addNewStudent = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.combobox2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.userOptions = new System.Windows.Forms.Panel();
-            this.settings = new System.Windows.Forms.Button();
+            this.logout = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
+            this.userOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
-            this.userOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -141,6 +142,24 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1440, 878);
             this.guna2GradientPanel1.TabIndex = 36;
+            // 
+            // userOptions
+            // 
+            this.userOptions.Controls.Add(this.logout);
+            this.userOptions.Controls.Add(this.settings);
+            this.userOptions.Location = new System.Drawing.Point(5, 340);
+            this.userOptions.Name = "userOptions";
+            this.userOptions.Size = new System.Drawing.Size(210, 143);
+            this.userOptions.TabIndex = 57;
+            // 
+            // settings
+            // 
+            this.settings.Location = new System.Drawing.Point(68, 60);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(75, 23);
+            this.settings.TabIndex = 1;
+            this.settings.Text = "Settings";
+            this.settings.UseVisualStyleBackColor = true;
             // 
             // guna2ControlBox4
             // 
@@ -381,7 +400,7 @@
             this.guna2GradientPanel2.Controls.Add(this.combobox1);
             this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton1);
             this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton4);
-            this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton3);
+            this.guna2GradientPanel2.Controls.Add(this.addNewStudent);
             this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton2);
             this.guna2GradientPanel2.Controls.Add(this.combobox2);
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.White;
@@ -605,31 +624,31 @@
             this.guna2GradientButton4.TabIndex = 51;
             this.guna2GradientButton4.Text = "Bind RFID";
             // 
-            // guna2GradientButton3
+            // addNewStudent
             // 
-            this.guna2GradientButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton3.BorderRadius = 5;
-            this.guna2GradientButton3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton3.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
-            this.guna2GradientButton3.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
-            this.guna2GradientButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.guna2GradientButton3.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton3.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
-            this.guna2GradientButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2GradientButton3.Location = new System.Drawing.Point(782, 40);
-            this.guna2GradientButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2GradientButton3.Name = "guna2GradientButton3";
-            this.guna2GradientButton3.ShadowDecoration.BorderRadius = 5;
-            this.guna2GradientButton3.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientButton3.ShadowDecoration.Enabled = true;
-            this.guna2GradientButton3.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2GradientButton3.Size = new System.Drawing.Size(128, 32);
-            this.guna2GradientButton3.TabIndex = 50;
-            this.guna2GradientButton3.Text = "Add New";
+            this.addNewStudent.BackColor = System.Drawing.Color.Transparent;
+            this.addNewStudent.BorderRadius = 5;
+            this.addNewStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addNewStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addNewStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNewStudent.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNewStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addNewStudent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
+            this.addNewStudent.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
+            this.addNewStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.addNewStudent.ForeColor = System.Drawing.Color.White;
+            this.addNewStudent.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
+            this.addNewStudent.ImageSize = new System.Drawing.Size(30, 30);
+            this.addNewStudent.Location = new System.Drawing.Point(782, 40);
+            this.addNewStudent.Margin = new System.Windows.Forms.Padding(2);
+            this.addNewStudent.Name = "addNewStudent";
+            this.addNewStudent.ShadowDecoration.BorderRadius = 5;
+            this.addNewStudent.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.addNewStudent.ShadowDecoration.Enabled = true;
+            this.addNewStudent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.addNewStudent.Size = new System.Drawing.Size(128, 32);
+            this.addNewStudent.TabIndex = 50;
+            this.addNewStudent.Text = "Add New";
             // 
             // guna2GradientButton2
             // 
@@ -682,22 +701,14 @@
             this.combobox2.TabIndex = 50;
             this.combobox2.SelectedIndexChanged += new System.EventHandler(this.combobox2_SelectedIndexChanged);
             // 
-            // userOptions
+            // logout
             // 
-            this.userOptions.Controls.Add(this.settings);
-            this.userOptions.Location = new System.Drawing.Point(5, 340);
-            this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(210, 143);
-            this.userOptions.TabIndex = 57;
-            // 
-            // settings
-            // 
-            this.settings.Location = new System.Drawing.Point(68, 60);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(75, 23);
-            this.settings.TabIndex = 1;
-            this.settings.Text = "Settings";
-            this.settings.UseVisualStyleBackColor = true;
+            this.logout.Location = new System.Drawing.Point(68, 89);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // StudentIDForm
             // 
@@ -717,12 +728,12 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
+            this.userOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
-            this.userOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -742,7 +753,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox combobox2;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton3;
+        private Guna.UI2.WinForms.Guna2GradientButton addNewStudent;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
@@ -761,5 +772,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.Button logout;
     }
 }

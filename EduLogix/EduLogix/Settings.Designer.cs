@@ -49,6 +49,8 @@
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.userOptions = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -72,14 +74,14 @@
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.userOptions = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.logout = new System.Windows.Forms.Button();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
+            this.userOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
@@ -88,7 +90,6 @@
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).BeginInit();
-            this.userOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2AnimateWindow1
@@ -369,6 +370,24 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1536, 864);
             this.guna2GradientPanel1.TabIndex = 89;
+            // 
+            // userOptions
+            // 
+            this.userOptions.Controls.Add(this.logout);
+            this.userOptions.Controls.Add(this.button1);
+            this.userOptions.Location = new System.Drawing.Point(7, 310);
+            this.userOptions.Name = "userOptions";
+            this.userOptions.Size = new System.Drawing.Size(210, 143);
+            this.userOptions.TabIndex = 90;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(68, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Settings";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // guna2ControlBox4
             // 
@@ -824,22 +843,14 @@
             this.guna2GradientButton3.TabIndex = 66;
             this.guna2GradientButton3.Text = "Save Changes";
             // 
-            // userOptions
+            // logout
             // 
-            this.userOptions.Controls.Add(this.button1);
-            this.userOptions.Location = new System.Drawing.Point(7, 310);
-            this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(210, 143);
-            this.userOptions.TabIndex = 90;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(68, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Settings";
-            this.button1.UseVisualStyleBackColor = true;
+            this.logout.Location = new System.Drawing.Point(68, 89);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
@@ -864,6 +875,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox7)).EndInit();
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
+            this.userOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
@@ -873,7 +885,6 @@
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox9)).EndInit();
-            this.userOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -924,5 +935,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button logout;
     }
 }

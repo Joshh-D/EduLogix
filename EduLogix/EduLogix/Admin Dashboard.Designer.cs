@@ -41,6 +41,8 @@
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel7 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.userOptions = new System.Windows.Forms.Panel();
+            this.settings = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -82,16 +84,16 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.schoolLogo = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.Logs = new Guna.UI2.WinForms.Guna2Button();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.StudentsID = new Guna.UI2.WinForms.Guna2Button();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
-            this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.userOptions = new System.Windows.Forms.Panel();
-            this.settings = new System.Windows.Forms.Button();
+            this.logout = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel7.SuspendLayout();
+            this.userOptions.SuspendLayout();
             this.guna2GradientPanel8.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2GradientPanel4.SuspendLayout();
@@ -110,7 +112,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
-            this.userOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // WindowBorderless
@@ -200,6 +201,25 @@
             this.guna2GradientPanel7.Name = "guna2GradientPanel7";
             this.guna2GradientPanel7.Size = new System.Drawing.Size(1920, 1080);
             this.guna2GradientPanel7.TabIndex = 11;
+            // 
+            // userOptions
+            // 
+            this.userOptions.Controls.Add(this.logout);
+            this.userOptions.Controls.Add(this.settings);
+            this.userOptions.Location = new System.Drawing.Point(14, 413);
+            this.userOptions.Name = "userOptions";
+            this.userOptions.Size = new System.Drawing.Size(210, 143);
+            this.userOptions.TabIndex = 56;
+            // 
+            // settings
+            // 
+            this.settings.Location = new System.Drawing.Point(13, 10);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(75, 23);
+            this.settings.TabIndex = 0;
+            this.settings.Text = "Settings";
+            this.settings.UseVisualStyleBackColor = true;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // guna2ControlBox4
             // 
@@ -756,6 +776,40 @@
             this.schoolLogo.TabIndex = 0;
             this.schoolLogo.TabStop = false;
             // 
+            // Dashboard
+            // 
+            this.Dashboard.Animated = true;
+            this.Dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.Dashboard.BorderColor = System.Drawing.Color.Transparent;
+            this.Dashboard.BorderRadius = 25;
+            this.Dashboard.BorderThickness = 1;
+            this.Dashboard.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.Dashboard.Checked = true;
+            this.Dashboard.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.Dashboard.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.Dashboard.CheckedState.FillColor = System.Drawing.Color.White;
+            this.Dashboard.CheckedState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dashboard.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.Dashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Dashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Dashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Dashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Dashboard.FillColor = System.Drawing.Color.Transparent;
+            this.Dashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dashboard.ForeColor = System.Drawing.Color.Black;
+            this.Dashboard.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Dashboard.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_22_225546_removebg_preview;
+            this.Dashboard.ImageOffset = new System.Drawing.Point(-13, 0);
+            this.Dashboard.ImageSize = new System.Drawing.Size(30, 30);
+            this.Dashboard.Location = new System.Drawing.Point(18, 466);
+            this.Dashboard.Name = "Dashboard";
+            this.Dashboard.PressedColor = System.Drawing.Color.White;
+            this.Dashboard.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
+            this.Dashboard.Size = new System.Drawing.Size(210, 55);
+            this.Dashboard.TabIndex = 0;
+            this.Dashboard.Text = "Dashboard";
+            this.Dashboard.TextOffset = new System.Drawing.Point(-5, -1);
+            // 
             // Logs
             // 
             this.Logs.Animated = true;
@@ -867,40 +921,6 @@
             this.Attendance.TextOffset = new System.Drawing.Point(-5, 0);
             this.Attendance.Click += new System.EventHandler(this.Attendance_Click);
             // 
-            // Dashboard
-            // 
-            this.Dashboard.Animated = true;
-            this.Dashboard.BackColor = System.Drawing.Color.Transparent;
-            this.Dashboard.BorderColor = System.Drawing.Color.Transparent;
-            this.Dashboard.BorderRadius = 25;
-            this.Dashboard.BorderThickness = 1;
-            this.Dashboard.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.Dashboard.Checked = true;
-            this.Dashboard.CheckedState.BorderColor = System.Drawing.Color.Transparent;
-            this.Dashboard.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
-            this.Dashboard.CheckedState.FillColor = System.Drawing.Color.White;
-            this.Dashboard.CheckedState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dashboard.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.Dashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Dashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Dashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Dashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Dashboard.FillColor = System.Drawing.Color.Transparent;
-            this.Dashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dashboard.ForeColor = System.Drawing.Color.Black;
-            this.Dashboard.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Dashboard.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_22_225546_removebg_preview;
-            this.Dashboard.ImageOffset = new System.Drawing.Point(-13, 0);
-            this.Dashboard.ImageSize = new System.Drawing.Size(30, 30);
-            this.Dashboard.Location = new System.Drawing.Point(18, 466);
-            this.Dashboard.Name = "Dashboard";
-            this.Dashboard.PressedColor = System.Drawing.Color.White;
-            this.Dashboard.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.Dashboard.Size = new System.Drawing.Size(210, 55);
-            this.Dashboard.TabIndex = 0;
-            this.Dashboard.Text = "Dashboard";
-            this.Dashboard.TextOffset = new System.Drawing.Point(-5, -1);
-            // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
@@ -912,22 +932,14 @@
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = "Registrar Personnel";
             // 
-            // userOptions
+            // logout
             // 
-            this.userOptions.Controls.Add(this.settings);
-            this.userOptions.Location = new System.Drawing.Point(14, 413);
-            this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(210, 143);
-            this.userOptions.TabIndex = 56;
-            // 
-            // settings
-            // 
-            this.settings.Location = new System.Drawing.Point(13, 10);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(75, 23);
-            this.settings.TabIndex = 0;
-            this.settings.Text = "Settings";
-            this.settings.UseVisualStyleBackColor = true;
+            this.logout.Location = new System.Drawing.Point(13, 39);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 1;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // DashboardForm
             // 
@@ -947,6 +959,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2GradientPanel7.ResumeLayout(false);
             this.guna2GradientPanel7.PerformLayout();
+            this.userOptions.ResumeLayout(false);
             this.guna2GradientPanel8.ResumeLayout(false);
             this.guna2GradientPanel8.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
@@ -973,7 +986,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
-            this.userOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1037,6 +1049,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.Button logout;
     }
 }
 

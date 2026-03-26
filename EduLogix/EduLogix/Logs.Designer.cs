@@ -41,6 +41,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.WindowBorderless = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.userOptions = new System.Windows.Forms.Panel();
+            this.settings = new System.Windows.Forms.Button();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -54,15 +56,14 @@
             this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.userOptions = new System.Windows.Forms.Panel();
-            this.settings = new System.Windows.Forms.Button();
+            this.logout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
+            this.userOptions.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
-            this.userOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // WindowAnimation
@@ -230,6 +231,24 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1440, 878);
             this.guna2GradientPanel1.TabIndex = 35;
+            // 
+            // userOptions
+            // 
+            this.userOptions.Controls.Add(this.logout);
+            this.userOptions.Controls.Add(this.settings);
+            this.userOptions.Location = new System.Drawing.Point(6, 341);
+            this.userOptions.Name = "userOptions";
+            this.userOptions.Size = new System.Drawing.Size(210, 143);
+            this.userOptions.TabIndex = 75;
+            // 
+            // settings
+            // 
+            this.settings.Location = new System.Drawing.Point(68, 60);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(75, 23);
+            this.settings.TabIndex = 1;
+            this.settings.Text = "Settings";
+            this.settings.UseVisualStyleBackColor = true;
             // 
             // Attendance
             // 
@@ -491,22 +510,14 @@
             this.userProfile.TabStop = false;
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
             // 
-            // userOptions
+            // logout
             // 
-            this.userOptions.Controls.Add(this.settings);
-            this.userOptions.Location = new System.Drawing.Point(6, 341);
-            this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(210, 143);
-            this.userOptions.TabIndex = 75;
-            // 
-            // settings
-            // 
-            this.settings.Location = new System.Drawing.Point(68, 60);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(75, 23);
-            this.settings.TabIndex = 1;
-            this.settings.Text = "Settings";
-            this.settings.UseVisualStyleBackColor = true;
+            this.logout.Location = new System.Drawing.Point(68, 89);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // Logs
             // 
@@ -526,11 +537,11 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
+            this.userOptions.ResumeLayout(false);
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
-            this.userOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -559,5 +570,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
+        private System.Windows.Forms.Button logout;
     }
 }

@@ -40,6 +40,13 @@ namespace EduLogix
                 settings.Click += UserOptionsSettings_Click;
             }
 
+            var panelLogoutButton = userOptions != null ? userOptions.Controls["logout"] as Button : null;
+            if (panelLogoutButton != null)
+            {
+                panelLogoutButton.Click -= UserOptionsLogout_Click;
+                panelLogoutButton.Click += UserOptionsLogout_Click;
+            }
+
             WireOutsideClickHandler(this);
         }
 
@@ -115,6 +122,14 @@ namespace EduLogix
             form.Location = this.Location;
             form.Show();
             this.Hide();
+        }
+
+        private void UserOptionsLogout_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            Logout_Click(sender, e);
         }
 
         private void InitializeDateTimeTimer()
@@ -317,7 +332,7 @@ namespace EduLogix
             this.Hide();
         }
 
-        private void Settings_Click(object sender, EventArgs e)
+        private void settings_Click(object sender, EventArgs e)
         {
             Settings settings = new Settings();
             settings.Show();
