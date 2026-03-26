@@ -406,6 +406,7 @@
     <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
     <Content Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
     <Content Include="bin\Debug\ZstdSharp.dll" />
+    <Content Include="Database\edulogix added table weekly.sql" />
     <Content Include="Database\edulogix updated - march 22.sql" />
     <Content Include="EduLogix.ico" />
     <Content Include="obj\Debug\EduLogix.csproj.FileListAbsolute.txt" />
