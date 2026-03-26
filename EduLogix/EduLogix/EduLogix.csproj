@@ -155,6 +155,7 @@
     <Compile Include="Borrowers.Designer.cs">
       <DependentUpon>Borrowers.cs</DependentUpon>
     </Compile>
+    <Compile Include="BrandingHelper.cs" />
     <Compile Include="ConfirmBorrow.cs">
       <SubType>Form</SubType>
     </Compile>

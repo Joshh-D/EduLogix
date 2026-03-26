@@ -16,6 +16,8 @@ namespace EduLogix
             LockTransparentBackColor(accountID);
             LockTransparentBackColor(accountpass);
 
+            BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+
             this.ActiveControl = guna2HtmlLabel9;
 
             accountID.Enter += accountID_Enter;

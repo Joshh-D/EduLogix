@@ -18,6 +18,7 @@ namespace EduLogix
         public StudentIDForm()
         {
             InitializeComponent();
+            InitializeUserOptionsPanel();
 
             // CRITICAL: Wire the Load event manually
             this.Load += StudentIDForm_Load;
@@ -34,11 +35,99 @@ namespace EduLogix
                 System.Diagnostics.Debug.WriteLine("[Constructor] Overrode guna2GradientPanel1 designer defaults");
             }
 
-            if (!DesignMode)
+        }
+
+        private void InitializeUserOptionsPanel()
+        {
+            if (userOptions != null)
             {
-                LoadThemeFromDatabase();
-                MarkActiveNav();
+                userOptions.Visible = false;
+                PositionUserOptionsPanel();
+                userOptions.BringToFront();
             }
+
+            if (settings != null)
+            {
+                settings.Click -= UserOptionsSettings_Click;
+                settings.Click += UserOptionsSettings_Click;
+            }
+
+            WireOutsideClickHandler(this);
+        }
+
+        private void PositionUserOptionsPanel()
+        {
+            if (userOptions == null || userProfile == null || userOptions.Parent == null) return;
+
+            var parent = userOptions.Parent;
+            int x = userProfile.Right + 8;
+            int y = userProfile.Top + Math.Max(0, (userProfile.Height - userOptions.Height) / 2);
+
+            if (x + userOptions.Width > parent.ClientSize.Width)
+                x = Math.Max(0, userProfile.Left - userOptions.Width - 8);
+
+            if (y + userOptions.Height > parent.ClientSize.Height)
+                y = Math.Max(0, parent.ClientSize.Height - userOptions.Height - 8);
+
+            userOptions.Location = new Point(Math.Max(0, x), Math.Max(0, y));
+        }
+
+        private void WireOutsideClickHandler(Control parent)
+        {
+            if (parent == null) return;
+
+            bool isUserOptionsPanel = userOptions != null && parent == userOptions;
+            bool isInsideUserOptionsPanel = IsInsideUserOptions(parent);
+
+            if (!isUserOptionsPanel && !isInsideUserOptionsPanel)
+            {
+                parent.MouseDown -= OutsideUserOptions_MouseDown;
+                parent.MouseDown += OutsideUserOptions_MouseDown;
+            }
+
+            foreach (Control child in parent.Controls)
+            {
+                WireOutsideClickHandler(child);
+            }
+        }
+
+        private bool IsInsideUserOptions(Control control)
+        {
+            if (control == null || userOptions == null) return false;
+
+            var current = control.Parent;
+            while (current != null)
+            {
+                if (current == userOptions) return true;
+                current = current.Parent;
+            }
+
+            return false;
+        }
+
+        private void OutsideUserOptions_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (userOptions == null || !userOptions.Visible) return;
+
+            Point clickPoint = System.Windows.Forms.Cursor.Position;
+            bool clickedInsidePanel = userOptions.RectangleToScreen(userOptions.ClientRectangle).Contains(clickPoint);
+            bool clickedUserProfile = userProfile != null && userProfile.RectangleToScreen(userProfile.ClientRectangle).Contains(clickPoint);
+
+            if (!clickedInsidePanel && !clickedUserProfile)
+                userOptions.Visible = false;
+        }
+
+        private void UserOptionsSettings_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            var form = new Settings();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.FormClosed += (s, args) => this.Close();
+            form.Show();
+            this.Hide();
         }
 
         private void StudentIDForm_Load(object sender, EventArgs e)
@@ -49,6 +138,7 @@ namespace EduLogix
 
                 guna2DataGridView1.ClearSelection();
                 LoadThemeFromDatabase();
+                BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
                 LoadStudentData();
                 ConfigureDataGridView();
                 InitializeFilters();
@@ -603,5 +693,15 @@ namespace EduLogix
         }
 
         #endregion
+
+        private void userProfile_Click(object sender, EventArgs e)
+        {
+            if (userOptions == null) return;
+
+            PositionUserOptionsPanel();
+            userOptions.Visible = !userOptions.Visible;
+            if (userOptions.Visible)
+                userOptions.BringToFront();
+        }
     }
 }

@@ -21,10 +21,6 @@ namespace EduLogix
         public void Kiosk_Load(object sender, EventArgs e)
         {
             lblDateTime2.Text = DateTime.Now.ToString("MMMM dd, yyyy | hh:mm:ss:tt");
-            System.Windows.Forms.Timer kioskTimer = new System.Windows.Forms.Timer();
-            kioskTimer.Interval = 1000;
-            kioskTimer.Tick += new EventHandler(timerfunc);
-            kioskTimer.Start();
             timer1.Start();
         }     
 
@@ -60,7 +56,7 @@ namespace EduLogix
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblDateTime2.Text = DateTime.Now.ToString("MMMM dd, yyyy | hh:mm:tt:ss");
+            lblDateTime2.Text = DateTime.Now.ToString("MMMM dd, yyyy | hh:mm:ss tt");
         }
     }
 }

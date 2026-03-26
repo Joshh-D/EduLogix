@@ -44,15 +44,14 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.schoolLogo = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.loginbtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +130,7 @@
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(235, 417);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(55, 14);
             this.guna2HtmlLabel4.TabIndex = 70;
@@ -147,9 +146,8 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2ControlBox2);
             this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel8);
             this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel3);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel1);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel2);
-            this.guna2GradientPanel1.Controls.Add(this.guna2CirclePictureBox1);
+            this.guna2GradientPanel1.Controls.Add(this.schoolName);
+            this.guna2GradientPanel1.Controls.Add(this.schoolLogo);
             this.guna2GradientPanel1.Controls.Add(this.loginbtn);
             this.guna2GradientPanel1.Controls.Add(this.accountID);
             this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel4);
@@ -160,7 +158,7 @@
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(228)))), ((int)(((byte)(150)))));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(383, 447);
             this.guna2GradientPanel1.TabIndex = 71;
@@ -171,7 +169,7 @@
             this.guna2HtmlLabel9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel9.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(22, 358);
-            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
             this.guna2HtmlLabel9.Size = new System.Drawing.Size(14, 14);
             this.guna2HtmlLabel9.TabIndex = 83;
@@ -185,7 +183,7 @@
             this.guna2CirclePictureBox2.Image = global::EduLogix.Properties.Resources._09f64c35483867e874bc5f4aff478f24_removebg_preview;
             this.guna2CirclePictureBox2.ImageRotate = 0F;
             this.guna2CirclePictureBox2.Location = new System.Drawing.Point(114, 345);
-            this.guna2CirclePictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2CirclePictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2CirclePictureBox2.Name = "guna2CirclePictureBox2";
             this.guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox2.Size = new System.Drawing.Size(38, 46);
@@ -199,7 +197,7 @@
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(154, 355);
-            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(96, 21);
             this.guna2HtmlLabel7.TabIndex = 81;
@@ -211,7 +209,7 @@
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(181, 323);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(14, 14);
             this.guna2HtmlLabel6.TabIndex = 80;
@@ -225,7 +223,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(328, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(28, 20);
             this.guna2ControlBox3.TabIndex = 79;
@@ -238,7 +236,7 @@
             this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Tomato;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(356, 0);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(28, 20);
             this.guna2ControlBox2.TabIndex = 78;
@@ -249,7 +247,7 @@
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(105, 88);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(281, 15);
             this.guna2HtmlLabel8.TabIndex = 77;
@@ -262,51 +260,39 @@
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(119, 22);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(246, 22);
             this.guna2HtmlLabel3.TabIndex = 75;
             this.guna2HtmlLabel3.Text = "___________________________________________";
             // 
-            // guna2HtmlLabel1
+            // schoolName
             // 
-            this.guna2HtmlLabel1.AutoSize = false;
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(182, 61);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(114, 22);
-            this.guna2HtmlLabel1.TabIndex = 74;
-            this.guna2HtmlLabel1.Text = "High School";
+            this.schoolName.AutoSize = false;
+            this.schoolName.BackColor = System.Drawing.Color.Transparent;
+            this.schoolName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolName.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.schoolName.Location = new System.Drawing.Point(134, 42);
+            this.schoolName.Margin = new System.Windows.Forms.Padding(2);
+            this.schoolName.Name = "schoolName";
+            this.schoolName.Size = new System.Drawing.Size(210, 42);
+            this.schoolName.TabIndex = 73;
+            this.schoolName.Text = "Caloocan City Business";
+            this.schoolName.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // guna2HtmlLabel2
+            // schoolLogo
             // 
-            this.guna2HtmlLabel2.AutoSize = false;
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(134, 42);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(210, 22);
-            this.guna2HtmlLabel2.TabIndex = 73;
-            this.guna2HtmlLabel2.Text = "Caloocan City Business";
-            // 
-            // guna2CirclePictureBox1
-            // 
-            this.guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox1.Image = global::EduLogix.Properties.Resources.Caloocan_City_Business_High_School_Logo_1_removebg_preview;
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(14, 2);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(91, 118);
-            this.guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox1.TabIndex = 72;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.schoolLogo.BackColor = System.Drawing.Color.Transparent;
+            this.schoolLogo.Image = global::EduLogix.Properties.Resources.Caloocan_City_Business_High_School_Logo_1_removebg_preview;
+            this.schoolLogo.ImageRotate = 0F;
+            this.schoolLogo.Location = new System.Drawing.Point(14, 2);
+            this.schoolLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.schoolLogo.Name = "schoolLogo";
+            this.schoolLogo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.schoolLogo.Size = new System.Drawing.Size(91, 118);
+            this.schoolLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.schoolLogo.TabIndex = 72;
+            this.schoolLogo.TabStop = false;
             // 
             // loginbtn
             // 
@@ -329,7 +315,7 @@
             this.loginbtn.ImageOffset = new System.Drawing.Point(-15, 0);
             this.loginbtn.ImageSize = new System.Drawing.Size(23, 23);
             this.loginbtn.Location = new System.Drawing.Point(94, 271);
-            this.loginbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.loginbtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginbtn.Name = "loginbtn";
             this.loginbtn.PressedColor = System.Drawing.SystemColors.Window;
             this.loginbtn.ShadowDecoration.BorderRadius = 20;
@@ -347,7 +333,7 @@
             this.guna2PictureBox1.Image = global::EduLogix.Properties.Resources.Gemini_Generated_Image_xj6gdbxj6gdbxj6g;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(298, 414);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(70, 23);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -361,7 +347,7 @@
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(119, 70);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(246, 22);
             this.guna2HtmlLabel5.TabIndex = 76;
@@ -377,14 +363,14 @@
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -399,11 +385,10 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox schoolLogo;
         private Guna.UI2.WinForms.Guna2Button loginbtn;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;

@@ -20,8 +20,101 @@ namespace EduLogix
         public DashboardForm()
         {
             InitializeComponent();
+            InitializeUserOptionsPanel();
             this.Load += DashboardForm_Load;
             InitializeDateTimeTimer();
+        }
+
+        private void InitializeUserOptionsPanel()
+        {
+            if (userOptions != null)
+            {
+                userOptions.Visible = false;
+                PositionUserOptionsPanel();
+                userOptions.BringToFront();
+            }
+
+            if (settings != null)
+            {
+                settings.Click -= UserOptionsSettings_Click;
+                settings.Click += UserOptionsSettings_Click;
+            }
+
+            WireOutsideClickHandler(this);
+        }
+
+        private void PositionUserOptionsPanel()
+        {
+            if (userOptions == null || userProfile == null || userOptions.Parent == null) return;
+
+            var parent = userOptions.Parent;
+            int x = userProfile.Right + 8;
+            int y = userProfile.Top + Math.Max(0, (userProfile.Height - userOptions.Height) / 2);
+
+            if (x + userOptions.Width > parent.ClientSize.Width)
+                x = Math.Max(0, userProfile.Left - userOptions.Width - 8);
+
+            if (y + userOptions.Height > parent.ClientSize.Height)
+                y = Math.Max(0, parent.ClientSize.Height - userOptions.Height - 8);
+
+            userOptions.Location = new Point(Math.Max(0, x), Math.Max(0, y));
+        }
+
+        private void WireOutsideClickHandler(Control parent)
+        {
+            if (parent == null) return;
+
+            bool isUserOptionsPanel = userOptions != null && parent == userOptions;
+            bool isInsideUserOptionsPanel = IsInsideUserOptions(parent);
+
+            if (!isUserOptionsPanel && !isInsideUserOptionsPanel)
+            {
+                parent.MouseDown -= OutsideUserOptions_MouseDown;
+                parent.MouseDown += OutsideUserOptions_MouseDown;
+            }
+
+            foreach (Control child in parent.Controls)
+            {
+                WireOutsideClickHandler(child);
+            }
+        }
+
+        private bool IsInsideUserOptions(Control control)
+        {
+            if (control == null || userOptions == null) return false;
+
+            var current = control.Parent;
+            while (current != null)
+            {
+                if (current == userOptions) return true;
+                current = current.Parent;
+            }
+
+            return false;
+        }
+
+        private void OutsideUserOptions_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (userOptions == null || !userOptions.Visible) return;
+
+            Point clickPoint = System.Windows.Forms.Cursor.Position;
+            bool clickedInsidePanel = userOptions.RectangleToScreen(userOptions.ClientRectangle).Contains(clickPoint);
+            bool clickedUserProfile = userProfile != null && userProfile.RectangleToScreen(userProfile.ClientRectangle).Contains(clickPoint);
+
+            if (!clickedInsidePanel && !clickedUserProfile)
+                userOptions.Visible = false;
+        }
+
+        private void UserOptionsSettings_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            var form = new Settings();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.Show();
+            this.Hide();
         }
 
         private void InitializeDateTimeTimer()
@@ -43,6 +136,7 @@ namespace EduLogix
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             ApplyThemeToForm();
+            BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
             MarkActiveNav();
             if (dashboardDateAndTime != null)
             {
@@ -105,7 +199,7 @@ namespace EduLogix
             }
             catch (Exception)
             {
-                // keep silent to avoid breaking designer/runtime
+                // keep silent to avoid breaking designer
             }
         }
 
@@ -153,8 +247,6 @@ namespace EduLogix
             }
 
             // labels over sidebar
-            if (UserName != null)
-                UserName.ForeColor = Color.White;
             if (guna2HtmlLabel1 != null)
                 guna2HtmlLabel1.ForeColor = Color.LightGray;
             if (guna2HtmlLabel17 != null)
@@ -324,6 +416,16 @@ namespace EduLogix
             guna2CircleProgressBar1.ForeColor = Color.FromArgb(48, 79, 99);
             guna2CircleProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
 
+        }
+
+        private void userProfile_Click(object sender, EventArgs e)
+        {
+            if (userOptions == null) return;
+
+            PositionUserOptionsPanel();
+            userOptions.Visible = !userOptions.Visible;
+            if (userOptions.Visible)
+                userOptions.BringToFront();
         }
     }
 }
