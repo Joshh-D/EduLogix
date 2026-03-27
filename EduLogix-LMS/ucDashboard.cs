@@ -43,7 +43,10 @@ namespace EduLogix_LMS
         {
             int[] upperDashboardInfo = db.GetUpperDashboardInfo();
             Lbl_Total_Books.Text = upperDashboardInfo[0].ToString();
-            Lbl_Available_Books.Text = upperDashboardInfo[3].ToString();
+            Lbl_Missing_Books.Text = upperDashboardInfo[1].ToString();
+            Lbl_Available_Books.Text = upperDashboardInfo[2].ToString();
+            Lbl_Borrowed_Books.Text = upperDashboardInfo[3].ToString();
+            Lbl_Overdue_Books.Text = upperDashboardInfo[4].ToString();
         }
     }
 }

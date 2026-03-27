@@ -53,11 +53,31 @@ namespace EduLogix_LMS
                         upperDashboardInfo[0] = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
+                    query = "SELECT SUM(missing) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[1] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
                     query = "SELECT SUM(available) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[2] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    query = "SELECT SUM(borrowed) FROM `edulogix-lms`.lms_book_catalogue";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         upperDashboardInfo[3] = Convert.ToInt32(cmd.ExecuteScalar());
                     }
+
+                    query = "SELECT SUM(overdue) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[4] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+
                 }
 
             }
