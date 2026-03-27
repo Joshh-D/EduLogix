@@ -25,6 +25,9 @@
     <Compile Update="ucDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="ucKioskIdle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ucKioskStudent.cs">
       <SubType>UserControl</SubType>
     </Compile>

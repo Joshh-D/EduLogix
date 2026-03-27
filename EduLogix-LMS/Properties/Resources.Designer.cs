@@ -123,6 +123,26 @@ namespace EduLogix_LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_book2 {
+            get {
+                object obj = ResourceManager.GetObject("icon_book2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_book3 {
+            get {
+                object obj = ResourceManager.GetObject("icon_book3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_clock_reverse {
             get {
                 object obj = ResourceManager.GetObject("icon_clock_reverse", resourceCulture);
@@ -203,6 +223,16 @@ namespace EduLogix_LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_leave1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_leave1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_log {
             get {
                 object obj = ResourceManager.GetObject("icon_log", resourceCulture);
@@ -266,6 +296,16 @@ namespace EduLogix_LMS.Properties {
         internal static System.Drawing.Bitmap icon_reading_black {
             get {
                 object obj = ResourceManager.GetObject("icon_reading_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_reading1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_reading1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

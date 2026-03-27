@@ -41,3 +41,4 @@ C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\
 C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix-LMS.pdb
 C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix-LMS.genruntimeconfig.cache
 C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\ref\EduLogix-LMS.dll
+C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucKioskIdle.resources

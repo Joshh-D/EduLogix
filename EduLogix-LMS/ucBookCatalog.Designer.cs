@@ -56,6 +56,7 @@
             // 
             // pnlBackground
             // 
+            pnlBackground.BorderRadius = 30;
             pnlBackground.Controls.Add(guna2HtmlLabel1);
             pnlBackground.Controls.Add(Tbl_Book_Catalog);
             pnlBackground.Controls.Add(tableLayoutPanel1);
@@ -65,52 +66,51 @@
             pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
             pnlBackground.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             pnlBackground.Location = new Point(0, 0);
-            pnlBackground.Margin = new Padding(6, 7, 6, 7);
+            pnlBackground.Margin = new Padding(5);
             pnlBackground.Name = "pnlBackground";
             pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            pnlBackground.Size = new Size(1422, 952);
+            pnlBackground.Size = new Size(1244, 714);
             pnlBackground.TabIndex = 0;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(38, 21);
-            guna2HtmlLabel1.Margin = new Padding(3, 4, 3, 4);
+            guna2HtmlLabel1.Location = new Point(33, 16);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(95, 38);
+            guna2HtmlLabel1.Size = new Size(77, 32);
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Catalog";
             // 
             // Tbl_Book_Catalog
             // 
-
-            //dataGridViewCellStyle4.BackColor = Color.White;
-            //Tbl_Book_Catalog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            Tbl_Book_Catalog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             Tbl_Book_Catalog.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            //dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            //dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
-            //dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            //dataGridViewCellStyle5.ForeColor = Color.White;
-            //dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            //dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            //dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            //Tbl_Book_Catalog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            Tbl_Book_Catalog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             Tbl_Book_Catalog.ColumnHeadersHeight = 4;
             Tbl_Book_Catalog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            //dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            //dataGridViewCellStyle6.BackColor = Color.White;
-            //dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            //dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
-            //dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            //dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            //dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            //Tbl_Book_Catalog.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            Tbl_Book_Catalog.DefaultCellStyle = dataGridViewCellStyle3;
             Tbl_Book_Catalog.GridColor = Color.FromArgb(231, 229, 255);
-            Tbl_Book_Catalog.Location = new Point(30, 131);
+            Tbl_Book_Catalog.Location = new Point(30, 148);
+            Tbl_Book_Catalog.Margin = new Padding(3, 2, 3, 2);
             Tbl_Book_Catalog.Name = "Tbl_Book_Catalog";
             Tbl_Book_Catalog.RowHeadersVisible = false;
-            Tbl_Book_Catalog.Size = new Size(1191, 571);
+            Tbl_Book_Catalog.Size = new Size(1191, 469);
             Tbl_Book_Catalog.TabIndex = 1;
             Tbl_Book_Catalog.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             Tbl_Book_Catalog.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -147,16 +147,16 @@
             tableLayoutPanel1.Controls.Add(guna2TextBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(btnViewArchive, 4, 0);
             tableLayoutPanel1.Controls.Add(btnAddBook, 3, 0);
-            tableLayoutPanel1.Location = new Point(34, 97);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(30, 73);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1361, 53);
+            tableLayoutPanel1.Size = new Size(1191, 51);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnFilter
             // 
+            btnFilter.Anchor = AnchorStyles.None;
             btnFilter.BackColor = Color.Transparent;
             btnFilter.BorderRadius = 10;
             btnFilter.CustomizableEdges = customizableEdges1;
@@ -171,8 +171,7 @@
             btnFilter.ForeColor = Color.White;
             btnFilter.Image = Properties.Resources.icon_funnel;
             btnFilter.ImageOffset = new Point(-3, 0);
-            btnFilter.Location = new Point(450, 4);
-            btnFilter.Margin = new Padding(3, 4, 3, 4);
+            btnFilter.Location = new Point(394, 8);
             btnFilter.Name = "btnFilter";
             btnFilter.ShadowDecoration.BorderRadius = 10;
             btnFilter.ShadowDecoration.Color = Color.DimGray;
@@ -180,7 +179,7 @@
             btnFilter.ShadowDecoration.Depth = 20;
             btnFilter.ShadowDecoration.Enabled = true;
             btnFilter.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            btnFilter.Size = new Size(181, 45);
+            btnFilter.Size = new Size(158, 34);
             btnFilter.TabIndex = 3;
             btnFilter.Text = "Filter";
             btnFilter.Click += btnFilter_Click;
@@ -197,10 +196,10 @@
             guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             guna2TextBox1.Dock = DockStyle.Fill;
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
+            guna2TextBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(3, 5);
-            guna2TextBox1.Margin = new Padding(3, 5, 3, 5);
+            guna2TextBox1.Location = new Point(4, 6);
+            guna2TextBox1.Margin = new Padding(4, 6, 4, 6);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PasswordChar = '\0';
             guna2TextBox1.PlaceholderText = "🔎 Search";
@@ -211,11 +210,12 @@
             guna2TextBox1.ShadowDecoration.Depth = 20;
             guna2TextBox1.ShadowDecoration.Enabled = true;
             guna2TextBox1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2TextBox1.Size = new Size(441, 43);
+            guna2TextBox1.Size = new Size(383, 39);
             guna2TextBox1.TabIndex = 0;
             // 
             // btnViewArchive
             // 
+            btnViewArchive.Anchor = AnchorStyles.None;
             btnViewArchive.BackColor = Color.Transparent;
             btnViewArchive.BorderRadius = 10;
             btnViewArchive.CustomizableEdges = customizableEdges5;
@@ -229,8 +229,7 @@
             btnViewArchive.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnViewArchive.ForeColor = Color.White;
             btnViewArchive.Image = Properties.Resources.icon_archive;
-            btnViewArchive.Location = new Point(1170, 4);
-            btnViewArchive.Margin = new Padding(3, 4, 3, 4);
+            btnViewArchive.Location = new Point(1024, 8);
             btnViewArchive.Name = "btnViewArchive";
             btnViewArchive.ShadowDecoration.BorderRadius = 10;
             btnViewArchive.ShadowDecoration.Color = Color.DimGray;
@@ -238,13 +237,14 @@
             btnViewArchive.ShadowDecoration.Depth = 20;
             btnViewArchive.ShadowDecoration.Enabled = true;
             btnViewArchive.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            btnViewArchive.Size = new Size(187, 45);
+            btnViewArchive.Size = new Size(164, 34);
             btnViewArchive.TabIndex = 1;
             btnViewArchive.Text = "View archieve";
             btnViewArchive.TextOffset = new Point(3, 0);
             // 
             // btnAddBook
             // 
+            btnAddBook.Anchor = AnchorStyles.None;
             btnAddBook.BackColor = Color.Transparent;
             btnAddBook.BorderRadius = 10;
             btnAddBook.CustomizableEdges = customizableEdges7;
@@ -259,8 +259,7 @@
             btnAddBook.ForeColor = Color.White;
             btnAddBook.Image = Properties.Resources.icon_add;
             btnAddBook.ImageOffset = new Point(-5, 0);
-            btnAddBook.Location = new Point(962, 4);
-            btnAddBook.Margin = new Padding(3, 4, 3, 4);
+            btnAddBook.Location = new Point(842, 8);
             btnAddBook.Name = "btnAddBook";
             btnAddBook.ShadowDecoration.BorderRadius = 10;
             btnAddBook.ShadowDecoration.Color = Color.DimGray;
@@ -268,19 +267,18 @@
             btnAddBook.ShadowDecoration.Depth = 20;
             btnAddBook.ShadowDecoration.Enabled = true;
             btnAddBook.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            btnAddBook.Size = new Size(201, 45);
+            btnAddBook.Size = new Size(176, 34);
             btnAddBook.TabIndex = 2;
             btnAddBook.Text = "Add";
             // 
             // ucBookCatalog
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             Controls.Add(pnlBackground);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ucBookCatalog";
-            Size = new Size(1422, 952);
+            Size = new Size(1244, 714);
             Load += ucBookCatalog_Load;
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();

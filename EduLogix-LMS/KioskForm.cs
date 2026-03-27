@@ -19,15 +19,44 @@ namespace EduLogix_LMS
 
         private void KioskForm_Load(object sender, EventArgs e)
         {
-            UserControl defForm = new ucKioskStudent();
-            //var addButton = defForm.Controls.Find("btnAddBook", true);
-            //var viewArchiveButton = defForm.Controls.Find("btnViewArchive", true);
+            UserControl checkoutKiosk = new ucKioskStudent();
+            checkoutKiosk.Dock = DockStyle.Fill;
 
-            //if (addButton != null) addButton[0].Visible = false;
-            //if (viewArchiveButton != null) viewArchiveButton[0].Visible = false;
+            UserControl catalogKiosk = new ucBookCatalog();
+            catalogKiosk.Dock = DockStyle.Fill;
 
-            defForm.Dock = DockStyle.Fill;
-            pnlMainContent.Controls.Add(defForm);
+            // hide catalog book options
+            var addButton = catalogKiosk.Controls.Find("btnAddBook", true);
+            var viewArchiveButton = catalogKiosk.Controls.Find("btnViewArchive", true);
+            if (addButton != null) addButton[0].Visible = false;
+            if (viewArchiveButton != null) viewArchiveButton[0].Visible = false;
+
+            // catalog
+            pnlMainContent.Controls.Add(checkoutKiosk);
+
+            // checkout
+            //pnlMainContent.Controls.Add(checkoutKiosk);
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            pnlMainContent.Controls.Clear();
+            UserControl checkoutKiosk = new ucKioskStudent();
+            checkoutKiosk.Dock = DockStyle.Fill;
+            pnlMainContent.Controls.Add(checkoutKiosk);
+        }
+
+        private void btnCatalog_Click(object sender, EventArgs e)
+        {
+            pnlMainContent.Controls.Clear();
+            UserControl catalogKiosk = new ucBookCatalog();
+            var addButton = catalogKiosk.Controls.Find("btnAddBook", true);
+            var viewArchiveButton = catalogKiosk.Controls.Find("btnViewArchive", true);
+            if (addButton != null) addButton[0].Visible = false;
+            if (viewArchiveButton != null) viewArchiveButton[0].Visible = false;
+
+            catalogKiosk.Dock = DockStyle.Fill;
+            pnlMainContent.Controls.Add(catalogKiosk);
         }
     }
 }
