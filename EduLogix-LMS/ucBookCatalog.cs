@@ -20,7 +20,7 @@ namespace EduLogix_LMS
             InitializeComponent();
 
             // mark: haven't added the database yet
-            //db = new dbhandler();
+            db = new dbhandler();
         }
 
         UserControl ucBookCatalogFilterObj;
@@ -33,7 +33,7 @@ namespace EduLogix_LMS
             ucBookCatalogFilterObj.Visible = false;
             isFilterDisplayed = false;
             pnlBackground.Controls.Add(ucBookCatalogFilterObj);
-            //Tbl_Book_Catalog.DataSource = db.GetAllBooks();
+            Tbl_Book_Catalog.DataSource = db.GetAllBooks();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)

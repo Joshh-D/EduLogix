@@ -44,15 +44,15 @@
             guna2CheckBox3 = new Guna.UI2.WinForms.Guna2CheckBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2CheckBox7 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox8 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox9 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox10 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox11 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox12 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox13 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox14 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2CheckBox15 = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Fanstasy = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Sci_Fi = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Horror = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Graph_Novel = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_History_Fic = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Mystery = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Child_Fic = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Journa = new Guna.UI2.WinForms.Guna2CheckBox();
+            ChkBx_Lit_Fic = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2GradientPanel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -203,15 +203,15 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.69672F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35.8707F));
             tableLayoutPanel2.Controls.Add(guna2HtmlLabel2, 0, 0);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox7, 0, 1);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox8, 0, 2);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox9, 1, 1);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox10, 2, 2);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox11, 2, 1);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox12, 1, 2);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox13, 0, 3);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox14, 1, 3);
-            tableLayoutPanel2.Controls.Add(guna2CheckBox15, 2, 3);
+            tableLayoutPanel2.Controls.Add(ChkBx_Fanstasy, 0, 1);
+            tableLayoutPanel2.Controls.Add(ChkBx_Sci_Fi, 0, 2);
+            tableLayoutPanel2.Controls.Add(ChkBx_Horror, 1, 1);
+            tableLayoutPanel2.Controls.Add(ChkBx_Graph_Novel, 2, 2);
+            tableLayoutPanel2.Controls.Add(ChkBx_History_Fic, 2, 1);
+            tableLayoutPanel2.Controls.Add(ChkBx_Mystery, 1, 2);
+            tableLayoutPanel2.Controls.Add(ChkBx_Child_Fic, 0, 3);
+            tableLayoutPanel2.Controls.Add(ChkBx_Journa, 1, 3);
+            tableLayoutPanel2.Controls.Add(ChkBx_Lit_Fic, 2, 3);
             tableLayoutPanel2.Location = new Point(25, 10);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
@@ -232,160 +232,159 @@
             guna2HtmlLabel2.Size = new Size(82, 23);
             guna2HtmlLabel2.TabIndex = 6;
             guna2HtmlLabel2.Text = "Categories";
-            guna2HtmlLabel2.Click += guna2HtmlLabel2_Click;
             // 
-            // guna2CheckBox7
+            // ChkBx_Fanstasy
             // 
-            guna2CheckBox7.AutoSize = true;
-            guna2CheckBox7.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox7.CheckedState.BorderRadius = 0;
-            guna2CheckBox7.CheckedState.BorderThickness = 0;
-            guna2CheckBox7.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox7.Location = new Point(3, 34);
-            guna2CheckBox7.Name = "guna2CheckBox7";
-            guna2CheckBox7.Size = new Size(66, 19);
-            guna2CheckBox7.TabIndex = 0;
-            guna2CheckBox7.Text = "Fantasy";
-            guna2CheckBox7.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox7.UncheckedState.BorderRadius = 0;
-            guna2CheckBox7.UncheckedState.BorderThickness = 0;
-            guna2CheckBox7.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Fanstasy.AutoSize = true;
+            ChkBx_Fanstasy.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Fanstasy.CheckedState.BorderRadius = 0;
+            ChkBx_Fanstasy.CheckedState.BorderThickness = 0;
+            ChkBx_Fanstasy.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Fanstasy.Location = new Point(3, 34);
+            ChkBx_Fanstasy.Name = "ChkBx_Fanstasy";
+            ChkBx_Fanstasy.Size = new Size(66, 19);
+            ChkBx_Fanstasy.TabIndex = 0;
+            ChkBx_Fanstasy.Text = "Fantasy";
+            ChkBx_Fanstasy.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Fanstasy.UncheckedState.BorderRadius = 0;
+            ChkBx_Fanstasy.UncheckedState.BorderThickness = 0;
+            ChkBx_Fanstasy.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox8
+            // ChkBx_Sci_Fi
             // 
-            guna2CheckBox8.AutoSize = true;
-            guna2CheckBox8.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox8.CheckedState.BorderRadius = 0;
-            guna2CheckBox8.CheckedState.BorderThickness = 0;
-            guna2CheckBox8.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox8.Location = new Point(3, 59);
-            guna2CheckBox8.Name = "guna2CheckBox8";
-            guna2CheckBox8.Size = new Size(103, 19);
-            guna2CheckBox8.TabIndex = 1;
-            guna2CheckBox8.Text = "Science fiction";
-            guna2CheckBox8.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox8.UncheckedState.BorderRadius = 0;
-            guna2CheckBox8.UncheckedState.BorderThickness = 0;
-            guna2CheckBox8.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Sci_Fi.AutoSize = true;
+            ChkBx_Sci_Fi.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Sci_Fi.CheckedState.BorderRadius = 0;
+            ChkBx_Sci_Fi.CheckedState.BorderThickness = 0;
+            ChkBx_Sci_Fi.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Sci_Fi.Location = new Point(3, 59);
+            ChkBx_Sci_Fi.Name = "ChkBx_Sci_Fi";
+            ChkBx_Sci_Fi.Size = new Size(103, 19);
+            ChkBx_Sci_Fi.TabIndex = 1;
+            ChkBx_Sci_Fi.Text = "Science fiction";
+            ChkBx_Sci_Fi.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Sci_Fi.UncheckedState.BorderRadius = 0;
+            ChkBx_Sci_Fi.UncheckedState.BorderThickness = 0;
+            ChkBx_Sci_Fi.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox9
+            // ChkBx_Horror
             // 
-            guna2CheckBox9.AutoSize = true;
-            guna2CheckBox9.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox9.CheckedState.BorderRadius = 0;
-            guna2CheckBox9.CheckedState.BorderThickness = 0;
-            guna2CheckBox9.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox9.Location = new Point(128, 34);
-            guna2CheckBox9.Name = "guna2CheckBox9";
-            guna2CheckBox9.Size = new Size(61, 19);
-            guna2CheckBox9.TabIndex = 3;
-            guna2CheckBox9.Text = "Horror";
-            guna2CheckBox9.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox9.UncheckedState.BorderRadius = 0;
-            guna2CheckBox9.UncheckedState.BorderThickness = 0;
-            guna2CheckBox9.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Horror.AutoSize = true;
+            ChkBx_Horror.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Horror.CheckedState.BorderRadius = 0;
+            ChkBx_Horror.CheckedState.BorderThickness = 0;
+            ChkBx_Horror.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Horror.Location = new Point(128, 34);
+            ChkBx_Horror.Name = "ChkBx_Horror";
+            ChkBx_Horror.Size = new Size(61, 19);
+            ChkBx_Horror.TabIndex = 3;
+            ChkBx_Horror.Text = "Horror";
+            ChkBx_Horror.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Horror.UncheckedState.BorderRadius = 0;
+            ChkBx_Horror.UncheckedState.BorderThickness = 0;
+            ChkBx_Horror.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox10
+            // ChkBx_Graph_Novel
             // 
-            guna2CheckBox10.AutoSize = true;
-            guna2CheckBox10.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox10.CheckedState.BorderRadius = 0;
-            guna2CheckBox10.CheckedState.BorderThickness = 0;
-            guna2CheckBox10.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox10.Location = new Point(267, 59);
-            guna2CheckBox10.Name = "guna2CheckBox10";
-            guna2CheckBox10.Size = new Size(99, 19);
-            guna2CheckBox10.TabIndex = 4;
-            guna2CheckBox10.Text = "Graphic novel";
-            guna2CheckBox10.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox10.UncheckedState.BorderRadius = 0;
-            guna2CheckBox10.UncheckedState.BorderThickness = 0;
-            guna2CheckBox10.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Graph_Novel.AutoSize = true;
+            ChkBx_Graph_Novel.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Graph_Novel.CheckedState.BorderRadius = 0;
+            ChkBx_Graph_Novel.CheckedState.BorderThickness = 0;
+            ChkBx_Graph_Novel.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Graph_Novel.Location = new Point(267, 59);
+            ChkBx_Graph_Novel.Name = "ChkBx_Graph_Novel";
+            ChkBx_Graph_Novel.Size = new Size(99, 19);
+            ChkBx_Graph_Novel.TabIndex = 4;
+            ChkBx_Graph_Novel.Text = "Graphic novel";
+            ChkBx_Graph_Novel.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Graph_Novel.UncheckedState.BorderRadius = 0;
+            ChkBx_Graph_Novel.UncheckedState.BorderThickness = 0;
+            ChkBx_Graph_Novel.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox11
+            // ChkBx_History_Fic
             // 
-            guna2CheckBox11.AutoSize = true;
-            guna2CheckBox11.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox11.CheckedState.BorderRadius = 0;
-            guna2CheckBox11.CheckedState.BorderThickness = 0;
-            guna2CheckBox11.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox11.Location = new Point(267, 34);
-            guna2CheckBox11.Name = "guna2CheckBox11";
-            guna2CheckBox11.Size = new Size(113, 19);
-            guna2CheckBox11.TabIndex = 5;
-            guna2CheckBox11.Text = "Historical fiction";
-            guna2CheckBox11.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox11.UncheckedState.BorderRadius = 0;
-            guna2CheckBox11.UncheckedState.BorderThickness = 0;
-            guna2CheckBox11.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_History_Fic.AutoSize = true;
+            ChkBx_History_Fic.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_History_Fic.CheckedState.BorderRadius = 0;
+            ChkBx_History_Fic.CheckedState.BorderThickness = 0;
+            ChkBx_History_Fic.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_History_Fic.Location = new Point(267, 34);
+            ChkBx_History_Fic.Name = "ChkBx_History_Fic";
+            ChkBx_History_Fic.Size = new Size(113, 19);
+            ChkBx_History_Fic.TabIndex = 5;
+            ChkBx_History_Fic.Text = "Historical fiction";
+            ChkBx_History_Fic.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_History_Fic.UncheckedState.BorderRadius = 0;
+            ChkBx_History_Fic.UncheckedState.BorderThickness = 0;
+            ChkBx_History_Fic.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox12
+            // ChkBx_Mystery
             // 
-            guna2CheckBox12.AutoSize = true;
-            guna2CheckBox12.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox12.CheckedState.BorderRadius = 0;
-            guna2CheckBox12.CheckedState.BorderThickness = 0;
-            guna2CheckBox12.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox12.Location = new Point(128, 59);
-            guna2CheckBox12.Name = "guna2CheckBox12";
-            guna2CheckBox12.Size = new Size(68, 19);
-            guna2CheckBox12.TabIndex = 2;
-            guna2CheckBox12.Text = "Mystery";
-            guna2CheckBox12.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox12.UncheckedState.BorderRadius = 0;
-            guna2CheckBox12.UncheckedState.BorderThickness = 0;
-            guna2CheckBox12.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Mystery.AutoSize = true;
+            ChkBx_Mystery.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Mystery.CheckedState.BorderRadius = 0;
+            ChkBx_Mystery.CheckedState.BorderThickness = 0;
+            ChkBx_Mystery.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Mystery.Location = new Point(128, 59);
+            ChkBx_Mystery.Name = "ChkBx_Mystery";
+            ChkBx_Mystery.Size = new Size(68, 19);
+            ChkBx_Mystery.TabIndex = 2;
+            ChkBx_Mystery.Text = "Mystery";
+            ChkBx_Mystery.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Mystery.UncheckedState.BorderRadius = 0;
+            ChkBx_Mystery.UncheckedState.BorderThickness = 0;
+            ChkBx_Mystery.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox13
+            // ChkBx_Child_Fic
             // 
-            guna2CheckBox13.AutoSize = true;
-            guna2CheckBox13.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox13.CheckedState.BorderRadius = 0;
-            guna2CheckBox13.CheckedState.BorderThickness = 0;
-            guna2CheckBox13.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox13.Location = new Point(3, 87);
-            guna2CheckBox13.Name = "guna2CheckBox13";
-            guna2CheckBox13.Size = new Size(118, 19);
-            guna2CheckBox13.TabIndex = 7;
-            guna2CheckBox13.Text = "Children’s Fiction";
-            guna2CheckBox13.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox13.UncheckedState.BorderRadius = 0;
-            guna2CheckBox13.UncheckedState.BorderThickness = 0;
-            guna2CheckBox13.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Child_Fic.AutoSize = true;
+            ChkBx_Child_Fic.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Child_Fic.CheckedState.BorderRadius = 0;
+            ChkBx_Child_Fic.CheckedState.BorderThickness = 0;
+            ChkBx_Child_Fic.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Child_Fic.Location = new Point(3, 87);
+            ChkBx_Child_Fic.Name = "ChkBx_Child_Fic";
+            ChkBx_Child_Fic.Size = new Size(118, 19);
+            ChkBx_Child_Fic.TabIndex = 7;
+            ChkBx_Child_Fic.Text = "Children’s Fiction";
+            ChkBx_Child_Fic.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Child_Fic.UncheckedState.BorderRadius = 0;
+            ChkBx_Child_Fic.UncheckedState.BorderThickness = 0;
+            ChkBx_Child_Fic.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox14
+            // ChkBx_Journa
             // 
-            guna2CheckBox14.AutoSize = true;
-            guna2CheckBox14.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox14.CheckedState.BorderRadius = 0;
-            guna2CheckBox14.CheckedState.BorderThickness = 0;
-            guna2CheckBox14.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox14.Location = new Point(128, 87);
-            guna2CheckBox14.Name = "guna2CheckBox14";
-            guna2CheckBox14.Size = new Size(83, 19);
-            guna2CheckBox14.TabIndex = 8;
-            guna2CheckBox14.Text = "Journalism";
-            guna2CheckBox14.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox14.UncheckedState.BorderRadius = 0;
-            guna2CheckBox14.UncheckedState.BorderThickness = 0;
-            guna2CheckBox14.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Journa.AutoSize = true;
+            ChkBx_Journa.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Journa.CheckedState.BorderRadius = 0;
+            ChkBx_Journa.CheckedState.BorderThickness = 0;
+            ChkBx_Journa.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Journa.Location = new Point(128, 87);
+            ChkBx_Journa.Name = "ChkBx_Journa";
+            ChkBx_Journa.Size = new Size(83, 19);
+            ChkBx_Journa.TabIndex = 8;
+            ChkBx_Journa.Text = "Journalism";
+            ChkBx_Journa.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Journa.UncheckedState.BorderRadius = 0;
+            ChkBx_Journa.UncheckedState.BorderThickness = 0;
+            ChkBx_Journa.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2CheckBox15
+            // ChkBx_Lit_Fic
             // 
-            guna2CheckBox15.AutoSize = true;
-            guna2CheckBox15.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox15.CheckedState.BorderRadius = 0;
-            guna2CheckBox15.CheckedState.BorderThickness = 0;
-            guna2CheckBox15.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
-            guna2CheckBox15.Location = new Point(267, 87);
-            guna2CheckBox15.Name = "guna2CheckBox15";
-            guna2CheckBox15.Size = new Size(102, 19);
-            guna2CheckBox15.TabIndex = 9;
-            guna2CheckBox15.Text = "Literary fiction";
-            guna2CheckBox15.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
-            guna2CheckBox15.UncheckedState.BorderRadius = 0;
-            guna2CheckBox15.UncheckedState.BorderThickness = 0;
-            guna2CheckBox15.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Lit_Fic.AutoSize = true;
+            ChkBx_Lit_Fic.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Lit_Fic.CheckedState.BorderRadius = 0;
+            ChkBx_Lit_Fic.CheckedState.BorderThickness = 0;
+            ChkBx_Lit_Fic.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            ChkBx_Lit_Fic.Location = new Point(267, 87);
+            ChkBx_Lit_Fic.Name = "ChkBx_Lit_Fic";
+            ChkBx_Lit_Fic.Size = new Size(102, 19);
+            ChkBx_Lit_Fic.TabIndex = 9;
+            ChkBx_Lit_Fic.Text = "Literary fiction";
+            ChkBx_Lit_Fic.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            ChkBx_Lit_Fic.UncheckedState.BorderRadius = 0;
+            ChkBx_Lit_Fic.UncheckedState.BorderThickness = 0;
+            ChkBx_Lit_Fic.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
             // ucBookCatalogFilter
             // 
@@ -415,14 +414,14 @@
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox5;
         private TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox7;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox8;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox9;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox10;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox11;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox12;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox13;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox14;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox15;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Fanstasy;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Sci_Fi;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Horror;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Graph_Novel;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_History_Fic;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Mystery;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Child_Fic;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Journa;
+        private Guna.UI2.WinForms.Guna2CheckBox ChkBx_Lit_Fic;
     }
 }
