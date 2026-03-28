@@ -3,44 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\EduLogix\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\uckioskstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\uckioskstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\dbhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\dbhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\uckioskstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\uckioskstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\ucborrowerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\ucborrowerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\kioskform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\kioskform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\ucborrowerinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\ucborrowerinformation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|C:\\Users\\Administrator\\Documents\\EduLogix\\edulogix-lms\\kioskform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\kioskform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\ucborrowerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\ucborrowerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\edulogix-lms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\edulogix-lms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|C:\\Users\\Administrator\\Documents\\EduLogix\\edulogix-lms\\uckioskidle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\uckioskidle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|C:\\Users\\Administrator\\Documents\\EduLogix\\edulogix-lms\\ucbookcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\ucbookcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\ucbookcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\ucbookcatalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|C:\\Users\\Administrator\\Documents\\EduLogix\\edulogix-lms\\edulogix-lms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\edulogix-lms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|c:\\users\\administrator\\documents\\edulogix\\edulogix-lms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EF380C1-7B03-486D-B45A-0C8D62040544}|EduLogix-LMS\\EduLogix-LMS.csproj|solutionrelative:edulogix-lms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +42,21 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\Program.cs",
+              "RelativeDocumentMoniker": "EduLogix-LMS\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\Program.cs",
+              "RelativeToolTip": "EduLogix-LMS\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T23:05:57.426Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "EduLogix-LMS.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\EduLogix-LMS.cs",
               "RelativeDocumentMoniker": "EduLogix-LMS\\EduLogix-LMS.cs",
@@ -62,120 +64,74 @@
               "RelativeToolTip": "EduLogix-LMS\\EduLogix-LMS.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T17:46:16.465Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EduLogix-LMS.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\EduLogix-LMS.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\EduLogix-LMS.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\EduLogix-LMS.cs",
-              "RelativeToolTip": "EduLogix-LMS\\EduLogix-LMS.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T18:17:50.22Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\Program.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\Program.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\Program.cs",
-              "RelativeToolTip": "EduLogix-LMS\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T23:05:57.426Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "KioskForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\KioskForm.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\KioskForm.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\KioskForm.cs [Design]*",
-              "RelativeToolTip": "EduLogix-LMS\\KioskForm.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T19:56:37.373Z",
               "IsPinned": true,
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "KioskForm.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\KioskForm.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\KioskForm.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\KioskForm.cs*",
-              "RelativeToolTip": "EduLogix-LMS\\KioskForm.cs*",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAzwB4AAAAiAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "EduLogix-LMS.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\EduLogix-LMS.cs",
+              "RelativeDocumentMoniker": "EduLogix-LMS\\EduLogix-LMS.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\EduLogix-LMS.cs",
+              "RelativeToolTip": "EduLogix-LMS\\EduLogix-LMS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAArwA8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T20:56:08.59Z",
+              "WhenOpened": "2026-03-04T18:17:50.22Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucKioskStudent.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucKioskStudent.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\ucKioskStudent.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucKioskStudent.cs [Design]*",
-              "RelativeToolTip": "EduLogix-LMS\\ucKioskStudent.cs [Design]*",
+              "DocumentIndex": 3,
+              "Title": "ucBorrowerList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBorrowerList.cs",
+              "RelativeDocumentMoniker": "EduLogix-LMS\\ucBorrowerList.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBorrowerList.cs [Design]",
+              "RelativeToolTip": "EduLogix-LMS\\ucBorrowerList.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T23:51:22.165Z",
+              "WhenOpened": "2026-03-27T17:53:05.905Z",
               "IsPinned": true,
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ucKioskStudent.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucKioskStudent.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\ucKioskStudent.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucKioskStudent.cs*",
-              "RelativeToolTip": "EduLogix-LMS\\ucKioskStudent.cs*",
-              "ViewState": "AgIAABcAAAAAAAAAAAAgwCMAAAAAAAAAAAAAAA==",
+              "Title": "ucBorrowerList.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBorrowerList.cs",
+              "RelativeDocumentMoniker": "EduLogix-LMS\\ucBorrowerList.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBorrowerList.cs",
+              "RelativeToolTip": "EduLogix-LMS\\ucBorrowerList.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAIAxwCAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T21:46:10.811Z",
+              "WhenOpened": "2026-03-27T18:10:54.901Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ucKioskIdle.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucKioskIdle.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\ucKioskIdle.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucKioskIdle.cs [Design]",
-              "RelativeToolTip": "EduLogix-LMS\\ucKioskIdle.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "dbhandler.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\dbhandler.cs",
+              "RelativeDocumentMoniker": "EduLogix-LMS\\dbhandler.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\dbhandler.cs",
+              "RelativeToolTip": "EduLogix-LMS\\dbhandler.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwC4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T20:05:32.704Z"
+              "WhenOpened": "2026-03-27T18:12:08.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ucBookCatalog.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBookCatalog.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\ucBookCatalog.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBookCatalog.cs [Design]",
-              "RelativeToolTip": "EduLogix-LMS\\ucBookCatalog.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "ucBorrowerInformation.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBorrowerInformation.cs",
+              "RelativeDocumentMoniker": "EduLogix-LMS\\ucBorrowerInformation.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBorrowerInformation.cs [Design]",
+              "RelativeToolTip": "EduLogix-LMS\\ucBorrowerInformation.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T21:00:16.775Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ucBookCatalog.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBookCatalog.cs",
-              "RelativeDocumentMoniker": "EduLogix-LMS\\ucBookCatalog.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\EduLogix\\EduLogix-LMS\\ucBookCatalog.cs",
-              "RelativeToolTip": "EduLogix-LMS\\ucBookCatalog.cs",
-              "ViewState": "AgIAAAgAAAAAZGZmZmYGwCMAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T21:00:45.026Z"
+              "WhenOpened": "2026-03-27T17:53:26.528Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

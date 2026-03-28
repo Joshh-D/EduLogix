@@ -46,6 +46,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "AForge.Video": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "AForge.Video.DirectShow": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "FontAwesome.Sharp": {
               "target": "Package",
               "version": "[6.6.0, )"
@@ -58,6 +66,10 @@
               "target": "Package",
               "version": "[2.0.4.6, )"
             },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.6.0, )"
+            },
             "MySqlConnector": {
               "target": "Package",
               "version": "[2.5.0, )"
@@ -69,6 +81,14 @@
             "WinForms.DataVisualization": {
               "target": "Package",
               "version": "[1.10.0, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.11, )"
+            },
+            "ZXing.Net.Bindings.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[0.16.14, )"
             }
           },
           "imports": [

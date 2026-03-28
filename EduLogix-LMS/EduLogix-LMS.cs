@@ -13,7 +13,7 @@ namespace EduLogix_LMS
 
         private void LMSDashboard_Load(object sender, EventArgs e)
         {
-            db.StartDBConn();
+            //db.StartDBConn();
             var ucDashboard = new ucDashboard();
             ucDashboard.Dock = DockStyle.Fill;
             pnlMainContent.Controls.Add(ucDashboard);

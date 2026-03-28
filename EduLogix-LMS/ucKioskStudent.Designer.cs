@@ -70,7 +70,7 @@
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            pctbxLiveFeed = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             pnlScannedBooks = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -79,7 +79,7 @@
             tblContainer.SuspendLayout();
             guna2GradientPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pctbxLiveFeed).BeginInit();
             pnlScannedBooks.SuspendLayout();
             SuspendLayout();
             // 
@@ -99,7 +99,7 @@
             pnlBackground.Name = "pnlBackground";
             pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges24;
             pnlBackground.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            pnlBackground.Size = new Size(1244, 900);
+            pnlBackground.Size = new Size(1244, 1000);
             pnlBackground.TabIndex = 2;
             // 
             // tblContainer
@@ -109,13 +109,13 @@
             tblContainer.ColumnCount = 1;
             tblContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tblContainer.Controls.Add(guna2GradientPanel1, 0, 1);
-            tblContainer.Controls.Add(guna2PictureBox1, 0, 0);
+            tblContainer.Controls.Add(pctbxLiveFeed, 0, 0);
             tblContainer.Location = new Point(698, 49);
             tblContainer.Name = "tblContainer";
             tblContainer.RowCount = 2;
-            tblContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 33.57488F));
-            tblContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 66.42512F));
-            tblContainer.Size = new Size(515, 828);
+            tblContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 36.4224129F));
+            tblContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 63.5775871F));
+            tblContainer.Size = new Size(515, 928);
             tblContainer.TabIndex = 20;
             // 
             // guna2GradientPanel1
@@ -135,7 +135,7 @@
             guna2GradientPanel1.CustomizableEdges = customizableEdges17;
             guna2GradientPanel1.FillColor = Color.White;
             guna2GradientPanel1.FillColor2 = Color.White;
-            guna2GradientPanel1.Location = new Point(3, 281);
+            guna2GradientPanel1.Location = new Point(3, 341);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.BorderRadius = 30;
             guna2GradientPanel1.ShadowDecoration.Color = Color.DimGray;
@@ -143,9 +143,8 @@
             guna2GradientPanel1.ShadowDecoration.Depth = 20;
             guna2GradientPanel1.ShadowDecoration.Enabled = true;
             guna2GradientPanel1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel1.Size = new Size(509, 544);
+            guna2GradientPanel1.Size = new Size(509, 584);
             guna2GradientPanel1.TabIndex = 21;
-            guna2GradientPanel1.Paint += guna2GradientPanel1_Paint_1;
             // 
             // guna2HtmlLabel7
             // 
@@ -223,7 +222,7 @@
             btnConfirm.FillColor2 = Color.FromArgb(195, 237, 129);
             btnConfirm.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(20, 466);
+            btnConfirm.Location = new Point(20, 506);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.ShadowDecoration.BorderRadius = 10;
             btnConfirm.ShadowDecoration.Color = Color.DimGray;
@@ -461,24 +460,24 @@
             guna2TextBox2.Size = new Size(399, 43);
             guna2TextBox2.TabIndex = 7;
             // 
-            // guna2PictureBox1
+            // pctbxLiveFeed
             // 
-            guna2PictureBox1.BackColor = Color.Transparent;
-            guna2PictureBox1.BorderRadius = 30;
-            guna2PictureBox1.CustomizableEdges = customizableEdges19;
-            guna2PictureBox1.Dock = DockStyle.Fill;
-            guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(3, 3);
-            guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.BorderRadius = 30;
-            guna2PictureBox1.ShadowDecoration.Color = Color.DimGray;
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2PictureBox1.ShadowDecoration.Depth = 20;
-            guna2PictureBox1.ShadowDecoration.Enabled = true;
-            guna2PictureBox1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2PictureBox1.Size = new Size(509, 272);
-            guna2PictureBox1.TabIndex = 19;
-            guna2PictureBox1.TabStop = false;
+            pctbxLiveFeed.BackColor = Color.Transparent;
+            pctbxLiveFeed.BorderRadius = 30;
+            pctbxLiveFeed.CustomizableEdges = customizableEdges19;
+            pctbxLiveFeed.Dock = DockStyle.Fill;
+            pctbxLiveFeed.ImageRotate = 0F;
+            pctbxLiveFeed.Location = new Point(3, 3);
+            pctbxLiveFeed.Name = "pctbxLiveFeed";
+            pctbxLiveFeed.ShadowDecoration.BorderRadius = 30;
+            pctbxLiveFeed.ShadowDecoration.Color = Color.DimGray;
+            pctbxLiveFeed.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            pctbxLiveFeed.ShadowDecoration.Depth = 20;
+            pctbxLiveFeed.ShadowDecoration.Enabled = true;
+            pctbxLiveFeed.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
+            pctbxLiveFeed.Size = new Size(509, 332);
+            pctbxLiveFeed.TabIndex = 19;
+            pctbxLiveFeed.TabStop = false;
             // 
             // guna2HtmlLabel8
             // 
@@ -509,7 +508,7 @@
             pnlScannedBooks.ShadowDecoration.Depth = 20;
             pnlScannedBooks.ShadowDecoration.Enabled = true;
             pnlScannedBooks.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            pnlScannedBooks.Size = new Size(632, 828);
+            pnlScannedBooks.Size = new Size(632, 928);
             pnlScannedBooks.TabIndex = 12;
             // 
             // guna2HtmlLabel4
@@ -530,7 +529,7 @@
             lblIndicator.BackColor = Color.Transparent;
             lblIndicator.Font = new Font("Segoe UI", 15.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblIndicator.ForeColor = Color.Gray;
-            lblIndicator.Location = new Point(108, 398);
+            lblIndicator.Location = new Point(108, 448);
             lblIndicator.Name = "lblIndicator";
             lblIndicator.Size = new Size(392, 32);
             lblIndicator.TabIndex = 16;
@@ -542,7 +541,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlBackground);
             Name = "ucKioskStudent";
-            Size = new Size(1244, 900);
+            Size = new Size(1244, 1000);
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();
             tblContainer.ResumeLayout(false);
@@ -550,7 +549,7 @@
             guna2GradientPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pctbxLiveFeed).EndInit();
             pnlScannedBooks.ResumeLayout(false);
             pnlScannedBooks.PerformLayout();
             ResumeLayout(false);
@@ -579,7 +578,7 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox pctbxLiveFeed;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
     }
 }

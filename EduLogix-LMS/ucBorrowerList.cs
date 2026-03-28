@@ -12,6 +12,8 @@ namespace EduLogix_LMS
 {
     public partial class ucBorrowerList : UserControl
     {
+        dbhandler db = new();
+
         public ucBorrowerList()
         {
             InitializeComponent();
@@ -27,6 +29,8 @@ namespace EduLogix_LMS
             ucBorrowerFilterListObj.Visible = false;
             isFilterDisplayed = false;
             pnlBackground.Controls.Add(ucBorrowerFilterListObj);
+
+            guna2DataGridView1.DataSource = db.GetBorrowerList();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)

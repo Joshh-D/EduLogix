@@ -15,35 +15,103 @@ namespace EduLogix_LMS
 {
     internal class dbhandler
     {
-        private string connectionString = "server=192.168.1.18;database=edulogix-lms;uid=arduino_user;pwd=secret;";
-        MySqlConnection conn = new MySqlConnection();
 
-        public void StartDBConn()
-        {
-            using(MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    // MessageBox.Show("Connection Success");
-                }
-                catch (MySqlException ex)
-                {
-                    // MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
+        //mark
+        private string connectionString = "server=localhost;database=edulogix-lms;uid=root;pwd=root;";
+
+        //private string connectionString = "server=192.168.1.18;database=edulogix-lms;uid=arduino_user;pwd=secret;";
+        MySqlConnection conn = new MySqlConnection();
 
         public DataTable GetAllBooks()
         {
             conn.ConnectionString = connectionString;
             DataTable table = new DataTable();
-            string query = "SELECT * FROM `edulogix-lms`.lms_book_catalogue ORDER BY title";
+            try
+            {
+                string query = "SELECT isbn as 'ISBN', title as 'Title', author as 'Author', genre as 'Genre', copies as 'Copies', available as 'Available', borrowed as 'Borrowed', overdue as 'Overdue', missing as 'Missing' FROM `edulogix-lms`.lms_book_catalogue ORDER BY title";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                adapter.Fill(table);
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
-            adapter.Fill(table);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
             return table;
+        }
+
+        public DataTable GetBorrowerList()
+        {
+            conn.ConnectionString = connectionString;
+            DataTable table = new DataTable();
+            try
+            {
+                string query = "SELECT * FROM `edulogix-lms`.lms_borrower_list ORDER BY student_name";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                adapter.Fill(table);
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return table;
+        }
+
+
+
+        public int[] GetUpperDashboardInfo()
+        {
+            int[] upperDashboardInfo = new int[6];
+            try
+            {
+                String query;
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    query = "SELECT SUM(copies) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[0] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    query = "SELECT SUM(missing) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[1] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    query = "SELECT SUM(available) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[2] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    query = "SELECT SUM(borrowed) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[3] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    query = "SELECT SUM(overdue) FROM `edulogix-lms`.lms_book_catalogue";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        upperDashboardInfo[4] = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+            return upperDashboardInfo;
         }
     }
 }

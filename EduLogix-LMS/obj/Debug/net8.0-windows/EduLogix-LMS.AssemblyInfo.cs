@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EduLogix-LMS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7379194f00096288b975fcd80f0fdb749fc5181e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4034bda12eb4b27a55f9f88851a411a84e50bbdd")]
 [assembly: System.Reflection.AssemblyProductAttribute("EduLogix-LMS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EduLogix-LMS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

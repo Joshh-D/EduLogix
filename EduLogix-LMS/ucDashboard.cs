@@ -13,9 +13,11 @@ namespace EduLogix_LMS
 {
     public partial class ucDashboard : UserControl
     {
+        dbhandler db;
         public ucDashboard()
         {
             InitializeComponent();
+            db = new dbhandler();
         }
 
         private void ucDashboard_Load(object sender, EventArgs e)
@@ -34,6 +36,17 @@ namespace EduLogix_LMS
             //    guna2Transition1.ShowSync(tblWidgets);
             //    guna2Transition1.ShowSync(tblGraphs);
             //}));
+            RefreshDashboardInfo();
+        }
+
+        private void RefreshDashboardInfo()
+        {
+            int[] upperDashboardInfo = db.GetUpperDashboardInfo();
+            lblTotalBooks.Text = upperDashboardInfo[0].ToString();
+            lblMissingBooks.Text = upperDashboardInfo[1].ToString();
+            lblAvailableBooks.Text = upperDashboardInfo[2].ToString();
+            lblBorrowedBooks.Text = upperDashboardInfo[3].ToString();
+            lblOverdue.Text = upperDashboardInfo[4].ToString();
         }
     }
 }

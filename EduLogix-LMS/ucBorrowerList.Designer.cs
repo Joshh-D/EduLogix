@@ -50,12 +50,12 @@
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(38, 21);
-            guna2HtmlLabel1.Margin = new Padding(3, 4, 3, 4);
+            guna2HtmlLabel1.Location = new Point(33, 16);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(156, 38);
+            guna2HtmlLabel1.Size = new Size(126, 32);
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Borrower list";
             // 
@@ -72,7 +72,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView1.ColumnHeadersHeight = 4;
+            guna2DataGridView1.ColumnHeadersHeight = 30;
             guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -83,13 +83,13 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(34, 175);
-            guna2DataGridView1.Margin = new Padding(3, 4, 3, 4);
+            guna2DataGridView1.Location = new Point(30, 131);
             guna2DataGridView1.Name = "guna2DataGridView1";
+            guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
-            guna2DataGridView1.RowTemplate.Height = 25;
-            guna2DataGridView1.Size = new Size(1361, 717);
+            guna2DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            guna2DataGridView1.Size = new Size(1191, 538);
             guna2DataGridView1.TabIndex = 1;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -103,8 +103,8 @@
             guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 4;
-            guna2DataGridView1.ThemeStyle.ReadOnly = false;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 30;
+            guna2DataGridView1.ThemeStyle.ReadOnly = true;
             guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
@@ -125,15 +125,16 @@
             pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
             pnlBackground.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             pnlBackground.Location = new Point(0, 0);
-            pnlBackground.Margin = new Padding(6, 7, 6, 7);
+            pnlBackground.Margin = new Padding(5);
             pnlBackground.Name = "pnlBackground";
             pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            pnlBackground.Size = new Size(1422, 952);
+            pnlBackground.Size = new Size(1244, 714);
             pnlBackground.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.BackColor = Color.Transparent;
             tableLayoutPanel1.ColumnCount = 5;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 32.95154F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.8325987F));
@@ -142,16 +143,16 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.1850224F));
             tableLayoutPanel1.Controls.Add(btnFilter, 1, 0);
             tableLayoutPanel1.Controls.Add(guna2TextBox1, 0, 0);
-            tableLayoutPanel1.Location = new Point(34, 97);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(30, 73);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1361, 53);
+            tableLayoutPanel1.Size = new Size(1191, 51);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // btnFilter
             // 
+            btnFilter.Anchor = AnchorStyles.None;
             btnFilter.BackColor = Color.Transparent;
             btnFilter.BorderRadius = 10;
             btnFilter.CustomizableEdges = customizableEdges1;
@@ -166,8 +167,7 @@
             btnFilter.ForeColor = Color.White;
             btnFilter.Image = Properties.Resources.icon_funnel;
             btnFilter.ImageOffset = new Point(-3, 0);
-            btnFilter.Location = new Point(450, 4);
-            btnFilter.Margin = new Padding(3, 4, 3, 4);
+            btnFilter.Location = new Point(394, 8);
             btnFilter.Name = "btnFilter";
             btnFilter.ShadowDecoration.BorderRadius = 10;
             btnFilter.ShadowDecoration.Color = Color.DimGray;
@@ -175,7 +175,7 @@
             btnFilter.ShadowDecoration.Depth = 20;
             btnFilter.ShadowDecoration.Enabled = true;
             btnFilter.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            btnFilter.Size = new Size(181, 45);
+            btnFilter.Size = new Size(158, 34);
             btnFilter.TabIndex = 3;
             btnFilter.Text = "Filter";
             btnFilter.Click += btnFilter_Click;
@@ -194,8 +194,8 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(3, 5);
-            guna2TextBox1.Margin = new Padding(3, 5, 3, 5);
+            guna2TextBox1.Location = new Point(3, 4);
+            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PasswordChar = '\0';
             guna2TextBox1.PlaceholderText = "🔎 Search";
@@ -206,17 +206,16 @@
             guna2TextBox1.ShadowDecoration.Depth = 20;
             guna2TextBox1.ShadowDecoration.Enabled = true;
             guna2TextBox1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2TextBox1.Size = new Size(441, 43);
+            guna2TextBox1.Size = new Size(385, 43);
             guna2TextBox1.TabIndex = 0;
             // 
             // ucBorrowerList
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlBackground);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ucBorrowerList";
-            Size = new Size(1422, 952);
+            Size = new Size(1244, 714);
             Load += ucBorrowerList_Load;
             ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
             pnlBackground.ResumeLayout(false);

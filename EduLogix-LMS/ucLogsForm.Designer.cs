@@ -63,20 +63,20 @@
             pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
             pnlBackground.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             pnlBackground.Location = new Point(0, 0);
-            pnlBackground.Margin = new Padding(6, 7, 6, 7);
+            pnlBackground.Margin = new Padding(5, 5, 5, 5);
             pnlBackground.Name = "pnlBackground";
             pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            pnlBackground.Size = new Size(1422, 952);
+            pnlBackground.Size = new Size(1244, 714);
             pnlBackground.TabIndex = 2;
             // 
             // guna2HtmlLabel1
             // 
+            guna2HtmlLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(38, 21);
-            guna2HtmlLabel1.Margin = new Padding(3, 4, 3, 4);
+            guna2HtmlLabel1.Location = new Point(33, 16);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(59, 38);
+            guna2HtmlLabel1.Size = new Size(48, 32);
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Logs";
             // 
@@ -104,13 +104,11 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(34, 175);
-            guna2DataGridView1.Margin = new Padding(3, 4, 3, 4);
+            guna2DataGridView1.Location = new Point(30, 131);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
-            guna2DataGridView1.RowTemplate.Height = 25;
-            guna2DataGridView1.Size = new Size(1361, 1536);
+            guna2DataGridView1.Size = new Size(1191, 1152);
             guna2DataGridView1.TabIndex = 1;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -147,12 +145,11 @@
             tableLayoutPanel1.Controls.Add(btnFilter, 1, 0);
             tableLayoutPanel1.Controls.Add(guna2TextBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(guna2GradientButton2, 4, 0);
-            tableLayoutPanel1.Location = new Point(34, 97);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(30, 73);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1361, 53);
+            tableLayoutPanel1.Size = new Size(1191, 40);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnFilter
@@ -171,8 +168,7 @@
             btnFilter.ForeColor = Color.White;
             btnFilter.Image = Properties.Resources.icon_funnel;
             btnFilter.ImageOffset = new Point(-3, 0);
-            btnFilter.Location = new Point(450, 4);
-            btnFilter.Margin = new Padding(3, 4, 3, 4);
+            btnFilter.Location = new Point(394, 3);
             btnFilter.Name = "btnFilter";
             btnFilter.ShadowDecoration.BorderRadius = 10;
             btnFilter.ShadowDecoration.Color = Color.DimGray;
@@ -180,7 +176,7 @@
             btnFilter.ShadowDecoration.Depth = 20;
             btnFilter.ShadowDecoration.Enabled = true;
             btnFilter.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            btnFilter.Size = new Size(181, 45);
+            btnFilter.Size = new Size(158, 34);
             btnFilter.TabIndex = 4;
             btnFilter.Text = "Filter";
             btnFilter.Click += btnFilter_Click;
@@ -199,8 +195,8 @@
             guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             guna2TextBox1.Font = new Font("Segoe UI", 9F);
             guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(3, 5);
-            guna2TextBox1.Margin = new Padding(3, 5, 3, 5);
+            guna2TextBox1.Location = new Point(3, 4);
+            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PasswordChar = '\0';
             guna2TextBox1.PlaceholderText = "🔎 Search";
@@ -211,7 +207,7 @@
             guna2TextBox1.ShadowDecoration.Depth = 20;
             guna2TextBox1.ShadowDecoration.Enabled = true;
             guna2TextBox1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2TextBox1.Size = new Size(441, 43);
+            guna2TextBox1.Size = new Size(385, 32);
             guna2TextBox1.TabIndex = 0;
             // 
             // guna2GradientButton2
@@ -230,8 +226,7 @@
             guna2GradientButton2.ForeColor = Color.White;
             guna2GradientButton2.Image = Properties.Resources.icon_export;
             guna2GradientButton2.ImageOffset = new Point(-5, 0);
-            guna2GradientButton2.Location = new Point(1170, 4);
-            guna2GradientButton2.Margin = new Padding(3, 4, 3, 4);
+            guna2GradientButton2.Location = new Point(1024, 3);
             guna2GradientButton2.Name = "guna2GradientButton2";
             guna2GradientButton2.ShadowDecoration.BorderRadius = 10;
             guna2GradientButton2.ShadowDecoration.Color = Color.DimGray;
@@ -239,18 +234,17 @@
             guna2GradientButton2.ShadowDecoration.Depth = 20;
             guna2GradientButton2.ShadowDecoration.Enabled = true;
             guna2GradientButton2.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientButton2.Size = new Size(187, 45);
+            guna2GradientButton2.Size = new Size(164, 34);
             guna2GradientButton2.TabIndex = 5;
             guna2GradientButton2.Text = "Export";
             // 
             // ucLogsForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlBackground);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ucLogsForm";
-            Size = new Size(1422, 952);
+            Size = new Size(1244, 714);
             Load += ucLogsForm_Load;
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();
