@@ -141,6 +141,13 @@ namespace EduLogix
                 panelLogoutButton.Click += UserOptionsLogout_Click;
             }
 
+            var panelkioskButton = userOptions != null ? userOptions.Controls["kiosk"] as Button : null;
+            if (panelkioskButton != null)
+            {
+                panelkioskButton.Click -= UserOptionskiosk_Click;
+                panelkioskButton.Click += UserOptionskiosk_Click;
+            }
+
             WireOutsideClickHandler(this);
         }
 
@@ -238,6 +245,17 @@ namespace EduLogix
                 login.Show();
                 this.Close();
             }
+        }
+
+        private void UserOptionskiosk_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            var form = new Kiosk();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.Show();
         }
 
         #endregion
@@ -338,10 +356,7 @@ namespace EduLogix
             // Save button
             if (guna2GradientButton3 != null)
             {
-                var darker = DarkenColor(themeColor, 0.2f);
-                guna2GradientButton3.FillColor = darker;
-                guna2GradientButton3.FillColor2 = themeColor;
-                guna2GradientButton3.ForeColor = GetContrastColor(themeColor);
+                guna2GradientButton3.ForeColor = Color.White;
             }
 
             // Reset stays red

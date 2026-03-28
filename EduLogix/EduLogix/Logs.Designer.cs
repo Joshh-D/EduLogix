@@ -42,6 +42,7 @@
             this.WindowBorderless = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.userOptions = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.Button();
             this.settings = new System.Windows.Forms.Button();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -56,7 +57,7 @@
             this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.logout = new System.Windows.Forms.Button();
+            this.kiosk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -234,12 +235,22 @@
             // 
             // userOptions
             // 
+            this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
             this.userOptions.Controls.Add(this.settings);
             this.userOptions.Location = new System.Drawing.Point(6, 341);
             this.userOptions.Name = "userOptions";
             this.userOptions.Size = new System.Drawing.Size(210, 143);
             this.userOptions.TabIndex = 75;
+            // 
+            // logout
+            // 
+            this.logout.Location = new System.Drawing.Point(68, 89);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // settings
             // 
@@ -510,14 +521,14 @@
             this.userProfile.TabStop = false;
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
             // 
-            // logout
+            // kiosk
             // 
-            this.logout.Location = new System.Drawing.Point(68, 89);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(75, 23);
-            this.logout.TabIndex = 3;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = true;
+            this.kiosk.Location = new System.Drawing.Point(68, 118);
+            this.kiosk.Name = "kiosk";
+            this.kiosk.Size = new System.Drawing.Size(75, 23);
+            this.kiosk.TabIndex = 4;
+            this.kiosk.Text = "Kiosk";
+            this.kiosk.UseVisualStyleBackColor = true;
             // 
             // Logs
             // 
@@ -571,5 +582,6 @@
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
         private System.Windows.Forms.Button logout;
+        private System.Windows.Forms.Button kiosk;
     }
 }

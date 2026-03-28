@@ -123,7 +123,7 @@ namespace EduLogix
                             }
                             else if (dbRole.Equals("security", StringComparison.OrdinalIgnoreCase))
                             {
-                                Security security = new Security();
+                                SecurityDashboardForm security = new SecurityDashboardForm();
                                 security.Show();
                                 this.Hide();
                             }

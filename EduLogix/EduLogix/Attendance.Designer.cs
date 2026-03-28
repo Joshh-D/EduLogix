@@ -44,6 +44,7 @@
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.userOptions = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.Button();
             this.settings = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -62,7 +63,7 @@
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.logout = new System.Windows.Forms.Button();
+            this.kiosk = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.userOptions.SuspendLayout();
@@ -279,12 +280,22 @@
             // 
             // userOptions
             // 
+            this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
             this.userOptions.Controls.Add(this.settings);
             this.userOptions.Location = new System.Drawing.Point(6, 335);
             this.userOptions.Name = "userOptions";
             this.userOptions.Size = new System.Drawing.Size(210, 143);
             this.userOptions.TabIndex = 57;
+            // 
+            // logout
+            // 
+            this.logout.Location = new System.Drawing.Point(68, 87);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 2;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // settings
             // 
@@ -607,14 +618,14 @@
             this.schoolName.Text = "Caloocan City Business High School";
             this.schoolName.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // logout
+            // kiosk
             // 
-            this.logout.Location = new System.Drawing.Point(68, 87);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(75, 23);
-            this.logout.TabIndex = 2;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = true;
+            this.kiosk.Location = new System.Drawing.Point(67, 114);
+            this.kiosk.Name = "kiosk";
+            this.kiosk.Size = new System.Drawing.Size(75, 23);
+            this.kiosk.TabIndex = 3;
+            this.kiosk.Text = "Kiosk";
+            this.kiosk.UseVisualStyleBackColor = true;
             // 
             // AttendanceForm
             // 
@@ -679,5 +690,6 @@
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
         private System.Windows.Forms.Button logout;
+        private System.Windows.Forms.Button kiosk;
     }
 }

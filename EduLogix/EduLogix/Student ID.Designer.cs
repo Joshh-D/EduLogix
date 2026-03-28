@@ -41,6 +41,7 @@
             this.WindowBorderless = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.userOptions = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.Button();
             this.settings = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
@@ -65,7 +66,7 @@
             this.addNewStudent = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.combobox2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.logout = new System.Windows.Forms.Button();
+            this.kiosk = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.userOptions.SuspendLayout();
@@ -145,12 +146,22 @@
             // 
             // userOptions
             // 
+            this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
             this.userOptions.Controls.Add(this.settings);
             this.userOptions.Location = new System.Drawing.Point(5, 340);
             this.userOptions.Name = "userOptions";
             this.userOptions.Size = new System.Drawing.Size(210, 143);
             this.userOptions.TabIndex = 57;
+            // 
+            // logout
+            // 
+            this.logout.Location = new System.Drawing.Point(68, 89);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // settings
             // 
@@ -701,14 +712,14 @@
             this.combobox2.TabIndex = 50;
             this.combobox2.SelectedIndexChanged += new System.EventHandler(this.combobox2_SelectedIndexChanged);
             // 
-            // logout
+            // kiosk
             // 
-            this.logout.Location = new System.Drawing.Point(68, 89);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(75, 23);
-            this.logout.TabIndex = 3;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = true;
+            this.kiosk.Location = new System.Drawing.Point(68, 116);
+            this.kiosk.Name = "kiosk";
+            this.kiosk.Size = new System.Drawing.Size(75, 23);
+            this.kiosk.TabIndex = 4;
+            this.kiosk.Text = "Kiosk";
+            this.kiosk.UseVisualStyleBackColor = true;
             // 
             // StudentIDForm
             // 
@@ -773,5 +784,6 @@
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
         private System.Windows.Forms.Button logout;
+        private System.Windows.Forms.Button kiosk;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EduLogix
 {
-    partial class SecurityAttendance
+    partial class SecurityAttendanceForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,51 +32,43 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecurityAttendance));
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecurityAttendanceForm));
             this.WindowBorderless = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.UserName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.totalStudentNum = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.WindowAnimation = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.guna2AnimateWindow2 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.guna2BorderlessForm2 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.Logout = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.AttendancePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.userOptions = new System.Windows.Forms.Panel();
+            this.logout = new System.Windows.Forms.Button();
+            this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.attendancetotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.attendanceCombobox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.attendanceCombobox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.attendanceStudentSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.schoolLogo = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
+            this.kiosk = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
-            this.AttendancePanel.SuspendLayout();
-            this.guna2Panel14.SuspendLayout();
+            this.guna2GradientPanel1.SuspendLayout();
+            this.userOptions.SuspendLayout();
+            this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
             this.SuspendLayout();
-            // 
-            // guna2AnimateWindow1
-            // 
-            this.guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
-            this.guna2AnimateWindow1.Interval = 300;
-            this.guna2AnimateWindow1.TargetForm = this;
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // WindowBorderless
             // 
@@ -84,122 +76,84 @@
             this.WindowBorderless.DockIndicatorTransparencyValue = 0.6D;
             this.WindowBorderless.TransparentWhileDrag = true;
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
+            this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
+            this.guna2Panel1.Location = new System.Drawing.Point(5, 5);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(0, 0);
+            this.guna2Panel1.TabIndex = 13;
+            // 
             // guna2ControlBox1
             // 
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(-54, 1);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(-43, 1);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(36, 23);
             this.guna2ControlBox1.TabIndex = 0;
             // 
-            // guna2HtmlLabel1
+            // totalStudentNum
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(51, 256);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(123, 22);
-            this.guna2HtmlLabel1.TabIndex = 33;
-            this.guna2HtmlLabel1.Text = "Security Personnel";
-            // 
-            // UserName
-            // 
-            this.UserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.UserName.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.ForeColor = System.Drawing.Color.Black;
-            this.UserName.Location = new System.Drawing.Point(33, 225);
-            this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(166, 32);
-            this.UserName.TabIndex = 28;
-            this.UserName.Text = "Joshua Dayapera";
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1836, 2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(35, 25);
-            this.guna2ControlBox3.TabIndex = 32;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Tomato;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1871, 2);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(35, 25);
-            this.guna2ControlBox2.TabIndex = 29;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
-            this.guna2Panel1.Controls.Add(this.guna2ControlBox1);
-            this.guna2Panel1.Location = new System.Drawing.Point(7, 9);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(0, 0);
-            this.guna2Panel1.TabIndex = 30;
+            this.totalStudentNum.BackColor = System.Drawing.Color.Transparent;
+            this.totalStudentNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalStudentNum.ForeColor = System.Drawing.Color.Black;
+            this.totalStudentNum.Location = new System.Drawing.Point(145, 658);
+            this.totalStudentNum.Margin = new System.Windows.Forms.Padding(2);
+            this.totalStudentNum.Name = "totalStudentNum";
+            this.totalStudentNum.Size = new System.Drawing.Size(9, 24);
+            this.totalStudentNum.TabIndex = 30;
+            this.totalStudentNum.Text = "-";
             // 
             // WindowAnimation
             // 
             this.WindowAnimation.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
             this.WindowAnimation.Interval = 300;
-            // 
-            // guna2AnimateWindow2
-            // 
-            this.guna2AnimateWindow2.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
-            this.guna2AnimateWindow2.Interval = 300;
-            // 
-            // guna2BorderlessForm2
-            // 
-            this.guna2BorderlessForm2.ContainerControl = this;
-            this.guna2BorderlessForm2.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm2.TransparentWhileDrag = true;
+            this.WindowAnimation.TargetForm = this;
             // 
             // Attendance
             // 
             this.Attendance.Animated = true;
+            this.Attendance.BackColor = System.Drawing.Color.Transparent;
             this.Attendance.BorderColor = System.Drawing.Color.Transparent;
             this.Attendance.BorderRadius = 25;
             this.Attendance.BorderThickness = 1;
             this.Attendance.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.Attendance.Checked = true;
-            this.Attendance.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.Attendance.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.Attendance.CheckedState.BorderColor = System.Drawing.Color.Transparent;
+            this.Attendance.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.Attendance.CheckedState.FillColor = System.Drawing.Color.White;
+            this.Attendance.CheckedState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Attendance.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.Attendance.CustomizableEdges.BottomRight = false;
-            this.Attendance.CustomizableEdges.TopRight = false;
             this.Attendance.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Attendance.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Attendance.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Attendance.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Attendance.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.Attendance.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Attendance.FillColor = System.Drawing.Color.Transparent;
+            this.Attendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Attendance.ForeColor = System.Drawing.Color.Black;
             this.Attendance.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.Attendance.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_22_235329_removebg_preview;
             this.Attendance.ImageOffset = new System.Drawing.Point(-11, 0);
             this.Attendance.ImageSize = new System.Drawing.Size(30, 25);
-            this.Attendance.Location = new System.Drawing.Point(14, 365);
+            this.Attendance.Location = new System.Drawing.Point(14, 425);
+            this.Attendance.Margin = new System.Windows.Forms.Padding(2);
             this.Attendance.Name = "Attendance";
             this.Attendance.PressedColor = System.Drawing.SystemColors.Window;
             this.Attendance.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.Attendance.Size = new System.Drawing.Size(210, 55);
-            this.Attendance.TabIndex = 34;
+            this.Attendance.Size = new System.Drawing.Size(168, 44);
+            this.Attendance.TabIndex = 20;
             this.Attendance.Text = "Attendance";
-            this.Attendance.TextOffset = new System.Drawing.Point(-8, -2);
+            this.Attendance.TextOffset = new System.Drawing.Point(-5, -1);
             // 
             // Dashboard
             // 
             this.Dashboard.Animated = true;
+            this.Dashboard.BackColor = System.Drawing.Color.Transparent;
             this.Dashboard.BorderColor = System.Drawing.Color.Transparent;
             this.Dashboard.BorderRadius = 25;
             this.Dashboard.BorderThickness = 1;
@@ -208,166 +162,215 @@
             this.Dashboard.CheckedState.CustomBorderColor = System.Drawing.Color.White;
             this.Dashboard.CheckedState.FillColor = System.Drawing.Color.White;
             this.Dashboard.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.Dashboard.CustomizableEdges.BottomRight = false;
-            this.Dashboard.CustomizableEdges.TopRight = false;
             this.Dashboard.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Dashboard.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Dashboard.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.Dashboard.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Dashboard.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.Dashboard.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Dashboard.FillColor = System.Drawing.Color.Transparent;
+            this.Dashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Dashboard.ForeColor = System.Drawing.Color.Black;
             this.Dashboard.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.Dashboard.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_22_225546_removebg_preview;
             this.Dashboard.ImageOffset = new System.Drawing.Point(-13, 0);
             this.Dashboard.ImageSize = new System.Drawing.Size(30, 30);
-            this.Dashboard.Location = new System.Drawing.Point(14, 300);
+            this.Dashboard.Location = new System.Drawing.Point(14, 373);
+            this.Dashboard.Margin = new System.Windows.Forms.Padding(2);
             this.Dashboard.Name = "Dashboard";
-            this.Dashboard.PressedColor = System.Drawing.Color.White;
+            this.Dashboard.PressedColor = System.Drawing.SystemColors.Window;
             this.Dashboard.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.Dashboard.Size = new System.Drawing.Size(210, 55);
-            this.Dashboard.TabIndex = 26;
+            this.Dashboard.Size = new System.Drawing.Size(168, 44);
+            this.Dashboard.TabIndex = 12;
             this.Dashboard.Text = "Dashboard";
-            this.Dashboard.TextOffset = new System.Drawing.Point(-8, -2);
+            this.Dashboard.TextOffset = new System.Drawing.Point(-5, 0);
             this.Dashboard.Click += new System.EventHandler(this.Dashboard_Click);
             // 
-            // guna2PictureBox1
+            // guna2GradientPanel1
             // 
-            this.guna2PictureBox1.BorderRadius = 10;
-            this.guna2PictureBox1.Image = global::EduLogix.Properties.Resources.Gemini_Generated_Image_xj6gdbxj6gdbxj6g;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(23, 48);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(184, 53);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 27;
-            this.guna2PictureBox1.TabStop = false;
+            this.guna2GradientPanel1.Controls.Add(this.userOptions);
+            this.guna2GradientPanel1.Controls.Add(this.guna2ControlBox4);
+            this.guna2GradientPanel1.Controls.Add(this.guna2GradientPanel2);
+            this.guna2GradientPanel1.Controls.Add(this.guna2ControlBox5);
+            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel17);
+            this.guna2GradientPanel1.Controls.Add(this.schoolLogo);
+            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2GradientPanel1.Controls.Add(this.userProfile);
+            this.guna2GradientPanel1.Controls.Add(this.Attendance);
+            this.guna2GradientPanel1.Controls.Add(this.schoolName);
+            this.guna2GradientPanel1.Controls.Add(this.Dashboard);
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(228)))), ((int)(((byte)(150)))));
+            this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1536, 864);
+            this.guna2GradientPanel1.TabIndex = 49;
             // 
-            // Logout
+            // userOptions
             // 
-            this.Logout.Animated = true;
-            this.Logout.BorderColor = System.Drawing.Color.Transparent;
-            this.Logout.BorderRadius = 25;
-            this.Logout.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.Logout.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.Logout.CheckedState.FillColor = System.Drawing.Color.White;
-            this.Logout.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.Logout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Logout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Logout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Logout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Logout.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.Logout.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Logout.ForeColor = System.Drawing.Color.Black;
-            this.Logout.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Logout.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_001247_removebg_preview;
-            this.Logout.ImageOffset = new System.Drawing.Point(-15, 0);
-            this.Logout.ImageSize = new System.Drawing.Size(23, 23);
-            this.Logout.Location = new System.Drawing.Point(14, 990);
-            this.Logout.Name = "Logout";
-            this.Logout.PressedColor = System.Drawing.SystemColors.Window;
-            this.Logout.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.Logout.Size = new System.Drawing.Size(191, 55);
-            this.Logout.TabIndex = 35;
-            this.Logout.Text = "Logout";
-            this.Logout.TextOffset = new System.Drawing.Point(-5, -2);
-            this.Logout.Click += new System.EventHandler(this.Logout_Click);
+            this.userOptions.Controls.Add(this.kiosk);
+            this.userOptions.Controls.Add(this.logout);
+            this.userOptions.Location = new System.Drawing.Point(6, 335);
+            this.userOptions.Name = "userOptions";
+            this.userOptions.Size = new System.Drawing.Size(210, 143);
+            this.userOptions.TabIndex = 57;
             // 
-            // guna2CirclePictureBox1
+            // logout
             // 
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(55, 113);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(120, 110);
-            this.guna2CirclePictureBox1.TabIndex = 25;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.logout.Location = new System.Drawing.Point(68, 87);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(75, 23);
+            this.logout.TabIndex = 2;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
-            // AttendancePanel
+            // guna2ControlBox4
             // 
-            this.AttendancePanel.BackColor = System.Drawing.Color.Transparent;
-            this.AttendancePanel.BorderColor = System.Drawing.Color.White;
-            this.AttendancePanel.BorderRadius = 15;
-            this.AttendancePanel.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.AttendancePanel.Controls.Add(this.guna2DataGridView1);
-            this.AttendancePanel.Controls.Add(this.guna2Panel14);
-            this.AttendancePanel.Controls.Add(this.guna2Panel2);
-            this.AttendancePanel.Controls.Add(this.guna2HtmlLabel4);
-            this.AttendancePanel.FillColor = System.Drawing.SystemColors.Window;
-            this.AttendancePanel.Location = new System.Drawing.Point(223, 29);
-            this.AttendancePanel.Name = "AttendancePanel";
-            this.AttendancePanel.Size = new System.Drawing.Size(1683, 1039);
-            this.AttendancePanel.TabIndex = 36;
+            this.guna2ControlBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox4.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox4.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox4.Location = new System.Drawing.Point(1480, -1);
+            this.guna2ControlBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox4.Name = "guna2ControlBox4";
+            this.guna2ControlBox4.Size = new System.Drawing.Size(28, 20);
+            this.guna2ControlBox4.TabIndex = 57;
             // 
-            // guna2Panel14
+            // guna2GradientPanel2
             // 
-            this.guna2Panel14.BackColor = System.Drawing.Color.White;
-            this.guna2Panel14.BorderColor = System.Drawing.Color.Black;
-            this.guna2Panel14.BorderRadius = 10;
-            this.guna2Panel14.BorderThickness = 1;
-            this.guna2Panel14.Controls.Add(this.guna2Button3);
-            this.guna2Panel14.Controls.Add(this.guna2TextBox1);
-            this.guna2Panel14.Controls.Add(this.guna2ComboBox1);
-            this.guna2Panel14.FillColor = System.Drawing.Color.White;
-            this.guna2Panel14.Location = new System.Drawing.Point(31, 19);
-            this.guna2Panel14.Name = "guna2Panel14";
-            this.guna2Panel14.Size = new System.Drawing.Size(1620, 63);
-            this.guna2Panel14.TabIndex = 43;
+            this.guna2GradientPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel2.BorderRadius = 20;
+            this.guna2GradientPanel2.Controls.Add(this.attendancetotal);
+            this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton4);
+            this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel14);
+            this.guna2GradientPanel2.Controls.Add(this.attendanceCombobox2);
+            this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel2);
+            this.guna2GradientPanel2.Controls.Add(this.attendanceCombobox1);
+            this.guna2GradientPanel2.Controls.Add(this.guna2DataGridView1);
+            this.guna2GradientPanel2.Controls.Add(this.attendanceStudentSearch);
+            this.guna2GradientPanel2.FillColor = System.Drawing.Color.White;
+            this.guna2GradientPanel2.FillColor2 = System.Drawing.SystemColors.Info;
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(201, 23);
+            this.guna2GradientPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
+            this.guna2GradientPanel2.ShadowDecoration.BorderRadius = 20;
+            this.guna2GradientPanel2.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2GradientPanel2.ShadowDecoration.Enabled = true;
+            this.guna2GradientPanel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(1312, 820);
+            this.guna2GradientPanel2.TabIndex = 59;
             // 
-            // guna2Button3
+            // attendancetotal
             // 
-            this.guna2Button3.BorderRadius = 5;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.White;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_24_060147_removebg_preview;
-            this.guna2Button3.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button3.Location = new System.Drawing.Point(588, 11);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(51, 43);
-            this.guna2Button3.TabIndex = 40;
+            this.attendancetotal.BackColor = System.Drawing.Color.Transparent;
+            this.attendancetotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendancetotal.ForeColor = System.Drawing.Color.Black;
+            this.attendancetotal.Location = new System.Drawing.Point(153, 779);
+            this.attendancetotal.Margin = new System.Windows.Forms.Padding(2);
+            this.attendancetotal.Name = "attendancetotal";
+            this.attendancetotal.Size = new System.Drawing.Size(3, 2);
+            this.attendancetotal.TabIndex = 60;
+            this.attendancetotal.Text = null;
             // 
-            // guna2TextBox1
+            // guna2GradientButton4
             // 
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.BorderRadius = 5;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "Search Student Attendance";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(17, 9);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(564, 45);
-            this.guna2TextBox1.TabIndex = 1;
+            this.guna2GradientButton4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientButton4.BorderRadius = 5;
+            this.guna2GradientButton4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
+            this.guna2GradientButton4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
+            this.guna2GradientButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton4.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton4.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_26_222726_removebg_preview;
+            this.guna2GradientButton4.ImageOffset = new System.Drawing.Point(-5, 0);
+            this.guna2GradientButton4.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2GradientButton4.Location = new System.Drawing.Point(1124, 39);
+            this.guna2GradientButton4.Name = "guna2GradientButton4";
+            this.guna2GradientButton4.ShadowDecoration.BorderRadius = 10;
+            this.guna2GradientButton4.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.guna2GradientButton4.ShadowDecoration.Enabled = true;
+            this.guna2GradientButton4.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.guna2GradientButton4.Size = new System.Drawing.Size(137, 31);
+            this.guna2GradientButton4.TabIndex = 59;
+            this.guna2GradientButton4.Text = "Export";
+            this.guna2GradientButton4.TextOffset = new System.Drawing.Point(-3, 0);
             // 
-            // guna2ComboBox1
+            // guna2HtmlLabel14
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.BorderRadius = 5;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(1336, 13);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.Size = new System.Drawing.Size(268, 36);
-            this.guna2ComboBox1.TabIndex = 0;
+            this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel14.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(52, 30);
+            this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(141, 32);
+            this.guna2HtmlLabel14.TabIndex = 58;
+            this.guna2HtmlLabel14.Text = "Attendance";
+            // 
+            // attendanceCombobox2
+            // 
+            this.attendanceCombobox2.BackColor = System.Drawing.Color.Transparent;
+            this.attendanceCombobox2.BorderColor = System.Drawing.Color.Black;
+            this.attendanceCombobox2.BorderRadius = 5;
+            this.attendanceCombobox2.BorderThickness = 0;
+            this.attendanceCombobox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.attendanceCombobox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.attendanceCombobox2.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.attendanceCombobox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.attendanceCombobox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.attendanceCombobox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceCombobox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.attendanceCombobox2.ItemHeight = 40;
+            this.attendanceCombobox2.Location = new System.Drawing.Point(1046, 90);
+            this.attendanceCombobox2.Margin = new System.Windows.Forms.Padding(2);
+            this.attendanceCombobox2.Name = "attendanceCombobox2";
+            this.attendanceCombobox2.ShadowDecoration.BorderRadius = 5;
+            this.attendanceCombobox2.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.attendanceCombobox2.ShadowDecoration.Enabled = true;
+            this.attendanceCombobox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.attendanceCombobox2.Size = new System.Drawing.Size(215, 46);
+            this.attendanceCombobox2.TabIndex = 57;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Black;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(49, 779);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(99, 19);
+            this.guna2HtmlLabel2.TabIndex = 29;
+            this.guna2HtmlLabel2.Text = "Total Students: ";
+            // 
+            // attendanceCombobox1
+            // 
+            this.attendanceCombobox1.BackColor = System.Drawing.Color.Transparent;
+            this.attendanceCombobox1.BorderColor = System.Drawing.Color.Black;
+            this.attendanceCombobox1.BorderRadius = 5;
+            this.attendanceCombobox1.BorderThickness = 0;
+            this.attendanceCombobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.attendanceCombobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.attendanceCombobox1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.attendanceCombobox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.attendanceCombobox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.attendanceCombobox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceCombobox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.attendanceCombobox1.ItemHeight = 40;
+            this.attendanceCombobox1.Location = new System.Drawing.Point(816, 90);
+            this.attendanceCombobox1.Margin = new System.Windows.Forms.Padding(2);
+            this.attendanceCombobox1.Name = "attendanceCombobox1";
+            this.attendanceCombobox1.ShadowDecoration.BorderRadius = 5;
+            this.attendanceCombobox1.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.attendanceCombobox1.ShadowDecoration.Enabled = true;
+            this.attendanceCombobox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.attendanceCombobox1.Size = new System.Drawing.Size(215, 46);
+            this.attendanceCombobox1.TabIndex = 56;
             // 
             // guna2DataGridView1
             // 
@@ -397,13 +400,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(48, 157);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(52, 162);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1581, 827);
-            this.guna2DataGridView1.TabIndex = 32;
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1209, 602);
+            this.guna2DataGridView1.TabIndex = 51;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -426,90 +430,181 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // guna2Panel2
+            // attendanceStudentSearch
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.Black;
-            this.guna2Panel2.BorderRadius = 10;
-            this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.Location = new System.Drawing.Point(31, 142);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1621, 865);
-            this.guna2Panel2.TabIndex = 42;
+            this.attendanceStudentSearch.BackColor = System.Drawing.Color.Transparent;
+            this.attendanceStudentSearch.BorderColor = System.Drawing.Color.Black;
+            this.attendanceStudentSearch.BorderRadius = 5;
+            this.attendanceStudentSearch.BorderThickness = 0;
+            this.attendanceStudentSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.attendanceStudentSearch.DefaultText = "";
+            this.attendanceStudentSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.attendanceStudentSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.attendanceStudentSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.attendanceStudentSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.attendanceStudentSearch.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.attendanceStudentSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.attendanceStudentSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceStudentSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.attendanceStudentSearch.Location = new System.Drawing.Point(52, 90);
+            this.attendanceStudentSearch.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.attendanceStudentSearch.Name = "attendanceStudentSearch";
+            this.attendanceStudentSearch.PlaceholderText = "Search Student Attendance";
+            this.attendanceStudentSearch.SelectedText = "";
+            this.attendanceStudentSearch.ShadowDecoration.BorderRadius = 5;
+            this.attendanceStudentSearch.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.attendanceStudentSearch.ShadowDecoration.Enabled = true;
+            this.attendanceStudentSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.attendanceStudentSearch.Size = new System.Drawing.Size(451, 36);
+            this.attendanceStudentSearch.TabIndex = 53;
+            this.attendanceStudentSearch.TextOffset = new System.Drawing.Point(0, -3);
             // 
-            // guna2HtmlLabel4
+            // guna2ControlBox5
             // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(30, 93);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(248, 33);
-            this.guna2HtmlLabel4.TabIndex = 41;
-            this.guna2HtmlLabel4.Text = "Student Attendance List";
+            this.guna2ControlBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox5.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox5.HoverState.FillColor = System.Drawing.Color.Tomato;
+            this.guna2ControlBox5.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox5.Location = new System.Drawing.Point(1508, -1);
+            this.guna2ControlBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox5.Name = "guna2ControlBox5";
+            this.guna2ControlBox5.Size = new System.Drawing.Size(28, 20);
+            this.guna2ControlBox5.TabIndex = 56;
             // 
-            // SecurityAttendance
+            // guna2HtmlLabel17
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel17.Location = new System.Drawing.Point(32, 308);
+            this.guna2HtmlLabel17.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
+            this.guna2HtmlLabel17.Size = new System.Drawing.Size(143, 22);
+            this.guna2HtmlLabel17.TabIndex = 58;
+            this.guna2HtmlLabel17.Text = "Joshua Dayapera";
+            // 
+            // schoolLogo
+            // 
+            this.schoolLogo.BackColor = System.Drawing.Color.Transparent;
+            this.schoolLogo.BorderRadius = 10;
+            this.schoolLogo.Image = global::EduLogix.Properties.Resources.Caloocan_City_Business_High_School_Logo_1_removebg_preview1;
+            this.schoolLogo.ImageRotate = 0F;
+            this.schoolLogo.Location = new System.Drawing.Point(35, 28);
+            this.schoolLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.schoolLogo.Name = "schoolLogo";
+            this.schoolLogo.Size = new System.Drawing.Size(131, 138);
+            this.schoolLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.schoolLogo.TabIndex = 54;
+            this.schoolLogo.TabStop = false;
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(42, 331);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(112, 17);
+            this.guna2HtmlLabel1.TabIndex = 57;
+            this.guna2HtmlLabel1.Text = "Registrar Personnel";
+            // 
+            // userProfile
+            // 
+            this.userProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userProfile.ImageRotate = 0F;
+            this.userProfile.Location = new System.Drawing.Point(52, 210);
+            this.userProfile.Margin = new System.Windows.Forms.Padding(2);
+            this.userProfile.Name = "userProfile";
+            this.userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.userProfile.Size = new System.Drawing.Size(96, 92);
+            this.userProfile.TabIndex = 55;
+            this.userProfile.TabStop = false;
+            this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
+            // 
+            // schoolName
+            // 
+            this.schoolName.BackColor = System.Drawing.Color.Transparent;
+            this.schoolName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schoolName.ForeColor = System.Drawing.Color.White;
+            this.schoolName.Location = new System.Drawing.Point(11, 170);
+            this.schoolName.Margin = new System.Windows.Forms.Padding(2);
+            this.schoolName.Name = "schoolName";
+            this.schoolName.Size = new System.Drawing.Size(205, 15);
+            this.schoolName.TabIndex = 56;
+            this.schoolName.Text = "Caloocan City Business High School";
+            this.schoolName.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // kiosk
+            // 
+            this.kiosk.Location = new System.Drawing.Point(67, 116);
+            this.kiosk.Name = "kiosk";
+            this.kiosk.Size = new System.Drawing.Size(75, 23);
+            this.kiosk.TabIndex = 3;
+            this.kiosk.Text = "Kiosk";
+            this.kiosk.UseVisualStyleBackColor = true;
+            // 
+            // SecurityAttendanceForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.AttendancePanel);
-            this.Controls.Add(this.Attendance);
-            this.Controls.Add(this.Dashboard);
-            this.Controls.Add(this.guna2PictureBox1);
-            this.Controls.Add(this.guna2HtmlLabel1);
-            this.Controls.Add(this.UserName);
-            this.Controls.Add(this.guna2ControlBox3);
-            this.Controls.Add(this.guna2ControlBox2);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1536, 736);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.Logout);
-            this.Controls.Add(this.guna2CirclePictureBox1);
+            this.Controls.Add(this.guna2GradientPanel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SecurityAttendance";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.Name = "SecurityAttendanceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SecurityAttendance";
-            this.Load += new System.EventHandler(this.SecurityAttendance_Load);
+            this.Text = "Attendance";
+            this.Load += new System.EventHandler(this.AttendanceForm_Load);
             this.guna2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
-            this.AttendancePanel.ResumeLayout(false);
-            this.AttendancePanel.PerformLayout();
-            this.guna2Panel14.ResumeLayout(false);
+            this.guna2GradientPanel1.ResumeLayout(false);
+            this.guna2GradientPanel1.PerformLayout();
+            this.userOptions.ResumeLayout(false);
+            this.guna2GradientPanel2.ResumeLayout(false);
+            this.guna2GradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2BorderlessForm WindowBorderless;
         private Guna.UI2.WinForms.Guna2Button Attendance;
-        private Guna.UI2.WinForms.Guna2Button Dashboard;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel UserName;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2Button Logout;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
-        private Guna.UI2.WinForms.Guna2BorderlessForm WindowBorderless;
+        private Guna.UI2.WinForms.Guna2Button Dashboard;
         private Guna.UI2.WinForms.Guna2AnimateWindow WindowAnimation;
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow2;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm2;
-        private Guna.UI2.WinForms.Guna2Panel AttendancePanel;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel totalStudentNum;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2PictureBox schoolLogo;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
+        private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private Guna.UI2.WinForms.Guna2ComboBox attendanceCombobox2;
+        private Guna.UI2.WinForms.Guna2ComboBox attendanceCombobox1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2TextBox attendanceStudentSearch;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton4;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox4;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel attendancetotal;
+        private System.Windows.Forms.Panel userOptions;
+        private System.Windows.Forms.Button logout;
+        private System.Windows.Forms.Button kiosk;
     }
 }

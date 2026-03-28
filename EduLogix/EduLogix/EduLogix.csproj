@@ -63,8 +63,12 @@
     <Reference Include="Google.Protobuf, Version=3.32.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.32.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.Charts.WinForms, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.1.0\lib\net472\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
@@ -125,6 +129,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SecurityAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityAttendance.Designer.cs">
+      <DependentUpon>SecurityAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityDashboard.Designer.cs">
+      <DependentUpon>SecurityDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,18 +222,6 @@
     <Compile Include="RegIdle.Designer.cs">
       <DependentUpon>RegIdle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Security.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Security.Designer.cs">
-      <DependentUpon>Security.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SecurityAttendance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SecurityAttendance.Designer.cs">
-      <DependentUpon>SecurityAttendance.cs</DependentUpon>
-    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +252,12 @@
     <Compile Include="UsersArchive.Designer.cs">
       <DependentUpon>UsersArchive.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SecurityAttendance.resx">
+      <DependentUpon>SecurityAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityDashboard.resx">
+      <DependentUpon>SecurityDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin Dashboard.resx">
       <DependentUpon>Admin Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,27 +294,6 @@
     <EmbeddedResource Include="Logs.resx">
       <DependentUpon>Logs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\EduLogix.AttendanceForm.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.BookCatalog.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.BookInfo.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Borrowers.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.ConfirmBorrow.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.DashboardForm.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Kiosk.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.LibIdle.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.LibraryDashboard.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.LibraryLogs.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Login.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Logs.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Properties.Resources.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.RegIdle.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Security.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.SecurityAttendance.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Settings.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.StudentIDForm.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.StudentInfo.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.Users.resources" />
-    <EmbeddedResource Include="obj\Debug\EduLogix.UsersArchive.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -317,12 +306,6 @@
     </Compile>
     <EmbeddedResource Include="RegIdle.resx">
       <DependentUpon>RegIdle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Security.resx">
-      <DependentUpon>Security.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SecurityAttendance.resx">
-      <DependentUpon>SecurityAttendance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>

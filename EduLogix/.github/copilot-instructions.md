@@ -7,6 +7,7 @@
 ## Code Style
 - Use specific formatting rules
 - Follow naming conventions
+- Ensure security form class names are unique to avoid naming collisions with registrar forms (e.g., avoid `DashboardForm`/`AttendanceForm` overlaps).
 
 ## Project-Specific Rules
 - DataGridView double-click events should be wired in the Designer file, not programmatically in the code-behind.

@@ -1,6 +1,6 @@
 ﻿namespace EduLogix
 {
-    partial class DashboardForm
+    partial class SecurityDashboardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecurityDashboardForm));
             this.WindowBorderless = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -43,7 +43,6 @@
             this.guna2GradientPanel7 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.userOptions = new System.Windows.Forms.Panel();
             this.logout = new System.Windows.Forms.Button();
-            this.settings = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -86,9 +85,7 @@
             this.attendanceChartWeekly = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.schoolLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.Logs = new Guna.UI2.WinForms.Guna2Button();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.StudentsID = new Guna.UI2.WinForms.Guna2Button();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.kiosk = new System.Windows.Forms.Button();
@@ -189,9 +186,7 @@
             this.guna2GradientPanel7.Controls.Add(this.guna2GradientPanel8);
             this.guna2GradientPanel7.Controls.Add(this.schoolLogo);
             this.guna2GradientPanel7.Controls.Add(this.Dashboard);
-            this.guna2GradientPanel7.Controls.Add(this.Logs);
             this.guna2GradientPanel7.Controls.Add(this.userProfile);
-            this.guna2GradientPanel7.Controls.Add(this.StudentsID);
             this.guna2GradientPanel7.Controls.Add(this.schoolName);
             this.guna2GradientPanel7.Controls.Add(this.Attendance);
             this.guna2GradientPanel7.Controls.Add(this.guna2HtmlLabel1);
@@ -207,7 +202,6 @@
             // 
             this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
-            this.userOptions.Controls.Add(this.settings);
             this.userOptions.Location = new System.Drawing.Point(14, 413);
             this.userOptions.Name = "userOptions";
             this.userOptions.Size = new System.Drawing.Size(210, 143);
@@ -221,16 +215,6 @@
             this.logout.TabIndex = 1;
             this.logout.Text = "Logout";
             this.logout.UseVisualStyleBackColor = true;
-            // 
-            // settings
-            // 
-            this.settings.Location = new System.Drawing.Point(13, 10);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(75, 23);
-            this.settings.TabIndex = 0;
-            this.settings.Text = "Settings";
-            this.settings.UseVisualStyleBackColor = true;
-            this.settings.Click += new System.EventHandler(this.settings_Click);
             // 
             // guna2ControlBox4
             // 
@@ -827,39 +811,6 @@
             this.Dashboard.Text = "Dashboard";
             this.Dashboard.TextOffset = new System.Drawing.Point(-5, -1);
             // 
-            // Logs
-            // 
-            this.Logs.Animated = true;
-            this.Logs.BackColor = System.Drawing.Color.Transparent;
-            this.Logs.BorderColor = System.Drawing.Color.Transparent;
-            this.Logs.BorderRadius = 25;
-            this.Logs.BorderThickness = 1;
-            this.Logs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.Logs.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.Logs.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.Logs.CheckedState.FillColor = System.Drawing.Color.White;
-            this.Logs.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.Logs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.Logs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.Logs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.Logs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.Logs.FillColor = System.Drawing.Color.Transparent;
-            this.Logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logs.ForeColor = System.Drawing.Color.Black;
-            this.Logs.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Logs.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000426_removebg_preview__1_;
-            this.Logs.ImageOffset = new System.Drawing.Point(-25, 0);
-            this.Logs.ImageSize = new System.Drawing.Size(35, 30);
-            this.Logs.Location = new System.Drawing.Point(18, 661);
-            this.Logs.Name = "Logs";
-            this.Logs.PressedColor = System.Drawing.SystemColors.Window;
-            this.Logs.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.Logs.Size = new System.Drawing.Size(210, 55);
-            this.Logs.TabIndex = 7;
-            this.Logs.Text = "Logs";
-            this.Logs.TextOffset = new System.Drawing.Point(-8, 0);
-            this.Logs.Click += new System.EventHandler(this.Logs_Click);
-            // 
             // userProfile
             // 
             this.userProfile.BackColor = System.Drawing.Color.Transparent;
@@ -871,39 +822,6 @@
             this.userProfile.TabIndex = 0;
             this.userProfile.TabStop = false;
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
-            // 
-            // StudentsID
-            // 
-            this.StudentsID.Animated = true;
-            this.StudentsID.BackColor = System.Drawing.Color.Transparent;
-            this.StudentsID.BorderColor = System.Drawing.Color.Transparent;
-            this.StudentsID.BorderRadius = 25;
-            this.StudentsID.BorderThickness = 1;
-            this.StudentsID.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.StudentsID.CheckedState.BorderColor = System.Drawing.Color.White;
-            this.StudentsID.CheckedState.CustomBorderColor = System.Drawing.Color.White;
-            this.StudentsID.CheckedState.FillColor = System.Drawing.Color.White;
-            this.StudentsID.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.StudentsID.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.StudentsID.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.StudentsID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.StudentsID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.StudentsID.FillColor = System.Drawing.Color.Transparent;
-            this.StudentsID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StudentsID.ForeColor = System.Drawing.Color.Black;
-            this.StudentsID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.StudentsID.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000055_removebg_preview;
-            this.StudentsID.ImageOffset = new System.Drawing.Point(-11, 0);
-            this.StudentsID.ImageSize = new System.Drawing.Size(30, 25);
-            this.StudentsID.Location = new System.Drawing.Point(18, 596);
-            this.StudentsID.Name = "StudentsID";
-            this.StudentsID.PressedColor = System.Drawing.SystemColors.Window;
-            this.StudentsID.ShadowDecoration.Color = System.Drawing.Color.DarkSeaGreen;
-            this.StudentsID.Size = new System.Drawing.Size(210, 55);
-            this.StudentsID.TabIndex = 5;
-            this.StudentsID.Text = "Students ID";
-            this.StudentsID.TextOffset = new System.Drawing.Point(-5, 0);
-            this.StudentsID.Click += new System.EventHandler(this.StudentsID_Click);
             // 
             // Attendance
             // 
@@ -945,20 +863,20 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(52, 414);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(112, 17);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(105, 17);
             this.guna2HtmlLabel1.TabIndex = 3;
-            this.guna2HtmlLabel1.Text = "Registrar Personnel";
+            this.guna2HtmlLabel1.Text = "Security Personnel";
             // 
             // kiosk
             // 
             this.kiosk.Location = new System.Drawing.Point(13, 68);
             this.kiosk.Name = "kiosk";
             this.kiosk.Size = new System.Drawing.Size(75, 23);
-            this.kiosk.TabIndex = 2;
+            this.kiosk.TabIndex = 3;
             this.kiosk.Text = "Kiosk";
             this.kiosk.UseVisualStyleBackColor = true;
             // 
-            // DashboardForm
+            // SecurityDashboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -970,9 +888,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "DashboardForm";
+            this.Name = "SecurityDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin Dashboard";
+            this.Text = "Security Dashboard";
             this.guna2Panel1.ResumeLayout(false);
             this.guna2GradientPanel7.ResumeLayout(false);
             this.guna2GradientPanel7.PerformLayout();
@@ -1016,8 +934,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
         private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
         private Guna.UI2.WinForms.Guna2Button Attendance;
-        private Guna.UI2.WinForms.Guna2Button StudentsID;
-        private Guna.UI2.WinForms.Guna2Button Logs;
         private Guna.UI2.WinForms.Guna2AnimateWindow WindowAnimation;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
@@ -1065,7 +981,6 @@
         private Guna.UI2.WinForms.Guna2Button Dashboard;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private System.Windows.Forms.Panel userOptions;
-        private System.Windows.Forms.Button settings;
         private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Button kiosk;
     }

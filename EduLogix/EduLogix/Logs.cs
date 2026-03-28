@@ -40,6 +40,13 @@ namespace EduLogix
                 panelLogoutButton.Click += UserOptionsLogout_Click;
             }
 
+            var panelkioskButton = userOptions != null ? userOptions.Controls["kiosk"] as Button : null;
+            if (panelkioskButton != null)
+            {
+                panelkioskButton.Click -= UserOptionskiosk_Click;
+                panelkioskButton.Click += UserOptionskiosk_Click;
+            }
+
             WireOutsideClickHandler(this);
         }
 
@@ -115,6 +122,17 @@ namespace EduLogix
             form.Location = this.Location;
             form.Show();
             this.Close();
+        }
+
+        private void UserOptionskiosk_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            var form = new Kiosk();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.Show();
         }
 
         private void UserOptionsLogout_Click(object sender, EventArgs e)

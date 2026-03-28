@@ -12,13 +12,13 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace EduLogix
 {
-    public partial class DashboardForm : Form
+    public partial class SecurityDashboardForm : Form
     {
         private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
         private Timer dateTimeTimer;
         private int lastCountRefreshSecond = -1;
 
-        public DashboardForm()
+        public SecurityDashboardForm()
         {
             InitializeComponent();
             InitializeUserOptionsPanel();
@@ -57,12 +57,6 @@ namespace EduLogix
                 userOptions.Visible = false;
                 PositionUserOptionsPanel();
                 userOptions.BringToFront();
-            }
-
-            if (settings != null)
-            {
-                settings.Click -= UserOptionsSettings_Click;
-                settings.Click += UserOptionsSettings_Click;
             }
 
             var panelLogoutButton = userOptions != null ? userOptions.Controls["logout"] as Button : null;
@@ -271,16 +265,6 @@ namespace EduLogix
                 Attendance.Checked = false;
                 Attendance.FillColor = Color.Transparent;
             }
-            if (StudentsID != null)
-            {
-                StudentsID.Checked = false;
-                StudentsID.FillColor = Color.Transparent;
-            }
-            if (Logs != null)
-            {
-                Logs.Checked = false;
-                Logs.FillColor = Color.Transparent;
-            }
 
             // Active button white
             if (Dashboard != null)
@@ -347,8 +331,6 @@ namespace EduLogix
             // nav buttons on left sidebar
             ApplyNavTheme(Dashboard);
             ApplyNavTheme(Attendance);
-            ApplyNavTheme(StudentsID);
-            ApplyNavTheme(Logs);
 
             // top-right control boxes
             if (guna2ControlBox4 != null)
@@ -408,7 +390,7 @@ namespace EduLogix
 
         private void Attendance_Click(object sender, EventArgs e)
         {
-            AttendanceForm attendance = new AttendanceForm();
+            SecurityAttendanceForm attendance = new SecurityAttendanceForm();
             attendance.Show();
             this.Hide();
         }
@@ -583,7 +565,7 @@ namespace EduLogix
 
         private void OpenAttendanceWithFilters(string levelFilter, string statusFilter)
         {
-            var attendance = new AttendanceForm(levelFilter, statusFilter);
+            var attendance = new SecurityAttendanceForm(levelFilter, statusFilter);
             attendance.StartPosition = FormStartPosition.Manual;
             attendance.Location = this.Location;
             attendance.Show();
