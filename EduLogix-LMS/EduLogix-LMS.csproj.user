@@ -10,6 +10,9 @@
     <Compile Update="ucBookCatalog.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="ucBookCatalogArchive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ucBookCatalogFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>

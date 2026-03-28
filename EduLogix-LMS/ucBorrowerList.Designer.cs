@@ -28,23 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
+            pnlContainer = new Guna.UI2.WinForms.Guna2Panel();
+            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnFilter = new Guna.UI2.WinForms.Guna2GradientButton();
             guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             pnlBackground.SuspendLayout();
+            pnlContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -58,6 +62,43 @@
             guna2HtmlLabel1.Size = new Size(126, 32);
             guna2HtmlLabel1.TabIndex = 2;
             guna2HtmlLabel1.Text = "Borrower list";
+            // 
+            // pnlBackground
+            // 
+            pnlBackground.BorderRadius = 30;
+            pnlBackground.Controls.Add(pnlContainer);
+            pnlBackground.Controls.Add(tableLayoutPanel1);
+            pnlBackground.Controls.Add(guna2HtmlLabel1);
+            pnlBackground.CustomizableEdges = customizableEdges7;
+            pnlBackground.Dock = DockStyle.Fill;
+            pnlBackground.FillColor = Color.FromArgb(255, 254, 249);
+            pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
+            pnlBackground.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            pnlBackground.Location = new Point(0, 0);
+            pnlBackground.Margin = new Padding(5);
+            pnlBackground.Name = "pnlBackground";
+            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlBackground.Size = new Size(1244, 714);
+            pnlBackground.TabIndex = 1;
+            // 
+            // pnlContainer
+            // 
+            pnlContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlContainer.BackColor = Color.Transparent;
+            pnlContainer.BorderRadius = 30;
+            pnlContainer.Controls.Add(guna2DataGridView1);
+            pnlContainer.CustomizableEdges = customizableEdges1;
+            pnlContainer.FillColor = Color.White;
+            pnlContainer.Location = new Point(30, 130);
+            pnlContainer.Name = "pnlContainer";
+            pnlContainer.ShadowDecoration.BorderRadius = 30;
+            pnlContainer.ShadowDecoration.Color = Color.DimGray;
+            pnlContainer.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pnlContainer.ShadowDecoration.Depth = 20;
+            pnlContainer.ShadowDecoration.Enabled = true;
+            pnlContainer.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
+            pnlContainer.Size = new Size(1191, 520);
+            pnlContainer.TabIndex = 4;
             // 
             // guna2DataGridView1
             // 
@@ -83,14 +124,15 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(30, 131);
+            guna2DataGridView1.Location = new Point(25, 25);
+            guna2DataGridView1.Margin = new Padding(10);
             guna2DataGridView1.Name = "guna2DataGridView1";
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowHeadersWidth = 51;
             guna2DataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            guna2DataGridView1.Size = new Size(1191, 538);
-            guna2DataGridView1.TabIndex = 1;
+            guna2DataGridView1.Size = new Size(1136, 485);
+            guna2DataGridView1.TabIndex = 3;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
             guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
@@ -112,24 +154,6 @@
             guna2DataGridView1.ThemeStyle.RowsStyle.Height = 25;
             guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            // 
-            // pnlBackground
-            // 
-            pnlBackground.BorderRadius = 30;
-            pnlBackground.Controls.Add(tableLayoutPanel1);
-            pnlBackground.Controls.Add(guna2HtmlLabel1);
-            pnlBackground.Controls.Add(guna2DataGridView1);
-            pnlBackground.CustomizableEdges = customizableEdges5;
-            pnlBackground.Dock = DockStyle.Fill;
-            pnlBackground.FillColor = Color.FromArgb(255, 254, 249);
-            pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
-            pnlBackground.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            pnlBackground.Location = new Point(0, 0);
-            pnlBackground.Margin = new Padding(5);
-            pnlBackground.Name = "pnlBackground";
-            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            pnlBackground.Size = new Size(1244, 714);
-            pnlBackground.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -155,7 +179,7 @@
             btnFilter.Anchor = AnchorStyles.None;
             btnFilter.BackColor = Color.Transparent;
             btnFilter.BorderRadius = 10;
-            btnFilter.CustomizableEdges = customizableEdges1;
+            btnFilter.CustomizableEdges = customizableEdges3;
             btnFilter.DisabledState.BorderColor = Color.DarkGray;
             btnFilter.DisabledState.CustomBorderColor = Color.DarkGray;
             btnFilter.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -171,7 +195,7 @@
             btnFilter.Name = "btnFilter";
             btnFilter.ShadowDecoration.BorderRadius = 10;
             btnFilter.ShadowDecoration.Color = Color.DimGray;
-            btnFilter.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnFilter.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnFilter.ShadowDecoration.Depth = 20;
             btnFilter.ShadowDecoration.Enabled = true;
             btnFilter.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
@@ -184,7 +208,7 @@
             // 
             guna2TextBox1.BackColor = Color.Transparent;
             guna2TextBox1.BorderRadius = 10;
-            guna2TextBox1.CustomizableEdges = customizableEdges3;
+            guna2TextBox1.CustomizableEdges = customizableEdges5;
             guna2TextBox1.DefaultText = "";
             guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -202,7 +226,7 @@
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.BorderRadius = 10;
             guna2TextBox1.ShadowDecoration.Color = Color.DimGray;
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2TextBox1.ShadowDecoration.Depth = 20;
             guna2TextBox1.ShadowDecoration.Enabled = true;
             guna2TextBox1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
@@ -217,9 +241,10 @@
             Name = "ucBorrowerList";
             Size = new Size(1244, 714);
             Load += ucBorrowerList_Load;
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();
+            pnlContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -227,10 +252,11 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private Guna.UI2.WinForms.Guna2GradientPanel pnlBackground;
         private TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2GradientButton btnFilter;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2Panel pnlContainer;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
     }
 }

@@ -18,6 +18,7 @@ namespace EduLogix_LMS
 
         //mark
         private string connectionString = "server=localhost;database=edulogix-lms;uid=root;pwd=root;";
+        private string connectionStringRegistrar = "server=localhost;database=edulogix;uid=root;pwd=root;";
 
         //private string connectionString = "server=192.168.1.18;database=edulogix-lms;uid=arduino_user;pwd=secret;";
         MySqlConnection conn = new MySqlConnection();
@@ -41,13 +42,61 @@ namespace EduLogix_LMS
             return table;
         }
 
-        public DataTable GetBorrowerList()
+        public List<string> GetDistinctGrades()
+        {
+            List<string> grades = new List<string>();
+            conn.ConnectionString = connectionStringRegistrar;
+            string query = "SELECT distinct grade from edulogix.reg_studentinfo order by grade asc;";
+
+            try
+            {
+                if (conn.State != ConnectionState.Open) conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        grades.Add(reader["grade"].ToString());
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return grades;
+        }
+
+        // mark
+        public DataTable GetBorrowerList(bool isGradeFilter = false, List<string>? gradeFilter = null, bool isAscending = true)
         {
             conn.ConnectionString = connectionString;
             DataTable table = new DataTable();
+            
             try
             {
-                string query = "SELECT * FROM `edulogix-lms`.lms_borrower_list ORDER BY student_name";
+                string query = "SELECT * FROM `edulogix-lms`.lms_borrower_list";
+
+                if (isGradeFilter && gradeFilter.Count > 0)
+                {
+                    query += " WHERE ";
+                    int index = 1;
+                    foreach (string grade in gradeFilter)
+                    {
+                        query += "grade = " + grade + (index < gradeFilter.Count ? " OR " : "") ;
+                        index++;
+                    }
+                }
+
+                if (isAscending) query += " ORDER BY student_name";
+
+                MessageBox.Show(query);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 adapter.Fill(table);
 
