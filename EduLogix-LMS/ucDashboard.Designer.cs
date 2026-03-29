@@ -41,8 +41,6 @@ namespace EduLogix_LMS
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -51,6 +49,8 @@ namespace EduLogix_LMS
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucDashboard));
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -61,10 +61,6 @@ namespace EduLogix_LMS
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tblWidgets = new TableLayoutPanel();
             label2 = new Label();
-            guna2GradientPanel6 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            lblOverdue = new Label();
-            label10 = new Label();
-            iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             lblBorrowedBooks = new Label();
             label12 = new Label();
@@ -82,6 +78,10 @@ namespace EduLogix_LMS
             label14 = new Label();
             iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             label1 = new Label();
+            guna2GradientPanel6 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            lblOverdue = new Label();
+            label10 = new Label();
+            iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
             guna2Transition1 = new Guna.UI2.WinForms.Guna2Transition();
             timer1 = new System.Windows.Forms.Timer(components);
             pnlBackground.SuspendLayout();
@@ -91,8 +91,6 @@ namespace EduLogix_LMS
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             tblWidgets.SuspendLayout();
-            guna2GradientPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox6).BeginInit();
             guna2GradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).BeginInit();
             guna2GradientPanel3.SuspendLayout();
@@ -101,6 +99,8 @@ namespace EduLogix_LMS
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
+            guna2GradientPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox6).BeginInit();
             SuspendLayout();
             // 
             // pnlBackground
@@ -179,6 +179,7 @@ namespace EduLogix_LMS
             chart2.Size = new Size(534, 314);
             chart2.TabIndex = 0;
             chart2.Text = "chart2";
+            chart2.Click += chart2_Click;
             // 
             // guna2Panel1
             // 
@@ -217,6 +218,7 @@ namespace EduLogix_LMS
             chart1.Size = new Size(534, 314);
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
+            chart1.Click += chart1_Click;
             // 
             // tblWidgets
             // 
@@ -262,76 +264,6 @@ namespace EduLogix_LMS
             label2.Text = "February 25, 2026 2:50AM";
             label2.TextAlign = ContentAlignment.MiddleRight;
             label2.Click += label2_Click;
-            // 
-            // guna2GradientPanel6
-            // 
-            guna2GradientPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            guna2GradientPanel6.BackColor = Color.Transparent;
-            guna2GradientPanel6.BorderRadius = 10;
-            guna2GradientPanel6.Controls.Add(lblOverdue);
-            guna2GradientPanel6.Controls.Add(label10);
-            guna2GradientPanel6.Controls.Add(iconPictureBox6);
-            guna2GradientPanel6.CustomizableEdges = customizableEdges13;
-            guna2Transition1.SetDecoration(guna2GradientPanel6, Guna.UI2.AnimatorNS.DecorationType.None);
-            guna2GradientPanel6.FillColor = Color.FromArgb(184, 152, 108);
-            guna2GradientPanel6.FillColor2 = Color.FromArgb(255, 201, 118);
-            guna2GradientPanel6.Location = new Point(833, 53);
-            guna2GradientPanel6.MaximumSize = new Size(720, 320);
-            guna2GradientPanel6.MinimumSize = new Size(230, 53);
-            guna2GradientPanel6.Name = "guna2GradientPanel6";
-            guna2GradientPanel6.ShadowDecoration.BorderRadius = 10;
-            guna2GradientPanel6.ShadowDecoration.Color = Color.DimGray;
-            guna2GradientPanel6.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2GradientPanel6.ShadowDecoration.Depth = 20;
-            guna2GradientPanel6.ShadowDecoration.Enabled = true;
-            guna2GradientPanel6.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2GradientPanel6.Size = new Size(352, 106);
-            guna2GradientPanel6.TabIndex = 7;
-            guna2GradientPanel6.Paint += guna2GradientPanel6_Paint;
-            // 
-            // lblOverdue
-            // 
-            lblOverdue.AutoSize = true;
-            lblOverdue.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(lblOverdue, Guna.UI2.AnimatorNS.DecorationType.None);
-            lblOverdue.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            lblOverdue.ForeColor = Color.White;
-            lblOverdue.Location = new Point(109, 50);
-            lblOverdue.Name = "lblOverdue";
-            lblOverdue.Size = new Size(33, 34);
-            lblOverdue.TabIndex = 5;
-            lblOverdue.Text = "0";
-            lblOverdue.TextAlign = ContentAlignment.MiddleLeft;
-            lblOverdue.Click += lblOverdue_Click;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(label10, Guna.UI2.AnimatorNS.DecorationType.None);
-            label10.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(109, 14);
-            label10.Name = "label10";
-            label10.Size = new Size(102, 31);
-            label10.TabIndex = 4;
-            label10.Text = "Overdue";
-            label10.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // iconPictureBox6
-            // 
-            iconPictureBox6.Anchor = AnchorStyles.Left;
-            iconPictureBox6.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(iconPictureBox6, Guna.UI2.AnimatorNS.DecorationType.None);
-            iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
-            iconPictureBox6.IconColor = Color.White;
-            iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox6.IconSize = 81;
-            iconPictureBox6.Location = new Point(11, 14);
-            iconPictureBox6.Name = "iconPictureBox6";
-            iconPictureBox6.Size = new Size(81, 89);
-            iconPictureBox6.TabIndex = 3;
-            iconPictureBox6.TabStop = false;
             // 
             // guna2GradientPanel5
             // 
@@ -621,6 +553,76 @@ namespace EduLogix_LMS
             label1.Text = "Dashboard";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // guna2GradientPanel6
+            // 
+            guna2GradientPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            guna2GradientPanel6.BackColor = Color.Transparent;
+            guna2GradientPanel6.BorderRadius = 10;
+            guna2GradientPanel6.Controls.Add(lblOverdue);
+            guna2GradientPanel6.Controls.Add(label10);
+            guna2GradientPanel6.Controls.Add(iconPictureBox6);
+            guna2GradientPanel6.CustomizableEdges = customizableEdges13;
+            guna2Transition1.SetDecoration(guna2GradientPanel6, Guna.UI2.AnimatorNS.DecorationType.None);
+            guna2GradientPanel6.FillColor = Color.FromArgb(184, 152, 108);
+            guna2GradientPanel6.FillColor2 = Color.FromArgb(255, 201, 118);
+            guna2GradientPanel6.Location = new Point(833, 53);
+            guna2GradientPanel6.MaximumSize = new Size(720, 320);
+            guna2GradientPanel6.MinimumSize = new Size(230, 53);
+            guna2GradientPanel6.Name = "guna2GradientPanel6";
+            guna2GradientPanel6.ShadowDecoration.BorderRadius = 10;
+            guna2GradientPanel6.ShadowDecoration.Color = Color.DimGray;
+            guna2GradientPanel6.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2GradientPanel6.ShadowDecoration.Depth = 20;
+            guna2GradientPanel6.ShadowDecoration.Enabled = true;
+            guna2GradientPanel6.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
+            guna2GradientPanel6.Size = new Size(352, 106);
+            guna2GradientPanel6.TabIndex = 7;
+            guna2GradientPanel6.Paint += guna2GradientPanel6_Paint;
+            // 
+            // lblOverdue
+            // 
+            lblOverdue.AutoSize = true;
+            lblOverdue.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(lblOverdue, Guna.UI2.AnimatorNS.DecorationType.None);
+            lblOverdue.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            lblOverdue.ForeColor = Color.White;
+            lblOverdue.Location = new Point(109, 50);
+            lblOverdue.Name = "lblOverdue";
+            lblOverdue.Size = new Size(33, 34);
+            lblOverdue.TabIndex = 5;
+            lblOverdue.Text = "0";
+            lblOverdue.TextAlign = ContentAlignment.MiddleLeft;
+            lblOverdue.Click += lblOverdue_Click;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(label10, Guna.UI2.AnimatorNS.DecorationType.None);
+            label10.Font = new Font("Segoe UI Semibold", 17F, FontStyle.Bold);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(109, 14);
+            label10.Name = "label10";
+            label10.Size = new Size(102, 31);
+            label10.TabIndex = 4;
+            label10.Text = "Overdue";
+            label10.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // iconPictureBox6
+            // 
+            iconPictureBox6.Anchor = AnchorStyles.Left;
+            iconPictureBox6.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(iconPictureBox6, Guna.UI2.AnimatorNS.DecorationType.None);
+            iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
+            iconPictureBox6.IconColor = Color.White;
+            iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPictureBox6.IconSize = 81;
+            iconPictureBox6.Location = new Point(11, 14);
+            iconPictureBox6.Name = "iconPictureBox6";
+            iconPictureBox6.Size = new Size(81, 89);
+            iconPictureBox6.TabIndex = 3;
+            iconPictureBox6.TabStop = false;
+            // 
             // guna2Transition1
             // 
             guna2Transition1.Cursor = null;
@@ -666,9 +668,6 @@ namespace EduLogix_LMS
             ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             tblWidgets.ResumeLayout(false);
             tblWidgets.PerformLayout();
-            guna2GradientPanel6.ResumeLayout(false);
-            guna2GradientPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox6).EndInit();
             guna2GradientPanel5.ResumeLayout(false);
             guna2GradientPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).EndInit();
@@ -681,6 +680,9 @@ namespace EduLogix_LMS
             guna2GradientPanel2.ResumeLayout(false);
             guna2GradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
+            guna2GradientPanel6.ResumeLayout(false);
+            guna2GradientPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPictureBox6).EndInit();
             ResumeLayout(false);
         }
 

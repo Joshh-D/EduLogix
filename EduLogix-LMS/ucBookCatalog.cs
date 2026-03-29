@@ -74,5 +74,10 @@ namespace EduLogix_LMS
 
             MessageBox.Show(query);
         }
+
+        private void btnViewArchive_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

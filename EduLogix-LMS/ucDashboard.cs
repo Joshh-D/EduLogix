@@ -73,5 +73,15 @@ namespace EduLogix_LMS
         {
 
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
