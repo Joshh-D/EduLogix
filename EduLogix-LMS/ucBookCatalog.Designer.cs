@@ -95,7 +95,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             Tbl_Book_Catalog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            Tbl_Book_Catalog.ColumnHeadersHeight = 4;
+            Tbl_Book_Catalog.ColumnHeadersHeight = 20;
             Tbl_Book_Catalog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -124,7 +124,7 @@
             Tbl_Book_Catalog.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             Tbl_Book_Catalog.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             Tbl_Book_Catalog.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.Height = 4;
+            Tbl_Book_Catalog.ThemeStyle.HeaderStyle.Height = 20;
             Tbl_Book_Catalog.ThemeStyle.ReadOnly = false;
             Tbl_Book_Catalog.ThemeStyle.RowsStyle.BackColor = Color.White;
             Tbl_Book_Catalog.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;

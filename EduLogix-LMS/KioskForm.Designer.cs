@@ -60,7 +60,7 @@
             guna2GradientPanel1.Location = new Point(0, 0);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2GradientPanel1.Size = new Size(1227, 646);
+            guna2GradientPanel1.Size = new Size(1227, 603);
             guna2GradientPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -76,7 +76,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1227, 646);
+            tableLayoutPanel1.Size = new Size(1227, 603);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // pnlMainContent
@@ -91,7 +91,7 @@
             pnlMainContent.Margin = new Padding(5);
             pnlMainContent.Name = "pnlMainContent";
             pnlMainContent.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            pnlMainContent.Size = new Size(1217, 536);
+            pnlMainContent.Size = new Size(1217, 493);
             pnlMainContent.TabIndex = 2;
             // 
             // guna2GradientPanel3
@@ -145,7 +145,7 @@
             guna2HtmlLabel2.ForeColor = Color.White;
             guna2HtmlLabel2.Location = new Point(106, 40);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(213, 17);
+            guna2HtmlLabel2.Size = new Size(214, 17);
             guna2HtmlLabel2.TabIndex = 2;
             guna2HtmlLabel2.Text = "EduLogix-Library Managemenet System";
             // 
@@ -166,7 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1227, 646);
+            ClientSize = new Size(1227, 603);
             Controls.Add(guna2GradientPanel1);
             Name = "KioskForm";
             Text = "KioskForm";

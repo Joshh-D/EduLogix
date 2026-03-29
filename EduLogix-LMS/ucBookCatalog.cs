@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Automation;
 using System.Windows.Forms;
+using Org.BouncyCastle.Tls;
 
 namespace EduLogix_LMS
 {
@@ -28,12 +29,13 @@ namespace EduLogix_LMS
 
         private void ucBookCatalog_Load(object sender, EventArgs e)
         {
+            string query = "SELECT * FROM `edulogix-lms`.lms_book_catalogue ORDER BY title";
             ucBookCatalogFilterObj = new ucBookCatalogFilter();
             ucBookCatalogFilterObj.Location = new System.Drawing.Point(btnFilter.Location.X + 10, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Size.Height + 5);
             ucBookCatalogFilterObj.Visible = false;
             isFilterDisplayed = false;
             pnlBackground.Controls.Add(ucBookCatalogFilterObj);
-            Tbl_Book_Catalog.DataSource = db.GetAllBooks();
+            Tbl_Book_Catalog.DataSource = db.GetAllBooks(query);
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -49,6 +51,28 @@ namespace EduLogix_LMS
             isFilterDisplayed = ucBookCatalogFilterObj.Visible;
         }
 
-        
+        public void ApplyTableFilters(List<string> genre, List<string> status)
+        {
+            // MessageBox.Show("Selected Genres:\n\n" + string.Join(", ", genre) + "\n\n" + "Selected Status:\n\n" + string.Join(", ", status));
+            string query = "SELECT * FROM `edulogix-lms`.lms_book_catalogue";
+            if ((genre.Count > 0) || (status.Count > 0))
+            {
+                query += " WHERE ";
+                if ((genre.Count > 0))
+                {
+                    query += "genre IN(" + string.Join(", ", genre) + ")";
+
+                    if ((status.Count > 0))
+                    {
+                        query += " AND " + string.Join(" AND ", status);
+
+                    }
+                }
+                else
+                {
+                    query += string.Join(" AND ", status);
+                }
+            }
+        }
     }
 }

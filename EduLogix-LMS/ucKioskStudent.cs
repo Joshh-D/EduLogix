@@ -19,7 +19,7 @@ namespace EduLogix_LMS
         private string lastScannedISBN = "";
         private bool isProcessing = false;
 
-        string connectionString = "server=localhost;user id=root;password=;database=your_db;";
+        string connectionString = "server = 192.168.1.18; database=edulogix-lms;uid=arduino_user;pwd=secret;";
 
         public ucKioskStudent()
         {
@@ -109,7 +109,7 @@ namespace EduLogix_LMS
             {
                 conn.Open();
 
-                string query = "SELECT title, author FROM books WHERE isbn = @isbn LIMIT 1";
+                string query = "SELECT title, author FROM lms_book_catalogue WHERE isbn = @isbn LIMIT 1";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@isbn", isbn);
 
