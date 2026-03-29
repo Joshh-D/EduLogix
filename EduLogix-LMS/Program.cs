@@ -15,7 +15,7 @@ namespace EduLogix_LMS
             //Login login = new Login();
             //if (login.ShowDialog() == DialogResult.OK)
             //Application.Run(new LMSDashboard());
-            Application.Run(new LMSDashboard());
+            Application.Run(new KioskForm());
             //Application.Run(new KioskForm());
 
 

@@ -16,5 +16,15 @@ namespace EduLogix_LMS
         {
             InitializeComponent();
         }
+
+        private void pnlScanYourID_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnCatalog_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

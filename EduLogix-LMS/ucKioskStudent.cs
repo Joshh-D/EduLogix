@@ -430,27 +430,10 @@ namespace EduLogix_LMS
 
         private void LoadIdleScreen()
         {
-            try
+            KioskForm form = this.FindForm() as KioskForm;
+            if (form != null)
             {
-                Form parentForm = this.FindForm();
-                if (parentForm != null)
-                {
-                    Control pnlMainContent = parentForm.Controls["pnlMainContent"];
-                    if (pnlMainContent != null)
-                    {
-                        pnlMainContent.Controls.Clear();
-                        ucKioskIdle idleForm = new ucKioskIdle();
-                        idleForm.Dock = DockStyle.Fill;
-                        pnlMainContent.Controls.Add(idleForm);
-                        pnlMainContent.Controls["ucKioskIdle"].BringToFront();
-                        MessageBox.Show("idle screen is added");
-                        System.Diagnostics.Debug.WriteLine("✓ [IDLE SCREEN LOADED] Successfully loaded ucKioskIdle");
-                    }
-                } else MessageBox.Show("Parent form not found. Cannot load idle screen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"❌ [IDLE SCREEN ERROR] Failed to load idle screen: {ex.Message}");
+                form.ShowIdleScreen(); // ✅ CLEAN SWITCH
             }
         }
 

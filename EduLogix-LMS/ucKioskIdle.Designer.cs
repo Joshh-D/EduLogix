@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             pnlScanYourID = new Guna.UI2.WinForms.Guna2GradientPanel();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -56,7 +56,7 @@
             pnlBackground.Controls.Add(btnCatalog);
             pnlBackground.Controls.Add(pctbxAds);
             pnlBackground.Controls.Add(guna2HtmlLabel1);
-            pnlBackground.CustomizableEdges = customizableEdges15;
+            pnlBackground.CustomizableEdges = customizableEdges7;
             pnlBackground.Dock = DockStyle.Fill;
             pnlBackground.FillColor = Color.FromArgb(255, 254, 249);
             pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
@@ -64,7 +64,7 @@
             pnlBackground.Location = new Point(0, 0);
             pnlBackground.Margin = new Padding(5);
             pnlBackground.Name = "pnlBackground";
-            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges8;
             pnlBackground.Size = new Size(1244, 714);
             pnlBackground.TabIndex = 1;
             // 
@@ -74,19 +74,20 @@
             pnlScanYourID.BorderRadius = 30;
             pnlScanYourID.Controls.Add(iconPictureBox1);
             pnlScanYourID.Controls.Add(label1);
-            pnlScanYourID.CustomizableEdges = customizableEdges9;
+            pnlScanYourID.CustomizableEdges = customizableEdges1;
             pnlScanYourID.FillColor = Color.FromArgb(141, 167, 172);
             pnlScanYourID.FillColor2 = Color.FromArgb(153, 205, 216);
             pnlScanYourID.Location = new Point(943, 79);
             pnlScanYourID.Name = "pnlScanYourID";
             pnlScanYourID.ShadowDecoration.BorderRadius = 30;
             pnlScanYourID.ShadowDecoration.Color = Color.DimGray;
-            pnlScanYourID.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlScanYourID.ShadowDecoration.CustomizableEdges = customizableEdges2;
             pnlScanYourID.ShadowDecoration.Depth = 20;
             pnlScanYourID.ShadowDecoration.Enabled = true;
             pnlScanYourID.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
             pnlScanYourID.Size = new Size(270, 250);
             pnlScanYourID.TabIndex = 5;
+            pnlScanYourID.Paint += pnlScanYourID_Paint;
             // 
             // iconPictureBox1
             // 
@@ -117,7 +118,7 @@
             btnCatalog.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCatalog.BackColor = Color.Transparent;
             btnCatalog.BorderRadius = 30;
-            btnCatalog.CustomizableEdges = customizableEdges11;
+            btnCatalog.CustomizableEdges = customizableEdges3;
             btnCatalog.DisabledState.BorderColor = Color.DarkGray;
             btnCatalog.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCatalog.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -133,22 +134,23 @@
             btnCatalog.Name = "btnCatalog";
             btnCatalog.ShadowDecoration.BorderRadius = 30;
             btnCatalog.ShadowDecoration.Color = Color.DimGray;
-            btnCatalog.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnCatalog.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnCatalog.ShadowDecoration.Depth = 20;
             btnCatalog.ShadowDecoration.Enabled = true;
             btnCatalog.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
             btnCatalog.Size = new Size(270, 250);
             btnCatalog.TabIndex = 4;
             btnCatalog.Text = "View Catalog";
+            btnCatalog.Click += btnCatalog_Click;
             // 
             // pctbxAds
             // 
             pctbxAds.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pctbxAds.CustomizableEdges = customizableEdges13;
+            pctbxAds.CustomizableEdges = customizableEdges5;
             pctbxAds.ImageRotate = 0F;
             pctbxAds.Location = new Point(21, 18);
             pctbxAds.Name = "pctbxAds";
-            pctbxAds.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            pctbxAds.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pctbxAds.Size = new Size(886, 680);
             pctbxAds.TabIndex = 3;
             pctbxAds.TabStop = false;

@@ -32,6 +32,7 @@ namespace EduLogix_LMS
             ucKioskIdle idleForm = new ucKioskIdle();
             idleForm.Dock = DockStyle.Fill;
             pnlMainContent.Controls.Add(idleForm);
+            idleForm.BringToFront();
         }
 
         public void btnCheckout_Click(bool isLoggedIn = false)
