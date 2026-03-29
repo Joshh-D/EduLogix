@@ -17,11 +17,11 @@ namespace EduLogix_LMS
     {
 
         //mark
-        //private string connectionString = "server=localhost;database=edulogix-lms;uid=root;pwd=root;";
-        //private string connectionStringRegistrar = "server=localhost;database=edulogix;uid=root;pwd=root;";
+        private string connectionString = "server=localhost;database=edulogix-lms;uid=root;pwd=;";
+        private string connectionStringRegistrar = "server=localhost;database=edulogix;uid=root;pwd=;";
 
-        private string connectionString = "server=192.168.0.105;database=edulogix-lms;uid=arduino_user;pwd=secret;";
-        private string connectionStringRegistrar = "server=192.168.0.105;database=edulogix-lms;uid=arduino_user;pwd=secret;";
+        //private string connectionString = "server=192.168.0.105;database=edulogix-lms;uid=arduino_user;pwd=secret;";
+        //private string connectionStringRegistrar = "server=192.168.0.105;database=edulogix-lms;uid=arduino_user;pwd=secret;";
         MySqlConnection conn = new MySqlConnection();
 
         public DataRow VerifyLogin(string username, string password)

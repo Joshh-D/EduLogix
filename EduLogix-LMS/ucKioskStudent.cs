@@ -20,8 +20,8 @@ namespace EduLogix_LMS
         private bool isProcessing = false;
 
         // mark
-        // string connectionString = "server=localhost;user id=root;password=root;database=edulogix_lms;";
-        string connectionString = "server = 192.168.0.105; database=edulogix-lms;uid=arduino_user;pwd=secret;";
+         string connectionString = "server=localhost;user id=root;password=;database=edulogix-lms;";
+        //string connectionString = "server = 192.168.0.105; database=edulogix-lms;uid=arduino_user;pwd=secret;";
 
         public ucKioskStudent()
         {
