@@ -23,6 +23,35 @@ namespace EduLogix_LMS
         //private string connectionString = "server=192.168.1.18;database=edulogix-lms;uid=arduino_user;pwd=secret;";
         MySqlConnection conn = new MySqlConnection();
 
+        public DataRow VerifyLogin(string username, string password)
+        {
+            string query = "SELECT username, role, rfid_number FROM edulogix.sys_users WHERE username = @user AND password = @pass LIMIT 1";
+
+            DataTable resultTable = new DataTable();
+            try
+            {
+                using (MySqlConnection loginConn = new MySqlConnection(connectionStringRegistrar))
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, loginConn);
+                    cmd.Parameters.AddWithValue("@user", username);
+                    cmd.Parameters.AddWithValue("@pass", password);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(resultTable);
+                }
+
+                if (resultTable.Rows.Count > 0)
+                {
+                    return resultTable.Rows[0];
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Login Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
+
         public DataTable SearchBar(string table, string filter)
         {
             conn.ConnectionString = connectionString;

@@ -1,4 +1,4 @@
-﻿namespace EduLogix_LMS
+namespace EduLogix_LMS
 {
     partial class ucDashboard
     {
@@ -71,7 +71,7 @@
             label12 = new Label();
             iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            label7 = new Label();
+            Lbl_Damaged_Books = new Label();
             label8 = new Label();
             iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -410,7 +410,7 @@
             guna2GradientPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2GradientPanel4.BackColor = Color.Transparent;
             guna2GradientPanel4.BorderRadius = 10;
-            guna2GradientPanel4.Controls.Add(label7);
+            guna2GradientPanel4.Controls.Add(Lbl_Damaged_Books);
             guna2GradientPanel4.Controls.Add(label8);
             guna2GradientPanel4.Controls.Add(iconPictureBox5);
             guna2GradientPanel4.CustomizableEdges = customizableEdges29;
@@ -430,19 +430,19 @@
             guna2GradientPanel4.Size = new Size(352, 99);
             guna2GradientPanel4.TabIndex = 5;
             // 
-            // label7
+            // Lbl_Damaged_Books
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(label7, Guna.UI2.AnimatorNS.DecorationType.None);
-            label7.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(109, 49);
-            label7.Name = "label7";
-            label7.Size = new Size(33, 37);
-            label7.TabIndex = 4;
-            label7.Text = "0";
-            label7.TextAlign = ContentAlignment.MiddleLeft;
+            Lbl_Damaged_Books.AutoSize = true;
+            Lbl_Damaged_Books.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(Lbl_Damaged_Books, Guna.UI2.AnimatorNS.DecorationType.None);
+            Lbl_Damaged_Books.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            Lbl_Damaged_Books.ForeColor = Color.White;
+            Lbl_Damaged_Books.Location = new Point(109, 49);
+            Lbl_Damaged_Books.Name = "Lbl_Damaged_Books";
+            Lbl_Damaged_Books.Size = new Size(33, 37);
+            Lbl_Damaged_Books.TabIndex = 4;
+            Lbl_Damaged_Books.Text = "0";
+            Lbl_Damaged_Books.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
@@ -781,7 +781,7 @@
         private Label label10;
         private Label lblBorrowedBooks;
         private Label label12;
-        private Label label7;
+        private Label Lbl_Damaged_Books;
         private Label label8;
         private Label lblMissingBooks;
         private Label label6;

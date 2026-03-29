@@ -2,12 +2,10 @@ namespace EduLogix_LMS
 {
     public partial class LMSDashboard : Form
     {
-        dbhandler db;
 
         public LMSDashboard()
         {
             InitializeComponent();
-            db = new dbhandler();
             this.WindowState = FormWindowState.Maximized;
         }
 

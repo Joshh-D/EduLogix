@@ -1,4 +1,4 @@
-﻿namespace EduLogix_LMS
+namespace EduLogix_LMS
 {
     partial class ucKioskStudent
     {
@@ -175,7 +175,7 @@
             guna2HtmlLabel5.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
             guna2HtmlLabel5.Location = new Point(21, 233);
             guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            guna2HtmlLabel5.Size = new Size(108, 32);
+            guna2HtmlLabel5.Size = new Size(105, 32);
             guna2HtmlLabel5.TabIndex = 9;
             guna2HtmlLabel5.Text = "Borrow for";
             // 
@@ -376,7 +376,7 @@
             guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
             guna2HtmlLabel1.Location = new Point(38, 11);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(44, 32);
+            guna2HtmlLabel1.Size = new Size(45, 32);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Title";
             // 
@@ -387,7 +387,7 @@
             guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
             guna2HtmlLabel2.Location = new Point(12, 65);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(70, 32);
+            guna2HtmlLabel2.Size = new Size(68, 32);
             guna2HtmlLabel2.TabIndex = 1;
             guna2HtmlLabel2.Text = "Author";
             // 
@@ -537,7 +537,7 @@
             // 
             // ucKioskStudent
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlBackground);
             Name = "ucKioskStudent";

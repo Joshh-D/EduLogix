@@ -16,10 +16,7 @@ namespace EduLogix_LMS
         {
             InitializeComponent();
         }
-
-        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+
+
 }
