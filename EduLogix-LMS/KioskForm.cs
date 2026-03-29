@@ -51,5 +51,15 @@ namespace EduLogix_LMS
             catalogKiosk.Dock = DockStyle.Fill;
             pnlMainContent.Controls.Add(catalogKiosk);
         }
+        private void KioskForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is ucKioskStudent kiosk)
+                {
+                    kiosk.Dispose(); // triggers StopCamera
+                }
+            }
+        }
     }
 }

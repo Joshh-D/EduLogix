@@ -43,6 +43,7 @@ namespace EduLogix_LMS
 
                 if (resultTable.Rows.Count > 0)
                 {
+                    InsertLog(username, "LOGIN", "User logged in");
                     return resultTable.Rows[0];
                 }
             }
@@ -268,6 +269,35 @@ namespace EduLogix_LMS
 
             // string query = "SELECT * FROM `edulogix-lms`.lms_book_catalogue "
 
+        }
+        public void InsertLog(string user, string action, string description)
+        {
+            string query = "INSERT INTO `edulogix-lms`.lms_logs (user_name, action, description) VALUES (@user, @action, @desc)";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@user", user);
+                cmd.Parameters.AddWithValue("@action", action);
+                cmd.Parameters.AddWithValue("@desc", description);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public DataTable GetAllLogs()
+        {
+            string query = "SELECT date_time AS 'Date', user_name AS 'User', action AS 'Action', description AS 'Description' FROM `edulogix-lms`.lms_logs ORDER BY date_time DESC";
+
+            DataTable table = new DataTable();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                adapter.Fill(table);
+            }
+
+            return table;
         }
     }
 }

@@ -1,4 +1,4 @@
-using AForge.Video;
+﻿using AForge.Video;
 using AForge.Video.DirectShow;
 using MySql.Data.MySqlClient;
 using System;
@@ -27,6 +27,8 @@ namespace EduLogix_LMS
         {
             InitializeComponent();
             this.Load += ucKioskStudent_Load;
+
+            this.Disposed += (s, e) => StopCamera();
         }
 
         private void ucKioskStudent_Load(object sender, EventArgs e)
@@ -285,7 +287,43 @@ namespace EduLogix_LMS
 
             base.OnHandleDestroyed(e);
         }
+        private void StopCamera()
+        {
+            try
+            {
+                
+                if (pctbxLiveFeed.InvokeRequired)
+                {
+                    pctbxLiveFeed.Invoke(new Action(() =>
+                    {
+                        pctbxLiveFeed.Image?.Dispose();
+                        pctbxLiveFeed.Image = null;
+                    }));
+                }
+                else
+                {
+                    pctbxLiveFeed.Image?.Dispose();
+                    pctbxLiveFeed.Image = null;
+                }
 
+                
+                if (videoSource != null)
+                {
+                    if (videoSource.IsRunning)
+                    {
+                        videoSource.NewFrame -= VideoSource_NewFrame;
+                        videoSource.SignalToStop();
+                        videoSource.WaitForStop();
+                    }
+
+                    videoSource = null;
+                }
+            }
+            catch
+            {
+                
+            }
+        }
         private void pctbxLiveFeed_Click(object sender, EventArgs e) { }
         private void guna2HtmlLabel10_Click(object sender, EventArgs e) { }
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e) { }
