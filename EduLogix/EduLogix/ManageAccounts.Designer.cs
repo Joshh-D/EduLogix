@@ -1,6 +1,6 @@
 ﻿namespace EduLogix
 {
-    partial class StudentIDForm
+    partial class ManageAccounts
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentIDForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAccounts));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.WindowAnimation = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
@@ -57,22 +57,22 @@
             this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.attendancetotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.accountsCounter = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.combobox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.uploadexcel = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.addNewStudent = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.combobox2 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.manageAccountsDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.addNewUser = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.bindRFIDBtn = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.deleteUser = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.saveChanges = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.editUser = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.userOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageAccountsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -415,16 +415,16 @@
             // 
             this.guna2GradientPanel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel2.BorderRadius = 20;
+            this.guna2GradientPanel2.Controls.Add(this.editUser);
+            this.guna2GradientPanel2.Controls.Add(this.saveChanges);
+            this.guna2GradientPanel2.Controls.Add(this.deleteUser);
+            this.guna2GradientPanel2.Controls.Add(this.bindRFIDBtn);
             this.guna2GradientPanel2.Controls.Add(this.attendancetotal);
-            this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel3);
+            this.guna2GradientPanel2.Controls.Add(this.accountsCounter);
             this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel14);
             this.guna2GradientPanel2.Controls.Add(this.guna2TextBox1);
-            this.guna2GradientPanel2.Controls.Add(this.guna2DataGridView1);
-            this.guna2GradientPanel2.Controls.Add(this.combobox1);
-            this.guna2GradientPanel2.Controls.Add(this.uploadexcel);
-            this.guna2GradientPanel2.Controls.Add(this.addNewStudent);
-            this.guna2GradientPanel2.Controls.Add(this.guna2GradientButton2);
-            this.guna2GradientPanel2.Controls.Add(this.combobox2);
+            this.guna2GradientPanel2.Controls.Add(this.manageAccountsDataGrid);
+            this.guna2GradientPanel2.Controls.Add(this.addNewUser);
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.White;
             this.guna2GradientPanel2.FillColor2 = System.Drawing.SystemColors.Info;
             this.guna2GradientPanel2.Location = new System.Drawing.Point(251, 30);
@@ -449,17 +449,17 @@
             this.attendancetotal.TabIndex = 62;
             this.attendancetotal.Text = null;
             // 
-            // guna2HtmlLabel3
+            // accountsCounter
             // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(61, 974);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(116, 22);
-            this.guna2HtmlLabel3.TabIndex = 61;
-            this.guna2HtmlLabel3.Text = "Total Students: ";
+            this.accountsCounter.BackColor = System.Drawing.Color.Transparent;
+            this.accountsCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountsCounter.ForeColor = System.Drawing.Color.Black;
+            this.accountsCounter.Location = new System.Drawing.Point(61, 974);
+            this.accountsCounter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.accountsCounter.Name = "accountsCounter";
+            this.accountsCounter.Size = new System.Drawing.Size(120, 22);
+            this.accountsCounter.TabIndex = 61;
+            this.accountsCounter.Text = "Total Accounts: ";
             // 
             // guna2HtmlLabel14
             // 
@@ -469,9 +469,9 @@
             this.guna2HtmlLabel14.Location = new System.Drawing.Point(65, 38);
             this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(187, 40);
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(212, 40);
             this.guna2HtmlLabel14.TabIndex = 52;
-            this.guna2HtmlLabel14.Text = "Student List";
+            this.guna2HtmlLabel14.Text = "Accounts List";
             // 
             // guna2TextBox1
             // 
@@ -492,26 +492,26 @@
             this.guna2TextBox1.Location = new System.Drawing.Point(65, 113);
             this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "Search Registered Student";
+            this.guna2TextBox1.PlaceholderText = "Search Accounts";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.ShadowDecoration.BorderRadius = 5;
             this.guna2TextBox1.ShadowDecoration.Color = System.Drawing.Color.Gray;
             this.guna2TextBox1.ShadowDecoration.Enabled = true;
             this.guna2TextBox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2TextBox1.Size = new System.Drawing.Size(564, 46);
+            this.guna2TextBox1.Size = new System.Drawing.Size(452, 46);
             this.guna2TextBox1.TabIndex = 1;
             this.guna2TextBox1.TextOffset = new System.Drawing.Point(0, -3);
             this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
-            // guna2DataGridView1
+            // manageAccountsDataGrid
             // 
-            this.guna2DataGridView1.AllowUserToAddRows = false;
-            this.guna2DataGridView1.AllowUserToDeleteRows = false;
-            this.guna2DataGridView1.AllowUserToResizeColumns = false;
-            this.guna2DataGridView1.AllowUserToResizeRows = false;
+            this.manageAccountsDataGrid.AllowUserToAddRows = false;
+            this.manageAccountsDataGrid.AllowUserToDeleteRows = false;
+            this.manageAccountsDataGrid.AllowUserToResizeColumns = false;
+            this.manageAccountsDataGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.manageAccountsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.manageAccountsDataGrid.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -519,9 +519,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.guna2DataGridView1.ColumnHeadersHeight = 40;
-            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.manageAccountsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.manageAccountsDataGrid.ColumnHeadersHeight = 40;
+            this.manageAccountsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -529,177 +529,172 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(65, 203);
-            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2DataGridView1.Name = "guna2DataGridView1";
-            this.guna2DataGridView1.ReadOnly = true;
-            this.guna2DataGridView1.RowHeadersVisible = false;
-            this.guna2DataGridView1.RowHeadersWidth = 51;
-            this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.guna2DataGridView1.RowTemplate.Height = 35;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1511, 753);
-            this.guna2DataGridView1.TabIndex = 33;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.guna2DataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 40;
-            this.guna2DataGridView1.ThemeStyle.ReadOnly = true;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 35;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellDoubleClick);
+            this.manageAccountsDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.manageAccountsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.manageAccountsDataGrid.Location = new System.Drawing.Point(65, 203);
+            this.manageAccountsDataGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.manageAccountsDataGrid.Name = "manageAccountsDataGrid";
+            this.manageAccountsDataGrid.ReadOnly = true;
+            this.manageAccountsDataGrid.RowHeadersVisible = false;
+            this.manageAccountsDataGrid.RowHeadersWidth = 51;
+            this.manageAccountsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.manageAccountsDataGrid.RowTemplate.Height = 35;
+            this.manageAccountsDataGrid.Size = new System.Drawing.Size(1511, 753);
+            this.manageAccountsDataGrid.TabIndex = 33;
+            this.manageAccountsDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.manageAccountsDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.manageAccountsDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.manageAccountsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.manageAccountsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.manageAccountsDataGrid.ThemeStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.manageAccountsDataGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.manageAccountsDataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.manageAccountsDataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.manageAccountsDataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageAccountsDataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.manageAccountsDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.manageAccountsDataGrid.ThemeStyle.HeaderStyle.Height = 40;
+            this.manageAccountsDataGrid.ThemeStyle.ReadOnly = true;
+            this.manageAccountsDataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.manageAccountsDataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.manageAccountsDataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageAccountsDataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.manageAccountsDataGrid.ThemeStyle.RowsStyle.Height = 35;
+            this.manageAccountsDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.manageAccountsDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.manageAccountsDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellDoubleClick);
             // 
-            // combobox1
+            // addNewUser
             // 
-            this.combobox1.BackColor = System.Drawing.Color.Transparent;
-            this.combobox1.BorderColor = System.Drawing.Color.Black;
-            this.combobox1.BorderRadius = 5;
-            this.combobox1.BorderThickness = 0;
-            this.combobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combobox1.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.combobox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combobox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.combobox1.ItemHeight = 40;
-            this.combobox1.Items.AddRange(new object[] {
-            "All",
-            "Elementary",
-            "Junior",
-            "Senior"});
-            this.combobox1.Location = new System.Drawing.Point(1020, 113);
-            this.combobox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.combobox1.Name = "combobox1";
-            this.combobox1.ShadowDecoration.BorderRadius = 5;
-            this.combobox1.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.combobox1.ShadowDecoration.Enabled = true;
-            this.combobox1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.combobox1.Size = new System.Drawing.Size(268, 46);
-            this.combobox1.TabIndex = 51;
-            this.combobox1.SelectedIndexChanged += new System.EventHandler(this.combobox1_SelectedIndexChanged);
+            this.addNewUser.BackColor = System.Drawing.Color.Transparent;
+            this.addNewUser.BorderRadius = 5;
+            this.addNewUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addNewUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addNewUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNewUser.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNewUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addNewUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
+            this.addNewUser.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
+            this.addNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.addNewUser.ForeColor = System.Drawing.Color.White;
+            this.addNewUser.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_212812_removebg_preview;
+            this.addNewUser.ImageSize = new System.Drawing.Size(30, 30);
+            this.addNewUser.Location = new System.Drawing.Point(803, 136);
+            this.addNewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addNewUser.Name = "addNewUser";
+            this.addNewUser.ShadowDecoration.BorderRadius = 5;
+            this.addNewUser.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.addNewUser.ShadowDecoration.Enabled = true;
+            this.addNewUser.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.addNewUser.Size = new System.Drawing.Size(171, 39);
+            this.addNewUser.TabIndex = 50;
+            this.addNewUser.Text = "Add New";
+            this.addNewUser.Click += new System.EventHandler(this.addNewStudent_Click);
             // 
-            // uploadexcel
+            // bindRFIDBtn
             // 
-            this.uploadexcel.BackColor = System.Drawing.Color.Transparent;
-            this.uploadexcel.BorderRadius = 5;
-            this.uploadexcel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.uploadexcel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.uploadexcel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.uploadexcel.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.uploadexcel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.uploadexcel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
-            this.uploadexcel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
-            this.uploadexcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadexcel.ForeColor = System.Drawing.Color.White;
-            this.uploadexcel.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002631_removebg_preview;
-            this.uploadexcel.ImageSize = new System.Drawing.Size(30, 30);
-            this.uploadexcel.Location = new System.Drawing.Point(1214, 49);
-            this.uploadexcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uploadexcel.Name = "uploadexcel";
-            this.uploadexcel.ShadowDecoration.BorderRadius = 5;
-            this.uploadexcel.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.uploadexcel.ShadowDecoration.Enabled = true;
-            this.uploadexcel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.uploadexcel.Size = new System.Drawing.Size(171, 39);
-            this.uploadexcel.TabIndex = 49;
-            this.uploadexcel.Text = "Upload List";
-            this.uploadexcel.Click += new System.EventHandler(this.uploadexcel_Click);
+            this.bindRFIDBtn.BackColor = System.Drawing.Color.Transparent;
+            this.bindRFIDBtn.BorderRadius = 5;
+            this.bindRFIDBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.bindRFIDBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.bindRFIDBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bindRFIDBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bindRFIDBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.bindRFIDBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
+            this.bindRFIDBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
+            this.bindRFIDBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bindRFIDBtn.ForeColor = System.Drawing.Color.White;
+            this.bindRFIDBtn.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000055_removebg_preview1;
+            this.bindRFIDBtn.ImageSize = new System.Drawing.Size(30, 25);
+            this.bindRFIDBtn.Location = new System.Drawing.Point(596, 136);
+            this.bindRFIDBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.bindRFIDBtn.Name = "bindRFIDBtn";
+            this.bindRFIDBtn.ShadowDecoration.BorderRadius = 10;
+            this.bindRFIDBtn.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.bindRFIDBtn.ShadowDecoration.Enabled = true;
+            this.bindRFIDBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.bindRFIDBtn.Size = new System.Drawing.Size(170, 40);
+            this.bindRFIDBtn.TabIndex = 112;
+            this.bindRFIDBtn.Text = "Bind RFID";
             // 
-            // addNewStudent
+            // deleteUser
             // 
-            this.addNewStudent.BackColor = System.Drawing.Color.Transparent;
-            this.addNewStudent.BorderRadius = 5;
-            this.addNewStudent.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addNewStudent.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addNewStudent.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addNewStudent.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addNewStudent.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addNewStudent.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
-            this.addNewStudent.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
-            this.addNewStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.addNewStudent.ForeColor = System.Drawing.Color.White;
-            this.addNewStudent.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_09_232208_removebg_preview;
-            this.addNewStudent.ImageSize = new System.Drawing.Size(30, 30);
-            this.addNewStudent.Location = new System.Drawing.Point(1020, 49);
-            this.addNewStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.addNewStudent.Name = "addNewStudent";
-            this.addNewStudent.ShadowDecoration.BorderRadius = 5;
-            this.addNewStudent.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.addNewStudent.ShadowDecoration.Enabled = true;
-            this.addNewStudent.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.addNewStudent.Size = new System.Drawing.Size(171, 39);
-            this.addNewStudent.TabIndex = 50;
-            this.addNewStudent.Text = "Add New";
-            this.addNewStudent.Click += new System.EventHandler(this.addNewStudent_Click);
+            this.deleteUser.BackColor = System.Drawing.Color.Transparent;
+            this.deleteUser.BorderRadius = 5;
+            this.deleteUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteUser.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.deleteUser.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.deleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteUser.ForeColor = System.Drawing.Color.White;
+            this.deleteUser.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194429_removebg_preview;
+            this.deleteUser.Location = new System.Drawing.Point(1207, 135);
+            this.deleteUser.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteUser.Name = "deleteUser";
+            this.deleteUser.ShadowDecoration.BorderRadius = 10;
+            this.deleteUser.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.deleteUser.ShadowDecoration.Enabled = true;
+            this.deleteUser.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.deleteUser.Size = new System.Drawing.Size(170, 40);
+            this.deleteUser.TabIndex = 113;
+            this.deleteUser.Text = "Delete";
+            this.deleteUser.UseTransparentBackground = true;
             // 
-            // guna2GradientButton2
+            // saveChanges
             // 
-            this.guna2GradientButton2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton2.BorderRadius = 5;
-            this.guna2GradientButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton2.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
-            this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
-            this.guna2GradientButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton2.Image = global::EduLogix.Properties.Resources.Screenshot_2026_02_10_002926_removebg_preview__1_;
-            this.guna2GradientButton2.ImageSize = new System.Drawing.Size(27, 27);
-            this.guna2GradientButton2.Location = new System.Drawing.Point(1405, 49);
-            this.guna2GradientButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2GradientButton2.Name = "guna2GradientButton2";
-            this.guna2GradientButton2.ShadowDecoration.BorderRadius = 5;
-            this.guna2GradientButton2.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.guna2GradientButton2.ShadowDecoration.Enabled = true;
-            this.guna2GradientButton2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.guna2GradientButton2.Size = new System.Drawing.Size(171, 39);
-            this.guna2GradientButton2.TabIndex = 48;
-            this.guna2GradientButton2.Text = "View Archive";
+            this.saveChanges.BackColor = System.Drawing.Color.Transparent;
+            this.saveChanges.BorderRadius = 5;
+            this.saveChanges.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.saveChanges.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.saveChanges.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.saveChanges.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.saveChanges.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.saveChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
+            this.saveChanges.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
+            this.saveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.saveChanges.ForeColor = System.Drawing.Color.White;
+            this.saveChanges.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194756_removebg_preview;
+            this.saveChanges.ImageSize = new System.Drawing.Size(30, 30);
+            this.saveChanges.Location = new System.Drawing.Point(1405, 135);
+            this.saveChanges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.saveChanges.Name = "saveChanges";
+            this.saveChanges.ShadowDecoration.BorderRadius = 5;
+            this.saveChanges.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.saveChanges.ShadowDecoration.Enabled = true;
+            this.saveChanges.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.saveChanges.Size = new System.Drawing.Size(171, 39);
+            this.saveChanges.TabIndex = 114;
+            this.saveChanges.Text = "Save Changes";
             // 
-            // combobox2
+            // editUser
             // 
-            this.combobox2.BackColor = System.Drawing.Color.Transparent;
-            this.combobox2.BorderColor = System.Drawing.Color.Black;
-            this.combobox2.BorderRadius = 5;
-            this.combobox2.BorderThickness = 0;
-            this.combobox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.combobox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combobox2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.combobox2.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.combobox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combobox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.combobox2.ItemHeight = 40;
-            this.combobox2.Location = new System.Drawing.Point(1308, 113);
-            this.combobox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.combobox2.Name = "combobox2";
-            this.combobox2.ShadowDecoration.BorderRadius = 5;
-            this.combobox2.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.combobox2.ShadowDecoration.Enabled = true;
-            this.combobox2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.combobox2.Size = new System.Drawing.Size(268, 46);
-            this.combobox2.TabIndex = 50;
-            this.combobox2.SelectedIndexChanged += new System.EventHandler(this.combobox2_SelectedIndexChanged);
+            this.editUser.BackColor = System.Drawing.Color.Transparent;
+            this.editUser.BorderRadius = 5;
+            this.editUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.editUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.editUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.editUser.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.editUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.editUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
+            this.editUser.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
+            this.editUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUser.ForeColor = System.Drawing.Color.White;
+            this.editUser.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_26_213938_removebg_preview;
+            this.editUser.Location = new System.Drawing.Point(1006, 135);
+            this.editUser.Margin = new System.Windows.Forms.Padding(2);
+            this.editUser.Name = "editUser";
+            this.editUser.ShadowDecoration.BorderRadius = 10;
+            this.editUser.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.editUser.ShadowDecoration.Enabled = true;
+            this.editUser.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.editUser.Size = new System.Drawing.Size(170, 40);
+            this.editUser.TabIndex = 115;
+            this.editUser.Text = "Edit";
             // 
-            // StudentIDForm
+            // ManageAccounts
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
@@ -710,7 +705,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.Name = "StudentIDForm";
+            this.Name = "ManageAccounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "v";
             this.guna2Panel1.ResumeLayout(false);
@@ -721,7 +716,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manageAccountsDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -736,12 +731,7 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm WindowBorderless;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2ComboBox combobox1;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
-        private Guna.UI2.WinForms.Guna2ComboBox combobox2;
-        private Guna.UI2.WinForms.Guna2GradientButton uploadexcel;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private Guna.UI2.WinForms.Guna2GradientButton addNewStudent;
+        private Guna.UI2.WinForms.Guna2GradientButton addNewUser;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private Guna.UI2.WinForms.Guna2PictureBox schoolLogo;
@@ -756,10 +746,15 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox5;
         private Guna.UI2.WinForms.Guna2HtmlLabel attendancetotal;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel accountsCounter;
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
         private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Button kiosk;
+        private Guna.UI2.WinForms.Guna2DataGridView manageAccountsDataGrid;
+        private Guna.UI2.WinForms.Guna2GradientButton bindRFIDBtn;
+        private Guna.UI2.WinForms.Guna2GradientButton deleteUser;
+        private Guna.UI2.WinForms.Guna2GradientButton saveChanges;
+        private Guna.UI2.WinForms.Guna2GradientButton editUser;
     }
 }

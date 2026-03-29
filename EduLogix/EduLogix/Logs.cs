@@ -243,6 +243,8 @@ namespace EduLogix
                         }
                     }
 
+                    NormalizeLogRows(dt);
+
      
 
                     guna2DataGridView1.AutoGenerateColumns = true;
@@ -250,8 +252,6 @@ namespace EduLogix
                     guna2DataGridView1.DataSource = null;
                     guna2DataGridView1.DataSource = dt;
                     guna2DataGridView1.Refresh();
-
-                    this.Text = "Logs (" + dt.Rows.Count + " rows)";
                 }
 
                 ConfigureDataGridView();
@@ -263,6 +263,59 @@ namespace EduLogix
                 MessageBox.Show("Error loading logs:\n" + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void NormalizeLogRows(DataTable dt)
+        {
+            if (dt == null || dt.Rows.Count == 0) return;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string name = (row["name"] == DBNull.Value ? string.Empty : row["name"].ToString()).Trim();
+                string role = (row["role"] == DBNull.Value ? string.Empty : row["role"].ToString()).Trim();
+                string action = (row["action"] == DBNull.Value ? string.Empty : row["action"].ToString()).Trim();
+
+                // Handle legacy rows where action type was written into role column.
+                if (ShouldTreatRoleAsActionToken(role))
+                {
+                    row["role"] = string.IsNullOrWhiteSpace(name) ? "Registrar" : name;
+                    row["action"] = string.IsNullOrWhiteSpace(action)
+                        ? role
+                        : string.Format("{0}: {1}", role, action);
+                    continue;
+                }
+
+                // Fill missing action type labels for older rows.
+                if (!action.Contains(":"))
+                {
+                    if (action.StartsWith("Image added", StringComparison.OrdinalIgnoreCase))
+                        row["action"] = "KioskImageAdded: " + action;
+                    else if (action.Equals("Logo updated", StringComparison.OrdinalIgnoreCase))
+                        row["action"] = "LogoChanged: " + action;
+                    else if (action.StartsWith("New theme color", StringComparison.OrdinalIgnoreCase))
+                        row["action"] = "ThemeChanged: " + action;
+                    else if (action.IndexOf("reset to designer defaults", StringComparison.OrdinalIgnoreCase) >= 0)
+                        row["action"] = "SettingsReset: " + action;
+                }
+            }
+        }
+
+        private bool ShouldTreatRoleAsActionToken(string role)
+        {
+            if (string.IsNullOrWhiteSpace(role)) return false;
+
+            // Known actual roles.
+            if (role.Equals("Registrar", StringComparison.OrdinalIgnoreCase) ||
+                role.Equals("Registrar Staff", StringComparison.OrdinalIgnoreCase) ||
+                role.Equals("System", StringComparison.OrdinalIgnoreCase) ||
+                role.Equals("Administrator", StringComparison.OrdinalIgnoreCase) ||
+                role.Equals("Admin User", StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            // Action tokens are usually PascalCase (e.g., ThemeChanged, KioskImageAdded).
+            return !role.Contains(" ") && role.IndexOf("Changed", StringComparison.OrdinalIgnoreCase) >= 0
+                   || role.IndexOf("Added", StringComparison.OrdinalIgnoreCase) >= 0
+                   || role.IndexOf("Reset", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
         private void ApplyLogGridColumns()

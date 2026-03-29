@@ -325,14 +325,18 @@ namespace EduLogix
         private void ConfigureDataGridView()
         {
             Color gridThemeColor = GetDataGridThemeColor();
+            Color headerTextColor = GetContrastColor(gridThemeColor);
+            Color selectionBackColor = LightenColor(gridThemeColor, 0.3f);
+            Color selectionTextColor = GetContrastColor(selectionBackColor);
 
             guna2DataGridView1.EnableHeadersVisualStyles = false;
             guna2DataGridView1.ColumnHeadersHeight = 40;
 
             // Header styling with theme color
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = headerTextColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerTextColor;
 
             // Data cell styling
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
@@ -340,8 +344,8 @@ namespace EduLogix
             guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
 
             // Selection styling with THEME COLOR (not blue)
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(gridThemeColor, 0.3f);
-            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = selectionBackColor;
+            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = selectionTextColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(gridThemeColor, 0.15f);
 
             guna2DataGridView1.ReadOnly = true;

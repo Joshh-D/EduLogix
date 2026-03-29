@@ -208,14 +208,14 @@
             this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
             this.userOptions.Controls.Add(this.settings);
-            this.userOptions.Location = new System.Drawing.Point(14, 413);
+            this.userOptions.Location = new System.Drawing.Point(141, 352);
             this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(210, 143);
+            this.userOptions.Size = new System.Drawing.Size(104, 107);
             this.userOptions.TabIndex = 56;
             // 
             // kiosk
             // 
-            this.kiosk.Location = new System.Drawing.Point(13, 68);
+            this.kiosk.Location = new System.Drawing.Point(15, 72);
             this.kiosk.Name = "kiosk";
             this.kiosk.Size = new System.Drawing.Size(75, 23);
             this.kiosk.TabIndex = 2;
@@ -224,7 +224,7 @@
             // 
             // logout
             // 
-            this.logout.Location = new System.Drawing.Point(13, 39);
+            this.logout.Location = new System.Drawing.Point(15, 40);
             this.logout.Name = "logout";
             this.logout.Size = new System.Drawing.Size(75, 23);
             this.logout.TabIndex = 1;
@@ -233,7 +233,7 @@
             // 
             // settings
             // 
-            this.settings.Location = new System.Drawing.Point(13, 10);
+            this.settings.Location = new System.Drawing.Point(14, 9);
             this.settings.Name = "settings";
             this.settings.Size = new System.Drawing.Size(75, 23);
             this.settings.TabIndex = 0;

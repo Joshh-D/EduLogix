@@ -13,18 +13,53 @@ namespace EduLogix
     /// <summary>
     /// Student ID Form - Displays student list with filtering and navigation to StudentInfo
     /// </summary>
-    public partial class StudentIDForm : Form
+    public partial class ManageAccounts : Form
     {
         private readonly string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
         private Color currentThemeColor = Color.FromArgb(33, 150, 243);
+        private const string ResetPasswordColumnName = "colResetPassword";
+        private const string DefaultResetPasswordValue = "EduLogix";
 
-        public StudentIDForm()
+        private sealed class AccountRowEditState
+        {
+            public bool IsNew;
+            public bool IsEditing;
+            public string OriginalUsername;
+        }
+
+        public ManageAccounts()
         {
             InitializeComponent();
             InitializeUserOptionsPanel();
 
+            if (manageAccountsDataGrid != null)
+            {
+                manageAccountsDataGrid.CellContentClick -= guna2DataGridView1_CellContentClick;
+                manageAccountsDataGrid.CellContentClick += guna2DataGridView1_CellContentClick;
+                manageAccountsDataGrid.SelectionChanged -= manageAccountsDataGrid_SelectionChanged;
+                manageAccountsDataGrid.SelectionChanged += manageAccountsDataGrid_SelectionChanged;
+            }
+
+            if (editUser != null)
+            {
+                editUser.Click -= editUser_Click;
+                editUser.Click += editUser_Click;
+            }
+
+            if (deleteUser != null)
+            {
+                deleteUser.Click -= deleteUser_Click;
+                deleteUser.Click += deleteUser_Click;
+            }
+
+            if (saveChanges != null)
+            {
+                saveChanges.Click -= saveChanges_Click;
+                saveChanges.Click += saveChanges_Click;
+            }
+
             // CRITICAL: Wire the Load event manually
-            this.Load += StudentIDForm_Load;
+            this.Load += ManageAccounts_Load;
 
             // CRITICAL: Override designer defaults IMMEDIATELY after InitializeComponent
             // This must happen BEFORE any other theme logic
@@ -166,8 +201,16 @@ namespace EduLogix
             form.Show();
         }
 
-        private void StudentIDForm_Load(object sender, EventArgs e)
+        private void ManageAccounts_Load(object sender, EventArgs e)
         {
+            if (!UserSession.IsSuperAdmin)
+            {
+                MessageBox.Show("Only the Super Admin can access Manage Accounts.",
+                    "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
+            }
+
             try
             {
                 // 1. Load UI Themes and Branding First
@@ -179,9 +222,9 @@ namespace EduLogix
                 ConfigureDataGridView();
 
                 // Clear selection AFTER the data is actually loaded into the grid
-                if (guna2DataGridView1 != null)
+                if (manageAccountsDataGrid != null)
                 {
-                    guna2DataGridView1.ClearSelection();
+                    manageAccountsDataGrid.ClearSelection();
                 }
 
                 // 3. Setup the Dropdowns
@@ -191,19 +234,21 @@ namespace EduLogix
                 // This prevents the "blank text" bug common with custom UI ComboBoxes.
                 this.BeginInvoke((MethodInvoker)delegate
                 {
-                    if (combobox1 != null && combobox1.Items.Count > 0)
+                    var roleCombo = GetRoleFilterCombo();
+                    if (roleCombo != null && roleCombo.Items.Count > 0)
                     {
-                        combobox1.SelectedIndex = 0;
+                        roleCombo.SelectedIndex = 0;
                     }
-                    if (combobox2 != null && combobox2.Items.Count > 0)
+                    var sortCombo = GetSortFilterCombo();
+                    if (sortCombo != null && sortCombo.Items.Count > 0)
                     {
-                        combobox2.SelectedIndex = 0;
+                        sortCombo.SelectedIndex = 0;
                     }
                 });
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading Student ID form:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error loading Manage Accounts form:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -293,7 +338,7 @@ namespace EduLogix
             ApplyThemeToNavButton(Logs, themeColor);
 
             // Re-configure DataGridView with new theme
-            if (guna2DataGridView1 != null && guna2DataGridView1.Rows.Count > 0)
+            if (manageAccountsDataGrid != null && manageAccountsDataGrid.Rows.Count > 0)
             {
                 ConfigureDataGridView();
             }
@@ -346,19 +391,20 @@ namespace EduLogix
             }
 
             // Initialize level filter combobox
-            if (combobox1 != null)
+            var roleCombo = GetRoleFilterCombo();
+            if (roleCombo != null)
             {
                 System.Diagnostics.Debug.WriteLine("[InitializeFilters] combobox1 is not null");
-                combobox1.Items.Clear();
-                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Cleared combobox1. Items.Count: {combobox1.Items.Count}");
+                roleCombo.Items.Clear();
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Cleared combobox1. Items.Count: {roleCombo.Items.Count}");
                 
-                combobox1.Items.AddRange(new[] { "All", "Elementary", "Junior", "Senior" });
-                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Added items to combobox1. Items.Count: {combobox1.Items.Count}");
+                roleCombo.Items.AddRange(new[] { "All", "registrar", "librarian", "security", "admin" });
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Added items to combobox1. Items.Count: {roleCombo.Items.Count}");
                 
-                combobox1.SelectedIndex = 0;
-                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Set SelectedIndex=0. SelectedItem: {combobox1.SelectedItem}");
+                roleCombo.SelectedIndex = 0;
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Set SelectedIndex=0. SelectedItem: {roleCombo.SelectedItem}");
                 
-                combobox1.SelectedIndexChanged += (s, args) => ApplyFilters();
+                roleCombo.SelectedIndexChanged += (s, args) => ApplyFilters();
                 System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Wired SelectedIndexChanged");
             }
             else
@@ -367,19 +413,20 @@ namespace EduLogix
             }
 
             // Initialize section filter combobox
-            if (combobox2 != null)
+            var sortCombo = GetSortFilterCombo();
+            if (sortCombo != null)
             {
                 System.Diagnostics.Debug.WriteLine("[InitializeFilters] combobox2 is not null");
-                combobox2.Items.Clear();
-                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Cleared combobox2. Items.Count: {combobox2.Items.Count}");
+                sortCombo.Items.Clear();
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Cleared combobox2. Items.Count: {sortCombo.Items.Count}");
                 
-                combobox2.Items.AddRange(new[] { "All", "A", "B", "C", "D", "E" });
-                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Added items to combobox2. Items.Count: {combobox2.Items.Count}");
+                sortCombo.Items.AddRange(new[] { "Newest", "Oldest" });
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Added items to combobox2. Items.Count: {sortCombo.Items.Count}");
                 
-                combobox2.SelectedIndex = 0;
-                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Set SelectedIndex=0. SelectedItem: {combobox2.SelectedItem}");
+                sortCombo.SelectedIndex = 0;
+                System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Set SelectedIndex=0. SelectedItem: {sortCombo.SelectedItem}");
                 
-                combobox2.SelectedIndexChanged += (s, args) => ApplyFilters();
+                sortCombo.SelectedIndexChanged += (s, args) => ApplyFilters();
                 System.Diagnostics.Debug.WriteLine($"[InitializeFilters] Wired SelectedIndexChanged");
             }
             else
@@ -393,8 +440,8 @@ namespace EduLogix
         private void ApplyFilters()
         {
             string searchText = guna2TextBox1?.Text?.Trim() ?? "";
-            string levelFilter = combobox1?.SelectedItem?.ToString() ?? "All";
-            string sectionFilter = combobox2?.SelectedItem?.ToString() ?? "All";
+            string levelFilter = GetCurrentRoleFilter();
+            string sectionFilter = GetCurrentSortFilter();
 
             LoadStudentData(searchText, levelFilter, sectionFilter);
         }
@@ -403,7 +450,7 @@ namespace EduLogix
 
         #region ===== DATA LOADING =====
 
-        private void LoadStudentData(string searchText = "", string levelFilter = "All", string sectionFilter = "All")
+        private void LoadStudentData(string searchText = "", string levelFilter = "All", string sectionFilter = "Newest")
         {
             try
             {
@@ -412,40 +459,32 @@ namespace EduLogix
                     conn.Open();
 
                     string query = @"SELECT 
-                                        student_id,
-                                        name,
-                                        phone_number,
-                                        date_of_birth,
-                                        grade,
-                                        section,
-                                        level
-                                    FROM reg_studentinfo
+                                        rfid_number,
+                                        username,
+                                        password,
+                                        role,
+                                        created_at
+                                    FROM sys_users
                                     WHERE 1=1";
 
                     if (levelFilter != "All")
                     {
-                        query += " AND LOWER(level) = @level";
-                    }
-
-                    if (sectionFilter != "All")
-                    {
-                        query += " AND LOWER(section) = @section";
+                        query += " AND LOWER(role) = @level";
                     }
 
                     if (!string.IsNullOrEmpty(searchText))
                     {
-                        query += " AND (LOWER(name) LIKE @search OR LOWER(student_id) LIKE @search)";
+                        query += " AND (LOWER(username) LIKE @search OR LOWER(rfid_number) LIKE @search OR LOWER(role) LIKE @search)";
                     }
 
-                    query += " ORDER BY name ASC";
+                    query += sectionFilter == "Oldest"
+                        ? " ORDER BY created_at ASC"
+                        : " ORDER BY created_at DESC";
 
                     using (var cmd = new MySqlCommand(query, conn))
                     {
                         if (levelFilter != "All")
                             cmd.Parameters.AddWithValue("@level", levelFilter.ToLower());
-
-                        if (sectionFilter != "All")
-                            cmd.Parameters.AddWithValue("@section", sectionFilter.ToLower());
 
                         if (!string.IsNullOrEmpty(searchText))
                             cmd.Parameters.AddWithValue("@search", "%" + searchText.ToLower() + "%");
@@ -454,7 +493,9 @@ namespace EduLogix
                         {
                             var dt = new DataTable();
                             da.Fill(dt);
-                            guna2DataGridView1.DataSource = dt;
+                            manageAccountsDataGrid.DataSource = dt;
+                            EnsureActionColumns();
+                            SetGridDefaultReadOnlyState();
 
                             // Update total count
                             if (attendancetotal != null)
@@ -481,75 +522,162 @@ namespace EduLogix
             Color selectionBackColor = LightenColor(gridThemeColor, 0.3f);
             Color selectionTextColor = GetContrastColor(selectionBackColor);
             
-            guna2DataGridView1.EnableHeadersVisualStyles = false;
-            guna2DataGridView1.ColumnHeadersHeight = 40;
+            manageAccountsDataGrid.EnableHeadersVisualStyles = false;
+            manageAccountsDataGrid.ColumnHeadersHeight = 40;
             
             // FIXED SIZE - Disable all resizing
-            guna2DataGridView1.RowTemplate.Height = 35;
-            guna2DataGridView1.AllowUserToResizeRows = false;
-            guna2DataGridView1.AllowUserToResizeColumns = false;
-            guna2DataGridView1.AllowUserToDeleteRows = false;
-            guna2DataGridView1.AllowUserToAddRows = false;
-            guna2DataGridView1.RowHeadersVisible = false;
+            manageAccountsDataGrid.RowTemplate.Height = 35;
+            manageAccountsDataGrid.AllowUserToResizeRows = false;
+            manageAccountsDataGrid.AllowUserToResizeColumns = false;
+            manageAccountsDataGrid.AllowUserToDeleteRows = false;
+            manageAccountsDataGrid.AllowUserToAddRows = false;
+            manageAccountsDataGrid.RowHeadersVisible = false;
 
             // Header styling with theme color
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
+            manageAccountsDataGrid.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
             System.Diagnostics.Debug.WriteLine($"[ConfigureDataGridView] Set ColumnHeadersDefaultCellStyle.BackColor to: R={gridThemeColor.R}, G={gridThemeColor.G}, B={gridThemeColor.B}");
             
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = headerTextColor;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(gridThemeColor, 0.15f);
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerTextColor;
+            manageAccountsDataGrid.ColumnHeadersDefaultCellStyle.ForeColor = headerTextColor;
+            manageAccountsDataGrid.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+            manageAccountsDataGrid.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(gridThemeColor, 0.15f);
+            manageAccountsDataGrid.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerTextColor;
 
             // Data cell styling
-            guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
-            guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
-            guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
+            manageAccountsDataGrid.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
+            manageAccountsDataGrid.DefaultCellStyle.ForeColor = Color.Black;
+            manageAccountsDataGrid.DefaultCellStyle.BackColor = Color.White;
 
             // Selection styling with THEME COLOR
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = selectionBackColor;
-            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = selectionTextColor;
+            manageAccountsDataGrid.DefaultCellStyle.SelectionBackColor = selectionBackColor;
+            manageAccountsDataGrid.DefaultCellStyle.SelectionForeColor = selectionTextColor;
 
-            // Make read-only
-            guna2DataGridView1.ReadOnly = true;
-            guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            // Keep grid editable at row level only (Edit/Save flow controls cells)
+            manageAccountsDataGrid.ReadOnly = false;
+            manageAccountsDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             
             // Alternating row colors with pattern - using theme color
             Color lightPatternColor = LightenColor(gridThemeColor, 0.7f);
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            manageAccountsDataGrid.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
+            manageAccountsDataGrid.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
             // Rename columns
             RenameColumns();
 
             // Clear selection
-            guna2DataGridView1.ClearSelection();
+            manageAccountsDataGrid.ClearSelection();
             
             System.Diagnostics.Debug.WriteLine("[ConfigureDataGridView] Complete");
         }
 
         private void RenameColumns()
         {
-            if (guna2DataGridView1.Columns.Contains("student_id"))
-                guna2DataGridView1.Columns["student_id"].HeaderText = "Student ID";
+            if (manageAccountsDataGrid.Columns.Contains("rfid_number"))
+                manageAccountsDataGrid.Columns["rfid_number"].HeaderText = "RFID Number";
 
-            if (guna2DataGridView1.Columns.Contains("name"))
-                guna2DataGridView1.Columns["name"].HeaderText = "Name";
+            if (manageAccountsDataGrid.Columns.Contains("username"))
+                manageAccountsDataGrid.Columns["username"].HeaderText = "Username";
 
-            if (guna2DataGridView1.Columns.Contains("phone_number"))
-                guna2DataGridView1.Columns["phone_number"].HeaderText = "Contact";
+            if (manageAccountsDataGrid.Columns.Contains("password"))
+                manageAccountsDataGrid.Columns["password"].HeaderText = "Password";
 
-            if (guna2DataGridView1.Columns.Contains("date_of_birth"))
-                guna2DataGridView1.Columns["date_of_birth"].HeaderText = "Date of Birth";
+            if (manageAccountsDataGrid.Columns.Contains("role"))
+                manageAccountsDataGrid.Columns["role"].HeaderText = "Role";
 
-            if (guna2DataGridView1.Columns.Contains("grade"))
-                guna2DataGridView1.Columns["grade"].HeaderText = "Grade";
+            if (manageAccountsDataGrid.Columns.Contains("created_at"))
+            {
+                manageAccountsDataGrid.Columns["created_at"].HeaderText = "Created At";
+                manageAccountsDataGrid.Columns["created_at"].DefaultCellStyle.Format = "yyyy-MM-dd hh:mm:ss tt";
+            }
 
-            if (guna2DataGridView1.Columns.Contains("section"))
-                guna2DataGridView1.Columns["section"].HeaderText = "Section";
+            if (manageAccountsDataGrid.Columns.Contains(ResetPasswordColumnName))
+                manageAccountsDataGrid.Columns[ResetPasswordColumnName].HeaderText = string.Empty;
+        }
 
-            if (guna2DataGridView1.Columns.Contains("level"))
-                guna2DataGridView1.Columns["level"].HeaderText = "Level";
+        private void EnsureActionColumns()
+        {
+            if (manageAccountsDataGrid == null) return;
+
+            if (!manageAccountsDataGrid.Columns.Contains(ResetPasswordColumnName))
+            {
+                var resetPasswordColumn = new DataGridViewButtonColumn
+                {
+                    Name = ResetPasswordColumnName,
+                    HeaderText = string.Empty,
+                    UseColumnTextForButtonValue = false
+                };
+                manageAccountsDataGrid.Columns.Add(resetPasswordColumn);
+            }
+        }
+
+        private void SetGridDefaultReadOnlyState()
+        {
+            if (manageAccountsDataGrid == null) return;
+
+            foreach (DataGridViewColumn column in manageAccountsDataGrid.Columns)
+            {
+                column.ReadOnly = true;
+            }
+
+            foreach (DataGridViewRow row in manageAccountsDataGrid.Rows)
+            {
+                SetRowEditable(row, false);
+            }
+
+            UpdateResetPasswordButtons();
+        }
+
+        private void manageAccountsDataGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            UpdateResetPasswordButtons();
+        }
+
+        private void UpdateResetPasswordButtons()
+        {
+            if (manageAccountsDataGrid == null || !manageAccountsDataGrid.Columns.Contains(ResetPasswordColumnName))
+                return;
+
+            int selectedRowIndex = -1;
+            if (manageAccountsDataGrid.SelectedRows.Count > 0)
+                selectedRowIndex = manageAccountsDataGrid.SelectedRows[0].Index;
+
+            foreach (DataGridViewRow row in manageAccountsDataGrid.Rows)
+            {
+                if (row.IsNewRow) continue;
+                row.Cells[ResetPasswordColumnName].Value = row.Index == selectedRowIndex ? "Reset" : string.Empty;
+            }
+        }
+
+        private void SetRowEditable(DataGridViewRow row, bool isEditable)
+        {
+            if (row == null) return;
+
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                string col = manageAccountsDataGrid.Columns[cell.ColumnIndex].Name;
+                bool isActionCol = col == ResetPasswordColumnName;
+                bool isCreatedAt = col == "created_at";
+
+                cell.ReadOnly = !isEditable || isActionCol || isCreatedAt;
+            }
+        }
+
+        private AccountRowEditState GetRowState(DataGridViewRow row, bool createIfMissing)
+        {
+            if (row == null) return null;
+
+            var state = row.Tag as AccountRowEditState;
+            if (state == null && createIfMissing)
+            {
+                state = new AccountRowEditState
+                {
+                    IsNew = false,
+                    IsEditing = false,
+                    OriginalUsername = Convert.ToString(row.Cells["username"].Value)
+                };
+                row.Tag = state;
+            }
+
+            return state;
         }
 
         #endregion
@@ -558,36 +686,247 @@ namespace EduLogix
 
         private void guna2DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
-
-            try
-            {
-                System.Diagnostics.Debug.WriteLine($"[guna2DataGridView1_CellDoubleClick] Row index: {e.RowIndex}, Column index: {e.ColumnIndex}");
-                
-                DataGridViewRow row = guna2DataGridView1.Rows[e.RowIndex];
-                string studentId = row.Cells["student_id"]?.Value?.ToString();
-
-                System.Diagnostics.Debug.WriteLine($"[guna2DataGridView1_CellDoubleClick] Student ID: {studentId}");
-
-                if (!string.IsNullOrEmpty(studentId))
-                {
-                    StudentInfo studentInfoForm = new StudentInfo();
-                    studentInfoForm.LoadStudentInfo(studentId);
-                    studentInfoForm.Show();
-                    this.Hide();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error opening student information:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                System.Diagnostics.Debug.WriteLine($"[guna2DataGridView1_CellDoubleClick] ERROR: {ex.Message}\n{ex.StackTrace}");
-            }
+            // Disabled for Manage Accounts.
         }
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Empty - DataGridView is read-only
+            if (e.RowIndex < 0 || manageAccountsDataGrid == null) return;
+            if (e.ColumnIndex < 0) return;
+
+            string columnName = manageAccountsDataGrid.Columns[e.ColumnIndex].Name;
+            if (columnName == ResetPasswordColumnName)
+            {
+                ResetPassword(e.RowIndex);
+            }
+        }
+
+        private void editUser_Click(object sender, EventArgs e)
+        {
+            int rowIndex = GetSelectedRowIndex();
+            if (rowIndex < 0)
+            {
+                MessageBox.Show("Select a user row first.", "Edit User", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            BeginEditAccountRow(rowIndex);
+        }
+
+        private void saveChanges_Click(object sender, EventArgs e)
+        {
+            int rowIndex = GetSelectedRowIndex();
+            if (rowIndex < 0)
+            {
+                MessageBox.Show("Select a user row first.", "Save Changes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            SaveAccountRow(rowIndex);
+        }
+
+        private void deleteUser_Click(object sender, EventArgs e)
+        {
+            int rowIndex = GetSelectedRowIndex();
+            if (rowIndex < 0)
+            {
+                MessageBox.Show("Select a user row first.", "Delete User", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DeleteAccount(rowIndex);
+        }
+
+        private int GetSelectedRowIndex()
+        {
+            if (manageAccountsDataGrid == null) return -1;
+
+            if (manageAccountsDataGrid.SelectedRows.Count > 0)
+                return manageAccountsDataGrid.SelectedRows[0].Index;
+
+            if (manageAccountsDataGrid.CurrentRow != null)
+                return manageAccountsDataGrid.CurrentRow.Index;
+
+            return -1;
+        }
+
+        private void ResetPassword(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= manageAccountsDataGrid.Rows.Count) return;
+
+            var row = manageAccountsDataGrid.Rows[rowIndex];
+            var state = GetRowState(row, false);
+            string username = Convert.ToString(row.Cells["username"].Value);
+
+            if (state != null && state.IsNew)
+            {
+                row.Cells["password"].Value = DefaultResetPasswordValue;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(username)) return;
+
+            var result = MessageBox.Show(
+                $"Reset password for '{username}' to '{DefaultResetPasswordValue}'?",
+                "Confirm Reset Password",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    const string sql = "UPDATE sys_users SET password=@password WHERE username=@username";
+                    using (var cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@password", DefaultResetPasswordValue);
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                row.Cells["password"].Value = DefaultResetPasswordValue;
+                LogAction("PasswordReset", $"Password reset for account: {username}");
+                MessageBox.Show("Password has been reset.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error resetting password:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BeginEditAccountRow(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= manageAccountsDataGrid.Rows.Count) return;
+
+            var row = manageAccountsDataGrid.Rows[rowIndex];
+            var state = GetRowState(row, true);
+            state.IsEditing = true;
+
+            if (string.IsNullOrWhiteSpace(state.OriginalUsername))
+                state.OriginalUsername = Convert.ToString(row.Cells["username"].Value);
+
+            SetRowEditable(row, true);
+            manageAccountsDataGrid.CurrentCell = row.Cells["rfid_number"];
+            manageAccountsDataGrid.BeginEdit(true);
+        }
+
+        private void SaveAccountRow(int rowIndex)
+        {
+            if (rowIndex < 0 || rowIndex >= manageAccountsDataGrid.Rows.Count) return;
+
+            var row = manageAccountsDataGrid.Rows[rowIndex];
+            var state = GetRowState(row, false);
+            if (state == null || !state.IsEditing) return;
+
+            string rfid = Convert.ToString(row.Cells["rfid_number"].Value).Trim();
+            string username = Convert.ToString(row.Cells["username"].Value).Trim();
+            string password = Convert.ToString(row.Cells["password"].Value).Trim();
+            string role = Convert.ToString(row.Cells["role"].Value).Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(role))
+            {
+                MessageBox.Show("Username, Password, and Role are required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    if (state.IsNew)
+                    {
+                        const string insertSql = "INSERT INTO sys_users (rfid_number, username, password, role, created_at) VALUES (@rfid, @username, @password, @role, NOW())";
+                        using (var cmd = new MySqlCommand(insertSql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@rfid", string.IsNullOrWhiteSpace(rfid) ? (object)DBNull.Value : rfid);
+                            cmd.Parameters.AddWithValue("@username", username);
+                            cmd.Parameters.AddWithValue("@password", password);
+                            cmd.Parameters.AddWithValue("@role", role);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        LogAction("AccountAdded", $"Added account: {username}");
+                    }
+                    else
+                    {
+                        const string updateSql = "UPDATE sys_users SET rfid_number=@rfid, username=@username, password=@password, role=@role WHERE username=@currentUsername";
+                        using (var cmd = new MySqlCommand(updateSql, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@rfid", string.IsNullOrWhiteSpace(rfid) ? (object)DBNull.Value : rfid);
+                            cmd.Parameters.AddWithValue("@username", username);
+                            cmd.Parameters.AddWithValue("@password", password);
+                            cmd.Parameters.AddWithValue("@role", role);
+                            cmd.Parameters.AddWithValue("@currentUsername", state.OriginalUsername ?? username);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        LogAction("AccountEdited", $"Edited account: {state.OriginalUsername} -> {username}");
+                    }
+                }
+
+                LoadStudentData(guna2TextBox1?.Text?.Trim() ?? string.Empty,
+                    GetCurrentRoleFilter(),
+                    GetCurrentSortFilter());
+                ConfigureDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving account:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteAccount(int rowIndex)
+        {
+            var row = manageAccountsDataGrid.Rows[rowIndex];
+            var state = GetRowState(row, false);
+            string username = Convert.ToString(row.Cells["username"].Value);
+
+            if (state != null && state.IsNew)
+            {
+                if (manageAccountsDataGrid.DataSource is DataTable dt)
+                {
+                    dt.Rows.RemoveAt(rowIndex);
+                    if (attendancetotal != null)
+                        attendancetotal.Text = dt.Rows.Count.ToString();
+                }
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(username)) return;
+
+            var result = MessageBox.Show($"Delete account '{username}'?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result != DialogResult.Yes) return;
+
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    const string sql = "DELETE FROM sys_users WHERE username=@username";
+                    using (var cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                LogAction("AccountDeleted", $"Deleted account: {username}");
+                LoadStudentData(guna2TextBox1?.Text?.Trim() ?? string.Empty,
+                    GetCurrentRoleFilter(),
+                    GetCurrentSortFilter());
+                ConfigureDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting account:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion
@@ -739,120 +1078,68 @@ namespace EduLogix
 
         private void addNewStudent_Click(object sender, EventArgs e)
         {
-            RegistrarStudAdd registrarStudAdd = new RegistrarStudAdd();
-            registrarStudAdd.Show();
-            this.Hide();
+            AddNewEditableRow();
         }
 
-        private void uploadexcel_Click(object sender, EventArgs e)
+        private void AddNewEditableRow()
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
-            ofd.Title = "Select Student List to Upload";
+            if (!(manageAccountsDataGrid.DataSource is DataTable dt)) return;
 
-            if (ofd.ShowDialog() == DialogResult.OK)
+            var newRow = dt.NewRow();
+            newRow["rfid_number"] = string.Empty;
+            newRow["username"] = string.Empty;
+            newRow["password"] = string.Empty;
+            newRow["role"] = string.Empty;
+            newRow["created_at"] = DateTime.Now;
+            dt.Rows.Add(newRow);
+
+            int rowIndex = manageAccountsDataGrid.Rows.Count - 1;
+            if (rowIndex < 0) return;
+
+            var gridRow = manageAccountsDataGrid.Rows[rowIndex];
+            gridRow.Tag = new AccountRowEditState
             {
-                try
-                {
-                    // 1. READ EXCEL FILE IN THE BACKGROUND
-                    DataTable dtExcel = new DataTable();
-                    using (var stream = File.Open(ofd.FileName, FileMode.Open, FileAccess.Read))
-                    {
-                        System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
-                        {
-                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                            {
-                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
-                            });
-                            dtExcel = result.Tables[0];
-                        }
-                    }
+                IsNew = true,
+                IsEditing = true,
+                OriginalUsername = string.Empty
+            };
 
-                    // 2. CONNECT TO MYSQL AND SAVE DIRECTLY
-                    int successCount = 0;
-                    int skippedCount = 0;
-                    string connString = "server=localhost;database=edulogix;uid=root;pwd=;";
+            SetRowEditable(gridRow, true);
+            manageAccountsDataGrid.CurrentCell = gridRow.Cells["rfid_number"];
+            manageAccountsDataGrid.BeginEdit(true);
 
-                    using (var conn = new MySqlConnection(connString))
-                    {
-                        conn.Open();
+            if (attendancetotal != null)
+                attendancetotal.Text = dt.Rows.Count.ToString();
+        }
 
-                        foreach (DataRow row in dtExcel.Rows)
-                        {
-                            
-                            if (!dtExcel.Columns.Contains("student_id") || row.IsNull("student_id") || string.IsNullOrWhiteSpace(row["student_id"].ToString()))
-                                continue;
+        private Guna.UI2.WinForms.Guna2ComboBox GetRoleFilterCombo()
+        {
+            return this.Controls.Find("combobox1", true)
+                .OfType<Guna.UI2.WinForms.Guna2ComboBox>()
+                .FirstOrDefault();
+        }
 
-                            try
-                            {
-                                // Updated SQL: Changed `phone` to `phone_number` and removed `email`
-                                string sql = @"
-    INSERT IGNORE INTO `reg_studentinfo` 
-    (`student_id`, `name`, `phone_number`, `grade`, `section`, `level`) 
-    VALUES 
-    (@id, @name, @phone, @grade, @section, @level)";
+        private Guna.UI2.WinForms.Guna2ComboBox GetSortFilterCombo()
+        {
+            return this.Controls.Find("combobox2", true)
+                .OfType<Guna.UI2.WinForms.Guna2ComboBox>()
+                .FirstOrDefault();
+        }
 
-                                using (var cmd = new MySqlCommand(sql, conn))
-                                {
-                                    cmd.Parameters.AddWithValue("@id", row["student_id"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("@name", row["name"]?.ToString() ?? "");
+        private string GetCurrentRoleFilter()
+        {
+            var roleCombo = GetRoleFilterCombo();
+            return roleCombo != null && roleCombo.SelectedItem != null
+                ? roleCombo.SelectedItem.ToString()
+                : "All";
+        }
 
-                                    // This parameter maps to the Excel column "phone_number" 
-                                    // and inserts into the DB column "phone_number"
-                                    cmd.Parameters.AddWithValue("@phone", row["phone_number"]?.ToString() ?? "");
-
-                                    // Removed the @email parameter completely
-
-                                    cmd.Parameters.AddWithValue("@grade", row["grade"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("@section", row["section"]?.ToString() ?? "");
-                                    cmd.Parameters.AddWithValue("@level", row["level"]?.ToString() ?? "");
-
-                                    int rowsAffected = cmd.ExecuteNonQuery();
-                                    if (rowsAffected > 0) successCount++;
-                                    else skippedCount++;
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                // It's a good practice to log the error during development so you know exactly why it failed!
-                                System.Diagnostics.Debug.WriteLine($"Error inserting row: {ex.Message}");
-                                skippedCount++;
-                            }
-                        }
-                    }
-
-                    if (successCount > 0)
-                    {
-                        LogAction("BatchStudentImport", $"Added batch of students via Excel: {successCount} added, {skippedCount} skipped.");
-                    }
-
-                    // 3. SHOW RESULTS 
-                    MessageBox.Show($"Upload Complete!\n\nSuccessfully added: {successCount}\nSkipped (Duplicates or Errors): {skippedCount}",
-                                    "Database Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // 4. INSTANT UI REFRESH
-                    // This pulls the newly added data and forces the Guna grid to update instantly
-                    LoadStudentData();
-                    ConfigureDataGridView();
-
-                    if (guna2DataGridView1 != null)
-                    {
-                        guna2DataGridView1.Refresh();
-                        guna2DataGridView1.Update();
-                        guna2DataGridView1.ClearSelection();
-                    }
-
-                }
-                catch (IOException)
-                {
-                    MessageBox.Show("Please close the Excel file before trying to upload it.", "File in Use", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error processing file:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+        private string GetCurrentSortFilter()
+        {
+            var sortCombo = GetSortFilterCombo();
+            return sortCombo != null && sortCombo.SelectedItem != null
+                ? sortCombo.SelectedItem.ToString()
+                : "Newest";
         }
 
         private void LogAction(string actionType, string description)

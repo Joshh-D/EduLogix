@@ -77,6 +77,8 @@
             this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.regIdlePanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.regIdlePictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -90,6 +92,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            this.regIdlePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.regIdlePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2BorderlessForm1
@@ -485,6 +489,7 @@
             // 
             this.guna2GradientPanel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel2.BorderRadius = 20;
+            this.guna2GradientPanel2.Controls.Add(this.regIdlePanel);
             this.guna2GradientPanel2.Controls.Add(this.guna2Panel2);
             this.guna2GradientPanel2.Controls.Add(this.guna2Panel1);
             this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel2);
@@ -724,6 +729,23 @@
             this.guna2PictureBox4.TabIndex = 63;
             this.guna2PictureBox4.TabStop = false;
             // 
+            // regIdlePanel
+            // 
+            this.regIdlePanel.Controls.Add(this.regIdlePictureBox);
+            this.regIdlePanel.Location = new System.Drawing.Point(254, 19);
+            this.regIdlePanel.Name = "regIdlePanel";
+            this.regIdlePanel.Size = new System.Drawing.Size(235, 72);
+            this.regIdlePanel.TabIndex = 78;
+            // 
+            // regIdlePictureBox
+            // 
+            this.regIdlePictureBox.ImageRotate = 0F;
+            this.regIdlePictureBox.Location = new System.Drawing.Point(26, 0);
+            this.regIdlePictureBox.Name = "regIdlePictureBox";
+            this.regIdlePictureBox.Size = new System.Drawing.Size(206, 69);
+            this.regIdlePictureBox.TabIndex = 0;
+            this.regIdlePictureBox.TabStop = false;
+            // 
             // Kiosk
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -754,6 +776,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            this.regIdlePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.regIdlePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -807,5 +831,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel15;
+        private Guna.UI2.WinForms.Guna2Panel regIdlePanel;
+        private Guna.UI2.WinForms.Guna2PictureBox regIdlePictureBox;
     }
 }

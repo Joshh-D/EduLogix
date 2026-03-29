@@ -9,10 +9,18 @@ namespace EduLogix
     public partial class Login : Form
     {
         private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private bool isLoggingIn;
+
+        internal static bool CanOpenRegistrarDashboard(string role)
+        {
+            return string.Equals(role, "registrar", StringComparison.OrdinalIgnoreCase)
+                   || string.Equals(role, "superadmin", StringComparison.OrdinalIgnoreCase);
+        }
 
         public Login()
         {
             InitializeComponent();
+            UserSession.Clear();
             LockTransparentBackColor(accountID);
             LockTransparentBackColor(accountpass);
 
@@ -22,7 +30,6 @@ namespace EduLogix
 
             accountID.Enter += accountID_Enter;
             accountpass.Enter += accountpass_Enter;
-            loginbtn.Click += loginbtn_Click;
         }
 
         private void LockTransparentBackColor(Guna.UI2.WinForms.Guna2TextBox txt)
@@ -67,6 +74,8 @@ namespace EduLogix
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
+            if (isLoggingIn) return;
+
             // validation on textboxes
             if (string.IsNullOrWhiteSpace(accountID.Text) || accountID.Text == "Account ID")
             {
@@ -79,6 +88,10 @@ namespace EduLogix
                 MessageBox.Show("Please enter your password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            isLoggingIn = true;
+            if (loginbtn != null)
+                loginbtn.Enabled = false;
 
             try
             {
@@ -101,6 +114,9 @@ namespace EduLogix
                         // check if password matches
                         if (accountpass.Text == dbPassword)
                         {
+                            UserSession.UserName = dbUsername;
+                            UserSession.Role = dbRole;
+
                             reader.Close();
                             conn.Close();
 
@@ -109,7 +125,7 @@ namespace EduLogix
                             accountpass.Clear();
 
                             // navigate based on role
-                            if (dbRole.Equals("registrar", StringComparison.OrdinalIgnoreCase))
+                            if (CanOpenRegistrarDashboard(dbRole))
                             {
                                 DashboardForm dashboard = new DashboardForm();
                                 dashboard.Show();
@@ -125,6 +141,8 @@ namespace EduLogix
                             else
                             {
                                 MessageBox.Show("Unknown role. Please contact administrator.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                isLoggingIn = false;
+                                if (loginbtn != null) loginbtn.Enabled = true;
                             }
                         }
                         else
@@ -132,6 +150,8 @@ namespace EduLogix
                             // incorrect password
                             reader.Close();
                             ShowLoginError();
+                            isLoggingIn = false;
+                            if (loginbtn != null) loginbtn.Enabled = true;
                         }
                     }
                     else
@@ -139,12 +159,16 @@ namespace EduLogix
                         // username not found
                         reader.Close();
                         ShowLoginError();
+                        isLoggingIn = false;
+                        if (loginbtn != null) loginbtn.Enabled = true;
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Database connection error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isLoggingIn = false;
+                if (loginbtn != null) loginbtn.Enabled = true;
             }
         }
 
@@ -170,7 +194,7 @@ namespace EduLogix
 
         private void loginbtn_Click_1(object sender, EventArgs e)
         {
-
+            loginbtn_Click(sender, e);
         }
     }
 }

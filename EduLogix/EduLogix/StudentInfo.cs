@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace EduLogix
 {
@@ -15,12 +16,21 @@ namespace EduLogix
     {
         private string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
         private string currentStudentId = "";
+        private string currentImagePath = "";
         private Color currentThemeColor = Color.FromArgb(48, 79, 99);
 
         public StudentInfo()
         {
             InitializeComponent();
             InitializeUserOptionsPanel();
+            InitializeSectionComboBox();
+            InitializeBirthDatePicker();
+
+            if (editBtn != null) editBtn.Click += editBtn_Click;
+            if (saveBtn != null) saveBtn.Click += saveBtn_Click;
+            if (archiveBtn != null) archiveBtn.Click += archiveBtn_Click;
+
+            SetEditMode(false);
         }
 
         private void InitializeUserOptionsPanel()
@@ -172,11 +182,11 @@ namespace EduLogix
                     conn.Open();
 
                     string query = @"SELECT 
+                                        image_path,
                                         rfid_number,
                                         student_id,
                                         name,
-                                        phone,
-                                        email,
+                                        phone_number,                                 
                                         address,
                                         date_of_birth,
                                         grade,
@@ -214,63 +224,258 @@ namespace EduLogix
             try
             {
                 // RFID Number (guna2TextBox8)
-                if (guna2TextBox8 != null && reader["rfid_number"] != DBNull.Value)
-                    guna2TextBox8.Text = reader["rfid_number"].ToString();
+                if (rfidNum != null && reader["rfid_number"] != DBNull.Value)
+                    rfidNum.Text = reader["rfid_number"].ToString();
 
                 // Student ID (guna2TextBox1)
-                if (guna2TextBox1 != null && reader["student_id"] != DBNull.Value)
-                    guna2TextBox1.Text = reader["student_id"].ToString();
+                if (studentID != null && reader["student_id"] != DBNull.Value)
+                    studentID.Text = reader["student_id"].ToString();
 
                 // Full Name (guna2TextBox2)
-                if (guna2TextBox2 != null && reader["name"] != DBNull.Value)
-                    guna2TextBox2.Text = reader["name"].ToString();
+                if (studentName != null && reader["name"] != DBNull.Value)
+                    studentName.Text = reader["name"].ToString();
 
                 // Grade (guna2TextBox3)
-                if (guna2TextBox3 != null && reader["grade"] != DBNull.Value)
-                    guna2TextBox3.Text = reader["grade"].ToString();
+                if (studentGrade != null && reader["grade"] != DBNull.Value)
+                    studentGrade.Text = reader["grade"].ToString();
 
                 // Phone Number (guna2TextBox4)
-                if (guna2TextBox4 != null && reader["phone"] != DBNull.Value)
-                    guna2TextBox4.Text = reader["phone"].ToString();
+                if (contactNum != null && reader["phone_number"] != DBNull.Value)
+                    contactNum.Text = reader["phone_number"].ToString();
 
                 // Guardian Name (guna2TextBox5)
-                if (guna2TextBox5 != null && reader["guardian_name"] != DBNull.Value)
-                    guna2TextBox5.Text = reader["guardian_name"].ToString();
+                if (guardianName != null && reader["guardian_name"] != DBNull.Value)
+                    guardianName.Text = reader["guardian_name"].ToString();
 
                 // Guardian Phone Number (guna2TextBox6)
-                if (guna2TextBox6 != null && reader["guardian_phone_number"] != DBNull.Value)
-                    guna2TextBox6.Text = reader["guardian_phone_number"].ToString();
+                if (guardianNum != null && reader["guardian_phone_number"] != DBNull.Value)
+                    guardianNum.Text = reader["guardian_phone_number"].ToString();
 
                 // Present Address (guna2TextBox7)
-                if (guna2TextBox7 != null && reader["address"] != DBNull.Value)
-                    guna2TextBox7.Text = reader["address"].ToString();
+                if (address != null && reader["address"] != DBNull.Value)
+                    address.Text = reader["address"].ToString();
 
-                // Section (guna2TextBox9)
-                if (guna2TextBox9 != null && reader["section"] != DBNull.Value)
-                    guna2TextBox9.Text = reader["section"].ToString();
+                // Section
+                if (sectionComboBox != null && reader["section"] != DBNull.Value)
+                    sectionComboBox.Text = reader["section"].ToString();
 
                 // Education/Level (guna2TextBox10)
-                if (guna2TextBox10 != null && reader["level"] != DBNull.Value)
-                    guna2TextBox10.Text = reader["level"].ToString();
+                if (level != null && reader["level"] != DBNull.Value)
+                    level.Text = reader["level"].ToString();
 
-                // Email (add appropriate control name if it exists)
-                if (reader["email"] != DBNull.Value)
-                {
-                    // Assign to email control if available (e.g., guna2TextBox11 or similar)
-                    // guna2TextBoxEmail.Text = reader["email"].ToString();
-                }
-
-                // Date of Birth (add appropriate control name if it exists)
+                // Date of Birth
                 if (reader["date_of_birth"] != DBNull.Value)
                 {
-                    // Assign to date of birth control if available (e.g., guna2TextBox12 or similar)
-                    // guna2TextBoxDateOfBirth.Text = ((DateTime)reader["date_of_birth"]).ToString("yyyy-MM-dd");
+                    SetBirthDate(Convert.ToDateTime(reader["date_of_birth"]));
                 }
+                else
+                {
+                    SetBirthDate(null);
+                }
+
+                currentImagePath = reader["image_path"] == DBNull.Value
+                    ? string.Empty
+                    : reader["image_path"].ToString();
+
+                LoadStudentPicture(currentImagePath);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error populating student controls:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LoadStudentPicture(string imagePath)
+        {
+            try
+            {
+                if (studentPic == null) return;
+
+                if (string.IsNullOrWhiteSpace(imagePath))
+                {
+                    studentPic.Image = Properties.Resources.student;
+                    return;
+                }
+
+                string resolvedPath = imagePath;
+                if (!Path.IsPathRooted(resolvedPath))
+                {
+                    resolvedPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, imagePath);
+                }
+
+                if (!File.Exists(resolvedPath))
+                {
+                    studentPic.Image = Properties.Resources.student;
+                    return;
+                }
+
+                using (var fs = new FileStream(resolvedPath, FileMode.Open, FileAccess.Read))
+                {
+                    studentPic.Image = Image.FromStream(fs);
+                }
+            }
+            catch
+            {
+                if (studentPic != null)
+                    studentPic.Image = Properties.Resources.student;
+            }
+        }
+
+        private void SetEditMode(bool isEditMode)
+        {
+            if (rfidNum != null) rfidNum.ReadOnly = !isEditMode;
+            if (studentID != null) studentID.ReadOnly = !isEditMode;
+            if (studentName != null) studentName.ReadOnly = !isEditMode;
+            if (contactNum != null) contactNum.ReadOnly = !isEditMode;
+            if (level != null) level.ReadOnly = !isEditMode;
+            if (studentGrade != null) studentGrade.ReadOnly = !isEditMode;
+            if (sectionComboBox != null) sectionComboBox.Enabled = isEditMode;
+            if (birthDatePicker != null) birthDatePicker.Enabled = isEditMode;
+            if (guardianName != null) guardianName.ReadOnly = !isEditMode;
+            if (guardianNum != null) guardianNum.ReadOnly = !isEditMode;
+            if (address != null) address.ReadOnly = !isEditMode;
+
+            if (saveBtn != null) saveBtn.Enabled = isEditMode;
+            if (editBtn != null) editBtn.Enabled = !isEditMode;
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            SetEditMode(true);
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(currentStudentId)) return;
+
+            try
+            {
+                string previousStudentId = currentStudentId;
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    const string query = @"UPDATE reg_studentinfo
+                                           SET rfid_number = @rfid,
+                                               student_id = @studentId,
+                                               name = @name,
+                                               phone_number = @phone,
+                                               level = @level,
+                                               grade = @grade,
+                                               section = @section,
+                                               date_of_birth = @dateOfBirth,
+                                               guardian_name = @guardianName,
+                                               guardian_phone_number = @guardianPhone,
+                                               address = @address
+                                           WHERE student_id = @currentStudentId";
+
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@rfid", rfidNum?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@studentId", studentID?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@name", studentName?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@phone", contactNum?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@level", level?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@grade", studentGrade?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@section", sectionComboBox?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@dateOfBirth", GetBirthDateValue());
+                        cmd.Parameters.AddWithValue("@guardianName", guardianName?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@guardianPhone", guardianNum?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@address", address?.Text?.Trim() ?? string.Empty);
+                        cmd.Parameters.AddWithValue("@currentStudentId", currentStudentId);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                currentStudentId = studentID?.Text?.Trim() ?? currentStudentId;
+                LogAction("StudentUpdated", $"Updated student info: {studentName?.Text?.Trim()} ({previousStudentId} -> {currentStudentId})");
+                SetEditMode(false);
+                MessageBox.Show("Student information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving student data:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LogAction(string actionType, string description)
+        {
+            try
+            {
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    const string sql = @"INSERT INTO reg_logs (name, role, action, log_date)
+                                         VALUES (@name, @role, @action, NOW())";
+                    using (var cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@name", "Registrar");
+                        cmd.Parameters.AddWithValue("@role", "Registrar");
+                        cmd.Parameters.AddWithValue("@action", string.Format("{0}: {1}", actionType ?? "", description ?? "").Trim(':', ' '));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void InitializeBirthDatePicker()
+        {
+            if (birthDatePicker == null) return;
+
+            birthDatePicker.Format = DateTimePickerFormat.Custom;
+            birthDatePicker.CustomFormat = " ";
+            birthDatePicker.ValueChanged -= BirthDatePicker_ValueChanged;
+            birthDatePicker.ValueChanged += BirthDatePicker_ValueChanged;
+        }
+
+        private void InitializeSectionComboBox()
+        {
+            if (sectionComboBox == null) return;
+
+            sectionComboBox.Items.Clear();
+            sectionComboBox.Items.AddRange(new[] { "A", "B", "C" });
+            sectionComboBox.SelectedIndex = -1;
+        }
+
+        private void BirthDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (birthDatePicker == null) return;
+
+            birthDatePicker.Format = DateTimePickerFormat.Custom;
+            birthDatePicker.CustomFormat = "MMMM dd, yyyy";
+        }
+
+        private void SetBirthDate(DateTime? value)
+        {
+            if (birthDatePicker == null) return;
+
+            birthDatePicker.Format = DateTimePickerFormat.Custom;
+
+            if (value.HasValue)
+            {
+                birthDatePicker.Value = value.Value;
+                birthDatePicker.CustomFormat = "MMMM dd, yyyy";
+            }
+            else
+            {
+                birthDatePicker.CustomFormat = " ";
+            }
+        }
+
+        private object GetBirthDateValue()
+        {
+            if (birthDatePicker == null || birthDatePicker.CustomFormat == " ")
+                return DBNull.Value;
+
+            return birthDatePicker.Value.Date;
+        }
+
+        private void archiveBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Archive function is linked to this button. Add your archive table/column logic if needed.", "Archive", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ApplyThemeToForm()
@@ -442,6 +647,11 @@ namespace EduLogix
             userOptions.Visible = !userOptions.Visible;
             if (userOptions.Visible)
                 userOptions.BringToFront();
+        }
+
+        private void guna2HtmlLabel12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

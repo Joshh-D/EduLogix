@@ -239,38 +239,38 @@
             this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
             this.userOptions.Controls.Add(this.settings);
-            this.userOptions.Location = new System.Drawing.Point(120, 361);
+            this.userOptions.Location = new System.Drawing.Point(141, 352);
             this.userOptions.Margin = new System.Windows.Forms.Padding(4);
             this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(124, 126);
+            this.userOptions.Size = new System.Drawing.Size(104, 107);
             this.userOptions.TabIndex = 75;
             // 
             // kiosk
             // 
-            this.kiosk.Location = new System.Drawing.Point(11, 83);
+            this.kiosk.Location = new System.Drawing.Point(14, 76);
             this.kiosk.Margin = new System.Windows.Forms.Padding(4);
             this.kiosk.Name = "kiosk";
-            this.kiosk.Size = new System.Drawing.Size(100, 28);
+            this.kiosk.Size = new System.Drawing.Size(75, 23);
             this.kiosk.TabIndex = 4;
             this.kiosk.Text = "Kiosk";
             this.kiosk.UseVisualStyleBackColor = true;
             // 
             // logout
             // 
-            this.logout.Location = new System.Drawing.Point(11, 48);
+            this.logout.Location = new System.Drawing.Point(14, 43);
             this.logout.Margin = new System.Windows.Forms.Padding(4);
             this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(100, 28);
+            this.logout.Size = new System.Drawing.Size(75, 23);
             this.logout.TabIndex = 3;
             this.logout.Text = "Logout";
             this.logout.UseVisualStyleBackColor = true;
             // 
             // settings
             // 
-            this.settings.Location = new System.Drawing.Point(11, 12);
+            this.settings.Location = new System.Drawing.Point(13, 10);
             this.settings.Margin = new System.Windows.Forms.Padding(4);
             this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(100, 28);
+            this.settings.Size = new System.Drawing.Size(75, 23);
             this.settings.TabIndex = 1;
             this.settings.Text = "Settings";
             this.settings.UseVisualStyleBackColor = true;

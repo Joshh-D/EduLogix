@@ -192,17 +192,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegIdle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegIdle.Designer.cs">
-      <DependentUpon>RegIdle.cs</DependentUpon>
-    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageAccounts.Designer.cs">
+      <DependentUpon>ManageAccounts.cs</DependentUpon>
     </Compile>
     <Compile Include="Student ID.cs">
       <SubType>Form</SubType>
@@ -228,6 +228,7 @@
     <Compile Include="UsersArchive.Designer.cs">
       <DependentUpon>UsersArchive.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="RegistrarStudAdd.resx">
       <DependentUpon>RegistrarStudAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,11 +263,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RegIdle.resx">
-      <DependentUpon>RegIdle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAccounts.resx">
+      <DependentUpon>ManageAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student ID.resx">
       <DependentUpon>Student ID.cs</DependentUpon>
