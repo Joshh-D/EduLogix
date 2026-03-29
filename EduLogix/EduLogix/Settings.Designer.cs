@@ -50,6 +50,8 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.userOptions = new System.Windows.Forms.Panel();
+            this.kiosk = new System.Windows.Forms.Button();
+            this.logout = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -73,8 +75,6 @@
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientButton4 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2GradientButton3 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.kiosk = new System.Windows.Forms.Button();
-            this.logout = new System.Windows.Forms.Button();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -203,7 +203,7 @@
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(65, 188);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(164, 33);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(135, 28);
             this.guna2HtmlLabel6.TabIndex = 49;
             this.guna2HtmlLabel6.Text = "School Logo";
             this.guna2HtmlLabel6.Click += new System.EventHandler(this.guna2HtmlLabel6_Click);
@@ -216,7 +216,7 @@
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(542, 239);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(160, 31);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(121, 24);
             this.guna2HtmlLabel5.TabIndex = 47;
             this.guna2HtmlLabel5.Text = "School Name";
             this.guna2HtmlLabel5.Click += new System.EventHandler(this.guna2HtmlLabel5_Click);
@@ -229,7 +229,7 @@
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(552, 308);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(142, 31);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(111, 24);
             this.guna2HtmlLabel3.TabIndex = 46;
             this.guna2HtmlLabel3.Text = "Auto Logout";
             this.guna2HtmlLabel3.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
@@ -376,10 +376,30 @@
             this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
             this.userOptions.Location = new System.Drawing.Point(9, 388);
-            this.userOptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userOptions.Margin = new System.Windows.Forms.Padding(4);
             this.userOptions.Name = "userOptions";
             this.userOptions.Size = new System.Drawing.Size(262, 179);
             this.userOptions.TabIndex = 90;
+            // 
+            // kiosk
+            // 
+            this.kiosk.Location = new System.Drawing.Point(84, 145);
+            this.kiosk.Margin = new System.Windows.Forms.Padding(4);
+            this.kiosk.Name = "kiosk";
+            this.kiosk.Size = new System.Drawing.Size(94, 29);
+            this.kiosk.TabIndex = 4;
+            this.kiosk.Text = "Kiosk";
+            this.kiosk.UseVisualStyleBackColor = true;
+            // 
+            // logout
+            // 
+            this.logout.Location = new System.Drawing.Point(85, 111);
+            this.logout.Margin = new System.Windows.Forms.Padding(4);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(94, 29);
+            this.logout.TabIndex = 3;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = true;
             // 
             // guna2ControlBox4
             // 
@@ -564,7 +584,7 @@
             this.guna2HtmlLabel17.Location = new System.Drawing.Point(41, 388);
             this.guna2HtmlLabel17.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(173, 27);
+            this.guna2HtmlLabel17.Size = new System.Drawing.Size(143, 22);
             this.guna2HtmlLabel17.TabIndex = 80;
             this.guna2HtmlLabel17.Text = "Joshua Dayapera";
             // 
@@ -576,7 +596,7 @@
             this.schoolName.Location = new System.Drawing.Point(15, 215);
             this.schoolName.Margin = new System.Windows.Forms.Padding(2);
             this.schoolName.Name = "schoolName";
-            this.schoolName.Size = new System.Drawing.Size(254, 18);
+            this.schoolName.Size = new System.Drawing.Size(205, 15);
             this.schoolName.TabIndex = 78;
             this.schoolName.Text = "Caloocan City Business High School";
             this.schoolName.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -589,7 +609,7 @@
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(52, 416);
             this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(134, 20);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(112, 17);
             this.guna2HtmlLabel4.TabIndex = 79;
             this.guna2HtmlLabel4.Text = "Registrar Personnel";
             // 
@@ -703,7 +723,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(66, 569);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(216, 33);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(178, 28);
             this.guna2HtmlLabel1.TabIndex = 89;
             this.guna2HtmlLabel1.Text = "Kiosk Slideshow";
             // 
@@ -781,7 +801,7 @@
             this.guna2HtmlLabel14.Location = new System.Drawing.Point(65, 38);
             this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(255, 40);
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(203, 32);
             this.guna2HtmlLabel14.TabIndex = 54;
             this.guna2HtmlLabel14.Text = "System Settings";
             // 
@@ -835,32 +855,12 @@
             this.guna2GradientButton3.TabIndex = 66;
             this.guna2GradientButton3.Text = "Save Changes";
             // 
-            // kiosk
-            // 
-            this.kiosk.Location = new System.Drawing.Point(84, 145);
-            this.kiosk.Margin = new System.Windows.Forms.Padding(4);
-            this.kiosk.Name = "kiosk";
-            this.kiosk.Size = new System.Drawing.Size(94, 29);
-            this.kiosk.TabIndex = 4;
-            this.kiosk.Text = "Kiosk";
-            this.kiosk.UseVisualStyleBackColor = true;
-            // 
-            // logout
-            // 
-            this.logout.Location = new System.Drawing.Point(85, 111);
-            this.logout.Margin = new System.Windows.Forms.Padding(4);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(94, 29);
-            this.logout.TabIndex = 3;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = true;
-            // 
             // Settings
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
