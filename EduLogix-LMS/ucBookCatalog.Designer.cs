@@ -46,7 +46,7 @@
             Tbl_Book_Catalog = new Guna.UI2.WinForms.Guna2DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnFilter = new Guna.UI2.WinForms.Guna2GradientButton();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            TxtBx_SearchBar = new Guna.UI2.WinForms.Guna2TextBox();
             btnViewArchive = new Guna.UI2.WinForms.Guna2GradientButton();
             btnAddBook = new Guna.UI2.WinForms.Guna2GradientButton();
             pnlBackground.SuspendLayout();
@@ -144,7 +144,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.3303967F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.1850224F));
             tableLayoutPanel1.Controls.Add(btnFilter, 1, 0);
-            tableLayoutPanel1.Controls.Add(guna2TextBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(TxtBx_SearchBar, 0, 0);
             tableLayoutPanel1.Controls.Add(btnViewArchive, 4, 0);
             tableLayoutPanel1.Controls.Add(btnAddBook, 3, 0);
             tableLayoutPanel1.Location = new Point(30, 73);
@@ -184,34 +184,35 @@
             btnFilter.Text = "Filter";
             btnFilter.Click += btnFilter_Click;
             // 
-            // guna2TextBox1
+            // TxtBx_SearchBar
             // 
-            guna2TextBox1.BackColor = Color.Transparent;
-            guna2TextBox1.BorderRadius = 10;
-            guna2TextBox1.CustomizableEdges = customizableEdges3;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.Dock = DockStyle.Fill;
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(4, 6);
-            guna2TextBox1.Margin = new Padding(4, 6, 4, 6);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PasswordChar = '\0';
-            guna2TextBox1.PlaceholderText = "🔎 Search";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.BorderRadius = 10;
-            guna2TextBox1.ShadowDecoration.Color = Color.DimGray;
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2TextBox1.ShadowDecoration.Depth = 20;
-            guna2TextBox1.ShadowDecoration.Enabled = true;
-            guna2TextBox1.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            guna2TextBox1.Size = new Size(383, 39);
-            guna2TextBox1.TabIndex = 0;
+            TxtBx_SearchBar.BackColor = Color.Transparent;
+            TxtBx_SearchBar.BorderRadius = 10;
+            TxtBx_SearchBar.CustomizableEdges = customizableEdges3;
+            TxtBx_SearchBar.DefaultText = "";
+            TxtBx_SearchBar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            TxtBx_SearchBar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            TxtBx_SearchBar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            TxtBx_SearchBar.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            TxtBx_SearchBar.Dock = DockStyle.Fill;
+            TxtBx_SearchBar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            TxtBx_SearchBar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TxtBx_SearchBar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            TxtBx_SearchBar.Location = new Point(4, 6);
+            TxtBx_SearchBar.Margin = new Padding(4, 6, 4, 6);
+            TxtBx_SearchBar.Name = "TxtBx_SearchBar";
+            TxtBx_SearchBar.PasswordChar = '\0';
+            TxtBx_SearchBar.PlaceholderText = "🔎 Search";
+            TxtBx_SearchBar.SelectedText = "";
+            TxtBx_SearchBar.ShadowDecoration.BorderRadius = 10;
+            TxtBx_SearchBar.ShadowDecoration.Color = Color.DimGray;
+            TxtBx_SearchBar.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            TxtBx_SearchBar.ShadowDecoration.Depth = 20;
+            TxtBx_SearchBar.ShadowDecoration.Enabled = true;
+            TxtBx_SearchBar.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
+            TxtBx_SearchBar.Size = new Size(383, 39);
+            TxtBx_SearchBar.TabIndex = 0;
+            TxtBx_SearchBar.TextChanged += SearchAndFilter;
             // 
             // btnViewArchive
             // 
@@ -292,7 +293,7 @@
         private Guna.UI2.WinForms.Guna2GradientPanel pnlBackground;
         private TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2GradientButton btnFilter;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox TxtBx_SearchBar;
         private Guna.UI2.WinForms.Guna2GradientButton btnViewArchive;
         private Guna.UI2.WinForms.Guna2GradientButton btnAddBook;
         private Guna.UI2.WinForms.Guna2DataGridView Tbl_Book_Catalog;

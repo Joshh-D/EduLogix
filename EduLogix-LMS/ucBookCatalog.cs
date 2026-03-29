@@ -28,14 +28,23 @@ namespace EduLogix_LMS
         private void ucBookCatalog_Load(object sender, EventArgs e)
         {
             string query = "SELECT * FROM `edulogix-lms`.lms_book_catalogue ORDER BY title";
-            ucBookCatalogFilterObj = new ucBookCatalogFilter();
+            ucBookCatalogFilterObj = new ucBookCatalogFilter(this);
             ucBookCatalogFilterObj.Location = new System.Drawing.Point(btnFilter.Location.X + 10, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Size.Height + 5);
             ucBookCatalogFilterObj.Visible = false;
             isFilterDisplayed = false;
             pnlBackground.Controls.Add(ucBookCatalogFilterObj);
+            UpdateBookCatalog(query);
+
+
+        }
+
+        // Updates book catalog to reflect any search and filter queries
+        private void UpdateBookCatalog(string query)
+        {
             Tbl_Book_Catalog.DataSource = db.GetAllBooks(query);
         }
 
+        // Opens book catalog filter selection
         private void btnFilter_Click(object sender, EventArgs e)
         {
             bool isVisible = ucBookCatalogFilterObj.Visible;
@@ -49,6 +58,8 @@ namespace EduLogix_LMS
             isFilterDisplayed = ucBookCatalogFilterObj.Visible;
         }
 
+        // Is called whenever the Apply or Clear filter buttons are pressed
+        // Takes the provided List<> parameters, and parses them as a MySQL query
         public void ApplyTableFilters(List<string> genre, List<string> status)
         {
             // MessageBox.Show("Selected Genres:\n\n" + string.Join(", ", genre) + "\n\n" + "Selected Status:\n\n" + string.Join(", ", status));
@@ -72,7 +83,14 @@ namespace EduLogix_LMS
                 }
             }
 
-            MessageBox.Show(query);
+            query += " ORDER BY title";
+            // MessageBox.Show(query);
+            UpdateBookCatalog(query);
+        }
+
+        private void SearchAndFilter(object sender, EventArgs e)
+        {
+            Tbl_Book_Catalog.DataSource = db.SearchBar("lms_book_catalogue", TxtBx_SearchBar.Text);
         }
     }
 }

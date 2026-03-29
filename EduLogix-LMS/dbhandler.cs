@@ -78,25 +78,6 @@ namespace EduLogix_LMS
             return tableData;
         }
 
-        public DataTable GetAllBooks()
-        {
-            conn.ConnectionString = connectionString;
-            DataTable table = new DataTable();
-            try
-            {
-                string query = "SELECT isbn as 'ISBN', title as 'Title', author as 'Author', genre as 'Genre', copies as 'Copies', available as 'Available', borrowed as 'Borrowed', overdue as 'Overdue', missing as 'Missing' FROM `edulogix-lms`.lms_book_catalogue ORDER BY title";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
-                adapter.Fill(table);
-
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-            return table;
-        }
-
         public List<string> GetDistinctGrades()
         {
             List<string> grades = new List<string>();

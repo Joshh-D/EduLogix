@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+//using System.Windows;
+//using System.Windows.Forms;
 using Guna.UI2.WinForms;
 
 namespace EduLogix_LMS
@@ -15,17 +15,17 @@ namespace EduLogix_LMS
     public partial class ucBookCatalogFilter : UserControl
     {
         dbhandler db;
-        ucBookCatalog ucBC;
+        private ucBookCatalog ucBC;
         Guna2CheckBox ChkBx_Borrowed;
         List<string> genres = new List<string>();
         List<string> genreFilter = new List<string>();
         List<string> statusFilter = new List<string>();
 
-        public ucBookCatalogFilter()
+        public ucBookCatalogFilter(ucBookCatalog parent = null)
         {
             InitializeComponent();
             db = new dbhandler();
-            ucBC = new ucBookCatalog();
+            ucBC = parent;
         }
 
         private void ucBookCatalogFilter_Load(object sender, EventArgs e)
@@ -33,13 +33,13 @@ namespace EduLogix_LMS
             GetAllBookGenres();
         }
 
+        // Generates a dynamic checkbox for every genre in the database
         public void GetAllBookGenres()
         {
             genres = db.GetAllGenres();
 
             for (int i = 0; i < genres.Count; i++)
             {
-                // int j = 0;
                 ChkBx = new Guna2CheckBox
                 {
                     Text = genres[i],
@@ -49,28 +49,17 @@ namespace EduLogix_LMS
                     Size = new System.Drawing.Size(115, 50)
                 };
                 Pnl_GenreFilters.Controls.Add(ChkBx);
-                // j = (j == 2) ? 0 : j + 1;
             }
-
-            //tblGenreFilters.AutoScroll = false;
-            //tblGenreFilters.HorizontalScroll.Enabled = false;
-            //tblGenreFilters.HorizontalScroll.Visible = false;
-            //tblGenreFilters.AutoScroll = true;
         }
 
+        // Unchecks all checkboxes and clears the filter query
         private void Btn_ClearFilter_Click(object sender, EventArgs e)
         {
-            DialogResult result = System.Windows.Forms.MessageBox.Show
-                (
-                    "Clear Filter?",
-                    "Warning",
-                    (MessageBoxButtons)MessageBoxButton.OKCancel,
-                    (MessageBoxIcon)MessageBoxImage.Warning,
-                    MessageBoxDefaultButton.Button2
-                );
-
-            if (result == DialogResult.OK)
+            if (Btn_ClearFilter.Text == "Confirm?")
             {
+                Btn_ClearFilter.Text = "Clear";
+                Btn_ClearFilter.FillColor = Color.FromArgb(192, 165, 123);
+                Btn_ClearFilter.FillColor2 = Color.FromArgb(255, 201, 118);
                 foreach (Control ctrl in Pnl_GenreFilters.Controls)
                 {
                     if (ctrl is CheckBox ChkBx)
@@ -90,9 +79,17 @@ namespace EduLogix_LMS
                 genreFilter.Clear();
                 statusFilter.Clear();
             }
-            
+            else
+            {
+                Btn_ClearFilter.Text = "Confirm?";
+                Btn_ClearFilter.FillColor = Color.FromArgb(183, 128, 128);
+                Btn_ClearFilter.FillColor2 = Color.FromArgb(237, 128, 128);
+            }
+
+            ucBC.ApplyTableFilters(genreFilter, statusFilter);
         }
 
+        // Applies all checked checkboxes and passes the generated List<> to be parsed into a query
         private void Btn_ApplyFilter_Click(object sender, EventArgs e)
         {
             genreFilter.Clear();
@@ -103,7 +100,7 @@ namespace EduLogix_LMS
                 {
                     if (ChkBx.Checked == true)
                     {
-                        genreFilter.Add(ChkBx.Text);
+                        genreFilter.Add("'" + ChkBx.Text + "'");
                     }
                 }
             }
@@ -119,10 +116,11 @@ namespace EduLogix_LMS
                 }
             }
 
-            // System.Windows.MessageBox.Show("Selected Genres:\n\n" + string.Join(", ", genreFilter) + "\n\n" + "Selected Status:\n\n" + string.Join(", ", statusFilter));
+            // MessageBox.Show("Selected Genres:\n\n" + string.Join(", ", genreFilter) + "\n\n" + "Selected Status:\n\n" + string.Join(", ", statusFilter));
             ucBC.ApplyTableFilters(genreFilter, statusFilter);
         }
 
+        // Makes the filter list scroll less jittery (somewhat..)
         private void Pnl_GenreFilters_ScrollHandler(object sender, ScrollEventArgs e)
         {
             Panel p = (Panel)sender;

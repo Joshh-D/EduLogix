@@ -197,12 +197,15 @@
             // 
             // Btn_ApplyFilter
             // 
+            Btn_ApplyFilter.BorderRadius = 10;
             Btn_ApplyFilter.CustomizableEdges = customizableEdges1;
             Btn_ApplyFilter.DisabledState.BorderColor = Color.DarkGray;
             Btn_ApplyFilter.DisabledState.CustomBorderColor = Color.DarkGray;
             Btn_ApplyFilter.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             Btn_ApplyFilter.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             Btn_ApplyFilter.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Btn_ApplyFilter.FillColor = Color.FromArgb(162, 183, 129);
+            Btn_ApplyFilter.FillColor2 = Color.FromArgb(195, 237, 129);
             Btn_ApplyFilter.Font = new Font("Segoe UI", 9F);
             Btn_ApplyFilter.ForeColor = Color.White;
             Btn_ApplyFilter.Location = new Point(153, 280);
@@ -215,12 +218,15 @@
             // 
             // Btn_ClearFilter
             // 
+            Btn_ClearFilter.BorderRadius = 10;
             Btn_ClearFilter.CustomizableEdges = customizableEdges3;
             Btn_ClearFilter.DisabledState.BorderColor = Color.DarkGray;
             Btn_ClearFilter.DisabledState.CustomBorderColor = Color.DarkGray;
             Btn_ClearFilter.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             Btn_ClearFilter.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
             Btn_ClearFilter.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            Btn_ClearFilter.FillColor = Color.FromArgb(192, 165, 123);
+            Btn_ClearFilter.FillColor2 = Color.FromArgb(255, 201, 118);
             Btn_ClearFilter.Font = new Font("Segoe UI", 9F);
             Btn_ClearFilter.ForeColor = Color.White;
             Btn_ClearFilter.Location = new Point(307, 280);
