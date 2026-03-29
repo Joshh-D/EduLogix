@@ -11,7 +11,10 @@ namespace EduLogix_LMS
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LMSDashboard());
+
+            Login login = new Login();
+            if (login.ShowDialog() == DialogResult.OK)
+                Application.Run(new LMSDashboard());
         }
     }
 }

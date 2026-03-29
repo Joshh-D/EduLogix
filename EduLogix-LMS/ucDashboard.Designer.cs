@@ -1,4 +1,4 @@
-﻿namespace EduLogix_LMS
+namespace EduLogix_LMS
 {
     partial class ucDashboard
     {
@@ -63,11 +63,11 @@
             tblWidgets = new TableLayoutPanel();
             label2 = new Label();
             guna2GradientPanel6 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            Lbl_Overdue_Books = new Label();
+            lblOverdue = new Label();
             label10 = new Label();
             iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            Lbl_Borrowed_Books = new Label();
+            lblBorrowedBooks = new Label();
             label12 = new Label();
             iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -75,15 +75,15 @@
             label8 = new Label();
             iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            Lbl_Missing_Books = new Label();
+            lblMissingBooks = new Label();
             label6 = new Label();
             iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel7 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            Lbl_Total_Books = new Label();
+            lblTotalBooks = new Label();
             label3 = new Label();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            Lbl_Available_Books = new Label();
+            lblAvailableBooks = new Label();
             label14 = new Label();
             iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             label1 = new Label();
@@ -124,7 +124,7 @@
             pnlBackground.FillColor2 = Color.FromArgb(216, 240, 150);
             pnlBackground.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             pnlBackground.Location = new Point(0, 0);
-            pnlBackground.Margin = new Padding(5, 5, 5, 5);
+            pnlBackground.Margin = new Padding(5);
             pnlBackground.Name = "pnlBackground";
             pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges20;
             pnlBackground.Size = new Size(1244, 714);
@@ -177,7 +177,7 @@
             chart2.Legends.Add(legend3);
             chart2.Location = new Point(0, 0);
             chart2.Name = "chart2";
-            chart2.Padding = new Padding(2, 2, 2, 2);
+            chart2.Padding = new Padding(2);
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Series1";
@@ -215,7 +215,7 @@
             chart1.Legends.Add(legend4);
             chart1.Location = new Point(0, 0);
             chart1.Name = "chart1";
-            chart1.Padding = new Padding(2, 2, 2, 2);
+            chart1.Padding = new Padding(2);
             series4.ChartArea = "ChartArea1";
             series4.Legend = "Legend1";
             series4.Name = "Series1";
@@ -274,7 +274,7 @@
             guna2GradientPanel6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2GradientPanel6.BackColor = Color.Transparent;
             guna2GradientPanel6.BorderRadius = 10;
-            guna2GradientPanel6.Controls.Add(Lbl_Overdue_Books);
+            guna2GradientPanel6.Controls.Add(lblOverdue);
             guna2GradientPanel6.Controls.Add(label10);
             guna2GradientPanel6.Controls.Add(iconPictureBox6);
             guna2GradientPanel6.CustomizableEdges = customizableEdges25;
@@ -294,19 +294,19 @@
             guna2GradientPanel6.Size = new Size(352, 99);
             guna2GradientPanel6.TabIndex = 7;
             // 
-            // Lbl_Overdue_Books
+            // lblOverdue
             // 
-            Lbl_Overdue_Books.AutoSize = true;
-            Lbl_Overdue_Books.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(Lbl_Overdue_Books, Guna.UI2.AnimatorNS.DecorationType.None);
-            Lbl_Overdue_Books.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            Lbl_Overdue_Books.ForeColor = Color.White;
-            Lbl_Overdue_Books.Location = new Point(109, 47);
-            Lbl_Overdue_Books.Name = "Lbl_Overdue_Books";
-            Lbl_Overdue_Books.Size = new Size(33, 37);
-            Lbl_Overdue_Books.TabIndex = 5;
-            Lbl_Overdue_Books.Text = "0";
-            Lbl_Overdue_Books.TextAlign = ContentAlignment.MiddleLeft;
+            lblOverdue.AutoSize = true;
+            lblOverdue.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(lblOverdue, Guna.UI2.AnimatorNS.DecorationType.None);
+            lblOverdue.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            lblOverdue.ForeColor = Color.White;
+            lblOverdue.Location = new Point(109, 47);
+            lblOverdue.Name = "lblOverdue";
+            lblOverdue.Size = new Size(33, 37);
+            lblOverdue.TabIndex = 5;
+            lblOverdue.Text = "0";
+            lblOverdue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
@@ -342,7 +342,7 @@
             guna2GradientPanel5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2GradientPanel5.BackColor = Color.Transparent;
             guna2GradientPanel5.BorderRadius = 10;
-            guna2GradientPanel5.Controls.Add(Lbl_Borrowed_Books);
+            guna2GradientPanel5.Controls.Add(lblBorrowedBooks);
             guna2GradientPanel5.Controls.Add(label12);
             guna2GradientPanel5.Controls.Add(iconPictureBox3);
             guna2GradientPanel5.CustomizableEdges = customizableEdges27;
@@ -362,19 +362,19 @@
             guna2GradientPanel5.Size = new Size(383, 99);
             guna2GradientPanel5.TabIndex = 6;
             // 
-            // Lbl_Borrowed_Books
+            // lblBorrowedBooks
             // 
-            Lbl_Borrowed_Books.AutoSize = true;
-            Lbl_Borrowed_Books.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(Lbl_Borrowed_Books, Guna.UI2.AnimatorNS.DecorationType.None);
-            Lbl_Borrowed_Books.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            Lbl_Borrowed_Books.ForeColor = Color.White;
-            Lbl_Borrowed_Books.Location = new Point(110, 47);
-            Lbl_Borrowed_Books.Name = "Lbl_Borrowed_Books";
-            Lbl_Borrowed_Books.Size = new Size(33, 37);
-            Lbl_Borrowed_Books.TabIndex = 4;
-            Lbl_Borrowed_Books.Text = "0";
-            Lbl_Borrowed_Books.TextAlign = ContentAlignment.MiddleLeft;
+            lblBorrowedBooks.AutoSize = true;
+            lblBorrowedBooks.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(lblBorrowedBooks, Guna.UI2.AnimatorNS.DecorationType.None);
+            lblBorrowedBooks.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            lblBorrowedBooks.ForeColor = Color.White;
+            lblBorrowedBooks.Location = new Point(110, 47);
+            lblBorrowedBooks.Name = "lblBorrowedBooks";
+            lblBorrowedBooks.Size = new Size(33, 37);
+            lblBorrowedBooks.TabIndex = 4;
+            lblBorrowedBooks.Text = "0";
+            lblBorrowedBooks.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -478,7 +478,7 @@
             guna2GradientPanel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2GradientPanel3.BackColor = Color.Transparent;
             guna2GradientPanel3.BorderRadius = 10;
-            guna2GradientPanel3.Controls.Add(Lbl_Missing_Books);
+            guna2GradientPanel3.Controls.Add(lblMissingBooks);
             guna2GradientPanel3.Controls.Add(label6);
             guna2GradientPanel3.Controls.Add(iconPictureBox4);
             guna2GradientPanel3.CustomizableEdges = customizableEdges31;
@@ -498,19 +498,19 @@
             guna2GradientPanel3.Size = new Size(383, 99);
             guna2GradientPanel3.TabIndex = 4;
             // 
-            // Lbl_Missing_Books
+            // lblMissingBooks
             // 
-            Lbl_Missing_Books.AutoSize = true;
-            Lbl_Missing_Books.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(Lbl_Missing_Books, Guna.UI2.AnimatorNS.DecorationType.None);
-            Lbl_Missing_Books.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            Lbl_Missing_Books.ForeColor = Color.White;
-            Lbl_Missing_Books.Location = new Point(110, 49);
-            Lbl_Missing_Books.Name = "Lbl_Missing_Books";
-            Lbl_Missing_Books.Size = new Size(33, 37);
-            Lbl_Missing_Books.TabIndex = 4;
-            Lbl_Missing_Books.Text = "0";
-            Lbl_Missing_Books.TextAlign = ContentAlignment.MiddleLeft;
+            lblMissingBooks.AutoSize = true;
+            lblMissingBooks.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(lblMissingBooks, Guna.UI2.AnimatorNS.DecorationType.None);
+            lblMissingBooks.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            lblMissingBooks.ForeColor = Color.White;
+            lblMissingBooks.Location = new Point(110, 49);
+            lblMissingBooks.Name = "lblMissingBooks";
+            lblMissingBooks.Size = new Size(33, 37);
+            lblMissingBooks.TabIndex = 4;
+            lblMissingBooks.Text = "0";
+            lblMissingBooks.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
@@ -546,7 +546,7 @@
             guna2GradientPanel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2GradientPanel7.BackColor = Color.Transparent;
             guna2GradientPanel7.BorderRadius = 10;
-            guna2GradientPanel7.Controls.Add(Lbl_Total_Books);
+            guna2GradientPanel7.Controls.Add(lblTotalBooks);
             guna2GradientPanel7.Controls.Add(label3);
             guna2GradientPanel7.Controls.Add(iconPictureBox1);
             guna2GradientPanel7.CustomizableEdges = customizableEdges33;
@@ -557,7 +557,7 @@
             guna2GradientPanel7.MaximumSize = new Size(720, 300);
             guna2GradientPanel7.MinimumSize = new Size(230, 50);
             guna2GradientPanel7.Name = "guna2GradientPanel7";
-            guna2GradientPanel7.Padding = new Padding(5, 5, 5, 5);
+            guna2GradientPanel7.Padding = new Padding(5);
             guna2GradientPanel7.ShadowDecoration.BorderRadius = 10;
             guna2GradientPanel7.ShadowDecoration.Color = Color.DimGray;
             guna2GradientPanel7.ShadowDecoration.CustomizableEdges = customizableEdges34;
@@ -567,19 +567,19 @@
             guna2GradientPanel7.Size = new Size(350, 99);
             guna2GradientPanel7.TabIndex = 3;
             // 
-            // Lbl_Total_Books
+            // lblTotalBooks
             // 
-            Lbl_Total_Books.AutoSize = true;
-            Lbl_Total_Books.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(Lbl_Total_Books, Guna.UI2.AnimatorNS.DecorationType.None);
-            Lbl_Total_Books.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            Lbl_Total_Books.ForeColor = Color.White;
-            Lbl_Total_Books.Location = new Point(106, 49);
-            Lbl_Total_Books.Name = "Lbl_Total_Books";
-            Lbl_Total_Books.Size = new Size(33, 37);
-            Lbl_Total_Books.TabIndex = 2;
-            Lbl_Total_Books.Text = "0";
-            Lbl_Total_Books.TextAlign = ContentAlignment.MiddleLeft;
+            lblTotalBooks.AutoSize = true;
+            lblTotalBooks.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(lblTotalBooks, Guna.UI2.AnimatorNS.DecorationType.None);
+            lblTotalBooks.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            lblTotalBooks.ForeColor = Color.White;
+            lblTotalBooks.Location = new Point(106, 49);
+            lblTotalBooks.Name = "lblTotalBooks";
+            lblTotalBooks.Size = new Size(33, 37);
+            lblTotalBooks.TabIndex = 2;
+            lblTotalBooks.Text = "0";
+            lblTotalBooks.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -615,7 +615,7 @@
             guna2GradientPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             guna2GradientPanel2.BackColor = Color.Transparent;
             guna2GradientPanel2.BorderRadius = 10;
-            guna2GradientPanel2.Controls.Add(Lbl_Available_Books);
+            guna2GradientPanel2.Controls.Add(lblAvailableBooks);
             guna2GradientPanel2.Controls.Add(label14);
             guna2GradientPanel2.Controls.Add(iconPictureBox2);
             guna2GradientPanel2.CustomizableEdges = customizableEdges35;
@@ -635,19 +635,19 @@
             guna2GradientPanel2.Size = new Size(350, 99);
             guna2GradientPanel2.TabIndex = 4;
             // 
-            // Lbl_Available_Books
+            // lblAvailableBooks
             // 
-            Lbl_Available_Books.AutoSize = true;
-            Lbl_Available_Books.BackColor = Color.Transparent;
-            guna2Transition1.SetDecoration(Lbl_Available_Books, Guna.UI2.AnimatorNS.DecorationType.None);
-            Lbl_Available_Books.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
-            Lbl_Available_Books.ForeColor = Color.White;
-            Lbl_Available_Books.Location = new Point(106, 47);
-            Lbl_Available_Books.Name = "Lbl_Available_Books";
-            Lbl_Available_Books.Size = new Size(33, 37);
-            Lbl_Available_Books.TabIndex = 4;
-            Lbl_Available_Books.Text = "0";
-            Lbl_Available_Books.TextAlign = ContentAlignment.MiddleLeft;
+            lblAvailableBooks.AutoSize = true;
+            lblAvailableBooks.BackColor = Color.Transparent;
+            guna2Transition1.SetDecoration(lblAvailableBooks, Guna.UI2.AnimatorNS.DecorationType.None);
+            lblAvailableBooks.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold);
+            lblAvailableBooks.ForeColor = Color.White;
+            lblAvailableBooks.Location = new Point(106, 47);
+            lblAvailableBooks.Name = "lblAvailableBooks";
+            lblAvailableBooks.Size = new Size(33, 37);
+            lblAvailableBooks.TabIndex = 4;
+            lblAvailableBooks.Text = "0";
+            lblAvailableBooks.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label14
             // 
@@ -777,17 +777,17 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox5;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
-        private Label Lbl_Overdue_Books;
+        private Label lblOverdue;
         private Label label10;
-        private Label Lbl_Borrowed_Books;
+        private Label lblBorrowedBooks;
         private Label label12;
         private Label Lbl_Damaged_Books;
         private Label label8;
-        private Label Lbl_Missing_Books;
+        private Label lblMissingBooks;
         private Label label6;
-        private Label Lbl_Total_Books;
+        private Label lblTotalBooks;
         private Label label3;
-        private Label Lbl_Available_Books;
+        private Label lblAvailableBooks;
         private Label label14;
         private Guna.UI2.WinForms.Guna2Transition guna2Transition1;
     }

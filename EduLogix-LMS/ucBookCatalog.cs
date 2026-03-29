@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,8 +19,6 @@ namespace EduLogix_LMS
         public ucBookCatalog()
         {
             InitializeComponent();
-
-            // mark: haven't added the database yet
             db = new dbhandler();
         }
 

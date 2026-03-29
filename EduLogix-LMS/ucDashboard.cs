@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,11 +42,11 @@ namespace EduLogix_LMS
         private void RefreshDashboardInfo()
         {
             int[] upperDashboardInfo = db.GetUpperDashboardInfo();
-            Lbl_Total_Books.Text = upperDashboardInfo[0].ToString();
-            Lbl_Missing_Books.Text = upperDashboardInfo[1].ToString();
-            Lbl_Available_Books.Text = upperDashboardInfo[2].ToString();
-            Lbl_Borrowed_Books.Text = upperDashboardInfo[3].ToString();
-            Lbl_Overdue_Books.Text = upperDashboardInfo[4].ToString();
+            lblTotalBooks.Text = upperDashboardInfo[0].ToString();
+            lblMissingBooks.Text = upperDashboardInfo[1].ToString();
+            lblAvailableBooks.Text = upperDashboardInfo[2].ToString();
+            lblBorrowedBooks.Text = upperDashboardInfo[3].ToString();
+            lblOverdue.Text = upperDashboardInfo[4].ToString();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using AForge.Video;
+using AForge.Video;
 using AForge.Video.DirectShow;
 using MySql.Data.MySqlClient;
 using System;
@@ -19,6 +19,8 @@ namespace EduLogix_LMS
         private string lastScannedISBN = "";
         private bool isProcessing = false;
 
+        // mark
+        string connectionString = "server=localhost;user id=root;password=root;database=edulogix_lms;";
         string connectionString = "server = 192.168.1.18; database=edulogix-lms;uid=arduino_user;pwd=secret;";
 
         public ucKioskStudent()
@@ -26,12 +28,12 @@ namespace EduLogix_LMS
             InitializeComponent();
             this.Load += ucKioskStudent_Load;
         }
+
         private void ucKioskStudent_Load(object sender, EventArgs e)
         {
             StartCamera();
         }
 
-        
         private void StartCamera()
         {
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -103,32 +105,43 @@ namespace EduLogix_LMS
         
         private void HandleScannedISBN(string isbn)
         {
+            // Validate ISBN before processing
+            if (!ValidateISBN(isbn))
+                return;
+
             guna2TextBox2.Text = isbn;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
 
                 string query = "SELECT title, author FROM lms_book_catalogue WHERE isbn = @isbn LIMIT 1";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@isbn", isbn);
 
-                MySqlDataReader reader = cmd.ExecuteReader();
+                    MySqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.Read())
-                {
-                    string title = reader["title"].ToString();
-                    string author = reader["author"].ToString();
+                    if (reader.Read())
+                    {
+                        string title = reader["title"].ToString();
+                        string author = reader["author"].ToString();
 
-                    guna2TextBox1.Text = title;
-                    guna2TextBox3.Text = author;
-                    guna2TextBox4.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                        guna2TextBox1.Text = title;
+                        guna2TextBox3.Text = author;
+                        //guna2TextBox4.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
-                    AddToScannedList(title, author, isbn);
+                        AddToScannedList(title, author, isbn);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Book not found in database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Book not found in database.");
+                    MessageBox.Show($"Error processing ISBN: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -158,13 +171,16 @@ namespace EduLogix_LMS
        
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
-            int days = 0;
-            int.TryParse(guna2TextBox7.Text, out days);
-            days++;
-            guna2TextBox7.Text = days.ToString();
+            if (ValidateBorrowDays())
+            {
+                int days = 0;
+                int.TryParse(guna2TextBox7.Text, out days);
+                days++;
+                guna2TextBox7.Text = days.ToString();
+            }
         }
 
-        
+
         private void guna2GradientButton3_Click(object sender, EventArgs e)
         {
             int days = 0;
@@ -173,6 +189,74 @@ namespace EduLogix_LMS
             if (days > 0) days--;
 
             guna2TextBox7.Text = days.ToString();
+        }
+
+        /// <summary>
+        /// Validates the borrow days input
+        /// </summary>
+        private bool ValidateBorrowDays()
+        {
+            if (!int.TryParse(guna2TextBox7.Text, out int days))
+            {
+                MessageBox.Show("Borrow days must be a valid number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (days > 30)
+            {
+                MessageBox.Show("Borrow days cannot exceed 30 days.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Validates ISBN input before processing
+        /// </summary>
+        private bool ValidateISBN(string isbn)
+        {
+            if (string.IsNullOrWhiteSpace(isbn))
+            {
+                MessageBox.Show("ISBN cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // ISBN should be 10 or 13 characters
+            if (isbn.Length != 10 && isbn.Length != 13)
+            {
+                MessageBox.Show("ISBN must be 10 or 13 characters long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // ISBN should contain only numbers (and hyphens which we remove)
+            string cleanISBN = isbn.Replace("-", "");
+            if (!System.Text.RegularExpressions.Regex.IsMatch(cleanISBN, @"^\d+$"))
+            {
+                MessageBox.Show("ISBN must contain only numbers.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Validates checkout form before confirming
+        /// </summary>
+        public bool ValidateCheckoutForm()
+        {
+            // Check if any books are scanned
+            if (pnlScannedBooks.Controls.Count == 0)
+            {
+                MessageBox.Show("Please scan at least one book.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validate borrow days
+            if (!ValidateBorrowDays())
+                return false;
+
+            return true;
         }
 
         

@@ -7,7 +7,13 @@
     <Compile Update="KioskForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ucBookCatalog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ucBookCatalogArchive.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="ucBookCatalogFilter.cs">
