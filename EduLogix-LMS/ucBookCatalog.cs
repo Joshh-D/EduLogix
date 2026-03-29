@@ -71,6 +71,8 @@ namespace EduLogix_LMS
                     query += string.Join(" AND ", status);
                 }
             }
+
+            MessageBox.Show(query);
         }
     }
 }
