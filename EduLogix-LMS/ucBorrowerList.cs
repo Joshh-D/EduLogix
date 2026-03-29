@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,11 @@ namespace EduLogix_LMS
         ucBorrowerListFilter ucBorrowerFilterListObj;
         bool isFilterDisplayed = false;
 
+        public Guna2DataGridView GetBorrowerListDGV()
+        {
+            return dgvBorrowerList;
+        }
+
         private void ucBorrowerList_Load(object sender, EventArgs e)
         {
             ucBorrowerFilterListObj = new ucBorrowerListFilter(this);
@@ -30,7 +36,7 @@ namespace EduLogix_LMS
             isFilterDisplayed = false;
             pnlContainer.Controls.Add(ucBorrowerFilterListObj);
 
-            guna2DataGridView1.DataSource = db.GetBorrowerList();
+            dgvBorrowerList.DataSource = db.GetBorrowerList();
         }
 
         public void btnFilter_Click(object sender, EventArgs e)
@@ -39,7 +45,7 @@ namespace EduLogix_LMS
 
             if (ucBorrowerFilterListObj.Visible) ucBorrowerFilterListObj.BringToFront();
             else ApplyCurrentFilters();
-            
+
             isFilterDisplayed = ucBorrowerFilterListObj.Visible;
         }
 
@@ -48,8 +54,8 @@ namespace EduLogix_LMS
             var gradeFilters = ucBorrowerFilterListObj.GetAppliedGradeFilter();
             var sortFilters = ucBorrowerFilterListObj.sortFilters;
             if (gradeFilters != null && gradeFilters.Count > 0 && !sortFilters.Contains("a-z"))
-                guna2DataGridView1.DataSource = db.GetBorrowerList(true, gradeFilters, false);
-            else guna2DataGridView1.DataSource = db.GetBorrowerList();
+                dgvBorrowerList.DataSource = db.GetBorrowerList(true, gradeFilters, false);
+            else dgvBorrowerList.DataSource = db.GetBorrowerList();
         }
 
         public void ApplyCurrentFilters(List<string> gradeFilter)
@@ -59,10 +65,15 @@ namespace EduLogix_LMS
             if (gradeFilters != null && gradeFilters.Count > 0)
             {
                 MessageBox.Show("Filtering from apply button");
-                guna2DataGridView1.DataSource = db.GetBorrowerList(true, gradeFilters);
+                dgvBorrowerList.DataSource = db.GetBorrowerList(true, gradeFilters);
 
             }
-            else guna2DataGridView1.DataSource = db.GetBorrowerList();
+            else dgvBorrowerList.DataSource = db.GetBorrowerList();
+        }
+
+        private void txtbxSearchBar_TextChanged(object sender, EventArgs e)
+        {
+            dgvBorrowerList.DataSource = db.SearchBar("lms_borrower_list", txtbxSearchBar.Text);
         }
     }
 }

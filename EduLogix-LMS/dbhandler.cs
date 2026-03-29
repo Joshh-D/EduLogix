@@ -23,6 +23,31 @@ namespace EduLogix_LMS
         //private string connectionString = "server=192.168.1.18;database=edulogix-lms;uid=arduino_user;pwd=secret;";
         MySqlConnection conn = new MySqlConnection();
 
+        public DataTable SearchBar(string table, string filter)
+        {
+            conn.ConnectionString = connectionString;
+            DataTable tableData = new DataTable();
+            try
+            {
+                string query = "";
+                if (table.Contains("lms_borrower_list"))
+                    query = "SELECT * FROM `edulogix-lms`." + table + " WHERE student_name LIKE @filter OR grade LIKE @filter OR section LIKE @filter ORDER BY student_name";
+                else if (table.Contains("lms_book_catalogue"))
+                    query = "SELECT isbn as 'ISBN', title as 'Title', author as 'Author', genre as 'Genre', copies as 'Copies', available as 'Available', borrowed as 'Borrowed', overdue as 'Overdue', missing as 'Missing' FROM `edulogix-lms`." + table + " WHERE title LIKE @filter OR author LIKE @filter OR genre LIKE @filter ORDER BY title";
+
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@filter", "%" + filter + "%");
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(tableData);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return tableData;
+        }
+
         public DataTable GetAllBooks()
         {
             conn.ConnectionString = connectionString;
@@ -96,7 +121,7 @@ namespace EduLogix_LMS
 
                 if (isAscending) query += " ORDER BY student_name";
 
-                MessageBox.Show(query);
+                //MessageBox.Show(query);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 adapter.Fill(table);
 

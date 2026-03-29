@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,7 @@ namespace EduLogix_LMS
         dbhandler db = new();
         List<string> grades = new List<string>();
         public List<string> appliedGradeFilters = new List<string>();
+        private List<CheckBox> gradeCheckBoxes = new List<CheckBox>();
         public List<string> sortFilters = new List<string>();
         public bool applyFitler = false;
         private ucBorrowerList parentBorrowerList;
@@ -46,8 +48,6 @@ namespace EduLogix_LMS
         {
             return appliedGradeFilters;
         }
-
-
 
         private void HandleGradeTableCheckBoxes()
         {
@@ -99,6 +99,18 @@ namespace EduLogix_LMS
         {
             if (!sortFilters.Contains("a-z")) sortFilters.Add("a-z");
             else sortFilters.Remove("a-z");
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearFilters(parentBorrowerList.GetBorrowerListDGV());
+            this.Visible = false;
+        }
+
+        private void ClearFilters(Guna2DataGridView dgv)
+        {
+            appliedGradeFilters.Clear();
+            dgv.DataSource = db.GetBorrowerList();
         }
     }
 }

@@ -39,7 +39,7 @@
             guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2CheckBox5 = new Guna.UI2.WinForms.Guna2CheckBox();
             guna2CheckBox2 = new Guna.UI2.WinForms.Guna2CheckBox();
-            guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+            btnClear = new Guna.UI2.WinForms.Guna2GradientButton();
             btnApply = new Guna.UI2.WinForms.Guna2GradientButton();
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -136,23 +136,24 @@
             guna2CheckBox2.UncheckedState.BorderThickness = 0;
             guna2CheckBox2.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
             // 
-            // guna2GradientButton1
+            // btnClear
             // 
-            guna2GradientButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            guna2GradientButton1.CustomizableEdges = customizableEdges1;
-            guna2GradientButton1.DisabledState.BorderColor = Color.DarkGray;
-            guna2GradientButton1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2GradientButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2GradientButton1.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            guna2GradientButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2GradientButton1.Font = new Font("Segoe UI", 9F);
-            guna2GradientButton1.ForeColor = Color.White;
-            guna2GradientButton1.Location = new Point(303, 470);
-            guna2GradientButton1.Name = "guna2GradientButton1";
-            guna2GradientButton1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2GradientButton1.Size = new Size(131, 32);
-            guna2GradientButton1.TabIndex = 17;
-            guna2GradientButton1.Text = "Clear";
+            btnClear.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnClear.CustomizableEdges = customizableEdges1;
+            btnClear.DisabledState.BorderColor = Color.DarkGray;
+            btnClear.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnClear.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnClear.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            btnClear.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnClear.Font = new Font("Segoe UI", 9F);
+            btnClear.ForeColor = Color.White;
+            btnClear.Location = new Point(303, 470);
+            btnClear.Name = "btnClear";
+            btnClear.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnClear.Size = new Size(131, 32);
+            btnClear.TabIndex = 17;
+            btnClear.Text = "Clear";
+            btnClear.Click += btnClear_Click;
             // 
             // btnApply
             // 
@@ -181,7 +182,7 @@
             pnlBackground.Controls.Add(tableLayoutPanel2);
             pnlBackground.Controls.Add(tblGradeLevel);
             pnlBackground.Controls.Add(btnApply);
-            pnlBackground.Controls.Add(guna2GradientButton1);
+            pnlBackground.Controls.Add(btnClear);
             pnlBackground.Controls.Add(tableLayoutPanel1);
             pnlBackground.CustomizableEdges = customizableEdges5;
             pnlBackground.Dock = DockStyle.Fill;
@@ -333,7 +334,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox5;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton btnClear;
         private Guna.UI2.WinForms.Guna2GradientButton btnApply;
         private Guna.UI2.WinForms.Guna2GradientPanel pnlBackground;
         private TableLayoutPanel tblGradeLevel;
