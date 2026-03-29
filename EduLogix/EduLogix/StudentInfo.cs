@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace EduLogix
 {
@@ -18,19 +19,73 @@ namespace EduLogix
         private string currentStudentId = "";
         private string currentImagePath = "";
         private Color currentThemeColor = Color.FromArgb(48, 79, 99);
+        private StudentInfoState loadedState;
+
+        private sealed class StudentInfoState
+        {
+            public string Rfid;
+            public string StudentId;
+            public string FullName;
+            public string StudentContact;
+            public string Level;
+            public string Grade;
+            public string Section;
+            public DateTime? BirthDate;
+            public string GuardianName;
+            public string GuardianContact;
+            public string Address;
+            public string ImagePath;
+        }
 
         public StudentInfo()
         {
             InitializeComponent();
             InitializeUserOptionsPanel();
+            ApplyUserIdentityLabels();
             InitializeSectionComboBox();
             InitializeBirthDatePicker();
+            ConfigureInputConstraints();
 
             if (editBtn != null) editBtn.Click += editBtn_Click;
             if (saveBtn != null) saveBtn.Click += saveBtn_Click;
-            if (archiveBtn != null) archiveBtn.Click += archiveBtn_Click;
+            if (archiveBtn != null)
+            {
+                archiveBtn.Click -= archiveBtn_Click_1;
+                archiveBtn.Click += archiveBtn_Click_1;
+            }
+
+            var resetInfoButton = this.Controls.Find("resetinfo", true).FirstOrDefault();
+            if (resetInfoButton != null)
+            {
+                resetInfoButton.Click -= resetinfo_Click;
+                resetInfoButton.Click += resetinfo_Click;
+            }
 
             SetEditMode(false);
+        }
+
+        private void resetinfo_Click(object sender, EventArgs e)
+        {
+            if (loadedState == null)
+            {
+                MessageBox.Show("No loaded student info to reset.", "Reset Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            ApplyState(loadedState);
+        }
+
+        private void ConfigureInputConstraints()
+        {
+            if (rfidNum != null) rfidNum.MaxLength = 20;
+            if (studentID != null) studentID.MaxLength = 10;
+            if (studentName != null) studentName.MaxLength = 255;
+            if (contactNum != null) contactNum.MaxLength = 14;
+            if (level != null) level.MaxLength = 20;
+            if (studentGrade != null) studentGrade.MaxLength = 2;
+            if (guardianName != null) guardianName.MaxLength = 255;
+            if (guardianNum != null) guardianNum.MaxLength = 14;
+            if (address != null) address.MaxLength = 255;
         }
 
         private void InitializeUserOptionsPanel()
@@ -278,11 +333,53 @@ namespace EduLogix
                     : reader["image_path"].ToString();
 
                 LoadStudentPicture(currentImagePath);
+
+                loadedState = CaptureCurrentState();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error populating student controls:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private StudentInfoState CaptureCurrentState()
+        {
+            return new StudentInfoState
+            {
+                Rfid = rfidNum != null ? rfidNum.Text : string.Empty,
+                StudentId = studentID != null ? studentID.Text : string.Empty,
+                FullName = studentName != null ? studentName.Text : string.Empty,
+                StudentContact = contactNum != null ? contactNum.Text : string.Empty,
+                Level = level != null ? level.Text : string.Empty,
+                Grade = studentGrade != null ? studentGrade.Text : string.Empty,
+                Section = sectionComboBox != null ? sectionComboBox.Text : string.Empty,
+                BirthDate = birthDatePicker != null && birthDatePicker.CustomFormat != " " ? (DateTime?)birthDatePicker.Value.Date : null,
+                GuardianName = guardianName != null ? guardianName.Text : string.Empty,
+                GuardianContact = guardianNum != null ? guardianNum.Text : string.Empty,
+                Address = address != null ? address.Text : string.Empty,
+                ImagePath = currentImagePath
+            };
+        }
+
+        private void ApplyState(StudentInfoState state)
+        {
+            if (state == null) return;
+
+            if (rfidNum != null) rfidNum.Text = state.Rfid;
+            if (studentID != null) studentID.Text = state.StudentId;
+            if (studentName != null) studentName.Text = state.FullName;
+            if (contactNum != null) contactNum.Text = state.StudentContact;
+            if (level != null) level.Text = state.Level;
+            if (studentGrade != null) studentGrade.Text = state.Grade;
+            if (sectionComboBox != null) sectionComboBox.Text = state.Section;
+            if (guardianName != null) guardianName.Text = state.GuardianName;
+            if (guardianNum != null) guardianNum.Text = state.GuardianContact;
+            if (address != null) address.Text = state.Address;
+
+            SetBirthDate(state.BirthDate);
+
+            currentImagePath = state.ImagePath;
+            LoadStudentPicture(currentImagePath);
         }
 
         private void LoadStudentPicture(string imagePath)
@@ -348,6 +445,13 @@ namespace EduLogix
         {
             if (string.IsNullOrWhiteSpace(currentStudentId)) return;
 
+            string validationMessage;
+            if (!ValidateStudentInfo(out validationMessage))
+            {
+                MessageBox.Show(validationMessage, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 string previousStudentId = currentStudentId;
@@ -389,6 +493,7 @@ namespace EduLogix
 
                 currentStudentId = studentID?.Text?.Trim() ?? currentStudentId;
                 LogAction("StudentUpdated", $"Updated student info: {studentName?.Text?.Trim()} ({previousStudentId} -> {currentStudentId})");
+                loadedState = CaptureCurrentState();
                 SetEditMode(false);
                 MessageBox.Show("Student information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -427,6 +532,7 @@ namespace EduLogix
 
             birthDatePicker.Format = DateTimePickerFormat.Custom;
             birthDatePicker.CustomFormat = " ";
+            birthDatePicker.MaxDate = new DateTime(2026, 12, 31);
             birthDatePicker.ValueChanged -= BirthDatePicker_ValueChanged;
             birthDatePicker.ValueChanged += BirthDatePicker_ValueChanged;
         }
@@ -456,13 +562,116 @@ namespace EduLogix
 
             if (value.HasValue)
             {
-                birthDatePicker.Value = value.Value;
+                var maxDate = new DateTime(2026, 12, 31);
+                birthDatePicker.Value = value.Value > maxDate ? maxDate : value.Value;
                 birthDatePicker.CustomFormat = "MMMM dd, yyyy";
             }
             else
             {
                 birthDatePicker.CustomFormat = " ";
             }
+        }
+
+        private bool ValidateStudentInfo(out string message)
+        {
+            message = string.Empty;
+
+            string rfid = rfidNum != null ? rfidNum.Text.Trim() : string.Empty;
+            string studentIdValue = studentID != null ? studentID.Text.Trim() : string.Empty;
+            string fullName = studentName != null ? studentName.Text.Trim() : string.Empty;
+            string studentContact = contactNum != null ? contactNum.Text.Trim() : string.Empty;
+            string levelValue = level != null ? level.Text.Trim() : string.Empty;
+            string gradeValue = studentGrade != null ? studentGrade.Text.Trim() : string.Empty;
+            string sectionValue = sectionComboBox != null ? sectionComboBox.Text.Trim() : string.Empty;
+            string guardianNameValue = guardianName != null ? guardianName.Text.Trim() : string.Empty;
+            string guardianContact = guardianNum != null ? guardianNum.Text.Trim() : string.Empty;
+            string addressValue = address != null ? address.Text.Trim() : string.Empty;
+
+            if (rfid.Length > 20)
+            {
+                message = "RFID must be at most 20 characters.";
+                return false;
+            }
+
+            if (!Regex.IsMatch(studentIdValue, @"^\d{8}-[CNS]$", RegexOptions.IgnoreCase))
+            {
+                message = "Student ID must be 8 digits followed by '-' and end with C, N, or S (example: 20240357-C).";
+                return false;
+            }
+
+            if (fullName.Length == 0 || fullName.Length > 255)
+            {
+                message = "Full name is required and must be at most 255 characters.";
+                return false;
+            }
+
+            if (!IsValidPhoneNumber(studentContact))
+            {
+                message = "Student contact must start with '09' (11 digits) or '+63 9' (14 chars including plus and space).";
+                return false;
+            }
+
+            if (!(string.Equals(levelValue, "elementary", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(levelValue, "junior", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(levelValue, "senior", StringComparison.OrdinalIgnoreCase)))
+            {
+                message = "Level must be only: elementary, junior, or senior.";
+                return false;
+            }
+
+            int gradeNumber;
+            if (!int.TryParse(gradeValue, out gradeNumber) || gradeNumber < 1 || gradeNumber > 12)
+            {
+                message = "Grade must be a number from 1 to 12.";
+                return false;
+            }
+
+            if (!(string.Equals(sectionValue, "A", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(sectionValue, "B", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(sectionValue, "C", StringComparison.OrdinalIgnoreCase)))
+            {
+                message = "Section must be only A, B, or C.";
+                return false;
+            }
+
+            if (birthDatePicker != null && birthDatePicker.CustomFormat != " " && birthDatePicker.Value.Year > 2026)
+            {
+                message = "Date of birth year must not exceed 2026.";
+                return false;
+            }
+
+            if (guardianNameValue.Length > 255)
+            {
+                message = "Guardian name must be at most 255 characters.";
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(guardianContact) && !IsValidPhoneNumber(guardianContact))
+            {
+                message = "Guardian contact must start with '09' (11 digits) or '+63 9' (14 chars including plus and space).";
+                return false;
+            }
+
+            if (addressValue.Length > 255)
+            {
+                message = "Address must be at most 255 characters.";
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsValidPhoneNumber(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value)) return false;
+
+            if (Regex.IsMatch(value, @"^09\d{9}$"))
+                return true;
+
+            if (Regex.IsMatch(value, @"^\+63 9\d{9}$") && value.Length == 14)
+                return true;
+
+            return false;
         }
 
         private object GetBirthDateValue()
@@ -590,13 +799,6 @@ namespace EduLogix
             this.Hide();
         }
 
-        private void Accounts_Click(object sender, EventArgs e)
-        {
-            Users users = new Users();
-            users.Show();
-            this.Hide();
-        }
-
         private void Logs_Click(object sender, EventArgs e)
         {
             Logs logs = new Logs();
@@ -649,7 +851,156 @@ namespace EduLogix
                 userOptions.BringToFront();
         }
 
+        private void ApplyUserIdentityLabels()
+        {
+            string userName = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+            string roleText = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
+
+            if (this.username != null)
+            {
+                this.username.Text = userName;
+            }
+            else
+            {
+                var nameLabel = this.Controls.Find("username", true)
+                    .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                    .FirstOrDefault();
+                if (nameLabel == null)
+                {
+                    nameLabel = this.Controls.Find("guna2HtmlLabel17", true)
+                        .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                        .FirstOrDefault();
+                }
+                if (nameLabel != null) nameLabel.Text = userName;
+            }
+
+            if (this.role != null)
+            {
+                this.role.Text = roleText;
+            }
+            else
+            {
+                var roleLabel = this.Controls.Find("role", true)
+                    .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                    .FirstOrDefault();
+                if (roleLabel == null)
+                {
+                    roleLabel = this.Controls.Find("guna2HtmlLabel13", true)
+                        .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                        .FirstOrDefault();
+                }
+                if (roleLabel != null) roleLabel.Text = roleText;
+            }
+        }
+
         private void guna2HtmlLabel12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void archiveBtn_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(currentStudentId))
+            {
+                MessageBox.Show("No student selected to archive.", "Archive", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var result = MessageBox.Show(
+                $"Are you sure you want to archive {studentName.Text}?",
+                "Confirm Archive",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes) return;
+
+            try
+            {
+                string imagePath = currentImagePath;
+                string rfid = rfidNum != null ? rfidNum.Text.Trim() : string.Empty;
+                string studentId = studentID != null ? studentID.Text.Trim() : string.Empty;
+                string fullName = studentName != null ? studentName.Text.Trim() : string.Empty;
+                string phone = contactNum != null ? contactNum.Text.Trim() : string.Empty;
+                string guardian = guardianName != null ? guardianName.Text.Trim() : string.Empty;
+                string guardianPhone = guardianNum != null ? guardianNum.Text.Trim() : string.Empty;
+                string addressValue = address != null ? address.Text.Trim() : string.Empty;
+                string gradeValue = studentGrade != null ? studentGrade.Text.Trim() : string.Empty;
+                string sectionValue = sectionComboBox != null ? sectionComboBox.Text.Trim() : string.Empty;
+                string levelValue = level != null ? level.Text.Trim() : string.Empty;
+                DateTime? dob = (birthDatePicker == null || birthDatePicker.CustomFormat == " ")
+                    ? (DateTime?)null
+                    : birthDatePicker.Value.Date;
+
+                using (var conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        const string insertQuery = @"INSERT INTO reg_studentarchive
+                            (image_path, rfid_number, student_id, name, phone_number, guardian_name, guardian_phone_number, address, grade, section, `level`, date_of_birth)
+                            VALUES
+                            (@image, @rfid, @studentId, @name, @phone, @guardian, @guardianPhone, @address, @grade, @section, @level, @dob)";
+
+                        using (var insertCmd = new MySqlCommand(insertQuery, conn, transaction))
+                        {
+                            insertCmd.Parameters.AddWithValue("@image", string.IsNullOrWhiteSpace(imagePath) ? (object)DBNull.Value : imagePath);
+                            insertCmd.Parameters.AddWithValue("@rfid", string.IsNullOrWhiteSpace(rfid) ? (object)DBNull.Value : rfid);
+                            insertCmd.Parameters.AddWithValue("@studentId", studentId);
+                            insertCmd.Parameters.AddWithValue("@name", string.IsNullOrWhiteSpace(fullName) ? (object)DBNull.Value : fullName);
+                            insertCmd.Parameters.AddWithValue("@phone", string.IsNullOrWhiteSpace(phone) ? (object)DBNull.Value : phone);
+                            insertCmd.Parameters.AddWithValue("@guardian", string.IsNullOrWhiteSpace(guardian) ? (object)DBNull.Value : guardian);
+                            insertCmd.Parameters.AddWithValue("@guardianPhone", string.IsNullOrWhiteSpace(guardianPhone) ? (object)DBNull.Value : guardianPhone);
+                            insertCmd.Parameters.AddWithValue("@address", string.IsNullOrWhiteSpace(addressValue) ? (object)DBNull.Value : addressValue);
+                            insertCmd.Parameters.AddWithValue("@grade", string.IsNullOrWhiteSpace(gradeValue) ? (object)DBNull.Value : gradeValue);
+                            insertCmd.Parameters.AddWithValue("@section", string.IsNullOrWhiteSpace(sectionValue) ? (object)DBNull.Value : sectionValue);
+                            insertCmd.Parameters.AddWithValue("@level", string.IsNullOrWhiteSpace(levelValue) ? (object)DBNull.Value : levelValue);
+                            insertCmd.Parameters.AddWithValue("@dob", dob.HasValue ? (object)dob.Value : DBNull.Value);
+                            insertCmd.ExecuteNonQuery();
+                        }
+
+                        using (var deleteCmd = new MySqlCommand("DELETE FROM reg_studentinfo WHERE student_id = @studentId", conn, transaction))
+                        {
+                            deleteCmd.Parameters.AddWithValue("@studentId", currentStudentId);
+                            deleteCmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                }
+
+                LogAction("StudentArchived", $"Archived and transferred student: {fullName} ({currentStudentId})");
+
+                MessageBox.Show($"{fullName} was successfully archived.",
+                    "Archive Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ReturnToStudentIdForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to archive student:\n" + ex.Message,
+                    "Archive Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ReturnToStudentIdForm()
+        {
+            var studentIdForm = Application.OpenForms
+                .OfType<StudentIDForm>()
+                .FirstOrDefault();
+
+            if (studentIdForm == null)
+                studentIdForm = new StudentIDForm();
+
+            studentIdForm.StartPosition = FormStartPosition.Manual;
+            studentIdForm.Location = this.Location;
+            studentIdForm.Show();
+            studentIdForm.BringToFront();
+            studentIdForm.Activate();
+
+            this.Close();
+        }
+
+        private void guna2HtmlLabel16_Click(object sender, EventArgs e)
         {
 
         }

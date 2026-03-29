@@ -173,6 +173,7 @@ namespace EduLogix
                 // 1. Load UI Themes and Branding First
                 LoadThemeFromDatabase();
                 BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+                ApplyUserIdentityLabels();
 
                 // 2. Load the Data and Configure the Grid
                 LoadStudentData();
@@ -737,6 +738,38 @@ namespace EduLogix
                 userOptions.BringToFront();
         }
 
+        private void ApplyUserIdentityLabels()
+        {
+            string userName = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+            string roleText = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
+
+            if (this.username != null)
+            {
+                this.username.Text = userName;
+            }
+            else
+            {
+                var nameLabel = this.Controls.Find("username", true)
+                    .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                    .FirstOrDefault();
+                if (nameLabel == null)
+                    nameLabel = this.Controls.Find("guna2HtmlLabel17", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (nameLabel != null) nameLabel.Text = userName;
+            }
+
+            if (this.role != null)
+            {
+                this.role.Text = roleText;
+            }
+            else
+            {
+                var roleLabel = this.Controls.Find("role", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (roleLabel == null)
+                    roleLabel = this.Controls.Find("guna2HtmlLabel13", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (roleLabel != null) roleLabel.Text = roleText;
+            }
+        }
+
         private void addNewStudent_Click(object sender, EventArgs e)
         {
             RegistrarStudAdd registrarStudAdd = new RegistrarStudAdd();
@@ -876,6 +909,13 @@ namespace EduLogix
             catch
             {
             }
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            RegStudArchive regStudArchive = new RegStudArchive();
+            regStudArchive.Show();
+            this.Hide();
         }
     }
 }

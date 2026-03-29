@@ -149,11 +149,7 @@ namespace EduLogix
             if (userOptions != null)
                 userOptions.Visible = false;
 
-            var form = new Settings();
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = this.Location;
-            form.Show();
-            this.Hide();
+            OpenSettingsForm();
         }
 
         private void UserOptionsLogout_Click(object sender, EventArgs e)
@@ -202,6 +198,7 @@ namespace EduLogix
         {
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+            ApplyUserIdentityLabels();
             MarkActiveNav();
             if (dashboardDateAndTime != null)
             {
@@ -225,7 +222,8 @@ namespace EduLogix
                             SUM(CASE WHEN LOWER(education) = 'senior' THEN 1 ELSE 0 END) AS senior_count,
                             SUM(CASE WHEN status = 'In Premises' THEN 1 ELSE 0 END) AS in_premises_count,
                             SUM(CASE WHEN status = 'Departed' THEN 1 ELSE 0 END) AS departed_count,
-                            COUNT(*) AS arrivals_count
+                            COUNT(*) AS arrivals_count,
+                            (SELECT COUNT(*) FROM reg_studentinfo) AS total_students
                         FROM reg_attendance_live";
 
                     using (var cmd = new MySqlCommand(query, conn))
@@ -239,6 +237,7 @@ namespace EduLogix
                         int inPremises = ToInt(reader["in_premises_count"]);
                         int departed = ToInt(reader["departed_count"]);
                         int arrivals = ToInt(reader["arrivals_count"]);
+                        int totalStudents = ToInt(reader["total_students"]);
 
                         if (elemNum != null) elemNum.Text = elementary.ToString();
                         if (juniorNum != null) juniorNum.Text = junior.ToString();
@@ -247,7 +246,7 @@ namespace EduLogix
                         if (arrivalsNum != null) arrivalsNum.Text = arrivals.ToString();
                         if (departedNum != null) departedNum.Text = departed.ToString();
 
-                        UpdateDailyAttendanceCircle(arrivals, inPremises);
+                        UpdateDailyAttendanceCircle(totalStudents, arrivals);
                     }
                 }
             }
@@ -364,10 +363,10 @@ namespace EduLogix
             }
 
             // labels over sidebar
-            if (guna2HtmlLabel1 != null)
-                guna2HtmlLabel1.ForeColor = Color.LightGray;
-            if (guna2HtmlLabel17 != null)
-                guna2HtmlLabel17.ForeColor = Color.White;
+            if (role != null)
+                role.ForeColor = Color.LightGray;
+            if (username != null)
+                username.ForeColor = Color.White;
 
             void ApplyNavTheme(Guna.UI2.WinForms.Guna2Button btn)
             {
@@ -420,12 +419,7 @@ namespace EduLogix
             this.Hide();
         }
 
-        private void Accounts_Click(object sender, EventArgs e)
-        {
-            Users user = new Users();
-            user.Show();
-            this.Hide();
-        }
+       
 
         private void Logs_Click(object sender, EventArgs e)
         {
@@ -436,9 +430,39 @@ namespace EduLogix
 
         private void settings_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
-            settings.Show();
-            this.Hide();
+            OpenSettingsForm();
+        }
+
+        private void OpenSettingsForm()
+        {
+            try
+            {
+                var form = Application.OpenForms.OfType<Settings>().FirstOrDefault();
+                if (form == null)
+                    form = new Settings();
+
+                form.StartPosition = FormStartPosition.Manual;
+                form.Location = this.Location;
+                form.Show();
+                form.BringToFront();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open settings:\n" + ex.Message, "Settings Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ApplyUserIdentityLabels()
+        {
+            string userName = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+            string role = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
+
+            if (username != null)
+                username.Text = userName;
+
+            if (this.role != null)
+                this.role.Text = role;
         }
 
         private void Logout_Click(object sender, EventArgs e)

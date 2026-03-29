@@ -50,22 +50,22 @@
             this.Logs = new Guna.UI2.WinForms.Guna2Button();
             this.StudentsID = new Guna.UI2.WinForms.Guna2Button();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.username = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.role = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.schoolLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.editUser = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.saveChanges = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.deleteUser = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.bindRFIDBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.attendancetotal = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.accountsCounter = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel14 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.manageAccountsDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.addNewUser = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.bindRFIDBtn = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.deleteUser = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.saveChanges = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.editUser = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.userOptions.SuspendLayout();
@@ -128,8 +128,8 @@
             this.guna2GradientPanel1.Controls.Add(this.Logs);
             this.guna2GradientPanel1.Controls.Add(this.StudentsID);
             this.guna2GradientPanel1.Controls.Add(this.Dashboard);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel17);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2GradientPanel1.Controls.Add(this.username);
+            this.guna2GradientPanel1.Controls.Add(this.role);
             this.guna2GradientPanel1.Controls.Add(this.schoolLogo);
             this.guna2GradientPanel1.Controls.Add(this.userProfile);
             this.guna2GradientPanel1.Controls.Add(this.schoolName);
@@ -347,29 +347,29 @@
             this.Dashboard.TextOffset = new System.Drawing.Point(-5, 0);
             this.Dashboard.Click += new System.EventHandler(this.Dashboard_Click);
             // 
-            // guna2HtmlLabel17
+            // username
             // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(40, 385);
-            this.guna2HtmlLabel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(173, 27);
-            this.guna2HtmlLabel17.TabIndex = 61;
-            this.guna2HtmlLabel17.Text = "Joshua Dayapera";
+            this.username.BackColor = System.Drawing.Color.Transparent;
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.ForeColor = System.Drawing.Color.White;
+            this.username.Location = new System.Drawing.Point(40, 385);
+            this.username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(173, 27);
+            this.username.TabIndex = 61;
+            this.username.Text = "Joshua Dayapera";
             // 
-            // guna2HtmlLabel1
+            // role
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(52, 414);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(134, 20);
-            this.guna2HtmlLabel1.TabIndex = 60;
-            this.guna2HtmlLabel1.Text = "Registrar Personnel";
+            this.role.BackColor = System.Drawing.Color.Transparent;
+            this.role.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.role.Location = new System.Drawing.Point(52, 414);
+            this.role.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.role.Name = "role";
+            this.role.Size = new System.Drawing.Size(134, 20);
+            this.role.TabIndex = 60;
+            this.role.Text = "Registrar Personnel";
             // 
             // schoolLogo
             // 
@@ -436,6 +436,109 @@
             this.guna2GradientPanel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.guna2GradientPanel2.Size = new System.Drawing.Size(1640, 1025);
             this.guna2GradientPanel2.TabIndex = 53;
+            // 
+            // editUser
+            // 
+            this.editUser.BackColor = System.Drawing.Color.Transparent;
+            this.editUser.BorderRadius = 5;
+            this.editUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.editUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.editUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.editUser.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.editUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.editUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
+            this.editUser.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
+            this.editUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUser.ForeColor = System.Drawing.Color.White;
+            this.editUser.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_26_213938_removebg_preview;
+            this.editUser.Location = new System.Drawing.Point(1006, 135);
+            this.editUser.Margin = new System.Windows.Forms.Padding(2);
+            this.editUser.Name = "editUser";
+            this.editUser.ShadowDecoration.BorderRadius = 10;
+            this.editUser.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.editUser.ShadowDecoration.Enabled = true;
+            this.editUser.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.editUser.Size = new System.Drawing.Size(170, 40);
+            this.editUser.TabIndex = 115;
+            this.editUser.Text = "Edit";
+            // 
+            // saveChanges
+            // 
+            this.saveChanges.BackColor = System.Drawing.Color.Transparent;
+            this.saveChanges.BorderRadius = 5;
+            this.saveChanges.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.saveChanges.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.saveChanges.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.saveChanges.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.saveChanges.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.saveChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
+            this.saveChanges.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
+            this.saveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.saveChanges.ForeColor = System.Drawing.Color.White;
+            this.saveChanges.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194756_removebg_preview;
+            this.saveChanges.ImageSize = new System.Drawing.Size(30, 30);
+            this.saveChanges.Location = new System.Drawing.Point(1405, 135);
+            this.saveChanges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.saveChanges.Name = "saveChanges";
+            this.saveChanges.ShadowDecoration.BorderRadius = 5;
+            this.saveChanges.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.saveChanges.ShadowDecoration.Enabled = true;
+            this.saveChanges.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.saveChanges.Size = new System.Drawing.Size(171, 39);
+            this.saveChanges.TabIndex = 114;
+            this.saveChanges.Text = "Save Changes";
+            // 
+            // deleteUser
+            // 
+            this.deleteUser.BackColor = System.Drawing.Color.Transparent;
+            this.deleteUser.BorderRadius = 5;
+            this.deleteUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteUser.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.deleteUser.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.deleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteUser.ForeColor = System.Drawing.Color.White;
+            this.deleteUser.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194429_removebg_preview;
+            this.deleteUser.Location = new System.Drawing.Point(1207, 135);
+            this.deleteUser.Margin = new System.Windows.Forms.Padding(2);
+            this.deleteUser.Name = "deleteUser";
+            this.deleteUser.ShadowDecoration.BorderRadius = 10;
+            this.deleteUser.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.deleteUser.ShadowDecoration.Enabled = true;
+            this.deleteUser.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.deleteUser.Size = new System.Drawing.Size(170, 40);
+            this.deleteUser.TabIndex = 113;
+            this.deleteUser.Text = "Delete";
+            this.deleteUser.UseTransparentBackground = true;
+            // 
+            // bindRFIDBtn
+            // 
+            this.bindRFIDBtn.BackColor = System.Drawing.Color.Transparent;
+            this.bindRFIDBtn.BorderRadius = 5;
+            this.bindRFIDBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.bindRFIDBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.bindRFIDBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bindRFIDBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.bindRFIDBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.bindRFIDBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
+            this.bindRFIDBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
+            this.bindRFIDBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bindRFIDBtn.ForeColor = System.Drawing.Color.White;
+            this.bindRFIDBtn.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000055_removebg_preview1;
+            this.bindRFIDBtn.ImageSize = new System.Drawing.Size(30, 25);
+            this.bindRFIDBtn.Location = new System.Drawing.Point(596, 136);
+            this.bindRFIDBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.bindRFIDBtn.Name = "bindRFIDBtn";
+            this.bindRFIDBtn.ShadowDecoration.BorderRadius = 10;
+            this.bindRFIDBtn.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.bindRFIDBtn.ShadowDecoration.Enabled = true;
+            this.bindRFIDBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.bindRFIDBtn.Size = new System.Drawing.Size(170, 40);
+            this.bindRFIDBtn.TabIndex = 112;
+            this.bindRFIDBtn.Text = "Bind RFID";
             // 
             // attendancetotal
             // 
@@ -591,109 +694,6 @@
             this.addNewUser.Text = "Add New";
             this.addNewUser.Click += new System.EventHandler(this.addNewStudent_Click);
             // 
-            // bindRFIDBtn
-            // 
-            this.bindRFIDBtn.BackColor = System.Drawing.Color.Transparent;
-            this.bindRFIDBtn.BorderRadius = 5;
-            this.bindRFIDBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.bindRFIDBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.bindRFIDBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.bindRFIDBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.bindRFIDBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.bindRFIDBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
-            this.bindRFIDBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
-            this.bindRFIDBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bindRFIDBtn.ForeColor = System.Drawing.Color.White;
-            this.bindRFIDBtn.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000055_removebg_preview1;
-            this.bindRFIDBtn.ImageSize = new System.Drawing.Size(30, 25);
-            this.bindRFIDBtn.Location = new System.Drawing.Point(596, 136);
-            this.bindRFIDBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.bindRFIDBtn.Name = "bindRFIDBtn";
-            this.bindRFIDBtn.ShadowDecoration.BorderRadius = 10;
-            this.bindRFIDBtn.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.bindRFIDBtn.ShadowDecoration.Enabled = true;
-            this.bindRFIDBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.bindRFIDBtn.Size = new System.Drawing.Size(170, 40);
-            this.bindRFIDBtn.TabIndex = 112;
-            this.bindRFIDBtn.Text = "Bind RFID";
-            // 
-            // deleteUser
-            // 
-            this.deleteUser.BackColor = System.Drawing.Color.Transparent;
-            this.deleteUser.BorderRadius = 5;
-            this.deleteUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.deleteUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.deleteUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.deleteUser.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.deleteUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.deleteUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.deleteUser.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.deleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteUser.ForeColor = System.Drawing.Color.White;
-            this.deleteUser.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194429_removebg_preview;
-            this.deleteUser.Location = new System.Drawing.Point(1207, 135);
-            this.deleteUser.Margin = new System.Windows.Forms.Padding(2);
-            this.deleteUser.Name = "deleteUser";
-            this.deleteUser.ShadowDecoration.BorderRadius = 10;
-            this.deleteUser.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.deleteUser.ShadowDecoration.Enabled = true;
-            this.deleteUser.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.deleteUser.Size = new System.Drawing.Size(170, 40);
-            this.deleteUser.TabIndex = 113;
-            this.deleteUser.Text = "Delete";
-            this.deleteUser.UseTransparentBackground = true;
-            // 
-            // saveChanges
-            // 
-            this.saveChanges.BackColor = System.Drawing.Color.Transparent;
-            this.saveChanges.BorderRadius = 5;
-            this.saveChanges.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.saveChanges.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.saveChanges.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.saveChanges.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.saveChanges.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.saveChanges.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(179)))), ((int)(((byte)(82)))));
-            this.saveChanges.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(229)))), ((int)(((byte)(142)))));
-            this.saveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.saveChanges.ForeColor = System.Drawing.Color.White;
-            this.saveChanges.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194756_removebg_preview;
-            this.saveChanges.ImageSize = new System.Drawing.Size(30, 30);
-            this.saveChanges.Location = new System.Drawing.Point(1405, 135);
-            this.saveChanges.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.saveChanges.Name = "saveChanges";
-            this.saveChanges.ShadowDecoration.BorderRadius = 5;
-            this.saveChanges.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.saveChanges.ShadowDecoration.Enabled = true;
-            this.saveChanges.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.saveChanges.Size = new System.Drawing.Size(171, 39);
-            this.saveChanges.TabIndex = 114;
-            this.saveChanges.Text = "Save Changes";
-            // 
-            // editUser
-            // 
-            this.editUser.BackColor = System.Drawing.Color.Transparent;
-            this.editUser.BorderRadius = 5;
-            this.editUser.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.editUser.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.editUser.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.editUser.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.editUser.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.editUser.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(158)))), ((int)(((byte)(89)))));
-            this.editUser.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(208)))), ((int)(((byte)(139)))));
-            this.editUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editUser.ForeColor = System.Drawing.Color.White;
-            this.editUser.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_26_213938_removebg_preview;
-            this.editUser.Location = new System.Drawing.Point(1006, 135);
-            this.editUser.Margin = new System.Windows.Forms.Padding(2);
-            this.editUser.Name = "editUser";
-            this.editUser.ShadowDecoration.BorderRadius = 10;
-            this.editUser.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.editUser.ShadowDecoration.Enabled = true;
-            this.editUser.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.editUser.Size = new System.Drawing.Size(170, 40);
-            this.editUser.TabIndex = 115;
-            this.editUser.Text = "Edit";
-            // 
             // ManageAccounts
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -737,8 +737,8 @@
         private Guna.UI2.WinForms.Guna2PictureBox schoolLogo;
         private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
         private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel username;
+        private Guna.UI2.WinForms.Guna2HtmlLabel role;
         private Guna.UI2.WinForms.Guna2Button Logs;
         private Guna.UI2.WinForms.Guna2Button StudentsID;
         private Guna.UI2.WinForms.Guna2Button Dashboard;

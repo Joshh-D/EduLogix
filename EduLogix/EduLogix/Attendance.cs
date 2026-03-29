@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace EduLogix
@@ -160,6 +161,7 @@ namespace EduLogix
             guna2DataGridView1.ClearSelection();
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+            ApplyUserIdentityLabels();
             MarkActiveNav();  // ADD THIS LINE
             InitializeFilters();
             ApplyInitialFilters();
@@ -331,11 +333,16 @@ namespace EduLogix
 
             guna2DataGridView1.EnableHeadersVisualStyles = false;
             guna2DataGridView1.ColumnHeadersHeight = 40;
+            guna2DataGridView1.RowTemplate.Height = 35;
+            guna2DataGridView1.AllowUserToResizeRows = false;
+            guna2DataGridView1.AllowUserToResizeColumns = false;
+            guna2DataGridView1.RowHeadersVisible = false;
 
             // Header styling with theme color
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = headerTextColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerTextColor;
 
             // Data cell styling
@@ -350,6 +357,8 @@ namespace EduLogix
 
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            guna2DataGridView1.AllowUserToDeleteRows = false;
+            guna2DataGridView1.AllowUserToAddRows = false;
             
             // Alternating row colors with pattern - using theme color (UPDATED)
             Color lightPatternColor = LightenColor(gridThemeColor, 0.7f);
@@ -387,6 +396,38 @@ namespace EduLogix
 
             if (guna2DataGridView1.Columns.Contains("education"))
                 guna2DataGridView1.Columns["education"].HeaderText = "Education Level";
+        }
+
+        private void ApplyUserIdentityLabels()
+        {
+            string userName = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+            string roleText = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
+
+            if (this.username != null)
+            {
+                this.username.Text = userName;
+            }
+            else
+            {
+                var nameLabel = this.Controls.Find("username", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (nameLabel == null)
+                    nameLabel = this.Controls.Find("guna2HtmlLabel17", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (nameLabel != null) nameLabel.Text = userName;
+            }
+
+            if (this.role != null)
+            {
+                this.role.Text = roleText;
+            }
+            else
+            {
+                var roleLabel = this.Controls.Find("role", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (roleLabel == null)
+                    roleLabel = this.Controls.Find("guna2HtmlLabel1", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (roleLabel == null)
+                    roleLabel = this.Controls.Find("guna2HtmlLabel13", true).OfType<Guna.UI2.WinForms.Guna2HtmlLabel>().FirstOrDefault();
+                if (roleLabel != null) roleLabel.Text = roleText;
+            }
         }
 
         private Color LightenColor(Color color, float amount)

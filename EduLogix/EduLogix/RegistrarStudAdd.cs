@@ -8,18 +8,196 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace EduLogix
 {
     public partial class RegistrarStudAdd : Form
     {
         private readonly string connectionString = "server=localhost;database=edulogix;uid=root;pwd=;";
+        private bool hasUnsavedChanges;
+        private bool suppressDirtyTracking;
+        private string selectedImageSourcePath;
 
         public RegistrarStudAdd()
         {
             InitializeComponent();
+            InitializeUserOptionsPanel();
             WirePrimaryActionButtons();
             InitializeBirthDatePicker();
+            InitializeSectionComboBox();
+            ConfigureInputConstraints();
+            WireDirtyTracking();
+            WireNavigationButtons();
+            ApplyUserIdentityLabels();
+
+            if (guna2PictureBox2 != null)
+            {
+                guna2PictureBox2.DoubleClick -= guna2PictureBox2_DoubleClick;
+                guna2PictureBox2.DoubleClick += guna2PictureBox2_DoubleClick;
+            }
+
+            this.FormClosing -= RegistrarStudAdd_FormClosing;
+            this.FormClosing += RegistrarStudAdd_FormClosing;
+        }
+
+        private void InitializeUserOptionsPanel()
+        {
+            if (userOptions != null)
+            {
+                userOptions.Visible = false;
+                PositionUserOptionsPanel();
+                userOptions.BringToFront();
+            }
+
+            if (settings != null)
+            {
+                settings.Click -= UserOptionsSettings_Click;
+                settings.Click += UserOptionsSettings_Click;
+            }
+
+            var panelLogoutButton = userOptions != null ? userOptions.Controls["logout"] as Button : null;
+            if (panelLogoutButton != null)
+            {
+                panelLogoutButton.Click -= UserOptionsLogout_Click;
+                panelLogoutButton.Click += UserOptionsLogout_Click;
+            }
+
+            var panelKioskButton = userOptions != null ? userOptions.Controls["kiosk"] as Button : null;
+            if (panelKioskButton != null)
+            {
+                panelKioskButton.Click -= UserOptionskiosk_Click;
+                panelKioskButton.Click += UserOptionskiosk_Click;
+            }
+
+            if (userProfile != null)
+            {
+                userProfile.Click -= userProfile_Click;
+                userProfile.Click += userProfile_Click;
+            }
+        }
+
+        private void WireNavigationButtons()
+        {
+            if (Dashboard != null)
+            {
+                Dashboard.Click -= Dashboard_Click;
+                Dashboard.Click += Dashboard_Click;
+            }
+
+            if (Attendance != null)
+            {
+                Attendance.Click -= Attendance_Click;
+                Attendance.Click += Attendance_Click;
+            }
+
+            if (StudentsID != null)
+            {
+                StudentsID.Click -= StudentsID_Click;
+                StudentsID.Click += StudentsID_Click;
+            }
+
+            if (Logs != null)
+            {
+                Logs.Click -= Logs_Click;
+                Logs.Click += Logs_Click;
+            }
+        }
+
+        private void PositionUserOptionsPanel()
+        {
+            if (userOptions == null || userProfile == null || userOptions.Parent == null) return;
+
+            var parent = userOptions.Parent;
+            int x = userProfile.Right + 8;
+            int y = userProfile.Top + Math.Max(0, (userProfile.Height - userOptions.Height) / 2);
+
+            if (x + userOptions.Width > parent.ClientSize.Width)
+                x = Math.Max(0, userProfile.Left - userOptions.Width - 8);
+
+            if (y + userOptions.Height > parent.ClientSize.Height)
+                y = Math.Max(0, parent.ClientSize.Height - userOptions.Height - 8);
+
+            userOptions.Location = new Point(Math.Max(0, x), Math.Max(0, y));
+        }
+
+        private void ConfigureInputConstraints()
+        {
+            if (rfidNum != null) rfidNum.MaxLength = 20;
+            if (studentID != null) studentID.MaxLength = 10;
+            if (studentName != null) studentName.MaxLength = 255;
+            if (contactNum != null) contactNum.MaxLength = 14;
+            if (level != null) level.MaxLength = 20;
+            if (studentGrade != null) studentGrade.MaxLength = 2;
+            if (guardianName != null) guardianName.MaxLength = 255;
+            if (guardianNum != null) guardianNum.MaxLength = 14;
+            if (address != null) address.MaxLength = 255;
+        }
+
+        private void WireDirtyTracking()
+        {
+            WireTextDirty(rfidNum);
+            WireTextDirty(studentID);
+            WireTextDirty(studentName);
+            WireTextDirty(contactNum);
+            WireTextDirty(level);
+            WireTextDirty(studentGrade);
+            WireTextDirty(guardianName);
+            WireTextDirty(guardianNum);
+            WireTextDirty(address);
+
+            if (sectionComboBox != null)
+            {
+                sectionComboBox.SelectedIndexChanged -= sectionComboBox_SelectedIndexChanged;
+                sectionComboBox.SelectedIndexChanged += sectionComboBox_SelectedIndexChanged;
+            }
+        }
+
+        private void WireTextDirty(Guna.UI2.WinForms.Guna2TextBox textBox)
+        {
+            if (textBox == null) return;
+            textBox.TextChanged -= InputControl_Changed;
+            textBox.TextChanged += InputControl_Changed;
+        }
+
+        private void InputControl_Changed(object sender, EventArgs e)
+        {
+            if (suppressDirtyTracking) return;
+            hasUnsavedChanges = true;
+        }
+
+        private void sectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (suppressDirtyTracking) return;
+            hasUnsavedChanges = true;
+        }
+
+        private void RegistrarStudAdd_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!hasUnsavedChanges) return;
+
+            var result = MessageBox.Show(
+                "Unsaved student info will be discarded. Continue?",
+                "Discard Changes",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result != DialogResult.Yes)
+                e.Cancel = true;
+        }
+
+        private bool ConfirmDiscardIfNeeded()
+        {
+            if (!hasUnsavedChanges) return true;
+
+            var result = MessageBox.Show(
+                "Unsaved student info will be discarded. Continue?",
+                "Discard Changes",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            return result == DialogResult.Yes;
         }
 
         private void WirePrimaryActionButtons()
@@ -58,25 +236,29 @@ namespace EduLogix
 
         private void addStudentBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(studentID.Text) || string.IsNullOrWhiteSpace(studentName.Text))
+            string validationMessage;
+            if (!ValidateStudentInfo(out validationMessage))
             {
-                MessageBox.Show("Student ID and Student Name are required.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(validationMessage, "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
+                string imagePathDb = SaveSelectedImageToResources();
+
                 using (var conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
 
                     const string query = @"INSERT INTO reg_studentinfo
-                                           (rfid_number, student_id, name, phone_number, level, grade, section, guardian_name, guardian_phone_number, address, date_of_birth)
+                                           (image_path, rfid_number, student_id, name, phone_number, level, grade, section, guardian_name, guardian_phone_number, address, date_of_birth)
                                            VALUES
-                                           (@rfid, @student_id, @name, @phone_number, @level, @grade, @section, @guardian_name, @guardian_phone_number, @address, @date_of_birth)";
+                                           (@image_path, @rfid, @student_id, @name, @phone_number, @level, @grade, @section, @guardian_name, @guardian_phone_number, @address, @date_of_birth)";
 
                     using (var cmd = new MySqlCommand(query, conn))
                     {
+                        cmd.Parameters.AddWithValue("@image_path", string.IsNullOrWhiteSpace(imagePathDb) ? (object)DBNull.Value : imagePathDb);
                         cmd.Parameters.AddWithValue("@rfid", rfidNum.Text.Trim());
                         cmd.Parameters.AddWithValue("@student_id", studentID.Text.Trim());
                         cmd.Parameters.AddWithValue("@name", studentName.Text.Trim());
@@ -96,6 +278,7 @@ namespace EduLogix
                 LogAction("StudentAdded", $"Added new student: {studentName.Text.Trim()} ({studentID.Text.Trim()})");
                 MessageBox.Show("Student added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFields();
+                hasUnsavedChanges = false;
             }
             catch (Exception ex)
             {
@@ -103,8 +286,147 @@ namespace EduLogix
             }
         }
 
+        private bool ValidateStudentInfo(out string message)
+        {
+            message = string.Empty;
+
+            string rfid = rfidNum != null ? rfidNum.Text.Trim() : string.Empty;
+            string studentIdValue = studentID != null ? studentID.Text.Trim() : string.Empty;
+            string fullName = studentName != null ? studentName.Text.Trim() : string.Empty;
+            string studentContact = contactNum != null ? contactNum.Text.Trim() : string.Empty;
+            string levelValue = level != null ? level.Text.Trim() : string.Empty;
+            string gradeValue = studentGrade != null ? studentGrade.Text.Trim() : string.Empty;
+            string sectionValue = GetSectionValue();
+            string guardianNameValue = guardianName != null ? guardianName.Text.Trim() : string.Empty;
+            string guardianContact = guardianNum != null ? guardianNum.Text.Trim() : string.Empty;
+            string addressValue = address != null ? address.Text.Trim() : string.Empty;
+
+            if (rfid.Length > 20)
+            {
+                message = "RFID must be at most 20 characters.";
+                return false;
+            }
+
+            if (!Regex.IsMatch(studentIdValue, @"^\d{8}-[CNS]$", RegexOptions.IgnoreCase))
+            {
+                message = "Student ID must be 8 digits followed by '-' and end with C, N, or S.";
+                return false;
+            }
+
+            if (fullName.Length == 0 || fullName.Length > 255)
+            {
+                message = "Full name is required and must be at most 255 characters.";
+                return false;
+            }
+
+            if (!IsValidPhoneNumber(studentContact))
+            {
+                message = "Student contact must start with '09' (11 digits) or '+63 9' (14 chars including plus and space).";
+                return false;
+            }
+
+            if (!(string.Equals(levelValue, "elementary", StringComparison.OrdinalIgnoreCase)
+                  || string.Equals(levelValue, "junior", StringComparison.OrdinalIgnoreCase)
+                  || string.Equals(levelValue, "senior", StringComparison.OrdinalIgnoreCase)))
+            {
+                message = "Level must be only: elementary, junior, or senior.";
+                return false;
+            }
+
+            int grade;
+            if (!int.TryParse(gradeValue, out grade) || grade < 1 || grade > 12)
+            {
+                message = "Grade must be a number from 1 to 12.";
+                return false;
+            }
+
+            if (!(string.Equals(sectionValue, "A", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(sectionValue, "B", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(sectionValue, "C", StringComparison.OrdinalIgnoreCase)))
+            {
+                message = "Section must be only A, B, or C.";
+                return false;
+            }
+
+            var dob = GetBirthDateValue();
+            if (dob == DBNull.Value)
+            {
+                message = "Date of birth is required.";
+                return false;
+            }
+
+            DateTime dobValue = Convert.ToDateTime(dob);
+            if (dobValue.Year > 2026)
+            {
+                message = "Date of birth year must not exceed 2026.";
+                return false;
+            }
+
+            if (dobValue > DateTime.Today.AddYears(-1))
+            {
+                message = "Student must be at least 1 year old to be enrolled.";
+                return false;
+            }
+
+            if (guardianNameValue.Length > 255)
+            {
+                message = "Guardian name must be at most 255 characters.";
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(guardianContact) && !IsValidPhoneNumber(guardianContact))
+            {
+                message = "Guardian contact must start with '09' (11 digits) or '+63 9' (14 chars including plus and space).";
+                return false;
+            }
+
+            if (addressValue.Length > 255)
+            {
+                message = "Address must be at most 255 characters.";
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsValidPhoneNumber(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value)) return false;
+
+            if (Regex.IsMatch(value, @"^09\d{9}$"))
+                return true;
+
+            if (Regex.IsMatch(value, @"^\+63 9\d{9}$") && value.Length == 14)
+                return true;
+
+            return false;
+        }
+
+        private string SaveSelectedImageToResources()
+        {
+            if (string.IsNullOrWhiteSpace(selectedImageSourcePath) || !File.Exists(selectedImageSourcePath))
+                return string.Empty;
+
+            string extension = Path.GetExtension(selectedImageSourcePath);
+            if (!string.Equals(extension, ".jpg", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(extension, ".jpeg", StringComparison.OrdinalIgnoreCase)
+                && !string.Equals(extension, ".png", StringComparison.OrdinalIgnoreCase))
+                return string.Empty;
+
+            string resourcesRoot = Path.Combine(Application.StartupPath, "Resources", "students");
+            Directory.CreateDirectory(resourcesRoot);
+
+            string fileName = "student_" + Guid.NewGuid().ToString("N") + extension;
+            string destinationPath = Path.Combine(resourcesRoot, fileName);
+
+            File.Copy(selectedImageSourcePath, destinationPath, true);
+            return Path.Combine("Resources", "students", fileName).Replace("\\", "/");
+        }
+
         private void ClearFields()
         {
+            suppressDirtyTracking = true;
+
             rfidNum.Text = string.Empty;
             studentID.Text = string.Empty;
             studentName.Text = string.Empty;
@@ -127,6 +449,11 @@ namespace EduLogix
                 sectionCombo.SelectedIndex = -1;
 
             ResetBirthDatePicker();
+            selectedImageSourcePath = null;
+            if (guna2PictureBox2 != null)
+                guna2PictureBox2.Image = Properties.Resources.student;
+
+            suppressDirtyTracking = false;
         }
 
         private void RegistrarStudAdd_Load(object sender, EventArgs e)
@@ -195,6 +522,7 @@ namespace EduLogix
             {
                 gunaDatePicker.Format = DateTimePickerFormat.Custom;
                 gunaDatePicker.CustomFormat = " ";
+                gunaDatePicker.MaxDate = new DateTime(2026, 12, 31);
                 gunaDatePicker.ValueChanged -= BirthDatePicker_ValueChanged;
                 gunaDatePicker.ValueChanged += BirthDatePicker_ValueChanged;
                 return;
@@ -208,6 +536,7 @@ namespace EduLogix
 
             winDatePicker.Format = DateTimePickerFormat.Custom;
             winDatePicker.CustomFormat = " ";
+            winDatePicker.MaxDate = new DateTime(2026, 12, 31);
             winDatePicker.ValueChanged -= BirthDatePicker_ValueChanged;
             winDatePicker.ValueChanged += BirthDatePicker_ValueChanged;
         }
@@ -256,6 +585,179 @@ namespace EduLogix
         private void guna2PictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2PictureBox2_DoubleClick(object sender, EventArgs e)
+        {
+            using (var ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+                ofd.Title = "Select Student Photo";
+
+                if (ofd.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+                string extension = Path.GetExtension(ofd.FileName);
+                if (!string.Equals(extension, ".jpg", StringComparison.OrdinalIgnoreCase)
+                    && !string.Equals(extension, ".jpeg", StringComparison.OrdinalIgnoreCase)
+                    && !string.Equals(extension, ".png", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Only JPEG and PNG files are allowed.", "Invalid File", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                selectedImageSourcePath = ofd.FileName;
+
+                if (guna2PictureBox2 != null)
+                {
+                    using (var fs = new FileStream(selectedImageSourcePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                    using (var img = Image.FromStream(fs))
+                    {
+                        guna2PictureBox2.Image = new Bitmap(img);
+                    }
+                }
+
+                hasUnsavedChanges = true;
+            }
+        }
+
+        private void Dashboard_Click(object sender, EventArgs e)
+        {
+            if (!ConfirmDiscardIfNeeded()) return;
+
+            var dashboard = new DashboardForm();
+            dashboard.StartPosition = FormStartPosition.Manual;
+            dashboard.Location = this.Location;
+            dashboard.Show();
+            this.Close();
+        }
+
+        private void Attendance_Click(object sender, EventArgs e)
+        {
+            if (!ConfirmDiscardIfNeeded()) return;
+
+            var attendance = new AttendanceForm();
+            attendance.StartPosition = FormStartPosition.Manual;
+            attendance.Location = this.Location;
+            attendance.Show();
+            this.Close();
+        }
+
+        private void StudentsID_Click(object sender, EventArgs e)
+        {
+            if (!ConfirmDiscardIfNeeded()) return;
+
+            var students = new StudentIDForm();
+            students.StartPosition = FormStartPosition.Manual;
+            students.Location = this.Location;
+            students.Show();
+            this.Close();
+        }
+
+        private void Logs_Click(object sender, EventArgs e)
+        {
+            if (!ConfirmDiscardIfNeeded()) return;
+
+            var logs = new Logs();
+            logs.StartPosition = FormStartPosition.Manual;
+            logs.Location = this.Location;
+            logs.Show();
+            this.Close();
+        }
+
+        private void UserOptionsSettings_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            if (!ConfirmDiscardIfNeeded()) return;
+
+            var settingsForm = new Settings();
+            settingsForm.StartPosition = FormStartPosition.Manual;
+            settingsForm.Location = this.Location;
+            settingsForm.Show();
+            this.Close();
+        }
+
+        private void UserOptionsLogout_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            if (!ConfirmDiscardIfNeeded()) return;
+
+            var result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes) return;
+
+            var login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void UserOptionskiosk_Click(object sender, EventArgs e)
+        {
+            if (userOptions != null)
+                userOptions.Visible = false;
+
+            if (!ConfirmDiscardIfNeeded()) return;
+
+            var kioskForm = new Kiosk();
+            kioskForm.StartPosition = FormStartPosition.Manual;
+            kioskForm.Location = this.Location;
+            kioskForm.Show();
+            this.Close();
+        }
+
+        private void userProfile_Click(object sender, EventArgs e)
+        {
+            if (userOptions == null) return;
+
+            PositionUserOptionsPanel();
+            userOptions.Visible = !userOptions.Visible;
+            if (userOptions.Visible)
+                userOptions.BringToFront();
+        }
+
+        private void ApplyUserIdentityLabels()
+        {
+            string userName = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+            string roleText = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
+
+            if (this.username != null)
+            {
+                this.username.Text = userName;
+            }
+            else
+            {
+                var nameLabel = this.Controls.Find("username", true)
+                    .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                    .FirstOrDefault();
+                if (nameLabel == null)
+                {
+                    nameLabel = this.Controls.Find("guna2HtmlLabel17", true)
+                        .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                        .FirstOrDefault();
+                }
+                if (nameLabel != null) nameLabel.Text = userName;
+            }
+
+            if (this.role != null)
+            {
+                this.role.Text = roleText;
+            }
+            else
+            {
+                var roleLabel = this.Controls.Find("role", true)
+                    .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                    .FirstOrDefault();
+                if (roleLabel == null)
+                {
+                    roleLabel = this.Controls.Find("guna2HtmlLabel13", true)
+                        .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                        .FirstOrDefault();
+                }
+                if (roleLabel != null) roleLabel.Text = roleText;
+            }
         }
 
         private void guna2HtmlLabel5_Click(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace EduLogix
@@ -153,6 +154,7 @@ namespace EduLogix
             guna2DataGridView1.ClearSelection();
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+            ApplyUserIdentityLabels();
             MarkActiveNav();  // ADD THIS LINE
             InitializeFilters();
             ApplyInitialFilters();
@@ -530,6 +532,15 @@ namespace EduLogix
             userOptions.Visible = !userOptions.Visible;
             if (userOptions.Visible)
                 userOptions.BringToFront();
+        }
+
+        private void ApplyUserIdentityLabels()
+        {
+            if (username != null)
+                username.Text = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+
+            if (role != null)
+                role.Text = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
         }
     }
 }

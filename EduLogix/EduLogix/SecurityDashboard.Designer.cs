@@ -46,7 +46,7 @@
             this.logout = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.username = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel8 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -88,7 +88,7 @@
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.role = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel7.SuspendLayout();
             this.userOptions.SuspendLayout();
@@ -182,14 +182,14 @@
             this.guna2GradientPanel7.Controls.Add(this.userOptions);
             this.guna2GradientPanel7.Controls.Add(this.guna2ControlBox4);
             this.guna2GradientPanel7.Controls.Add(this.guna2ControlBox5);
-            this.guna2GradientPanel7.Controls.Add(this.guna2HtmlLabel17);
+            this.guna2GradientPanel7.Controls.Add(this.username);
             this.guna2GradientPanel7.Controls.Add(this.guna2GradientPanel8);
             this.guna2GradientPanel7.Controls.Add(this.schoolLogo);
             this.guna2GradientPanel7.Controls.Add(this.Dashboard);
             this.guna2GradientPanel7.Controls.Add(this.userProfile);
             this.guna2GradientPanel7.Controls.Add(this.schoolName);
             this.guna2GradientPanel7.Controls.Add(this.Attendance);
-            this.guna2GradientPanel7.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2GradientPanel7.Controls.Add(this.role);
             this.guna2GradientPanel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.guna2GradientPanel7.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(228)))), ((int)(((byte)(150)))));
             this.guna2GradientPanel7.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
@@ -251,16 +251,16 @@
             this.guna2ControlBox5.Size = new System.Drawing.Size(35, 25);
             this.guna2ControlBox5.TabIndex = 54;
             // 
-            // guna2HtmlLabel17
+            // username
             // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(40, 385);
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(173, 27);
-            this.guna2HtmlLabel17.TabIndex = 53;
-            this.guna2HtmlLabel17.Text = "Joshua Dayapera";
+            this.username.BackColor = System.Drawing.Color.Transparent;
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.ForeColor = System.Drawing.Color.White;
+            this.username.Location = new System.Drawing.Point(40, 385);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(173, 27);
+            this.username.TabIndex = 53;
+            this.username.Text = "Joshua Dayapera";
             // 
             // guna2GradientPanel8
             // 
@@ -865,16 +865,16 @@
             this.Attendance.TextOffset = new System.Drawing.Point(-5, 0);
             this.Attendance.Click += new System.EventHandler(this.Attendance_Click);
             // 
-            // guna2HtmlLabel1
+            // role
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(52, 414);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(127, 20);
-            this.guna2HtmlLabel1.TabIndex = 3;
-            this.guna2HtmlLabel1.Text = "Security Personnel";
+            this.role.BackColor = System.Drawing.Color.Transparent;
+            this.role.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.role.Location = new System.Drawing.Point(52, 414);
+            this.role.Name = "role";
+            this.role.Size = new System.Drawing.Size(127, 20);
+            this.role.TabIndex = 3;
+            this.role.Text = "Security Personnel";
             // 
             // SecurityDashboardForm
             // 
@@ -969,7 +969,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart attendanceChartWeekly;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2HtmlLabel username;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
@@ -979,7 +979,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
         private Guna.UI2.WinForms.Guna2Button Dashboard;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel role;
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Button kiosk;

@@ -147,6 +147,12 @@
     <Compile Include="RegistrarStudAdd.Designer.cs">
       <DependentUpon>RegistrarStudAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegStudArchive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegStudArchive.Designer.cs">
+      <DependentUpon>RegStudArchive.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,21 +222,12 @@
     <Compile Include="StudentInfo.Designer.cs">
       <DependentUpon>StudentInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Users.Designer.cs">
-      <DependentUpon>Users.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UsersArchive.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UsersArchive.Designer.cs">
-      <DependentUpon>UsersArchive.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="RegistrarStudAdd.resx">
       <DependentUpon>RegistrarStudAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegStudArchive.resx">
+      <DependentUpon>RegStudArchive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecurityAttendance.resx">
       <DependentUpon>SecurityAttendance.cs</DependentUpon>
@@ -274,12 +271,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentInfo.resx">
       <DependentUpon>StudentInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Users.resx">
-      <DependentUpon>Users.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UsersArchive.resx">
-      <DependentUpon>UsersArchive.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".vs\EduLogix.csproj.dtbcache.json" />
     <None Include=".vs\EduLogix\CopilotIndices\17.14.1577.30250\CodeChunks.db" />

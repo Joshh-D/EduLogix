@@ -196,6 +196,7 @@ namespace EduLogix
         {
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+            ApplyUserIdentityLabels();
             MarkActiveNav();
             if (dashboardDateAndTime != null)
             {
@@ -249,6 +250,18 @@ namespace EduLogix
             {
                 // Keep dashboard responsive if DB is temporarily unavailable.
             }
+        }
+
+        private void ApplyUserIdentityLabels()
+        {
+            string userNameValue = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+            string roleValue = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
+
+            if (username != null)
+                username.Text = userNameValue;
+
+            if (role != null)
+                role.Text = roleValue;
         }
 
         private int ToInt(object value)
@@ -346,10 +359,10 @@ namespace EduLogix
             }
 
             // labels over sidebar
-            if (guna2HtmlLabel1 != null)
-                guna2HtmlLabel1.ForeColor = Color.LightGray;
-            if (guna2HtmlLabel17 != null)
-                guna2HtmlLabel17.ForeColor = Color.White;
+            if (role != null)
+                role.ForeColor = Color.LightGray;
+            if (username != null)
+                username.ForeColor = Color.White;
 
             void ApplyNavTheme(Guna.UI2.WinForms.Guna2Button btn)
             {
@@ -399,13 +412,6 @@ namespace EduLogix
         {
             StudentIDForm studentsID = new StudentIDForm();
             studentsID.Show();
-            this.Hide();
-        }
-
-        private void Accounts_Click(object sender, EventArgs e)
-        {
-            Users user = new Users();
-            user.Show();
             this.Hide();
         }
 

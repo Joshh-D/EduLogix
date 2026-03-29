@@ -1,8 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Linq;
 
 namespace EduLogix
 {
@@ -160,6 +162,7 @@ namespace EduLogix
 
             LoadThemeFromDatabase();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+            ApplyUserIdentityLabels();
             MarkActiveNav();
             InitializeDatePicker();
             LoadLogs();
@@ -256,6 +259,7 @@ namespace EduLogix
 
                 ConfigureDataGridView();
                 ApplyLogGridColumns();
+                ApplyStudentIdLikeGridSpacing();
                 guna2DataGridView1.ClearSelection();
             }
             catch (Exception ex)
@@ -323,51 +327,56 @@ namespace EduLogix
             if (guna2DataGridView1.Columns.Contains("name"))
             {
                 guna2DataGridView1.Columns["name"].HeaderText = "Name";
-                guna2DataGridView1.Columns["name"].FillWeight = 18;
             }
 
             if (guna2DataGridView1.Columns.Contains("role"))
             {
                 guna2DataGridView1.Columns["role"].HeaderText = "Role";
-                guna2DataGridView1.Columns["role"].FillWeight = 18;
             }
 
             if (guna2DataGridView1.Columns.Contains("action"))
             {
                 guna2DataGridView1.Columns["action"].HeaderText = "Action";
-                guna2DataGridView1.Columns["action"].FillWeight = 42;
             }
 
             if (guna2DataGridView1.Columns.Contains("log_date"))
             {
                 guna2DataGridView1.Columns["log_date"].HeaderText = "Date & Time";
                 guna2DataGridView1.Columns["log_date"].DefaultCellStyle.Format = "yyyy-MM-dd hh:mm:ss tt";
-                guna2DataGridView1.Columns["log_date"].FillWeight = 22;
             }
         }
 
         private void ConfigureDataGridView()
         {
             Color gridThemeColor = GetDataGridThemeColor();
+            Color headerTextColor = GetContrastColor(gridThemeColor);
+            Color selectionBackColor = LightenColor(gridThemeColor, 0.3f);
+            Color selectionTextColor = GetContrastColor(selectionBackColor);
 
             guna2DataGridView1.EnableHeadersVisualStyles = false;
             guna2DataGridView1.ColumnHeadersHeight = 40;
+            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
             guna2DataGridView1.AllowUserToResizeRows = false;
             guna2DataGridView1.AllowUserToResizeColumns = false;
+            guna2DataGridView1.AllowUserToDeleteRows = false;
+            guna2DataGridView1.AllowUserToAddRows = false;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowTemplate.Height = 35;
 
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = headerTextColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(gridThemeColor, 0.15f);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = headerTextColor;
 
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
             guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
-            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = LightenColor(gridThemeColor, 0.3f);
-            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+            guna2DataGridView1.DefaultCellStyle.Padding = new Padding(2, 4, 2, 4);
+            guna2DataGridView1.DefaultCellStyle.SelectionBackColor = selectionBackColor;
+            guna2DataGridView1.DefaultCellStyle.SelectionForeColor = selectionTextColor;
 
             guna2DataGridView1.ReadOnly = true;
             guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -376,9 +385,32 @@ namespace EduLogix
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
-            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 40;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Inter", 10, FontStyle.Bold);
+            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = gridThemeColor;
+            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = headerTextColor;
+            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 35;
+            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Inter", 9, FontStyle.Regular);
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = selectionBackColor;
+            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = selectionTextColor;
+            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
+            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.Black;
+            guna2DataGridView1.ThemeStyle.ReadOnly = true;
 
             guna2DataGridView1.ClearSelection();
+        }
+
+        private void ApplyStudentIdLikeGridSpacing()
+        {
+            if (guna2DataGridView1 == null) return;
+
+            guna2DataGridView1.ColumnHeadersHeight = 40;
+
+            foreach (DataGridViewRow row in guna2DataGridView1.Rows)
+            {
+                row.Height = 35;
+            }
         }
 
         private void LoadThemeFromDatabase()
@@ -541,6 +573,48 @@ namespace EduLogix
             userOptions.Visible = !userOptions.Visible;
             if (userOptions.Visible)
                 userOptions.BringToFront();
+        }
+
+        private void ApplyUserIdentityLabels()
+        {
+            string userNameValue = string.IsNullOrWhiteSpace(UserSession.UserName) ? "Username" : UserSession.UserName;
+            string roleValue = string.IsNullOrWhiteSpace(UserSession.Role) ? "Role" : UserSession.Role;
+
+            if (this.username != null)
+            {
+                this.username.Text = userNameValue;
+            }
+            else
+            {
+                var nameLabel = this.Controls.Find("username", true)
+                    .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                    .FirstOrDefault();
+                if (nameLabel == null)
+                {
+                    nameLabel = this.Controls.Find("guna2HtmlLabel17", true)
+                        .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                        .FirstOrDefault();
+                }
+                if (nameLabel != null) nameLabel.Text = userNameValue;
+            }
+
+            if (this.role != null)
+            {
+                this.role.Text = roleValue;
+            }
+            else
+            {
+                var roleLabel = this.Controls.Find("role", true)
+                    .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                    .FirstOrDefault();
+                if (roleLabel == null)
+                {
+                    roleLabel = this.Controls.Find("guna2HtmlLabel13", true)
+                        .OfType<Guna.UI2.WinForms.Guna2HtmlLabel>()
+                        .FirstOrDefault();
+                }
+                if (roleLabel != null) roleLabel.Text = roleValue;
+            }
         }
 
         private void enabledatefilter_CheckedChanged(object sender, EventArgs e)

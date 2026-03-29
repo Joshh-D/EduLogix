@@ -33,6 +33,9 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.birthDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.bindRFIDBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.contactNum = new Guna.UI2.WinForms.Guna2TextBox();
@@ -69,12 +72,9 @@
             this.StudentsID = new Guna.UI2.WinForms.Guna2Button();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.Dashboard = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.role = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.birthDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.username = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -107,9 +107,9 @@
             this.guna2GradientPanel1.Controls.Add(this.StudentsID);
             this.guna2GradientPanel1.Controls.Add(this.userProfile);
             this.guna2GradientPanel1.Controls.Add(this.Dashboard);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel13);
+            this.guna2GradientPanel1.Controls.Add(this.role);
             this.guna2GradientPanel1.Controls.Add(this.schoolName);
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel17);
+            this.guna2GradientPanel1.Controls.Add(this.username);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(228)))), ((int)(((byte)(150)))));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
@@ -162,12 +162,69 @@
             this.guna2GradientPanel2.Size = new System.Drawing.Size(1640, 1025);
             this.guna2GradientPanel2.TabIndex = 113;
             // 
+            // guna2HtmlLabel15
+            // 
+            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel15.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.guna2HtmlLabel15.Location = new System.Drawing.Point(670, 472);
+            this.guna2HtmlLabel15.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
+            this.guna2HtmlLabel15.Size = new System.Drawing.Size(147, 31);
+            this.guna2HtmlLabel15.TabIndex = 116;
+            this.guna2HtmlLabel15.Text = "Date of Birth";
+            // 
+            // birthDatePicker
+            // 
+            this.birthDatePicker.BackColor = System.Drawing.Color.Transparent;
+            this.birthDatePicker.BorderRadius = 5;
+            this.birthDatePicker.Checked = true;
+            this.birthDatePicker.FillColor = System.Drawing.Color.White;
+            this.birthDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.birthDatePicker.Location = new System.Drawing.Point(670, 520);
+            this.birthDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.birthDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.birthDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.birthDatePicker.Name = "birthDatePicker";
+            this.birthDatePicker.ShadowDecoration.BorderRadius = 5;
+            this.birthDatePicker.ShadowDecoration.Color = System.Drawing.Color.DimGray;
+            this.birthDatePicker.ShadowDecoration.Enabled = true;
+            this.birthDatePicker.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.birthDatePicker.Size = new System.Drawing.Size(252, 45);
+            this.birthDatePicker.TabIndex = 115;
+            this.birthDatePicker.Value = new System.DateTime(2026, 2, 18, 21, 40, 56, 20);
+            // 
+            // sectionComboBox
+            // 
+            this.sectionComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.sectionComboBox.BorderColor = System.Drawing.Color.Black;
+            this.sectionComboBox.BorderRadius = 5;
+            this.sectionComboBox.BorderThickness = 0;
+            this.sectionComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.sectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sectionComboBox.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.sectionComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sectionComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.sectionComboBox.ItemHeight = 40;
+            this.sectionComboBox.Location = new System.Drawing.Point(1218, 514);
+            this.sectionComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sectionComboBox.Name = "sectionComboBox";
+            this.sectionComboBox.ShadowDecoration.BorderRadius = 5;
+            this.sectionComboBox.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.sectionComboBox.ShadowDecoration.Enabled = true;
+            this.sectionComboBox.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.sectionComboBox.Size = new System.Drawing.Size(241, 46);
+            this.sectionComboBox.TabIndex = 112;
+            // 
             // guna2HtmlLabel12
             // 
             this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel12.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(352, 634);
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(419, 620);
             this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             this.guna2HtmlLabel12.Size = new System.Drawing.Size(302, 38);
@@ -245,7 +302,7 @@
             this.studentName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.studentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.studentName.Location = new System.Drawing.Point(352, 373);
+            this.studentName.Location = new System.Drawing.Point(419, 378);
             this.studentName.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.studentName.Name = "studentName";
             this.studentName.PlaceholderText = "";
@@ -292,7 +349,7 @@
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel11.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(352, 467);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(419, 472);
             this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(66, 31);
@@ -315,7 +372,7 @@
             this.level.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.level.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.level.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.level.Location = new System.Drawing.Point(352, 514);
+            this.level.Location = new System.Drawing.Point(419, 519);
             this.level.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.level.Name = "level";
             this.level.PlaceholderText = "";
@@ -345,7 +402,7 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(352, 194);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(419, 199);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(162, 31);
@@ -368,7 +425,7 @@
             this.rfidNum.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rfidNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rfidNum.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rfidNum.Location = new System.Drawing.Point(352, 232);
+            this.rfidNum.Location = new System.Drawing.Point(419, 237);
             this.rfidNum.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.rfidNum.Name = "rfidNum";
             this.rfidNum.PlaceholderText = "";
@@ -387,7 +444,7 @@
             this.guna2PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.guna2PictureBox2.Image = global::EduLogix.Properties.Resources.student;
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(56, 51);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(80, 112);
             this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(248, 231);
@@ -400,7 +457,7 @@
             this.guna2HtmlLabel14.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel14.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel14.Location = new System.Drawing.Point(352, 112);
+            this.guna2HtmlLabel14.Location = new System.Drawing.Point(419, 112);
             this.guna2HtmlLabel14.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
             this.guna2HtmlLabel14.Size = new System.Drawing.Size(281, 38);
@@ -423,7 +480,7 @@
             this.address.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.address.Location = new System.Drawing.Point(352, 897);
+            this.address.Location = new System.Drawing.Point(419, 897);
             this.address.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.address.Name = "address";
             this.address.PlaceholderText = "";
@@ -432,7 +489,7 @@
             this.address.ShadowDecoration.Color = System.Drawing.Color.DimGray;
             this.address.ShadowDecoration.Enabled = true;
             this.address.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.address.Size = new System.Drawing.Size(1107, 45);
+            this.address.Size = new System.Drawing.Size(1040, 45);
             this.address.TabIndex = 92;
             this.address.TextOffset = new System.Drawing.Point(0, -3);
             // 
@@ -507,7 +564,7 @@
             this.guardianName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guardianName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardianName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guardianName.Location = new System.Drawing.Point(352, 763);
+            this.guardianName.Location = new System.Drawing.Point(419, 763);
             this.guardianName.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.guardianName.Name = "guardianName";
             this.guardianName.PlaceholderText = "";
@@ -537,7 +594,7 @@
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(352, 324);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(419, 329);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(168, 31);
@@ -593,16 +650,16 @@
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(956, 324);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(91, 31);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(287, 31);
             this.guna2HtmlLabel7.TabIndex = 68;
-            this.guna2HtmlLabel7.Text = "Contact";
+            this.guna2HtmlLabel7.Text = "Student Contact Number";
             // 
             // guna2HtmlLabel10
             // 
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel10.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(352, 712);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(419, 712);
             this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(185, 31);
@@ -617,16 +674,16 @@
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(956, 722);
             this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(291, 31);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(304, 31);
             this.guna2HtmlLabel9.TabIndex = 72;
-            this.guna2HtmlLabel9.Text = "Guardian Phone Number";
+            this.guna2HtmlLabel9.Text = "Guardian Contact Number";
             // 
             // guna2HtmlLabel8
             // 
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(352, 859);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(419, 859);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(196, 31);
@@ -861,17 +918,17 @@
             this.Dashboard.Text = "Dashboard";
             this.Dashboard.TextOffset = new System.Drawing.Point(-5, 0);
             // 
-            // guna2HtmlLabel13
+            // role
             // 
-            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel13.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.guna2HtmlLabel13.Location = new System.Drawing.Point(52, 416);
-            this.guna2HtmlLabel13.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            this.guna2HtmlLabel13.Size = new System.Drawing.Size(134, 20);
-            this.guna2HtmlLabel13.TabIndex = 106;
-            this.guna2HtmlLabel13.Text = "Registrar Personnel";
+            this.role.BackColor = System.Drawing.Color.Transparent;
+            this.role.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.role.Location = new System.Drawing.Point(52, 416);
+            this.role.Margin = new System.Windows.Forms.Padding(2);
+            this.role.Name = "role";
+            this.role.Size = new System.Drawing.Size(134, 20);
+            this.role.TabIndex = 106;
+            this.role.Text = "Registrar Personnel";
             // 
             // schoolName
             // 
@@ -886,74 +943,17 @@
             this.schoolName.Text = "Caloocan City Business High School";
             this.schoolName.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // guna2HtmlLabel17
+            // username
             // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(41, 388);
-            this.guna2HtmlLabel17.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(173, 27);
-            this.guna2HtmlLabel17.TabIndex = 107;
-            this.guna2HtmlLabel17.Text = "Joshua Dayapera";
-            // 
-            // sectionComboBox
-            // 
-            this.sectionComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.sectionComboBox.BorderColor = System.Drawing.Color.Black;
-            this.sectionComboBox.BorderRadius = 5;
-            this.sectionComboBox.BorderThickness = 0;
-            this.sectionComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.sectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sectionComboBox.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.sectionComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sectionComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sectionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sectionComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.sectionComboBox.ItemHeight = 40;
-            this.sectionComboBox.Location = new System.Drawing.Point(1218, 514);
-            this.sectionComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.sectionComboBox.Name = "sectionComboBox";
-            this.sectionComboBox.ShadowDecoration.BorderRadius = 5;
-            this.sectionComboBox.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.sectionComboBox.ShadowDecoration.Enabled = true;
-            this.sectionComboBox.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.sectionComboBox.Size = new System.Drawing.Size(241, 46);
-            this.sectionComboBox.TabIndex = 112;
-            // 
-            // birthDatePicker
-            // 
-            this.birthDatePicker.BackColor = System.Drawing.Color.Transparent;
-            this.birthDatePicker.BorderRadius = 5;
-            this.birthDatePicker.Checked = true;
-            this.birthDatePicker.FillColor = System.Drawing.Color.White;
-            this.birthDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.birthDatePicker.Location = new System.Drawing.Point(603, 515);
-            this.birthDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.birthDatePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.birthDatePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.birthDatePicker.Name = "birthDatePicker";
-            this.birthDatePicker.ShadowDecoration.BorderRadius = 5;
-            this.birthDatePicker.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.birthDatePicker.ShadowDecoration.Enabled = true;
-            this.birthDatePicker.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.birthDatePicker.Size = new System.Drawing.Size(252, 45);
-            this.birthDatePicker.TabIndex = 115;
-            this.birthDatePicker.Value = new System.DateTime(2026, 2, 18, 21, 40, 56, 20);
-            // 
-            // guna2HtmlLabel15
-            // 
-            this.guna2HtmlLabel15.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel15.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel15.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel15.Location = new System.Drawing.Point(603, 467);
-            this.guna2HtmlLabel15.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2HtmlLabel15.Name = "guna2HtmlLabel15";
-            this.guna2HtmlLabel15.Size = new System.Drawing.Size(147, 31);
-            this.guna2HtmlLabel15.TabIndex = 116;
-            this.guna2HtmlLabel15.Text = "Date of Birth";
+            this.username.BackColor = System.Drawing.Color.Transparent;
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.ForeColor = System.Drawing.Color.White;
+            this.username.Location = new System.Drawing.Point(41, 388);
+            this.username.Margin = new System.Windows.Forms.Padding(2);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(173, 27);
+            this.username.TabIndex = 107;
+            this.username.Text = "Joshua Dayapera";
             // 
             // RegistrarStudAdd
             // 
@@ -993,9 +993,9 @@
         private Guna.UI2.WinForms.Guna2Button StudentsID;
         private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
         private Guna.UI2.WinForms.Guna2Button Dashboard;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
+        private Guna.UI2.WinForms.Guna2HtmlLabel role;
         private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
+        private Guna.UI2.WinForms.Guna2HtmlLabel username;
         private Guna.UI2.WinForms.Guna2GradientButton addStudentBtn;
         private Guna.UI2.WinForms.Guna2GradientButton bindRFIDBtn;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
