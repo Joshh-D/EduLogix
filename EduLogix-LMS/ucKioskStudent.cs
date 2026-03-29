@@ -1,4 +1,4 @@
-﻿using AForge.Video;
+using AForge.Video;
 using AForge.Video.DirectShow;
 using MySql.Data.MySqlClient;
 using System;
@@ -25,8 +25,8 @@ namespace EduLogix_LMS
 
         // Inactivity timeout tracking (in milliseconds)
         private int inactivityCounter = 0;
-        private const int INACTIVITY_TIMEOUT = 30000; // 30 second idle mode
-        private const int WARNING_THRESHOLD = 20000; // 20 second show warning
+        private const int INACTIVITY_TIMEOUT = 5000; // 30 second idle mode
+        private const int WARNING_THRESHOLD = 3000; // 20 second show warning
         private bool warningShown = false;
         int timerValue = 0;
 
@@ -123,7 +123,7 @@ namespace EduLogix_LMS
         private void HandleScannedISBN(string isbn)
         {
             // Reset inactivity timer on user activity
-            //ResetInactivityTimer();
+            ResetInactivityTimer();
 
             // Validate ISBN before processing
             if (!ValidateISBN(isbn))
@@ -442,6 +442,7 @@ namespace EduLogix_LMS
                         ucKioskIdle idleForm = new ucKioskIdle();
                         idleForm.Dock = DockStyle.Fill;
                         pnlMainContent.Controls.Add(idleForm);
+                        pnlMainContent.Controls["ucKioskIdle"].BringToFront();
                         MessageBox.Show("idle screen is added");
                         System.Diagnostics.Debug.WriteLine("✓ [IDLE SCREEN LOADED] Successfully loaded ucKioskIdle");
                     }

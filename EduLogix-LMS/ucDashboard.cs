@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +36,12 @@ namespace EduLogix_LMS
             //    guna2Transition1.ShowSync(tblWidgets);
             //    guna2Transition1.ShowSync(tblGraphs);
             //}));
+
+
+
             RefreshDashboardInfo();
+            timer1.Interval = 1000; // 1 second
+            timer1.Start();         // start the timer
         }
 
         private void RefreshDashboardInfo()
@@ -47,6 +52,26 @@ namespace EduLogix_LMS
             lblAvailableBooks.Text = upperDashboardInfo[2].ToString();
             lblBorrowedBooks.Text = upperDashboardInfo[3].ToString();
             lblOverdue.Text = upperDashboardInfo[4].ToString();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label2.Text = DateTime.Now.ToString("MMMM dd, yyyy hh:mm tt");
+        }
+
+        private void lblOverdue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2GradientPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

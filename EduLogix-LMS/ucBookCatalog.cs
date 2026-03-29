@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Automation;
 using System.Windows.Forms;
+using Org.BouncyCastle.Tls;
 
 namespace EduLogix_LMS
 {
@@ -26,6 +27,7 @@ namespace EduLogix_LMS
 
         private void ucBookCatalog_Load(object sender, EventArgs e)
         {
+            string query = "SELECT * FROM `edulogix-lms`.lms_book_catalogue ORDER BY title";
             ucBookCatalogFilterObj = new ucBookCatalogFilter();
             ucBookCatalogFilterObj.Location = new System.Drawing.Point(btnFilter.Location.X + 10, tableLayoutPanel1.Location.Y + tableLayoutPanel1.Size.Height + 5);
             ucBookCatalogFilterObj.Visible = false;
@@ -51,6 +53,13 @@ namespace EduLogix_LMS
         {
             EditBook editBookDialog = new EditBook();
             editBookDialog.ShowDialog();
+        }
+
+        public void ApplyTableFilters(List<string> genreFilter, List<string> statusFilter)
+        {
+            // TODO: Implement filter logic to apply genre and status filters to Tbl_Book_Catalog
+            // For now, just reload all books
+            Tbl_Book_Catalog.DataSource = db.GetAllBooks();
         }
     }
 }

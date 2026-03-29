@@ -1,4 +1,4 @@
-﻿using MySqlConnector;
+using MySqlConnector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -318,6 +318,37 @@ namespace EduLogix_LMS
             }
 
             return upperDashboardInfo;
+        }
+
+        public List<string> GetAllGenres()
+        {
+            List<string> genres = new List<string>();
+            conn.ConnectionString = connectionString;
+            string query = "SELECT DISTINCT genre FROM `edulogix-lms`.lms_book_catalogue ORDER BY genre ASC;";
+
+            try
+            {
+                if (conn.State != ConnectionState.Open) conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        genres.Add(reader["genre"].ToString());
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return genres;
         }
     }
 }
