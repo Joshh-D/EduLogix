@@ -67,6 +67,7 @@
             pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges8;
             pnlBackground.Size = new Size(1244, 714);
             pnlBackground.TabIndex = 1;
+            pnlBackground.Paint += pnlBackground_Paint;
             // 
             // pnlScanYourID
             // 

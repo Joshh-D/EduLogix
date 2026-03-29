@@ -25,8 +25,8 @@ namespace EduLogix_LMS
 
         // Inactivity timeout tracking (in milliseconds)
         private int inactivityCounter = 0;
-        private const int INACTIVITY_TIMEOUT = 5000; // 30 second idle mode
-        private const int WARNING_THRESHOLD = 3000; // 20 second show warning
+        private const int INACTIVITY_TIMEOUT = 20000; // 30 second idle mode
+        private const int WARNING_THRESHOLD = 15000; // 20 second show warning
         private bool warningShown = false;
         int timerValue = 0;
 
@@ -49,8 +49,34 @@ namespace EduLogix_LMS
             timer1.Start();
             inactivityCounter = 0;
             warningShown = false;
+            RegisterActivityEvents(this);
         }
 
+        private void RegisterActivityEvents(Control parent)
+        {
+            foreach (Control ctrl in parent.Controls)
+            {
+                ctrl.MouseMove += ActivityDetected;
+                ctrl.Click += ActivityDetected;
+                ctrl.KeyPress += ActivityDetected;
+
+                // Recursive (IMPORTANT)
+                if (ctrl.HasChildren)
+                {
+                    RegisterActivityEvents(ctrl);
+                }
+            }
+
+            // Also include main control
+            parent.MouseMove += ActivityDetected;
+            parent.Click += ActivityDetected;
+            parent.KeyPress += ActivityDetected;
+        }
+
+        private void ActivityDetected(object sender, EventArgs e)
+        {
+            ResetInactivityTimer();
+        }
         private void StartCamera()
         {
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -71,6 +97,7 @@ namespace EduLogix_LMS
 
         private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
+
             try
             {
                 Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
@@ -92,6 +119,7 @@ namespace EduLogix_LMS
 
                 if (result != null)
                 {
+                    ResetInactivityTimer();
                     string isbn = result.Text;
 
                     if (isbn == lastScannedISBN) return;

@@ -26,5 +26,10 @@ namespace EduLogix_LMS
         {
 
         }
+
+        private void pnlBackground_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
