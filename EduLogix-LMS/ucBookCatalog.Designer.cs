@@ -270,6 +270,7 @@
             btnAddBook.Size = new Size(176, 34);
             btnAddBook.TabIndex = 2;
             btnAddBook.Text = "Add";
+            btnAddBook.Click += btnAddBook_Click;
             // 
             // ucBookCatalog
             // 

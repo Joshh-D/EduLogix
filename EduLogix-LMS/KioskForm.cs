@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,10 +26,12 @@ namespace EduLogix_LMS
             pnlMainContent.Controls.Add(checkoutKiosk);
         }
 
-        private void ShowIdleScreen()
+        public void ShowIdleScreen()
         {
+            pnlMainContent.Controls.Clear();
             ucKioskIdle idleForm = new ucKioskIdle();
             idleForm.Dock = DockStyle.Fill;
+            pnlMainContent.Controls.Add(idleForm);
         }
 
         public void btnCheckout_Click(bool isLoggedIn = false)

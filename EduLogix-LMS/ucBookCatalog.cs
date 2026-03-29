@@ -47,6 +47,10 @@ namespace EduLogix_LMS
             isFilterDisplayed = ucBookCatalogFilterObj.Visible;
         }
 
-        
+        private void btnAddBook_Click(object sender, EventArgs e)
+        {
+            EditBook editBookDialog = new EditBook();
+            editBookDialog.ShowDialog();
+        }
     }
 }

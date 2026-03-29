@@ -63,6 +63,16 @@ namespace EduLogix_LMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _default {
+            get {
+                object obj = ResourceManager.GetObject("default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gemini_Generated_Image_xj6gdbxj6gdbxj6g {
             get {
                 object obj = ResourceManager.GetObject("Gemini_Generated_Image_xj6gdbxj6gdbxj6g", resourceCulture);

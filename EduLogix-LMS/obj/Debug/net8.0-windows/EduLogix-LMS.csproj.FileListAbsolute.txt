@@ -66,3 +66,5 @@ C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\bin\Debug\net8.0-windows\
 C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBookCatalogArchive.resources
 C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.Login.resources
+C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.ucBookInfoIcon.resources
+C:\Users\Administrator\Documents\EduLogix\EduLogix-LMS\obj\Debug\net8.0-windows\EduLogix_LMS.EditBook.resources

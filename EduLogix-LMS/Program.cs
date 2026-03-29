@@ -12,9 +12,13 @@ namespace EduLogix_LMS
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Login login = new Login();
-            if (login.ShowDialog() == DialogResult.OK)
-                Application.Run(new LMSDashboard());
+            //Login login = new Login();
+            //if (login.ShowDialog() == DialogResult.OK)
+            //Application.Run(new LMSDashboard());
+            //Application.Run(new LMSDashboard());
+            Application.Run(new KioskForm());
+
+
         }
     }
 }

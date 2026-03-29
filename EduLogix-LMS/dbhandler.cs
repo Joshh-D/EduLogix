@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -8,8 +9,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
-using MySqlConnector;
-using TheArtOfDevHtmlRenderer.Adapters;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace EduLogix_LMS
 {
@@ -22,6 +22,109 @@ namespace EduLogix_LMS
 
         //private string connectionString = "server=192.168.1.18;database=edulogix-lms;uid=arduino_user;pwd=secret;";
         MySqlConnection conn = new MySqlConnection();
+
+        public void AddBorrower(KeyValuePair<string, string> borrowerInfo, KeyValuePair<string, string> bookInfo)
+        {
+            try {
+                using (MySqlConnection loginConn = new MySqlConnection(connectionString))
+                {
+
+                    // just filter to get borrower books borrowed. continue creating the table for this query
+                    string query = "INSERT INTO `edulogix-lms`.lms_borrower_list (student_name, grade, section, isbn, title) VALUES (@name, @grade, @section, @isbn, @title)";
+                    MySqlCommand cmd = new MySqlCommand(query, loginConn);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Adding of new borrower Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void AddBook(string isbn, string title, string author, string genre, string copies)
+        {
+            try
+            {
+                using (MySqlConnection lmsConnection = new MySqlConnection(connectionString))
+                {
+
+                    string query = "INSERT INTO `edulogix-lms`.lms_book_catalogue (isbn, title, author, genre, copies, available) VALUES (@isbn, @title, @author, @genre, @copies, @available, @path)";
+                    MySqlCommand cmd = new MySqlCommand(query, lmsConnection);
+
+                    cmd.Parameters.AddWithValue("@isbn", isbn);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@author", author);
+                    cmd.Parameters.AddWithValue("@genre", genre);
+                    cmd.Parameters.AddWithValue("@copies", copies);
+                    cmd.Parameters.AddWithValue("@available", copies);
+
+                    string username = Environment.UserName;
+                    string path = @"C:\Users\" + username + @"\Documents\EduLogix-LMS\book_covers\default.jpg";
+                    cmd.Parameters.AddWithValue("@path", path);
+
+                    var res = cmd.ExecuteNonQuery();
+                    if (res > 0) MessageBox.Show("Book added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else MessageBox.Show("Failed to add book.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Adding of new borrower Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditBook(string isbn, string title, string author, string genre, string copies)
+        {
+            try
+            {
+                using (MySqlConnection lmsConnection = new MySqlConnection(connectionString))
+                {
+                    string query = "UPDATE `edulogix-lms`.lms_book_catalogue SET title = @title, author = @author, genre = @genre, copies = @copies WHERE isbn = @isbn";
+                    MySqlCommand cmd = new MySqlCommand(query, lmsConnection);
+
+                    cmd.Parameters.AddWithValue("@isbn", isbn);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@author", author);
+                    cmd.Parameters.AddWithValue("@genre", genre);
+                    cmd.Parameters.AddWithValue("@copies", copies);
+
+                    lmsConnection.Open();
+                    var res = cmd.ExecuteNonQuery();
+                    if (res > 0) MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else MessageBox.Show("Failed to update book.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Editing book Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ArchiveBook(string isbn)
+        {
+            try
+            {
+                using (MySqlConnection lmsConnection = new MySqlConnection(connectionString))
+                {
+                    string query = "DELETE FROM `edulogix-lms`.lms_book_catalogue WHERE isbn = @isbn";
+                    MySqlCommand cmd = new MySqlCommand(query, lmsConnection);
+
+                    cmd.Parameters.AddWithValue("@isbn", isbn);
+
+                    lmsConnection.Open();
+                    var res = cmd.ExecuteNonQuery();
+                    if (res > 0) MessageBox.Show("Book archived successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else MessageBox.Show("Failed to archive book.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Archiving book Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         public DataRow VerifyLogin(string username, string password)
         {
