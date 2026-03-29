@@ -4,6 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Linq;
+using System.IO;
+using System.Data;
+using ExcelDataReader;
 
 namespace EduLogix
 {
@@ -167,43 +170,36 @@ namespace EduLogix
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine("========== StudentIDForm_Load START ==========");
-
-                guna2DataGridView1.ClearSelection();
+                // 1. Load UI Themes and Branding First
                 LoadThemeFromDatabase();
                 BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
+
+                // 2. Load the Data and Configure the Grid
                 LoadStudentData();
                 ConfigureDataGridView();
+
+                // Clear selection AFTER the data is actually loaded into the grid
+                if (guna2DataGridView1 != null)
+                {
+                    guna2DataGridView1.ClearSelection();
+                }
+
+                // 3. Setup the Dropdowns
                 InitializeFilters();
 
-                // DEBUG: Check combobox state after initialization
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.Items.Count: {combobox1?.Items.Count}");
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.SelectedIndex: {combobox1?.SelectedIndex}");
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.SelectedItem: {combobox1?.SelectedItem}");
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox1.Text: '{combobox1?.Text}'");
-                
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.Items.Count: {combobox2?.Items.Count}");
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.SelectedIndex: {combobox2?.SelectedIndex}");
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.SelectedItem: {combobox2?.SelectedItem}");
-                System.Diagnostics.Debug.WriteLine($"[Load] combobox2.Text: '{combobox2?.Text}'");
-
-                // Force text update after layout is complete
+                // 4. Force ComboBox selection update after the form layout is complete.
+                // This prevents the "blank text" bug common with custom UI ComboBoxes.
                 this.BeginInvoke((MethodInvoker)delegate
                 {
-                    System.Diagnostics.Debug.WriteLine("[BeginInvoke] Setting text explicitly");
                     if (combobox1 != null && combobox1.Items.Count > 0)
                     {
                         combobox1.SelectedIndex = 0;
-                        System.Diagnostics.Debug.WriteLine($"[BeginInvoke] combobox1.SelectedItem after reset: {combobox1.SelectedItem}");
                     }
                     if (combobox2 != null && combobox2.Items.Count > 0)
                     {
                         combobox2.SelectedIndex = 0;
-                        System.Diagnostics.Debug.WriteLine($"[BeginInvoke] combobox2.SelectedItem after reset: {combobox2.SelectedItem}");
                     }
                 });
-
-                System.Diagnostics.Debug.WriteLine("========== StudentIDForm_Load END ==========");
             }
             catch (Exception ex)
             {
@@ -462,7 +458,7 @@ namespace EduLogix
 
                             // Update total count
                             if (attendancetotal != null)
-                                attendancetotal.Text = "Total: " + dt.Rows.Count;
+                                attendancetotal.Text = "" + dt.Rows.Count;
                         }
                     }
                 }
@@ -735,6 +731,112 @@ namespace EduLogix
             userOptions.Visible = !userOptions.Visible;
             if (userOptions.Visible)
                 userOptions.BringToFront();
+        }
+
+        private void addNewStudent_Click(object sender, EventArgs e)
+        {
+            RegistrarStudAdd registrarStudAdd = new RegistrarStudAdd();
+            registrarStudAdd.Show();
+            this.Hide();
+        }
+
+        private void uploadexcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+            ofd.Title = "Select Student List to Upload";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    // 1. READ EXCEL FILE IN THE BACKGROUND
+                    DataTable dtExcel = new DataTable();
+                    using (var stream = File.Open(ofd.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                        {
+                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            {
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
+                            });
+                            dtExcel = result.Tables[0];
+                        }
+                    }
+
+                    // 2. CONNECT TO MYSQL AND SAVE DIRECTLY
+                    int successCount = 0;
+                    int skippedCount = 0;
+                    string connString = "server=localhost;database=edulogix;uid=root;pwd=;";
+
+                    using (var conn = new MySqlConnection(connString))
+                    {
+                        conn.Open();
+
+                        foreach (DataRow row in dtExcel.Rows)
+                        {
+                            
+                            if (!dtExcel.Columns.Contains("student_id") || row.IsNull("student_id") || string.IsNullOrWhiteSpace(row["student_id"].ToString()))
+                                continue;
+
+                            try
+                            {
+                                string sql = @"
+                            INSERT IGNORE INTO `reg_studentinfo` 
+                            (`student_id`, `name`, `phone`, `email`, `grade`, `section`, `level`) 
+                            VALUES 
+                            (@id, @name, @phone, @email, @grade, @section, @level)";
+
+                                using (var cmd = new MySqlCommand(sql, conn))
+                                {
+                                   
+                                    cmd.Parameters.AddWithValue("@id", row["student_id"]?.ToString() ?? "");
+                                    cmd.Parameters.AddWithValue("@name", row["name"]?.ToString() ?? "");
+                                    cmd.Parameters.AddWithValue("@phone", row["phone_number"]?.ToString() ?? "");
+                                    cmd.Parameters.AddWithValue("@email", "Not Provided");
+                                    cmd.Parameters.AddWithValue("@grade", row["grade"]?.ToString() ?? "");
+                                    cmd.Parameters.AddWithValue("@section", row["section"]?.ToString() ?? "");
+                                    cmd.Parameters.AddWithValue("@level", row["level"]?.ToString() ?? "");
+
+                                    int rowsAffected = cmd.ExecuteNonQuery();
+                                    if (rowsAffected > 0) successCount++;
+                                    else skippedCount++;
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                skippedCount++;
+                            }
+                        }
+                    }
+
+                    // 3. SHOW RESULTS 
+                    MessageBox.Show($"Upload Complete!\n\nSuccessfully added: {successCount}\nSkipped (Duplicates or Errors): {skippedCount}",
+                                    "Database Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 4. INSTANT UI REFRESH
+                    // This pulls the newly added data and forces the Guna grid to update instantly
+                    LoadStudentData();
+                    ConfigureDataGridView();
+
+                    if (guna2DataGridView1 != null)
+                    {
+                        guna2DataGridView1.Refresh();
+                        guna2DataGridView1.Update();
+                        guna2DataGridView1.ClearSelection();
+                    }
+
+                }
+                catch (IOException)
+                {
+                    MessageBox.Show("Please close the Excel file before trying to upload it.", "File in Use", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error processing file:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

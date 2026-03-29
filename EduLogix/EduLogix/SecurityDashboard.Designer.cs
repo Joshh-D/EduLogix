@@ -42,6 +42,7 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel7 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.userOptions = new System.Windows.Forms.Panel();
+            this.kiosk = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -88,7 +89,6 @@
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.kiosk = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel7.SuspendLayout();
             this.userOptions.SuspendLayout();
@@ -144,7 +144,7 @@
             this.schoolName.ForeColor = System.Drawing.Color.White;
             this.schoolName.Location = new System.Drawing.Point(14, 213);
             this.schoolName.Name = "schoolName";
-            this.schoolName.Size = new System.Drawing.Size(205, 15);
+            this.schoolName.Size = new System.Drawing.Size(254, 18);
             this.schoolName.TabIndex = 0;
             this.schoolName.Text = "Caloocan City Business High School";
             this.schoolName.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -162,7 +162,7 @@
             this.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(158, 59);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(63, 41);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(78, 53);
             this.guna2HtmlLabel3.TabIndex = 41;
             this.guna2HtmlLabel3.Text = "246";
             // 
@@ -173,7 +173,7 @@
             this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(158, 13);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(212, 31);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(262, 38);
             this.guna2HtmlLabel2.TabIndex = 40;
             this.guna2HtmlLabel2.Text = "Elementary Student";
             // 
@@ -202,10 +202,19 @@
             // 
             this.userOptions.Controls.Add(this.kiosk);
             this.userOptions.Controls.Add(this.logout);
-            this.userOptions.Location = new System.Drawing.Point(14, 413);
+            this.userOptions.Location = new System.Drawing.Point(140, 384);
             this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(210, 143);
+            this.userOptions.Size = new System.Drawing.Size(105, 143);
             this.userOptions.TabIndex = 56;
+            // 
+            // kiosk
+            // 
+            this.kiosk.Location = new System.Drawing.Point(13, 68);
+            this.kiosk.Name = "kiosk";
+            this.kiosk.Size = new System.Drawing.Size(75, 23);
+            this.kiosk.TabIndex = 3;
+            this.kiosk.Text = "Kiosk";
+            this.kiosk.UseVisualStyleBackColor = true;
             // 
             // logout
             // 
@@ -249,7 +258,7 @@
             this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel17.Location = new System.Drawing.Point(40, 385);
             this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(143, 22);
+            this.guna2HtmlLabel17.Size = new System.Drawing.Size(173, 27);
             this.guna2HtmlLabel17.TabIndex = 53;
             this.guna2HtmlLabel17.Text = "Joshua Dayapera";
             // 
@@ -289,7 +298,7 @@
             this.guna2HtmlLabel19.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel19.Location = new System.Drawing.Point(65, 479);
             this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
-            this.guna2HtmlLabel19.Size = new System.Drawing.Size(181, 19);
+            this.guna2HtmlLabel19.Size = new System.Drawing.Size(223, 24);
             this.guna2HtmlLabel19.TabIndex = 66;
             this.guna2HtmlLabel19.Text = "Weekly Attendance Rate";
             // 
@@ -300,7 +309,7 @@
             this.guna2HtmlLabel18.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel18.Location = new System.Drawing.Point(1126, 479);
             this.guna2HtmlLabel18.Name = "guna2HtmlLabel18";
-            this.guna2HtmlLabel18.Size = new System.Drawing.Size(186, 19);
+            this.guna2HtmlLabel18.Size = new System.Drawing.Size(229, 24);
             this.guna2HtmlLabel18.TabIndex = 48;
             this.guna2HtmlLabel18.Text = "Today\'s Attendance Rate";
             // 
@@ -329,7 +338,7 @@
             this.guna2HtmlLabel20.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel20.Location = new System.Drawing.Point(50, 406);
             this.guna2HtmlLabel20.Name = "guna2HtmlLabel20";
-            this.guna2HtmlLabel20.Size = new System.Drawing.Size(52, 19);
+            this.guna2HtmlLabel20.Size = new System.Drawing.Size(61, 22);
             this.guna2HtmlLabel20.TabIndex = 67;
             this.guna2HtmlLabel20.Text = "Present";
             // 
@@ -402,7 +411,7 @@
             this.arrivalsNum.ForeColor = System.Drawing.SystemColors.Window;
             this.arrivalsNum.Location = new System.Drawing.Point(147, 40);
             this.arrivalsNum.Name = "arrivalsNum";
-            this.arrivalsNum.Size = new System.Drawing.Size(22, 39);
+            this.arrivalsNum.Size = new System.Drawing.Size(26, 48);
             this.arrivalsNum.TabIndex = 47;
             this.arrivalsNum.Text = "0";
             // 
@@ -413,7 +422,7 @@
             this.guna2HtmlLabel11.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel11.Location = new System.Drawing.Point(147, 10);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(76, 28);
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(94, 33);
             this.guna2HtmlLabel11.TabIndex = 46;
             this.guna2HtmlLabel11.Text = "Arrivals";
             // 
@@ -456,7 +465,7 @@
             this.juniorNum.ForeColor = System.Drawing.SystemColors.Window;
             this.juniorNum.Location = new System.Drawing.Point(147, 41);
             this.juniorNum.Name = "juniorNum";
-            this.juniorNum.Size = new System.Drawing.Size(22, 39);
+            this.juniorNum.Size = new System.Drawing.Size(26, 48);
             this.juniorNum.TabIndex = 47;
             this.juniorNum.Text = "0";
             // 
@@ -467,7 +476,7 @@
             this.guna2HtmlLabel9.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel9.Location = new System.Drawing.Point(147, 6);
             this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
-            this.guna2HtmlLabel9.Size = new System.Drawing.Size(62, 28);
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(77, 33);
             this.guna2HtmlLabel9.TabIndex = 46;
             this.guna2HtmlLabel9.Text = "Junior";
             // 
@@ -478,7 +487,7 @@
             this.guna2HtmlLabel14.ForeColor = System.Drawing.SystemColors.WindowText;
             this.guna2HtmlLabel14.Location = new System.Drawing.Point(65, 38);
             this.guna2HtmlLabel14.Name = "guna2HtmlLabel14";
-            this.guna2HtmlLabel14.Size = new System.Drawing.Size(137, 32);
+            this.guna2HtmlLabel14.Size = new System.Drawing.Size(172, 40);
             this.guna2HtmlLabel14.TabIndex = 56;
             this.guna2HtmlLabel14.Text = "Dashboard";
             // 
@@ -521,7 +530,7 @@
             this.inPremisesNum.ForeColor = System.Drawing.SystemColors.Window;
             this.inPremisesNum.Location = new System.Drawing.Point(134, 43);
             this.inPremisesNum.Name = "inPremisesNum";
-            this.inPremisesNum.Size = new System.Drawing.Size(22, 39);
+            this.inPremisesNum.Size = new System.Drawing.Size(26, 48);
             this.inPremisesNum.TabIndex = 47;
             this.inPremisesNum.Text = "0";
             // 
@@ -532,7 +541,7 @@
             this.guna2HtmlLabel16.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel16.Location = new System.Drawing.Point(134, 6);
             this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            this.guna2HtmlLabel16.Size = new System.Drawing.Size(119, 28);
+            this.guna2HtmlLabel16.Size = new System.Drawing.Size(146, 33);
             this.guna2HtmlLabel16.TabIndex = 46;
             this.guna2HtmlLabel16.Text = "In Premises";
             // 
@@ -575,7 +584,7 @@
             this.elemNum.ForeColor = System.Drawing.SystemColors.Window;
             this.elemNum.Location = new System.Drawing.Point(134, 41);
             this.elemNum.Name = "elemNum";
-            this.elemNum.Size = new System.Drawing.Size(22, 39);
+            this.elemNum.Size = new System.Drawing.Size(26, 48);
             this.elemNum.TabIndex = 47;
             this.elemNum.Text = "0";
             // 
@@ -586,7 +595,7 @@
             this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(134, 6);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(114, 28);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(140, 33);
             this.guna2HtmlLabel4.TabIndex = 46;
             this.guna2HtmlLabel4.Text = "Elementary";
             // 
@@ -619,7 +628,7 @@
             this.dashboardDateAndTime.ForeColor = System.Drawing.SystemColors.WindowText;
             this.dashboardDateAndTime.Location = new System.Drawing.Point(1209, 47);
             this.dashboardDateAndTime.Name = "dashboardDateAndTime";
-            this.dashboardDateAndTime.Size = new System.Drawing.Size(126, 28);
+            this.dashboardDateAndTime.Size = new System.Drawing.Size(153, 33);
             this.dashboardDateAndTime.TabIndex = 61;
             this.dashboardDateAndTime.Text = "Date | Time";
             // 
@@ -662,7 +671,7 @@
             this.departedNum.ForeColor = System.Drawing.SystemColors.Window;
             this.departedNum.Location = new System.Drawing.Point(147, 40);
             this.departedNum.Name = "departedNum";
-            this.departedNum.Size = new System.Drawing.Size(22, 39);
+            this.departedNum.Size = new System.Drawing.Size(26, 48);
             this.departedNum.TabIndex = 47;
             this.departedNum.Text = "0";
             // 
@@ -673,7 +682,7 @@
             this.guna2HtmlLabel13.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel13.Location = new System.Drawing.Point(147, 6);
             this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
-            this.guna2HtmlLabel13.Size = new System.Drawing.Size(92, 28);
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(115, 33);
             this.guna2HtmlLabel13.TabIndex = 46;
             this.guna2HtmlLabel13.Text = "Departed";
             // 
@@ -716,7 +725,7 @@
             this.seniorNum.ForeColor = System.Drawing.SystemColors.Window;
             this.seniorNum.Location = new System.Drawing.Point(147, 41);
             this.seniorNum.Name = "seniorNum";
-            this.seniorNum.Size = new System.Drawing.Size(22, 39);
+            this.seniorNum.Size = new System.Drawing.Size(26, 48);
             this.seniorNum.TabIndex = 47;
             this.seniorNum.Text = "0";
             // 
@@ -727,7 +736,7 @@
             this.guna2HtmlLabel7.ForeColor = System.Drawing.SystemColors.Window;
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(147, 6);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(66, 28);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(81, 33);
             this.guna2HtmlLabel7.TabIndex = 46;
             this.guna2HtmlLabel7.Text = "Senior";
             // 
@@ -863,25 +872,16 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(52, 414);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(105, 17);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(127, 20);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = "Security Personnel";
-            // 
-            // kiosk
-            // 
-            this.kiosk.Location = new System.Drawing.Point(13, 68);
-            this.kiosk.Name = "kiosk";
-            this.kiosk.Size = new System.Drawing.Size(75, 23);
-            this.kiosk.TabIndex = 3;
-            this.kiosk.Text = "Kiosk";
-            this.kiosk.UseVisualStyleBackColor = true;
             // 
             // SecurityDashboardForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(213)))), ((int)(((byte)(167)))));
-            this.ClientSize = new System.Drawing.Size(1920, 920);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2GradientPanel7);
             this.DoubleBuffered = true;

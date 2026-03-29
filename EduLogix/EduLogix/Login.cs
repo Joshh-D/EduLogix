@@ -115,12 +115,7 @@ namespace EduLogix
                                 dashboard.Show();
                                 this.Hide();
                             }
-                            else if (dbRole.Equals("librarian", StringComparison.OrdinalIgnoreCase))
-                            {
-                                LibraryDashboard dashboard = new LibraryDashboard();
-                                dashboard.Show();
-                                this.Hide();
-                            }
+                            
                             else if (dbRole.Equals("security", StringComparison.OrdinalIgnoreCase))
                             {
                                 SecurityDashboardForm security = new SecurityDashboardForm();

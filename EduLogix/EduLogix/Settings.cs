@@ -126,13 +126,7 @@ namespace EduLogix
                 userOptions.Visible = false;
                 PositionUserOptionsPanel();
                 userOptions.BringToFront();
-            }
-
-            if (button1 != null)
-            {
-                button1.Click -= UserOptionsSettings_Click;
-                button1.Click += UserOptionsSettings_Click;
-            }
+            }        
 
             var panelLogoutButton = userOptions != null ? userOptions.Controls["logout"] as Button : null;
             if (panelLogoutButton != null)

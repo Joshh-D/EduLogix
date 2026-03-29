@@ -550,5 +550,12 @@ namespace EduLogix
             if (userOptions.Visible)
                 userOptions.BringToFront();
         }
+
+        private void Logs_Click_1(object sender, EventArgs e)
+        {
+            Logs logs = new Logs();
+            logs.Show();
+            this.Hide();
+        }
     }
 }

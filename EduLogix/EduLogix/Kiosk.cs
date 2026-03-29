@@ -58,5 +58,35 @@ namespace EduLogix
         {
             lblDateTime2.Text = DateTime.Now.ToString("MMMM dd, yyyy | hh:mm:ss tt");
         }
+
+        private void guna2HtmlLabel16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel10_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

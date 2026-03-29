@@ -659,5 +659,10 @@ namespace EduLogix
         {
 
         }
+
+        private void DashboardForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

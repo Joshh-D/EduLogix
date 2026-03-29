@@ -121,7 +121,7 @@ namespace EduLogix
             form.StartPosition = FormStartPosition.Manual;
             form.Location = this.Location;
             form.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void UserOptionskiosk_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace EduLogix
             {
                 var login = new Login();
                 login.Show();
-                this.Close();
+                this.Hide();
             }
         }
 
@@ -163,6 +163,9 @@ namespace EduLogix
             MarkActiveNav();
             InitializeDatePicker();
             LoadLogs();
+
+            enabledatefilter.Checked = false;
+            guna2DateTimePicker1.Enabled = false;
         }
 
         private void InitializeDatePicker()
@@ -176,7 +179,10 @@ namespace EduLogix
 
         private void Guna2DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            LoadLogs();
+            if (enabledatefilter.Checked)
+            {
+                LoadLogs();
+            }
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
@@ -198,9 +204,14 @@ namespace EduLogix
                     var dt = new DataTable();
 
                     string sql = @"
-                SELECT `name`, `role`, `action`, `log_date`
-                FROM `reg_logs`
-                WHERE DATE(`log_date`) = @selectedDate";
+                    SELECT `name`, `role`, `action`, `log_date`
+                    FROM `reg_logs`
+                    WHERE 1=1";
+
+                    if (enabledatefilter.Checked)
+                    {
+                        sql += " AND DATE(`log_date`) = @selectedDate";
+                    }
 
                     if (!string.IsNullOrWhiteSpace(searchText))
                     {
@@ -216,10 +227,15 @@ namespace EduLogix
 
                     using (var cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
+                        if (enabledatefilter.Checked)
+                        {
+                            cmd.Parameters.AddWithValue("@selectedDate", selectedDate);
+                        }
 
                         if (!string.IsNullOrWhiteSpace(searchText))
+                        {
                             cmd.Parameters.AddWithValue("@search", "%" + searchText + "%");
+                        }
 
                         using (var da = new MySqlDataAdapter(cmd))
                         {
@@ -227,30 +243,14 @@ namespace EduLogix
                         }
                     }
 
-                    // Fallback: no rows for selected date -> show all logs
-                    if (dt.Rows.Count == 0 && string.IsNullOrWhiteSpace(searchText))
-                    {
-                        dt.Clear();
-                        string allSql = @"
-                    SELECT name, role, action, log_date
-                    FROM reg_logs
-                    ORDER BY log_date DESC";
+     
 
-                        using (var cmdAll = new MySqlCommand(allSql, conn))
-                        using (var daAll = new MySqlDataAdapter(cmdAll))
-                        {
-                            daAll.Fill(dt);
-                        }
-                    }
-
-                    // Force a clean rebind (helps when designer/grid state blocks display)
                     guna2DataGridView1.AutoGenerateColumns = true;
                     guna2DataGridView1.Columns.Clear();
                     guna2DataGridView1.DataSource = null;
                     guna2DataGridView1.DataSource = dt;
                     guna2DataGridView1.Refresh();
 
-                    // Temporary debug indicator: remove after confirming logs display
                     this.Text = "Logs (" + dt.Rows.Count + " rows)";
                 }
 
@@ -300,19 +300,16 @@ namespace EduLogix
             guna2DataGridView1.EnableHeadersVisualStyles = false;
             guna2DataGridView1.ColumnHeadersHeight = 40;
 
-            // Fixed sizing behavior
             guna2DataGridView1.AllowUserToResizeRows = false;
             guna2DataGridView1.AllowUserToResizeColumns = false;
             guna2DataGridView1.RowHeadersVisible = false;
             guna2DataGridView1.RowTemplate.Height = 35;
 
-            // Header styling
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = gridThemeColor;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Inter", 10, FontStyle.Bold);
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = DarkenColor(gridThemeColor, 0.15f);
 
-            // Rows styling
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Inter", 9, FontStyle.Regular);
             guna2DataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             guna2DataGridView1.DefaultCellStyle.BackColor = Color.White;
@@ -326,7 +323,6 @@ namespace EduLogix
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = lightPatternColor;
             guna2DataGridView1.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
 
-            // Keep log_date visible and avoid action column eating all width
             guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             guna2DataGridView1.ClearSelection();
@@ -363,7 +359,6 @@ namespace EduLogix
 
         private void ApplyThemeColor(Color themeColor)
         {
-            // Same main gradient as Settings
             if (guna2GradientPanel1 != null)
             {
                 var darker = GetMainGradientTopColor(themeColor);
@@ -377,11 +372,10 @@ namespace EduLogix
                 guna2GradientPanel2.FillColor2 = LightenColor(themeColor, 0.9f);
             }
 
-            // Left nav buttons – same styling as Settings
             ApplyThemeToNavButton(Dashboard, themeColor);
             ApplyThemeToNavButton(Attendance, themeColor);
             ApplyThemeToNavButton(StudentsID, themeColor);
-            ApplyThemeToNavButton(guna2Button1, themeColor); // Logs button
+            ApplyThemeToNavButton(guna2Button1, themeColor);
         }
 
         private void ApplyThemeToNavButton(Guna.UI2.WinForms.Guna2Button button, Color themeColor)
@@ -399,7 +393,6 @@ namespace EduLogix
 
         private void MarkActiveNav()
         {
-            // Uncheck others and make them transparent
             if (Dashboard != null)
             {
                 Dashboard.Checked = false;
@@ -416,7 +409,6 @@ namespace EduLogix
                 StudentsID.FillColor = Color.Transparent;
             }
 
-            // Active button white
             if (guna2Button1 != null)
             {
                 guna2Button1.Checked = true;
@@ -471,21 +463,21 @@ namespace EduLogix
         {
             DashboardForm dashboardForm = new DashboardForm();
             dashboardForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Attendance_Click(object sender, EventArgs e)
         {
             AttendanceForm attendanceForm = new AttendanceForm();
             attendanceForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void StudentsID_Click(object sender, EventArgs e)
         {
             StudentIDForm studentIDForm = new StudentIDForm();
             studentIDForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void userProfile_Click(object sender, EventArgs e)
@@ -496,6 +488,16 @@ namespace EduLogix
             userOptions.Visible = !userOptions.Visible;
             if (userOptions.Visible)
                 userOptions.BringToFront();
+        }
+
+        private void enabledatefilter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (guna2DateTimePicker1 != null)
+            {
+                guna2DateTimePicker1.Enabled = enabledatefilter.Checked;
+            }
+
+            LoadLogs();
         }
     }
 }
