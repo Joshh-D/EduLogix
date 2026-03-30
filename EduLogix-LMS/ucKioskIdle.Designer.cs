@@ -30,23 +30,23 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
-            pnlScanYourID = new Guna.UI2.WinForms.Guna2GradientPanel();
-            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            label1 = new Label();
             btnCatalog = new Guna.UI2.WinForms.Guna2GradientButton();
             pctbxAds = new Guna.UI2.WinForms.Guna2PictureBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            label1 = new Label();
+            pnlScanYourID = new Guna.UI2.WinForms.Guna2GradientPanel();
+            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             pnlBackground.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pctbxAds).BeginInit();
             pnlScanYourID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pctbxAds).BeginInit();
             SuspendLayout();
             // 
             // pnlBackground
@@ -68,6 +68,71 @@
             pnlBackground.Size = new Size(1244, 714);
             pnlBackground.TabIndex = 1;
             pnlBackground.Paint += pnlBackground_Paint;
+            // 
+            // btnCatalog
+            // 
+            btnCatalog.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCatalog.BackColor = Color.Transparent;
+            btnCatalog.BorderRadius = 30;
+            btnCatalog.CustomizableEdges = customizableEdges3;
+            btnCatalog.DisabledState.BorderColor = Color.DarkGray;
+            btnCatalog.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnCatalog.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnCatalog.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            btnCatalog.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCatalog.FillColor = Color.FromArgb(182, 159, 150);
+            btnCatalog.FillColor2 = Color.FromArgb(236, 189, 171);
+            btnCatalog.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCatalog.ForeColor = Color.White;
+            btnCatalog.Image = Properties.Resources.icon_book1;
+            btnCatalog.ImageSize = new Size(40, 40);
+            btnCatalog.Location = new Point(943, 427);
+            btnCatalog.Name = "btnCatalog";
+            btnCatalog.ShadowDecoration.BorderRadius = 30;
+            btnCatalog.ShadowDecoration.Color = Color.DimGray;
+            btnCatalog.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnCatalog.ShadowDecoration.Depth = 20;
+            btnCatalog.ShadowDecoration.Enabled = true;
+            btnCatalog.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
+            btnCatalog.Size = new Size(270, 250);
+            btnCatalog.TabIndex = 4;
+            btnCatalog.Text = "VIEW CATALOG";
+            btnCatalog.Click += btnCatalog_Click;
+            // 
+            // pctbxAds
+            // 
+            pctbxAds.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pctbxAds.CustomizableEdges = customizableEdges5;
+            pctbxAds.ImageRotate = 0F;
+            pctbxAds.Location = new Point(21, 18);
+            pctbxAds.Name = "pctbxAds";
+            pctbxAds.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pctbxAds.Size = new Size(886, 680);
+            pctbxAds.TabIndex = 3;
+            pctbxAds.TabStop = false;
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            guna2HtmlLabel1.Location = new Point(1066, 365);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(27, 32);
+            guna2HtmlLabel1.TabIndex = 2;
+            guna2HtmlLabel1.Text = "Or";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(13, 182);
+            label1.Name = "label1";
+            label1.Size = new Size(249, 25);
+            label1.TabIndex = 0;
+            label1.Text = "CLICK HERE TO CHECKOUT";
+            label1.Click += label1_Click;
             // 
             // pnlScanYourID
             // 
@@ -103,70 +168,6 @@
             iconPictureBox1.TabIndex = 1;
             iconPictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(9, 188);
-            label1.Name = "label1";
-            label1.Size = new Size(253, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Scan you ID to checkout";
-            // 
-            // btnCatalog
-            // 
-            btnCatalog.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCatalog.BackColor = Color.Transparent;
-            btnCatalog.BorderRadius = 30;
-            btnCatalog.CustomizableEdges = customizableEdges3;
-            btnCatalog.DisabledState.BorderColor = Color.DarkGray;
-            btnCatalog.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnCatalog.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnCatalog.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            btnCatalog.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnCatalog.FillColor = Color.FromArgb(182, 159, 150);
-            btnCatalog.FillColor2 = Color.FromArgb(236, 189, 171);
-            btnCatalog.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCatalog.ForeColor = Color.White;
-            btnCatalog.Image = Properties.Resources.icon_book1;
-            btnCatalog.ImageSize = new Size(40, 40);
-            btnCatalog.Location = new Point(943, 427);
-            btnCatalog.Name = "btnCatalog";
-            btnCatalog.ShadowDecoration.BorderRadius = 30;
-            btnCatalog.ShadowDecoration.Color = Color.DimGray;
-            btnCatalog.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnCatalog.ShadowDecoration.Depth = 20;
-            btnCatalog.ShadowDecoration.Enabled = true;
-            btnCatalog.ShadowDecoration.Shadow = new Padding(1, 1, 5, 5);
-            btnCatalog.Size = new Size(270, 250);
-            btnCatalog.TabIndex = 4;
-            btnCatalog.Text = "View Catalog";
-            btnCatalog.Click += btnCatalog_Click;
-            // 
-            // pctbxAds
-            // 
-            pctbxAds.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pctbxAds.CustomizableEdges = customizableEdges5;
-            pctbxAds.ImageRotate = 0F;
-            pctbxAds.Location = new Point(21, 18);
-            pctbxAds.Name = "pctbxAds";
-            pctbxAds.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            pctbxAds.Size = new Size(886, 680);
-            pctbxAds.TabIndex = 3;
-            pctbxAds.TabStop = false;
-            // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            guna2HtmlLabel1.Location = new Point(1066, 365);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(27, 32);
-            guna2HtmlLabel1.TabIndex = 2;
-            guna2HtmlLabel1.Text = "Or";
-            // 
             // ucKioskIdle
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,21 +178,21 @@
             Size = new Size(1244, 714);
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pctbxAds).EndInit();
             pnlScanYourID.ResumeLayout(false);
             pnlScanYourID.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pctbxAds).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Guna.UI2.WinForms.Guna2GradientPanel pnlBackground;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2PictureBox pctbxAds;
-        private Guna.UI2.WinForms.Guna2GradientPanel pnlScanYourID;
         private Guna.UI2.WinForms.Guna2GradientButton btnCatalog;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnlScanYourID;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private Label label1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
