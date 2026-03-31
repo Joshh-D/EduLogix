@@ -46,6 +46,7 @@
             this.guna2ControlBox5 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.resetinfo = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -57,7 +58,6 @@
             this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel19 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.birthDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -65,7 +65,6 @@
             this.studentName = new Guna.UI2.WinForms.Guna2TextBox();
             this.studentID = new Guna.UI2.WinForms.Guna2TextBox();
             this.level = new Guna.UI2.WinForms.Guna2TextBox();
-            this.rfidNum = new Guna.UI2.WinForms.Guna2TextBox();
             this.studentPic = new Guna.UI2.WinForms.Guna2PictureBox();
             this.editBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.saveBtn = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -95,7 +94,6 @@
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel15 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.resetinfo = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.userOptions.SuspendLayout();
@@ -302,7 +300,6 @@
             this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel18);
             this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel21);
             this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel20);
-            this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel19);
             this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel16);
             this.guna2GradientPanel2.Controls.Add(this.birthDatePicker);
             this.guna2GradientPanel2.Controls.Add(this.sectionComboBox);
@@ -310,7 +307,6 @@
             this.guna2GradientPanel2.Controls.Add(this.studentName);
             this.guna2GradientPanel2.Controls.Add(this.studentID);
             this.guna2GradientPanel2.Controls.Add(this.level);
-            this.guna2GradientPanel2.Controls.Add(this.rfidNum);
             this.guna2GradientPanel2.Controls.Add(this.studentPic);
             this.guna2GradientPanel2.Controls.Add(this.editBtn);
             this.guna2GradientPanel2.Controls.Add(this.saveBtn);
@@ -330,6 +326,31 @@
             this.guna2GradientPanel2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.guna2GradientPanel2.Size = new System.Drawing.Size(1640, 1025);
             this.guna2GradientPanel2.TabIndex = 0;
+            // 
+            // resetinfo
+            // 
+            this.resetinfo.BackColor = System.Drawing.Color.Transparent;
+            this.resetinfo.BorderRadius = 5;
+            this.resetinfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.resetinfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.resetinfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetinfo.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetinfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.resetinfo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.resetinfo.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.resetinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetinfo.ForeColor = System.Drawing.Color.White;
+            this.resetinfo.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194230_removebg_preview;
+            this.resetinfo.Location = new System.Drawing.Point(832, 112);
+            this.resetinfo.Margin = new System.Windows.Forms.Padding(2);
+            this.resetinfo.Name = "resetinfo";
+            this.resetinfo.ShadowDecoration.BorderRadius = 10;
+            this.resetinfo.ShadowDecoration.Color = System.Drawing.Color.Gray;
+            this.resetinfo.ShadowDecoration.Enabled = true;
+            this.resetinfo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
+            this.resetinfo.Size = new System.Drawing.Size(170, 40);
+            this.resetinfo.TabIndex = 129;
+            this.resetinfo.Text = "Reset Info";
             // 
             // guna2HtmlLabel28
             // 
@@ -456,24 +477,12 @@
             this.guna2HtmlLabel20.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel20.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel20.Location = new System.Drawing.Point(1030, 192);
+            this.guna2HtmlLabel20.Location = new System.Drawing.Point(502, 192);
             this.guna2HtmlLabel20.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel20.Name = "guna2HtmlLabel20";
             this.guna2HtmlLabel20.Size = new System.Drawing.Size(124, 31);
             this.guna2HtmlLabel20.TabIndex = 118;
             this.guna2HtmlLabel20.Text = "Student ID";
-            // 
-            // guna2HtmlLabel19
-            // 
-            this.guna2HtmlLabel19.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel19.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel19.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.guna2HtmlLabel19.Location = new System.Drawing.Point(502, 194);
-            this.guna2HtmlLabel19.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2HtmlLabel19.Name = "guna2HtmlLabel19";
-            this.guna2HtmlLabel19.Size = new System.Drawing.Size(162, 31);
-            this.guna2HtmlLabel19.TabIndex = 117;
-            this.guna2HtmlLabel19.Text = "RFID Number";
             // 
             // guna2HtmlLabel16
             // 
@@ -607,7 +616,7 @@
             this.studentID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.studentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.studentID.Location = new System.Drawing.Point(1030, 237);
+            this.studentID.Location = new System.Drawing.Point(502, 237);
             this.studentID.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.studentID.Name = "studentID";
             this.studentID.PlaceholderText = "";
@@ -648,35 +657,6 @@
             this.level.Size = new System.Drawing.Size(237, 45);
             this.level.TabIndex = 101;
             this.level.TextOffset = new System.Drawing.Point(0, -3);
-            // 
-            // rfidNum
-            // 
-            this.rfidNum.BackColor = System.Drawing.Color.Transparent;
-            this.rfidNum.BorderColor = System.Drawing.Color.Black;
-            this.rfidNum.BorderRadius = 5;
-            this.rfidNum.BorderThickness = 0;
-            this.rfidNum.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.rfidNum.DefaultText = "";
-            this.rfidNum.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.rfidNum.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.rfidNum.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.rfidNum.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.rfidNum.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.rfidNum.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rfidNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rfidNum.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rfidNum.Location = new System.Drawing.Point(502, 237);
-            this.rfidNum.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
-            this.rfidNum.Name = "rfidNum";
-            this.rfidNum.PlaceholderText = "";
-            this.rfidNum.SelectedText = "";
-            this.rfidNum.ShadowDecoration.BorderRadius = 5;
-            this.rfidNum.ShadowDecoration.Color = System.Drawing.Color.DimGray;
-            this.rfidNum.ShadowDecoration.Enabled = true;
-            this.rfidNum.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.rfidNum.Size = new System.Drawing.Size(503, 45);
-            this.rfidNum.TabIndex = 97;
-            this.rfidNum.TextOffset = new System.Drawing.Point(0, -3);
             // 
             // studentPic
             // 
@@ -892,7 +872,6 @@
             this.Logs.BorderRadius = 25;
             this.Logs.BorderThickness = 1;
             this.Logs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.Logs.Checked = true;
             this.Logs.CheckedState.BorderColor = System.Drawing.Color.Transparent;
             this.Logs.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.Logs.CheckedState.FillColor = System.Drawing.Color.White;
@@ -972,12 +951,14 @@
             // userProfile
             // 
             this.userProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userProfile.Image = ((System.Drawing.Image)(resources.GetObject("userProfile.Image")));
             this.userProfile.ImageRotate = 0F;
             this.userProfile.Location = new System.Drawing.Point(66, 265);
             this.userProfile.Margin = new System.Windows.Forms.Padding(2);
             this.userProfile.Name = "userProfile";
             this.userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.userProfile.Size = new System.Drawing.Size(120, 115);
+            this.userProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userProfile.TabIndex = 104;
             this.userProfile.TabStop = false;
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
@@ -1210,31 +1191,6 @@
             this.guna2HtmlLabel15.TabIndex = 115;
             this.guna2HtmlLabel15.Text = "Date of Birth";
             // 
-            // resetinfo
-            // 
-            this.resetinfo.BackColor = System.Drawing.Color.Transparent;
-            this.resetinfo.BorderRadius = 5;
-            this.resetinfo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.resetinfo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.resetinfo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetinfo.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetinfo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.resetinfo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.resetinfo.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.resetinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetinfo.ForeColor = System.Drawing.Color.White;
-            this.resetinfo.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_27_194230_removebg_preview;
-            this.resetinfo.Location = new System.Drawing.Point(832, 112);
-            this.resetinfo.Margin = new System.Windows.Forms.Padding(2);
-            this.resetinfo.Name = "resetinfo";
-            this.resetinfo.ShadowDecoration.BorderRadius = 10;
-            this.resetinfo.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.resetinfo.ShadowDecoration.Enabled = true;
-            this.resetinfo.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.resetinfo.Size = new System.Drawing.Size(170, 40);
-            this.resetinfo.TabIndex = 129;
-            this.resetinfo.Text = "Reset Info";
-            // 
             // StudentInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1296,7 +1252,6 @@
         private Guna.UI2.WinForms.Guna2TextBox studentName;
         private Guna.UI2.WinForms.Guna2TextBox studentID;
         private Guna.UI2.WinForms.Guna2TextBox level;
-        private Guna.UI2.WinForms.Guna2TextBox rfidNum;
         private Guna.UI2.WinForms.Guna2PictureBox studentPic;
         private Guna.UI2.WinForms.Guna2GradientButton editBtn;
         private Guna.UI2.WinForms.Guna2GradientButton saveBtn;
@@ -1325,7 +1280,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel19;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel27;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel26;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel25;

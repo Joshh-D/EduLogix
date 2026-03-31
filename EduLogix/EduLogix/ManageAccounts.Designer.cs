@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAccounts));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageAccounts));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.WindowAnimation = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
@@ -53,7 +54,6 @@
             this.username = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.role = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.schoolLogo = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.schoolName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.editUser = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -66,11 +66,12 @@
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.manageAccountsDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.addNewUser = new Guna.UI2.WinForms.Guna2GradientButton();
+            userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.userOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(userProfile)).BeginInit();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.manageAccountsDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -131,7 +132,7 @@
             this.guna2GradientPanel1.Controls.Add(this.username);
             this.guna2GradientPanel1.Controls.Add(this.role);
             this.guna2GradientPanel1.Controls.Add(this.schoolLogo);
-            this.guna2GradientPanel1.Controls.Add(this.userProfile);
+            this.guna2GradientPanel1.Controls.Add(userProfile);
             this.guna2GradientPanel1.Controls.Add(this.schoolName);
             this.guna2GradientPanel1.Controls.Add(this.guna2GradientPanel2);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
@@ -387,16 +388,18 @@
             // 
             // userProfile
             // 
-            this.userProfile.BackColor = System.Drawing.Color.Transparent;
-            this.userProfile.ImageRotate = 0F;
-            this.userProfile.Location = new System.Drawing.Point(65, 263);
-            this.userProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userProfile.Name = "userProfile";
-            this.userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.userProfile.Size = new System.Drawing.Size(120, 114);
-            this.userProfile.TabIndex = 58;
-            this.userProfile.TabStop = false;
-            this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
+            userProfile.BackColor = System.Drawing.Color.Transparent;
+            userProfile.Image = ((System.Drawing.Image)(resources.GetObject("userProfile.Image")));
+            userProfile.ImageRotate = 0F;
+            userProfile.Location = new System.Drawing.Point(65, 263);
+            userProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            userProfile.Name = "userProfile";
+            userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            userProfile.Size = new System.Drawing.Size(120, 114);
+            userProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            userProfile.TabIndex = 58;
+            userProfile.TabStop = false;
+            userProfile.Click += new System.EventHandler(this.userProfile_Click);
             // 
             // schoolName
             // 
@@ -713,7 +716,7 @@
             this.guna2GradientPanel1.PerformLayout();
             this.userOptions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(userProfile)).EndInit();
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.manageAccountsDataGrid)).EndInit();
@@ -735,7 +738,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel14;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private Guna.UI2.WinForms.Guna2PictureBox schoolLogo;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
         private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
         private Guna.UI2.WinForms.Guna2HtmlLabel username;
         private Guna.UI2.WinForms.Guna2HtmlLabel role;

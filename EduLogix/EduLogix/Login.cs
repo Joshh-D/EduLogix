@@ -196,5 +196,10 @@ namespace EduLogix
         {
             loginbtn_Click(sender, e);
         }
+
+        private void schoolName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

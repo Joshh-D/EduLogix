@@ -77,7 +77,6 @@ namespace EduLogix
 
         private void ConfigureInputConstraints()
         {
-            if (rfidNum != null) rfidNum.MaxLength = 20;
             if (studentID != null) studentID.MaxLength = 10;
             if (studentName != null) studentName.MaxLength = 255;
             if (contactNum != null) contactNum.MaxLength = 14;
@@ -215,17 +214,38 @@ namespace EduLogix
 
         private void StudentInfo_Load(object sender, EventArgs e)
         {
-            if (!DesignMode && string.IsNullOrWhiteSpace(currentStudentId))
+            if (!DesignMode)
             {
-                ApplyThemeToForm();
+                    LoadUserProfileImage();
+
+                if (string.IsNullOrWhiteSpace(currentStudentId))
+                {
+                    ApplyThemeToForm();
+                }
             }
         }
 
         public void LoadStudentInfo(string studentId)
         {
             currentStudentId = studentId;
+            LoadUserProfileImage();
             ApplyThemeToForm();
             LoadStudentData(studentId);
+        }
+
+        private void LoadUserProfileImage()
+        {
+            if (userProfile != null && !string.IsNullOrWhiteSpace(UserSession.UserName))
+            {
+                try
+                {
+                    userProfile.Image = UserProfileHelper.LoadUserProfile(UserSession.UserName);
+                }
+                catch
+                {
+                    // Silently fail; PictureBox will display default or nothing
+                }
+            }
         }
 
         private void LoadStudentData(string studentId)
@@ -278,62 +298,66 @@ namespace EduLogix
         {
             try
             {
-                // RFID Number (guna2TextBox8)
-                if (rfidNum != null && reader["rfid_number"] != DBNull.Value)
-                    rfidNum.Text = reader["rfid_number"].ToString();
-
-                // Student ID (guna2TextBox1)
+                // Student ID
                 if (studentID != null && reader["student_id"] != DBNull.Value)
                     studentID.Text = reader["student_id"].ToString();
 
-                // Full Name (guna2TextBox2)
+                // Full Name
                 if (studentName != null && reader["name"] != DBNull.Value)
                     studentName.Text = reader["name"].ToString();
+           
 
-                // Grade (guna2TextBox3)
+                // Grade
                 if (studentGrade != null && reader["grade"] != DBNull.Value)
                     studentGrade.Text = reader["grade"].ToString();
 
-                // Phone Number (guna2TextBox4)
+                // Student's Personal Phone Number
                 if (contactNum != null && reader["phone_number"] != DBNull.Value)
                     contactNum.Text = reader["phone_number"].ToString();
 
-                // Guardian Name (guna2TextBox5)
-                if (guardianName != null && reader["guardian_name"] != DBNull.Value)
-                    guardianName.Text = reader["guardian_name"].ToString();
+                // --- FIX FOR GUARDIAN INFORMATION ---
 
-                // Guardian Phone Number (guna2TextBox6)
-                if (guardianNum != null && reader["guardian_phone_number"] != DBNull.Value)
-                    guardianNum.Text = reader["guardian_phone_number"].ToString();
+                // Guardian Name
+                if (guardianName != null)
+                {
+                    guardianName.Text = reader["guardian_name"] != DBNull.Value
+                        ? reader["guardian_name"].ToString()
+                        : "N/A";
+                }
 
-                // Present Address (guna2TextBox7)
+                // Guardian Contact Number
+                if (guardianNum != null)
+                {
+                    guardianNum.Text = reader["guardian_phone_number"] != DBNull.Value
+                        ? reader["guardian_phone_number"].ToString()
+                        : "No Contact";
+                }
+
+                // Address
                 if (address != null && reader["address"] != DBNull.Value)
                     address.Text = reader["address"].ToString();
+
+                // --- END OF GUARDIAN FIX ---
 
                 // Section
                 if (sectionComboBox != null && reader["section"] != DBNull.Value)
                     sectionComboBox.Text = reader["section"].ToString();
 
-                // Education/Level (guna2TextBox10)
+                // Level
                 if (level != null && reader["level"] != DBNull.Value)
                     level.Text = reader["level"].ToString();
 
                 // Date of Birth
                 if (reader["date_of_birth"] != DBNull.Value)
-                {
                     SetBirthDate(Convert.ToDateTime(reader["date_of_birth"]));
-                }
                 else
-                {
                     SetBirthDate(null);
-                }
 
-                currentImagePath = reader["image_path"] == DBNull.Value
-                    ? string.Empty
-                    : reader["image_path"].ToString();
-
+                // Image Handling
+                currentImagePath = reader["image_path"] == DBNull.Value ? string.Empty : reader["image_path"].ToString();
                 LoadStudentPicture(currentImagePath);
 
+                // Save state for the "Reset" button
                 loadedState = CaptureCurrentState();
             }
             catch (Exception ex)
@@ -346,7 +370,7 @@ namespace EduLogix
         {
             return new StudentInfoState
             {
-                Rfid = rfidNum != null ? rfidNum.Text : string.Empty,
+                
                 StudentId = studentID != null ? studentID.Text : string.Empty,
                 FullName = studentName != null ? studentName.Text : string.Empty,
                 StudentContact = contactNum != null ? contactNum.Text : string.Empty,
@@ -365,7 +389,7 @@ namespace EduLogix
         {
             if (state == null) return;
 
-            if (rfidNum != null) rfidNum.Text = state.Rfid;
+            
             if (studentID != null) studentID.Text = state.StudentId;
             if (studentName != null) studentName.Text = state.FullName;
             if (contactNum != null) contactNum.Text = state.StudentContact;
@@ -420,7 +444,7 @@ namespace EduLogix
 
         private void SetEditMode(bool isEditMode)
         {
-            if (rfidNum != null) rfidNum.ReadOnly = !isEditMode;
+            
             if (studentID != null) studentID.ReadOnly = !isEditMode;
             if (studentName != null) studentName.ReadOnly = !isEditMode;
             if (contactNum != null) contactNum.ReadOnly = !isEditMode;
@@ -473,8 +497,7 @@ namespace EduLogix
                                            WHERE student_id = @currentStudentId";
 
                     using (var cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@rfid", rfidNum?.Text?.Trim() ?? string.Empty);
+                    {                       
                         cmd.Parameters.AddWithValue("@studentId", studentID?.Text?.Trim() ?? string.Empty);
                         cmd.Parameters.AddWithValue("@name", studentName?.Text?.Trim() ?? string.Empty);
                         cmd.Parameters.AddWithValue("@phone", contactNum?.Text?.Trim() ?? string.Empty);
@@ -574,9 +597,7 @@ namespace EduLogix
 
         private bool ValidateStudentInfo(out string message)
         {
-            message = string.Empty;
-
-            string rfid = rfidNum != null ? rfidNum.Text.Trim() : string.Empty;
+            message = string.Empty;      
             string studentIdValue = studentID != null ? studentID.Text.Trim() : string.Empty;
             string fullName = studentName != null ? studentName.Text.Trim() : string.Empty;
             string studentContact = contactNum != null ? contactNum.Text.Trim() : string.Empty;
@@ -587,11 +608,7 @@ namespace EduLogix
             string guardianContact = guardianNum != null ? guardianNum.Text.Trim() : string.Empty;
             string addressValue = address != null ? address.Text.Trim() : string.Empty;
 
-            if (rfid.Length > 20)
-            {
-                message = "RFID must be at most 20 characters.";
-                return false;
-            }
+            
 
             if (!Regex.IsMatch(studentIdValue, @"^\d{8}-[CNS]$", RegexOptions.IgnoreCase))
             {
@@ -917,7 +934,7 @@ namespace EduLogix
             try
             {
                 string imagePath = currentImagePath;
-                string rfid = rfidNum != null ? rfidNum.Text.Trim() : string.Empty;
+                
                 string studentId = studentID != null ? studentID.Text.Trim() : string.Empty;
                 string fullName = studentName != null ? studentName.Text.Trim() : string.Empty;
                 string phone = contactNum != null ? contactNum.Text.Trim() : string.Empty;
@@ -943,9 +960,7 @@ namespace EduLogix
 
                         using (var insertCmd = new MySqlCommand(insertQuery, conn, transaction))
                         {
-                            insertCmd.Parameters.AddWithValue("@image", string.IsNullOrWhiteSpace(imagePath) ? (object)DBNull.Value : imagePath);
-                            insertCmd.Parameters.AddWithValue("@rfid", string.IsNullOrWhiteSpace(rfid) ? (object)DBNull.Value : rfid);
-                            insertCmd.Parameters.AddWithValue("@studentId", studentId);
+                            insertCmd.Parameters.AddWithValue("@image", string.IsNullOrWhiteSpace(imagePath) ? (object)DBNull.Value : imagePath);                            insertCmd.Parameters.AddWithValue("@studentId", studentId);
                             insertCmd.Parameters.AddWithValue("@name", string.IsNullOrWhiteSpace(fullName) ? (object)DBNull.Value : fullName);
                             insertCmd.Parameters.AddWithValue("@phone", string.IsNullOrWhiteSpace(phone) ? (object)DBNull.Value : phone);
                             insertCmd.Parameters.AddWithValue("@guardian", string.IsNullOrWhiteSpace(guardian) ? (object)DBNull.Value : guardian);

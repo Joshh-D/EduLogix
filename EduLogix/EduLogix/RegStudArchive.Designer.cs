@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegStudArchive));
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.userOptions = new System.Windows.Forms.Panel();
-            this.kiosk = new System.Windows.Forms.Button();
-            this.logout = new System.Windows.Forms.Button();
-            this.settings = new System.Windows.Forms.Button();
             this.Attendance = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox4 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -57,7 +54,6 @@
             this.role = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.userProfile = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2GradientPanel1.SuspendLayout();
-            this.userOptions.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schoolLogo)).BeginInit();
@@ -78,7 +74,6 @@
             // 
             // guna2GradientPanel1
             // 
-            this.guna2GradientPanel1.Controls.Add(this.userOptions);
             this.guna2GradientPanel1.Controls.Add(this.Attendance);
             this.guna2GradientPanel1.Controls.Add(this.guna2ControlBox4);
             this.guna2GradientPanel1.Controls.Add(this.guna2Button1);
@@ -99,47 +94,6 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1920, 1081);
             this.guna2GradientPanel1.TabIndex = 36;
-            // 
-            // userOptions
-            // 
-            this.userOptions.Controls.Add(this.kiosk);
-            this.userOptions.Controls.Add(this.logout);
-            this.userOptions.Controls.Add(this.settings);
-            this.userOptions.Location = new System.Drawing.Point(141, 352);
-            this.userOptions.Margin = new System.Windows.Forms.Padding(4);
-            this.userOptions.Name = "userOptions";
-            this.userOptions.Size = new System.Drawing.Size(104, 107);
-            this.userOptions.TabIndex = 75;
-            // 
-            // kiosk
-            // 
-            this.kiosk.Location = new System.Drawing.Point(14, 76);
-            this.kiosk.Margin = new System.Windows.Forms.Padding(4);
-            this.kiosk.Name = "kiosk";
-            this.kiosk.Size = new System.Drawing.Size(75, 23);
-            this.kiosk.TabIndex = 4;
-            this.kiosk.Text = "Kiosk";
-            this.kiosk.UseVisualStyleBackColor = true;
-            // 
-            // logout
-            // 
-            this.logout.Location = new System.Drawing.Point(14, 43);
-            this.logout.Margin = new System.Windows.Forms.Padding(4);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(75, 23);
-            this.logout.TabIndex = 3;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = true;
-            // 
-            // settings
-            // 
-            this.settings.Location = new System.Drawing.Point(13, 10);
-            this.settings.Margin = new System.Windows.Forms.Padding(4);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(75, 23);
-            this.settings.TabIndex = 1;
-            this.settings.Text = "Settings";
-            this.settings.UseVisualStyleBackColor = true;
             // 
             // Attendance
             // 
@@ -196,7 +150,6 @@
             this.guna2Button1.BorderRadius = 25;
             this.guna2Button1.BorderThickness = 1;
             this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button1.Checked = true;
             this.guna2Button1.CheckedState.BorderColor = System.Drawing.Color.Transparent;
             this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.White;
@@ -343,27 +296,27 @@
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
             this.guna2DataGridView1.AllowUserToResizeColumns = false;
             this.guna2DataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.guna2DataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.guna2DataGridView1.ColumnHeadersHeight = 4;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(65, 203);
             this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -508,7 +461,7 @@
             this.schoolName.BackColor = System.Drawing.Color.Transparent;
             this.schoolName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.schoolName.ForeColor = System.Drawing.Color.White;
-            this.schoolName.Location = new System.Drawing.Point(15, 215);
+            this.schoolName.Location = new System.Drawing.Point(0, 215);
             this.schoolName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schoolName.Name = "schoolName";
             this.schoolName.Size = new System.Drawing.Size(254, 18);
@@ -531,12 +484,14 @@
             // userProfile
             // 
             this.userProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userProfile.Image = ((System.Drawing.Image)(resources.GetObject("userProfile.Image")));
             this.userProfile.ImageRotate = 0F;
             this.userProfile.Location = new System.Drawing.Point(67, 265);
             this.userProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userProfile.Name = "userProfile";
             this.userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.userProfile.Size = new System.Drawing.Size(120, 114);
+            this.userProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userProfile.TabIndex = 68;
             this.userProfile.TabStop = false;
             // 
@@ -553,7 +508,6 @@
             this.Text = "RegStudArchive";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
-            this.userOptions.ResumeLayout(false);
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
@@ -568,10 +522,6 @@
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private System.Windows.Forms.Panel userOptions;
-        private System.Windows.Forms.Button kiosk;
-        private System.Windows.Forms.Button logout;
-        private System.Windows.Forms.Button settings;
         private Guna.UI2.WinForms.Guna2Button Attendance;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox4;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;

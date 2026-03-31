@@ -17,6 +17,7 @@ namespace EduLogix
         {
             UserName = null;
             Role = null;
+            UserProfileHelper.ClearCache();
         }
     }
 }

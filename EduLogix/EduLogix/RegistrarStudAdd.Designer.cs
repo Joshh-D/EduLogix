@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarStudAdd));
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -37,7 +38,6 @@
             this.birthDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.bindRFIDBtn = new Guna.UI2.WinForms.Guna2GradientButton();
             this.contactNum = new Guna.UI2.WinForms.Guna2TextBox();
             this.studentName = new Guna.UI2.WinForms.Guna2TextBox();
             this.studentID = new Guna.UI2.WinForms.Guna2TextBox();
@@ -127,7 +127,6 @@
             this.guna2GradientPanel2.Controls.Add(this.birthDatePicker);
             this.guna2GradientPanel2.Controls.Add(this.sectionComboBox);
             this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel12);
-            this.guna2GradientPanel2.Controls.Add(this.bindRFIDBtn);
             this.guna2GradientPanel2.Controls.Add(this.contactNum);
             this.guna2GradientPanel2.Controls.Add(this.studentName);
             this.guna2GradientPanel2.Controls.Add(this.studentID);
@@ -230,32 +229,6 @@
             this.guna2HtmlLabel12.Size = new System.Drawing.Size(302, 38);
             this.guna2HtmlLabel12.TabIndex = 105;
             this.guna2HtmlLabel12.Text = "Guardian Information";
-            // 
-            // bindRFIDBtn
-            // 
-            this.bindRFIDBtn.BackColor = System.Drawing.Color.Transparent;
-            this.bindRFIDBtn.BorderRadius = 5;
-            this.bindRFIDBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.bindRFIDBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.bindRFIDBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.bindRFIDBtn.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.bindRFIDBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.bindRFIDBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(161)))), ((int)(((byte)(170)))));
-            this.bindRFIDBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(211)))), ((int)(((byte)(220)))));
-            this.bindRFIDBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bindRFIDBtn.ForeColor = System.Drawing.Color.White;
-            this.bindRFIDBtn.Image = global::EduLogix.Properties.Resources.Screenshot_2026_01_23_000055_removebg_preview1;
-            this.bindRFIDBtn.ImageSize = new System.Drawing.Size(30, 25);
-            this.bindRFIDBtn.Location = new System.Drawing.Point(1098, 112);
-            this.bindRFIDBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.bindRFIDBtn.Name = "bindRFIDBtn";
-            this.bindRFIDBtn.ShadowDecoration.BorderRadius = 10;
-            this.bindRFIDBtn.ShadowDecoration.Color = System.Drawing.Color.Gray;
-            this.bindRFIDBtn.ShadowDecoration.Enabled = true;
-            this.bindRFIDBtn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(1, 1, 1, 5);
-            this.bindRFIDBtn.Size = new System.Drawing.Size(170, 40);
-            this.bindRFIDBtn.TabIndex = 111;
-            this.bindRFIDBtn.Text = "Bind RFID";
             // 
             // contactNum
             // 
@@ -798,7 +771,6 @@
             this.Logs.BorderRadius = 25;
             this.Logs.BorderThickness = 1;
             this.Logs.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.Logs.Checked = true;
             this.Logs.CheckedState.BorderColor = System.Drawing.Color.Transparent;
             this.Logs.CheckedState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.Logs.CheckedState.FillColor = System.Drawing.Color.White;
@@ -876,12 +848,14 @@
             // userProfile
             // 
             this.userProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userProfile.Image = ((System.Drawing.Image)(resources.GetObject("userProfile.Image")));
             this.userProfile.ImageRotate = 0F;
             this.userProfile.Location = new System.Drawing.Point(66, 265);
             this.userProfile.Margin = new System.Windows.Forms.Padding(2);
             this.userProfile.Name = "userProfile";
             this.userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.userProfile.Size = new System.Drawing.Size(120, 115);
+            this.userProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userProfile.TabIndex = 104;
             this.userProfile.TabStop = false;
             // 
@@ -997,7 +971,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
         private Guna.UI2.WinForms.Guna2HtmlLabel username;
         private Guna.UI2.WinForms.Guna2GradientButton addStudentBtn;
-        private Guna.UI2.WinForms.Guna2GradientButton bindRFIDBtn;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2TextBox contactNum;

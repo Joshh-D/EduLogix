@@ -780,19 +780,33 @@ namespace EduLogix
         private void uploadexcel_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+            // FIXED: Separated extensions with semicolons and added .csv
+            ofd.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm;*.csv";
             ofd.Title = "Select Student List to Upload";
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    // 1. READ EXCEL FILE IN THE BACKGROUND
+                    // 1. READ FILE IN THE BACKGROUND
                     DataTable dtExcel = new DataTable();
                     using (var stream = File.Open(ofd.FileName, FileMode.Open, FileAccess.Read))
                     {
                         System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+
+                        IExcelDataReader reader;
+
+                        // FIXED: Logic to switch between Excel and CSV readers
+                        if (ofd.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                        {
+                            reader = ExcelReaderFactory.CreateCsvReader(stream);
+                        }
+                        else
+                        {
+                            reader = ExcelReaderFactory.CreateReader(stream);
+                        }
+
+                        using (reader)
                         {
                             DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
                             {
@@ -802,44 +816,47 @@ namespace EduLogix
                         }
                     }
 
-                    // 2. CONNECT TO MYSQL AND SAVE DIRECTLY
+                    // 2. CONNECT TO MYSQL AND SAVE
                     int successCount = 0;
                     int skippedCount = 0;
-                    string connString = "server=localhost;database=edulogix;uid=root;pwd=;";
 
-                    using (var conn = new MySqlConnection(connString))
+                    using (var conn = new MySqlConnection(connectionString))
                     {
                         conn.Open();
 
                         foreach (DataRow row in dtExcel.Rows)
                         {
-                            
+                            // Skip if the student_id is empty
                             if (!dtExcel.Columns.Contains("student_id") || row.IsNull("student_id") || string.IsNullOrWhiteSpace(row["student_id"].ToString()))
                                 continue;
 
                             try
                             {
-                                // Updated SQL: Changed `phone` to `phone_number` and removed `email`
-                                string sql = @"
-    INSERT IGNORE INTO `reg_studentinfo` 
-    (`student_id`, `name`, `phone_number`, `grade`, `section`, `level`) 
-    VALUES 
-    (@id, @name, @phone, @grade, @section, @level)";
+                                string sql = @"INSERT IGNORE INTO `reg_studentinfo` 
+                                     (`student_id`, `name`, `phone_number`, `date_of_birth`, `grade`, `section`, `level`) 
+                                     VALUES (@id, @name, @phone, @dob, @grade, @section, @level)";
 
                                 using (var cmd = new MySqlCommand(sql, conn))
                                 {
                                     cmd.Parameters.AddWithValue("@id", row["student_id"]?.ToString() ?? "");
                                     cmd.Parameters.AddWithValue("@name", row["name"]?.ToString() ?? "");
-
-                                    // This parameter maps to the Excel column "phone_number" 
-                                    // and inserts into the DB column "phone_number"
                                     cmd.Parameters.AddWithValue("@phone", row["phone_number"]?.ToString() ?? "");
-
-                                    // Removed the @email parameter completely
-
                                     cmd.Parameters.AddWithValue("@grade", row["grade"]?.ToString() ?? "");
                                     cmd.Parameters.AddWithValue("@section", row["section"]?.ToString() ?? "");
                                     cmd.Parameters.AddWithValue("@level", row["level"]?.ToString() ?? "");
+
+                                    // FIXED: Date of Birth Parsing
+                                    string rawDate = row["date_of_birth"]?.ToString() ?? "";
+                                    if (DateTime.TryParse(rawDate, out DateTime dob))
+                                    {
+                                        // Converts any standard date format to YYYY-MM-DD for MySQL
+                                        cmd.Parameters.AddWithValue("@dob", dob.ToString("yyyy-MM-dd"));
+                                    }
+                                    else
+                                    {
+                                        // Sends NULL if the date is invalid or empty
+                                        cmd.Parameters.AddWithValue("@dob", DBNull.Value);
+                                    }
 
                                     int rowsAffected = cmd.ExecuteNonQuery();
                                     if (rowsAffected > 0) successCount++;
@@ -848,7 +865,6 @@ namespace EduLogix
                             }
                             catch (Exception ex)
                             {
-                                // It's a good practice to log the error during development so you know exactly why it failed!
                                 System.Diagnostics.Debug.WriteLine($"Error inserting row: {ex.Message}");
                                 skippedCount++;
                             }
@@ -865,7 +881,6 @@ namespace EduLogix
                                     "Database Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // 4. INSTANT UI REFRESH
-                    // This pulls the newly added data and forces the Guna grid to update instantly
                     LoadStudentData();
                     ConfigureDataGridView();
 
@@ -875,7 +890,6 @@ namespace EduLogix
                         guna2DataGridView1.Update();
                         guna2DataGridView1.ClearSelection();
                     }
-
                 }
                 catch (IOException)
                 {

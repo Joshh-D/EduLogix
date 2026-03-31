@@ -194,6 +194,7 @@ namespace EduLogix
 
         private void DashboardForm_Load(object sender, EventArgs e)
         {
+            LoadUserProfileImage();
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
             ApplyUserIdentityLabels();
@@ -204,6 +205,21 @@ namespace EduLogix
             }
             RefreshDashboardCounts();
             SetupAttendanceChart();
+        }
+
+        private void LoadUserProfileImage()
+        {
+            if (userProfile != null && !string.IsNullOrWhiteSpace(UserSession.UserName))
+            {
+                try
+                {
+                    userProfile.Image = UserProfileHelper.LoadUserProfile(UserSession.UserName);
+                }
+                catch
+                {
+                    // Silently fail; PictureBox will display default or nothing
+                }
+            }
         }
 
         private void RefreshDashboardCounts()

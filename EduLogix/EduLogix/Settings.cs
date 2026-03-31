@@ -67,6 +67,7 @@ namespace EduLogix
                 InitializeKioskSlideshowLayout();
                 MarkActiveNav();
                 ApplyAccessControl();
+                LoadUserProfileImage();
             }
         }
 
@@ -131,6 +132,21 @@ namespace EduLogix
             if (Attendance != null) Attendance.Checked = false;
             if (StudentsID != null) StudentsID.Checked = false;
             if (Logs != null) Logs.Checked = false;
+        }
+
+        private void LoadUserProfileImage()
+        {
+            if (userProfile != null && !string.IsNullOrWhiteSpace(UserSession.UserName))
+            {
+                try
+                {
+                    userProfile.Image = UserProfileHelper.LoadUserProfile(UserSession.UserName);
+                }
+                catch
+                {
+                    // Silently fail; PictureBox will display default or nothing
+                }
+            }
         }
 
         #region Initialization

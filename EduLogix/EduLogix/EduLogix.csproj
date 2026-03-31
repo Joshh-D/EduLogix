@@ -222,6 +222,7 @@
     <Compile Include="StudentInfo.Designer.cs">
       <DependentUpon>StudentInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserProfileHelper.cs" />
     <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="RegistrarStudAdd.resx">
       <DependentUpon>RegistrarStudAdd.cs</DependentUpon>

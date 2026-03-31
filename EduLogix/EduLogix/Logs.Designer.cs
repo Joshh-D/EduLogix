@@ -536,15 +536,16 @@
             // userProfile
             // 
             this.userProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userProfile.Image = ((System.Drawing.Image)(resources.GetObject("userProfile.Image")));
             this.userProfile.ImageRotate = 0F;
-            this.userProfile.Location = new System.Drawing.Point(67, 265);
-            this.userProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userProfile.Location = new System.Drawing.Point(67, 264);
+            this.userProfile.Margin = new System.Windows.Forms.Padding(2);
             this.userProfile.Name = "userProfile";
             this.userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.userProfile.Size = new System.Drawing.Size(120, 114);
-            this.userProfile.TabIndex = 68;
+            this.userProfile.Size = new System.Drawing.Size(120, 115);
+            this.userProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.userProfile.TabIndex = 56;
             this.userProfile.TabStop = false;
-            this.userProfile.Click += new System.EventHandler(this.userProfile_Click);
             // 
             // Logs
             // 
@@ -593,11 +594,11 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel username;
         private Guna.UI2.WinForms.Guna2HtmlLabel schoolName;
         private Guna.UI2.WinForms.Guna2HtmlLabel role;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
         private System.Windows.Forms.Panel userOptions;
         private System.Windows.Forms.Button settings;
         private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Button kiosk;
         private System.Windows.Forms.CheckBox enabledatefilter;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox userProfile;
     }
 }

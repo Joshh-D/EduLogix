@@ -872,11 +872,13 @@
             // userProfile
             // 
             this.userProfile.BackColor = System.Drawing.Color.Transparent;
+            this.userProfile.Image = ((System.Drawing.Image)(resources.GetObject("userProfile.Image")));
             this.userProfile.ImageRotate = 0F;
             this.userProfile.Location = new System.Drawing.Point(65, 263);
             this.userProfile.Name = "userProfile";
             this.userProfile.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.userProfile.Size = new System.Drawing.Size(120, 115);
+            this.userProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userProfile.TabIndex = 0;
             this.userProfile.TabStop = false;
             this.userProfile.Click += new System.EventHandler(this.userProfile_Click);

@@ -35,7 +35,6 @@ namespace EduLogix
             if (userOptions != null)
             {
                 userOptions.Visible = false;
-                PositionUserOptionsPanel();
                 userOptions.BringToFront();
             }
 
@@ -62,35 +61,12 @@ namespace EduLogix
             WireOutsideClickHandler(this);
         }
 
-        private void PositionUserOptionsPanel()
-        {
-            if (userOptions == null || userProfile == null || userOptions.Parent == null) return;
-
-            var parent = userOptions.Parent;
-            int x = userProfile.Right + 8;
-            int y = userProfile.Top + Math.Max(0, (userProfile.Height - userOptions.Height) / 2);
-
-            if (x + userOptions.Width > parent.ClientSize.Width)
-                x = Math.Max(0, userProfile.Left - userOptions.Width - 8);
-
-            if (y + userOptions.Height > parent.ClientSize.Height)
-                y = Math.Max(0, parent.ClientSize.Height - userOptions.Height - 8);
-
-            userOptions.Location = new Point(Math.Max(0, x), Math.Max(0, y));
-        }
-
         private void WireOutsideClickHandler(Control parent)
         {
             if (parent == null) return;
 
             bool isUserOptionsPanel = userOptions != null && parent == userOptions;
             bool isInsideUserOptionsPanel = IsInsideUserOptions(parent);
-
-            if (!isUserOptionsPanel && !isInsideUserOptionsPanel)
-            {
-                parent.MouseDown -= OutsideUserOptions_MouseDown;
-                parent.MouseDown += OutsideUserOptions_MouseDown;
-            }
 
             foreach (Control child in parent.Controls)
             {
@@ -110,18 +86,6 @@ namespace EduLogix
             }
 
             return false;
-        }
-
-        private void OutsideUserOptions_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (userOptions == null || !userOptions.Visible) return;
-
-            Point clickPoint = System.Windows.Forms.Cursor.Position;
-            bool clickedInsidePanel = userOptions.RectangleToScreen(userOptions.ClientRectangle).Contains(clickPoint);
-            bool clickedUserProfile = userProfile != null && userProfile.RectangleToScreen(userProfile.ClientRectangle).Contains(clickPoint);
-
-            if (!clickedInsidePanel && !clickedUserProfile)
-                userOptions.Visible = false;
         }
 
         private void UserOptionsSettings_Click(object sender, EventArgs e)
@@ -158,6 +122,7 @@ namespace EduLogix
 
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
+
             guna2DataGridView1.ClearSelection();
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
@@ -170,6 +135,21 @@ namespace EduLogix
                 attendanceCombobox1?.SelectedItem?.ToString() ?? "All",
                 attendanceCombobox2?.SelectedItem?.ToString() ?? "All");
             ConfigureDataGridView();
+        }
+
+        private void LoadUserProfileImage()
+        {
+            if (userProfile != null && !string.IsNullOrWhiteSpace(UserSession.UserName))
+            {
+                try
+                {
+                    userProfile.Image = UserProfileHelper.LoadUserProfile(UserSession.UserName);
+                }
+                catch
+                {
+                    // Silently fail; PictureBox will display default or nothing
+                }
+            }
         }
 
         private void ApplyInitialFilters()
@@ -460,7 +440,7 @@ namespace EduLogix
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM reg_attendance_live WHERE 1=1";
+                    string query = "SELECT * FROM reg_attendance WHERE 1=1";
 
                     if (levelFilter != "All")
                     {
@@ -590,7 +570,6 @@ namespace EduLogix
         {
             if (userOptions == null) return;
 
-            PositionUserOptionsPanel();
             userOptions.Visible = !userOptions.Visible;
             if (userOptions.Visible)
                 userOptions.BringToFront();

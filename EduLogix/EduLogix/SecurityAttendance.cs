@@ -151,6 +151,8 @@ namespace EduLogix
 
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
+                LoadUserProfileImage();
+
             guna2DataGridView1.ClearSelection();
             ApplyThemeToForm();
             BrandingHelper.ApplySchoolBranding(connectionString, schoolName, schoolLogo);
@@ -163,6 +165,21 @@ namespace EduLogix
                 attendanceCombobox1?.SelectedItem?.ToString() ?? "All",
                 attendanceCombobox2?.SelectedItem?.ToString() ?? "All");
             ConfigureDataGridView();
+        }
+
+        private void LoadUserProfileImage()
+        {
+            if (userProfile != null && !string.IsNullOrWhiteSpace(UserSession.UserName))
+            {
+                try
+                {
+                    userProfile.Image = UserProfileHelper.LoadUserProfile(UserSession.UserName);
+                }
+                catch
+                {
+                    // Silently fail; PictureBox will display default or nothing
+                }
+            }
         }
 
         private void ApplyInitialFilters()

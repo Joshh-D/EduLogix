@@ -208,11 +208,6 @@ namespace EduLogix
                 addStudentBtn.Click += addStudentBtn_Click;
             }
 
-            if (bindRFIDBtn != null)
-            {
-                bindRFIDBtn.Click -= bindRFIDBtn_Click;
-                bindRFIDBtn.Click += bindRFIDBtn_Click;
-            }
         }
 
         private void bindRFIDBtn_Click(object sender, EventArgs e)
@@ -459,6 +454,22 @@ namespace EduLogix
         private void RegistrarStudAdd_Load(object sender, EventArgs e)
         {
             InitializeSectionComboBox();
+            LoadUserProfileImage();
+        }
+
+        private void LoadUserProfileImage()
+        {
+            if (userProfile != null && !string.IsNullOrWhiteSpace(UserSession.UserName))
+            {
+                try
+                {
+                    userProfile.Image = UserProfileHelper.LoadUserProfile(UserSession.UserName);
+                }
+                catch
+                {
+                    // Silently fail; PictureBox will display default or nothing
+                }
+            }
         }
 
         private string GetSectionValue()
@@ -624,34 +635,45 @@ namespace EduLogix
         private void Dashboard_Click(object sender, EventArgs e)
         {
             if (!ConfirmDiscardIfNeeded()) return;
-
-            var dashboard = new DashboardForm();
-            dashboard.StartPosition = FormStartPosition.Manual;
-            dashboard.Location = this.Location;
-            dashboard.Show();
+            var form = new DashboardForm();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.Show();
             this.Close();
         }
 
         private void Attendance_Click(object sender, EventArgs e)
         {
             if (!ConfirmDiscardIfNeeded()) return;
-
-            var attendance = new AttendanceForm();
-            attendance.StartPosition = FormStartPosition.Manual;
-            attendance.Location = this.Location;
-            attendance.Show();
+            var form = new AttendanceForm();
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = this.Location;
+            form.Show();
             this.Close();
         }
 
         private void StudentsID_Click(object sender, EventArgs e)
         {
+            // 1. Check if we should discard changes
             if (!ConfirmDiscardIfNeeded()) return;
 
+            // 2. Create the target form
             var students = new StudentIDForm();
+
+            // 3. Keep the window in the same position on the screen
             students.StartPosition = FormStartPosition.Manual;
             students.Location = this.Location;
+
+            // 4. Show the target form FIRST
             students.Show();
+
+            // 5. Close the current form SECOND
             this.Close();
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            StudentsID_Click(sender, e);
         }
 
         private void Logs_Click(object sender, EventArgs e)
